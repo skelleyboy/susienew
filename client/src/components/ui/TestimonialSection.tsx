@@ -47,9 +47,9 @@ export function TestimonialSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="hidden md:block">
-              <CarouselPrevious className="left-0 border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none -translate-x-12" />
-              <CarouselNext className="right-0 border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none translate-x-12" />
+            <div className="hidden md:flex justify-center gap-4 mt-8">
+              <CarouselPrevious className="static translate-x-0 translate-y-0 h-12 w-12 border border-primary/10 bg-transparent text-primary hover:bg-primary hover:text-white rounded-none transition-all duration-300" />
+              <CarouselNext className="static translate-x-0 translate-y-0 h-12 w-12 border border-primary/10 bg-transparent text-primary hover:bg-primary hover:text-white rounded-none transition-all duration-300" />
             </div>
           </Carousel>
         </div>

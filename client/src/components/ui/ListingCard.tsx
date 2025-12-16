@@ -44,7 +44,7 @@ export function ListingCard({ listing, className }: ListingCardProps) {
             e.currentTarget.src = "https://images.unsplash.com/photo-1600596542815-27b88e57e609?auto=format&fit=crop&q=80&w=800";
           }}
           alt={listing.address}
-          className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700" />
       </div>

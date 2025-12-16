@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionProps extends HTMLMotionProps<"section"> {
   children: React.ReactNode;
   container?: boolean;
   className?: string;
@@ -21,7 +22,11 @@ export function Section({
   };
 
   return (
-    <section 
+    <motion.section 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className={cn(
         "py-24 md:py-40", // Increased vertical spacing for luxury feel
         bgClasses[background],
@@ -36,6 +41,6 @@ export function Section({
       ) : (
         children
       )}
-    </section>
+    </motion.section>
   );
 }

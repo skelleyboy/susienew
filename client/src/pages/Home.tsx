@@ -34,13 +34,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center items-end">
             {siteData.stats.map((stat, idx) => (
-              <div key={idx} className="space-y-4">
-                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light">{stat.value}</p>
+              <div key={idx} className="space-y-4 group">
+                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light transition-transform duration-700 group-hover:-translate-y-2">{stat.value}</p>
                 <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
               </div>
             ))}
-            <div className="space-y-4">
-              <div className="flex justify-center text-accent gap-1">
+            <div className="space-y-4 group">
+              <div className="flex justify-center text-accent gap-1 transition-transform duration-700 group-hover:-translate-y-2">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
               <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">Zillow Premier Agent</p>

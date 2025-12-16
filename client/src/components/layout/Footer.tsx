@@ -26,8 +26,8 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="font-sans text-xs uppercase tracking-widest font-semibold mb-6 text-accent">Navigation</h4>
-            <div className="flex flex-col space-y-4 text-sm text-white/80">
+            <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Navigation</h4>
+            <div className="flex flex-col space-y-4 text-sm text-white/80 font-light tracking-wide">
               <Link href="/buy" className="hover:text-white transition-colors">Buy a Home</Link>
               <Link href="/sell" className="hover:text-white transition-colors">Sell Your Home</Link>
               <Link href="/communities" className="hover:text-white transition-colors">Featured Areas</Link>
@@ -36,8 +36,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-sans text-xs uppercase tracking-widest font-semibold mb-6 text-accent">Contact</h4>
-            <ul className="space-y-4 text-sm text-white/80">
+            <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Contact</h4>
+            <ul className="space-y-4 text-sm text-white/80 font-light tracking-wide">
               <li><a href={`mailto:${siteData.email}`} className="hover:text-white transition-colors">{siteData.email}</a></li>
               <li><a href={`tel:${siteData.phone}`} className="hover:text-white transition-colors">{siteData.phone}</a></li>
               <li className="text-white/60">{siteData.address}</li>
@@ -45,15 +45,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-sans text-xs uppercase tracking-widest font-semibold mb-6 text-accent">Newsletter</h4>
-            <p className="text-white/60 text-sm mb-4">Market updates and off market listings.</p>
+            <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Newsletter</h4>
+            <p className="text-white/60 text-sm mb-4 font-light">Market updates and off market listings.</p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
                 placeholder="Email Address" 
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm px-4 py-2 w-full focus:outline-none focus:border-accent"
+                className="bg-white/5 border-b border-white/20 text-white placeholder:text-white/30 text-xs px-0 py-2 w-full focus:outline-none focus:border-accent transition-colors font-light tracking-wide rounded-none"
               />
-              <button className="bg-white text-primary px-4 py-2 text-xs uppercase tracking-widest font-semibold hover:bg-white/90 transition-colors">
+              <button className="text-white/80 hover:text-white px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-semibold hover:bg-white/5 transition-all border-b border-transparent hover:border-white/20">
                 Join
               </button>
             </form>

@@ -10,17 +10,13 @@ export function MobileCTABar() {
         <Phone className="w-5 h-5" strokeWidth={1.5} />
         <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Call</span>
       </a>
-      <Link href="/contact">
-        <a className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
-          <Mail className="w-5 h-5" strokeWidth={1.5} />
-          <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Email</span>
-        </a>
+      <Link href="/contact" className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+        <Mail className="w-5 h-5" strokeWidth={1.5} />
+        <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Email</span>
       </Link>
-      <Link href="/home-value">
-        <a className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
-          <Home className="w-5 h-5" strokeWidth={1.5} />
-          <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Value</span>
-        </a>
+      <Link href="/home-value" className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+        <Home className="w-5 h-5" strokeWidth={1.5} />
+        <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Value</span>
       </Link>
       <Button size="sm" className="rounded-none bg-white text-primary hover:bg-white/90 text-[10px] uppercase font-bold tracking-[0.2em] h-10 px-6 ml-2" asChild>
         <Link href="/contact">Book</Link>
