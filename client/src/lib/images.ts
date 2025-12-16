@@ -1,8 +1,3 @@
-import heroLuxuryHome from "@assets/generated_images/luxury_home_exterior_at_twilight.png";
-import exteriorDay from "@assets/generated_images/modern_estate_exterior_sunny_day.png";
-import livingRoom from "@assets/generated_images/high-end_modern_living_room.png";
-import kitchen from "@assets/generated_images/luxury_gourmet_kitchen.png";
-
 // Real images from susiesharak.com
 import susieProfile from "@assets/susie_images/profile.jpg";
 import susieHero from "@assets/susie_images/hero.jpg";
@@ -13,11 +8,11 @@ import commercialService from "@assets/susie_images/commercial.jpg";
 
 // Map the JSON "image" keys to the actual imported assets
 const imageMap: Record<string, string> = {
-  // Generated fallbacks
-  "hero-luxury-home.jpg": susieHero, // Use real hero
-  "exterior-day.jpg": homeModern, // Use real home
-  "living-room.jpg": livingRoom,
-  "kitchen.jpg": kitchen,
+  // Generated fallbacks replaced with real images
+  "hero-luxury-home.jpg": susieHero,
+  "exterior-day.jpg": homeModern,
+  "living-room.jpg": buyingService, // Using real interior/service shots
+  "kitchen.jpg": sellingService, // Using real interior/service shots
   
   // Real assets keys (can be used in JSON)
   "susie-profile": susieProfile,
@@ -28,8 +23,8 @@ const imageMap: Record<string, string> = {
   "service-commercial": commercialService,
 };
 
-// Fallback image
-const fallbackImage = exteriorDay;
+// Fallback image - use a high quality real image
+const fallbackImage = susieHero;
 
 export function getImage(key: string): string {
   if (!key) return fallbackImage;

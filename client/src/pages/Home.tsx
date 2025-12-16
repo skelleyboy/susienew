@@ -15,9 +15,6 @@ import listings from "@/data/listings.json";
 import areas from "@/data/areas.json";
 import { getImage } from "@/lib/images";
 
-// Import generated hero image
-import heroVideo from "@assets/generated_videos/luxury_home_exterior_slow_pan.mp4";
-
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
@@ -28,7 +25,6 @@ export default function HomePage() {
         headline="Detroit Luxury Real Estate"
         subhead="Top 5% Agent in Detroit Tri County Area. Your Stress Free Path to Your Dream Home."
         image={getImage("susie-hero")}
-        video={heroVideo}
         primaryCta="Start Your Journey"
         secondaryCta="Get Your Valuation"
       />
@@ -175,11 +171,17 @@ export default function HomePage() {
       <TestimonialSection />
 
       {/* Lead Capture / Guide */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary z-0" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-overlay z-0" />
+      <Section className="relative overflow-hidden min-h-[600px] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={getImage("home-modern")} 
+            alt="Luxury Home" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
+        </div>
         
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-white">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-white w-full">
           <div>
             <h2 className="font-serif text-4xl md:text-5xl mb-6 leading-tight">
               Stop Guessing. Get the Blueprint.
