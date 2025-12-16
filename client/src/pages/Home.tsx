@@ -26,7 +26,7 @@ export default function HomePage() {
       {/* Hero */}
       <Hero 
         headline="Detroit Luxury Real Estate"
-        subhead="Top 5% Agent in Detroit Tri-County Area. Your Stress-Free Path to Your Dream Home."
+        subhead="Top 5% Agent in Detroit Tri County Area. Your Stress Free Path to Your Dream Home."
         image={getImage("susie-hero")}
         video={heroVideo}
         primaryCta="Start Your Journey"
@@ -56,7 +56,7 @@ export default function HomePage() {
       {/* The Plan / Process Section */}
       <Section>
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl mb-4">Your Stress-Free Path to Success</h2>
+          <h2 className="font-serif text-4xl mb-4">Your Stress Free Path to Success</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             We know navigating the market can be overwhelming. We've simplified the journey into three easy steps.
           </p>
@@ -67,7 +67,7 @@ export default function HomePage() {
             <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">1</div>
             <h3 className="font-serif text-2xl mb-4">Book a Free Intro</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Schedule a 15-minute consultation to discuss your goals. No pressure, just expert advice tailored to your needs.
+              Schedule a 15 minute consultation to discuss your goals. No pressure, just expert advice tailored to your needs.
             </p>
           </div>
           <div className="flex flex-col items-center">
@@ -105,7 +105,7 @@ export default function HomePage() {
               <Home className="w-10 h-10 text-accent mb-6" />
               <h3 className="font-serif text-3xl mb-4">Find the One That's Not on Zillow</h3>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Most luxury homes never hit the public market. Don't miss out on your dream home because you didn't have access. We open doors to exclusive, off-market properties.
+                Most luxury homes never hit the public market. Don't miss out on your dream home because you didn't have access. We open doors to exclusive, off market properties.
               </p>
               <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-widest text-xs font-bold px-8" asChild>
                 <Link href="/buy">Access Private Listings</Link>
@@ -197,7 +197,7 @@ export default function HomePage() {
               </li>
               <li className="flex items-center gap-3">
                 <Award className="text-accent w-5 h-5" />
-                <span className="font-medium">Secure Off-Market Opportunities</span>
+                <span className="font-medium">Secure Off Market Opportunities</span>
               </li>
             </ul>
           </div>

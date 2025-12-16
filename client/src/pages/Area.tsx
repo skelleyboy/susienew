@@ -59,7 +59,7 @@ export default function AreaPage() {
             <div className="sticky top-24">
               <div className="bg-primary text-white p-8 mb-8">
                 <h3 className="font-serif text-2xl mb-2">Market Intelligence</h3>
-                <p className="text-white/60 text-sm mb-6">Real-time data for {area.name}</p>
+                <p className="text-white/60 text-sm mb-6">Real time data for {area.name}</p>
                 
                 <div className="space-y-6">
                   <div>

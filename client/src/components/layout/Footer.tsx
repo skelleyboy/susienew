@@ -46,7 +46,7 @@ export function Footer() {
 
           <div>
             <h4 className="font-sans text-xs uppercase tracking-widest font-semibold mb-6 text-accent">Newsletter</h4>
-            <p className="text-white/60 text-sm mb-4">Market updates and off-market listings.</p>
+            <p className="text-white/60 text-sm mb-4">Market updates and off market listings.</p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
