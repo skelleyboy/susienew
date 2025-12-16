@@ -6,9 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
 import areas from "@/data/areas.json";
 import { Check } from "lucide-react";
-
-// Use generated image for hero fallback if needed
-import fallbackHero from "@assets/generated_images/modern_estate_exterior_sunny_day.png";
+import { getImage } from "@/lib/images";
 
 export default function AreaPage() {
   const params = useParams();
@@ -17,20 +15,13 @@ export default function AreaPage() {
 
   if (!area) return <div>Area not found</div>;
 
-  // Simple image mapping for demo
-  const getHeroImage = (imgName: string) => {
-     if (imgName === "hero-luxury-home.jpg") return new URL("../../attached_assets/generated_images/luxury_home_exterior_at_twilight.png", import.meta.url).href;
-     if (imgName === "exterior-day.jpg") return new URL("../../attached_assets/generated_images/modern_estate_exterior_sunny_day.png", import.meta.url).href;
-     return fallbackHero;
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero 
         headline={`Living in ${area.name}`}
         subhead="Discover the lifestyle, real estate, and community."
-        image={getHeroImage(area.image)}
+        image={getImage(area.image)}
       />
       
       <Section>

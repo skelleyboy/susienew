@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
+import { getImage } from "@/lib/images";
 
 interface Area {
   id: string;
@@ -15,33 +16,7 @@ interface AreaCardProps {
 }
 
 export function AreaCard({ area, className }: AreaCardProps) {
-  // Helper to handle image paths for demo
-  const getImagePath = (img: string) => {
-    if (img.startsWith('http')) return img;
-    // Map JSON names to generated file names for this demo
-    if (img === "hero-luxury-home.jpg") return "luxury_home_exterior_at_twilight.png";
-    if (img === "exterior-day.jpg") return "modern_estate_exterior_sunny_day.png";
-    if (img === "living-room.jpg") return "high-end_modern_living_room.png";
-    if (img === "kitchen.jpg") return "luxury_gourmet_kitchen.png";
-    return img;
-  };
-
-  // Import logic is tricky in dynamic strings without real imports in Vite for this mockup mode.
-  // We'll use the absolute path approach supported by the tool for now or fallback URLs.
-  // Since we can't dynamic import easily in this specific constrained environment without a map, 
-  // we will rely on the fact that we can reference assets if they are in public or use the tool's return paths.
-  // For simplicity in this prototype, I will use the `attached_assets` path directly if possible or `src` import if hardcoded.
-  // Actually, standard <img> src works with /src/... in Vite dev but better to move to public? 
-  // No, `attached_assets` are served. I will use a direct import map in the component for simplicity.
-
-  const imageMap: Record<string, string> = {
-    "hero-luxury-home.jpg": new URL("../../attached_assets/generated_images/luxury_home_exterior_at_twilight.png", import.meta.url).href,
-    "exterior-day.jpg": new URL("../../attached_assets/generated_images/modern_estate_exterior_sunny_day.png", import.meta.url).href,
-    "living-room.jpg": new URL("../../attached_assets/generated_images/high-end_modern_living_room.png", import.meta.url).href,
-    "kitchen.jpg": new URL("../../attached_assets/generated_images/luxury_gourmet_kitchen.png", import.meta.url).href,
-  };
-
-  const imgSrc = imageMap[area.image] || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800";
+  const imgSrc = getImage(area.image);
 
   return (
     <Link href={`/area/${area.slug}`}>

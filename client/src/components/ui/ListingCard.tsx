@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import { getImage } from "@/lib/images";
 
 interface Listing {
   id: string;
@@ -37,8 +38,9 @@ export function ListingCard({ listing, className }: ListingCardProps) {
           {listing.status}
         </div>
         <img 
-          src={listing.image.startsWith('http') ? listing.image : `/attached_assets/generated_images/${listing.image}`} 
+          src={getImage(listing.image)} 
           onError={(e) => {
+            // Fallback handled by getImage usually, but if load fails:
             e.currentTarget.src = "https://images.unsplash.com/photo-1600596542815-27b88e57e609?auto=format&fit=crop&q=80&w=800";
           }}
           alt={listing.address}
