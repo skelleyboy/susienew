@@ -31,7 +31,7 @@
   --color-muted: hsl(210 20% 96%);
   --color-muted-foreground: hsl(215 10% 40%);
   
-  --color-accent: hsl(35 40% 60%); /* Muted Gold */
+  --color-accent: hsl(35 50% 50%); /* Muted Gold - Darkened for contrast */
   --color-accent-foreground: hsl(0 0% 100%);
   
   --color-destructive: hsl(0 84% 60%);
