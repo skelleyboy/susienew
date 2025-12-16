@@ -59,19 +59,23 @@ export function LeadForm({
   return (
     <div className={className}>
       <div className="text-center mb-8">
-        <h3 className="font-serif text-2xl mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm">{subtitle}</p>
+        <h3 className="font-serif text-3xl mb-3 tracking-tight">{title}</h3>
+        <p className="text-muted-foreground text-sm tracking-wide font-light">{subtitle}</p>
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Full Name" {...field} className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-colors" />
+                  <Input 
+                    placeholder="Full Name" 
+                    {...field} 
+                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -83,7 +87,11 @@ export function LeadForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Email Address" {...field} className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-colors" />
+                  <Input 
+                    placeholder="Email Address" 
+                    {...field} 
+                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -95,7 +103,11 @@ export function LeadForm({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Phone Number" {...field} className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-colors" />
+                  <Input 
+                    placeholder="Phone Number" 
+                    {...field} 
+                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -110,14 +122,14 @@ export function LeadForm({
                   <Textarea 
                     placeholder="How can we help you?" 
                     {...field} 
-                    className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 min-h-[80px] resize-none focus-visible:ring-0 focus-visible:border-primary transition-colors"
+                    className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 min-h-[100px] resize-none focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm py-4"
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-widest text-xs font-bold h-12 mt-4">
+          <Button type="submit" className="w-full rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-[0.2em] text-xs font-medium h-14 mt-8 transition-all duration-300">
             {ctaText}
           </Button>
         </form>

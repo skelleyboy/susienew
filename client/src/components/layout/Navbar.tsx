@@ -42,21 +42,22 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium uppercase tracking-widest hover:text-accent transition-colors">
+            <Link key={link.href} href={link.href} className="text-[11px] font-medium uppercase tracking-[0.2em] hover:text-accent transition-colors duration-300 relative group">
               {link.label}
+              <span className="absolute -bottom-2 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
-          <a href={`tel:${siteData.phone}`} className="text-sm font-medium hover:text-accent transition-colors">
+        <div className="hidden md:flex items-center gap-6">
+          <a href={`tel:${siteData.phone}`} className="text-[11px] font-medium tracking-[0.1em] hover:text-accent transition-colors">
             {siteData.phone}
           </a>
           <Button 
             className={cn(
-              "rounded-none px-6 uppercase tracking-widest text-xs font-semibold h-10",
+              "rounded-none px-8 uppercase tracking-[0.2em] text-[10px] font-semibold h-12 transition-all duration-300",
               scrolled || !isHome ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"
             )}
             asChild

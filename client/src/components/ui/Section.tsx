@@ -23,7 +23,7 @@ export function Section({
   return (
     <section 
       className={cn(
-        "py-20 md:py-32",
+        "py-24 md:py-40", // Increased vertical spacing for luxury feel
         bgClasses[background],
         className
       )} 

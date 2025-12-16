@@ -34,20 +34,20 @@ export default function HomePage() {
       />
 
       {/* Trust Row */}
-      <div className="bg-white border-b border-gray-100 py-12">
+      <div className="bg-white border-b border-gray-100 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center items-end">
             {siteData.stats.map((stat, idx) => (
-              <div key={idx} className="space-y-2">
-                <p className="font-serif text-3xl md:text-4xl text-primary">{stat.value}</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</p>
+              <div key={idx} className="space-y-4">
+                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light">{stat.value}</p>
+                <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
               </div>
             ))}
-            <div className="space-y-2">
-              <div className="flex justify-center text-accent">
+            <div className="space-y-4">
+              <div className="flex justify-center text-accent gap-1">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">Zillow & Realtor.com Premier</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">Zillow Premier Agent</p>
             </div>
           </div>
         </div>
@@ -55,76 +55,77 @@ export default function HomePage() {
 
       {/* The Plan / Process Section */}
       <Section>
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl mb-4">Your Stress Free Path to Success</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            We know navigating the market can be overwhelming. We've simplified the journey into three easy steps.
+        <div className="text-center mb-24">
+          <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">The Process</span>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 font-light text-primary">Your Stress Free Path</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed">
+            We know navigating the market can be overwhelming. We've simplified the journey into three refined steps.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto text-center">
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">1</div>
-            <h3 className="font-serif text-2xl mb-4">Book a Free Intro</h3>
-            <p className="text-muted-foreground leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 max-w-6xl mx-auto">
+          <div className="flex flex-col items-center text-center group">
+            <div className="w-20 h-20 border border-gray-100 rounded-full flex items-center justify-center mb-10 text-primary font-serif text-3xl italic group-hover:bg-primary group-hover:text-white transition-all duration-500">1</div>
+            <h3 className="font-serif text-3xl mb-6">Consultation</h3>
+            <p className="text-muted-foreground leading-relaxed font-light">
               Schedule a 15 minute consultation to discuss your goals. No pressure, just expert advice tailored to your needs.
             </p>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">2</div>
-            <h3 className="font-serif text-2xl mb-4">We Build Your Plan</h3>
-            <p className="text-muted-foreground leading-relaxed">
+          <div className="flex flex-col items-center text-center group">
+            <div className="w-20 h-20 border border-gray-100 rounded-full flex items-center justify-center mb-10 text-primary font-serif text-3xl italic group-hover:bg-primary group-hover:text-white transition-all duration-500">2</div>
+            <h3 className="font-serif text-3xl mb-6">Strategy</h3>
+            <p className="text-muted-foreground leading-relaxed font-light">
               Whether buying or selling, we create a custom strategy to get you the best deal possible with 24/7 support.
             </p>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">3</div>
-            <h3 className="font-serif text-2xl mb-4">Celebrate Success</h3>
-            <p className="text-muted-foreground leading-relaxed">
+          <div className="flex flex-col items-center text-center group">
+            <div className="w-20 h-20 border border-gray-100 rounded-full flex items-center justify-center mb-10 text-primary font-serif text-3xl italic group-hover:bg-primary group-hover:text-white transition-all duration-500">3</div>
+            <h3 className="font-serif text-3xl mb-6">Celebration</h3>
+            <p className="text-muted-foreground leading-relaxed font-light">
               Close with confidence and move into your new chapter. We handle the details so you can enjoy the result.
             </p>
           </div>
         </div>
         
-        <div className="text-center mt-12">
-          <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-widest text-xs font-bold px-8" asChild>
-            <Link href="/contact">Book Your Free Consultation</Link>
+        <div className="text-center mt-20">
+          <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-[0.2em] text-xs font-medium px-10 py-6" asChild>
+            <Link href="/contact">Book Your Consultation</Link>
           </Button>
         </div>
       </Section>
 
       {/* Buy / Sell Paths */}
-      <Section className="bg-muted/30">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-          <div className="group relative overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-500 h-[500px] flex flex-col justify-end">
+      <Section className="bg-muted/20 px-0 md:px-0 py-0 md:py-0" container={false}>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center">
             <div className="absolute inset-0">
-              <img src={getImage("service-buying")} alt="Buying" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <img src={getImage("service-buying")} alt="Buying" className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-700" />
             </div>
-            <div className="relative z-10 p-8 md:p-12 text-white">
-              <Home className="w-10 h-10 text-accent mb-6" />
-              <h3 className="font-serif text-3xl mb-4">Find the One That's Not on Zillow</h3>
-              <p className="text-white/80 mb-8 leading-relaxed">
-                Most luxury homes never hit the public market. Don't miss out on your dream home because you didn't have access. We open doors to exclusive, off market properties.
+            <div className="relative z-10 p-12 text-white max-w-lg mx-auto transform transition-transform duration-700 translate-y-4 group-hover:translate-y-0">
+              <span className="text-xs uppercase tracking-[0.3em] mb-6 block opacity-80">Buying</span>
+              <h3 className="font-serif text-4xl md:text-5xl mb-8 font-light">Exclusive Access</h3>
+              <p className="text-white/90 mb-10 leading-relaxed font-light text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                Access off market properties and hidden gems before they reach the public eye.
               </p>
-              <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-widest text-xs font-bold px-8" asChild>
-                <Link href="/buy">Access Private Listings</Link>
+              <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-[0.2em] text-xs font-medium px-8 py-6" asChild>
+                <Link href="/buy">Find Your Home</Link>
               </Button>
             </div>
           </div>
-          <div className="group relative overflow-hidden bg-primary shadow-sm hover:shadow-md transition-all duration-500 h-[500px] flex flex-col justify-end">
+          <div className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center">
             <div className="absolute inset-0">
-              <img src={getImage("service-selling")} alt="Selling" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <img src={getImage("service-selling")} alt="Selling" className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-700" />
             </div>
-            <div className="relative z-10 p-8 md:p-12 text-white">
-              <TrendingUp className="w-10 h-10 text-accent mb-6" />
-              <h3 className="font-serif text-3xl mb-4">Sell with Confidence, Not Compromise</h3>
-              <p className="text-white/80 mb-8 leading-relaxed">
-                Selling a luxury estate requires more than a sign in the yard. It requires a narrative. We craft a compelling story for your home that attracts qualified buyers.
+            <div className="relative z-10 p-12 text-white max-w-lg mx-auto transform transition-transform duration-700 translate-y-4 group-hover:translate-y-0">
+              <span className="text-xs uppercase tracking-[0.3em] mb-6 block opacity-80">Selling</span>
+              <h3 className="font-serif text-4xl md:text-5xl mb-8 font-light">Strategic Marketing</h3>
+              <p className="text-white/90 mb-10 leading-relaxed font-light text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                Showcase your property with a narrative that commands attention and maximizes value.
               </p>
-              <Button className="rounded-none bg-accent text-white hover:bg-accent/90 uppercase tracking-widest text-xs font-bold px-8" asChild>
-                <Link href="/sell">Create Your Strategy</Link>
+              <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-[0.2em] text-xs font-medium px-8 py-6" asChild>
+                <Link href="/sell">Sell Your Home</Link>
               </Button>
             </div>
           </div>

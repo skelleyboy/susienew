@@ -4,12 +4,12 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-white pt-20 pb-10">
+    <footer className="bg-[#0f1115] text-white pt-32 pb-12">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12 mb-20">
           <div className="md:col-span-1">
-            <h3 className="font-serif text-2xl mb-6">Susie Sharak</h3>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <h3 className="font-serif text-3xl mb-8 tracking-tight">Susie Sharak</h3>
+            <p className="text-white/60 text-sm leading-relaxed mb-8 font-light max-w-xs">
               Premier real estate agent serving Downriver & Oakland County with a focus on luxury service and exceptional results.
             </p>
             <div className="flex gap-4">

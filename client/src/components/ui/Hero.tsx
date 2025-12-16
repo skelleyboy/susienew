@@ -59,7 +59,7 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight drop-shadow-lg">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight drop-shadow-lg font-light tracking-tight">
             {headline}
           </h1>
         </motion.div>
@@ -67,9 +67,9 @@ export function Hero({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          <p className="font-sans text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light tracking-wide">
+          <p className="font-sans text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
             {subhead}
           </p>
         </motion.div>
@@ -77,12 +77,12 @@ export function Hero({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-6 justify-center"
         >
           <Button 
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 rounded-none px-8 py-6 uppercase tracking-widest text-xs font-bold min-w-[200px]"
+            className="bg-white text-primary hover:bg-white/90 rounded-none px-10 py-7 uppercase tracking-[0.2em] text-xs font-medium min-w-[220px] transition-all duration-300"
             asChild
           >
             <Link href={primaryCtaLink}>{primaryCta}</Link>
@@ -90,7 +90,7 @@ export function Hero({
           <Button 
             size="lg" 
             variant="outline"
-            className="border-white text-white hover:bg-white/10 hover:text-white rounded-none px-8 py-6 uppercase tracking-widest text-xs font-bold min-w-[200px]"
+            className="border-white text-white hover:bg-white hover:text-primary rounded-none px-10 py-7 uppercase tracking-[0.2em] text-xs font-medium min-w-[220px] backdrop-blur-sm transition-all duration-300"
             asChild
           >
             <Link href={secondaryCtaLink}>{secondaryCta}</Link>

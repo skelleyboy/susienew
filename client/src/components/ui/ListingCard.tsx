@@ -33,8 +33,8 @@ export function ListingCard({ listing, className }: ListingCardProps) {
 
   return (
     <div className={cn("group cursor-pointer", className)}>
-      <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-gray-100">
-        <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs uppercase tracking-widest font-semibold text-primary">
+      <div className="relative aspect-[3/4] overflow-hidden mb-6 bg-gray-100">
+        <div className="absolute top-6 left-6 z-10 bg-white/95 backdrop-blur-sm px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-medium text-primary shadow-sm">
           {listing.status}
         </div>
         <img 
@@ -44,35 +44,26 @@ export function ListingCard({ listing, className }: ListingCardProps) {
             e.currentTarget.src = "https://images.unsplash.com/photo-1600596542815-27b88e57e609?auto=format&fit=crop&q=80&w=800";
           }}
           alt={listing.address}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700" />
       </div>
       
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="font-serif text-xl text-primary mb-1 group-hover:text-accent transition-colors">
-            {listing.address}
-          </h3>
-          <p className="text-muted-foreground text-sm mb-3">
-            {listing.city}, {listing.state} {listing.zip}
-          </p>
-          <div className="flex gap-4 text-xs text-primary/80 font-medium uppercase tracking-wide">
-            <span>{listing.beds} Beds</span>
-            <span className="w-px h-3 bg-gray-300" />
-            <span>{listing.baths} Baths</span>
-            <span className="w-px h-3 bg-gray-300" />
-            <span>{listing.sqft.toLocaleString()} Sq Ft</span>
-          </div>
+      <div className="space-y-3 text-center">
+        <h3 className="font-serif text-2xl text-primary group-hover:text-accent transition-colors duration-300">
+          {listing.address}
+        </h3>
+        <p className="text-muted-foreground text-sm uppercase tracking-wider">
+          {listing.city}, {listing.state}
+        </p>
+        <div className="flex justify-center gap-6 text-xs text-primary/60 font-medium uppercase tracking-widest pt-2 border-t border-gray-100 w-3/4 mx-auto">
+          <span>{listing.beds} Beds</span>
+          <span>{listing.baths} Baths</span>
+          <span>{listing.sqft.toLocaleString()} Sq Ft</span>
         </div>
-        <div className="text-right">
-          <p className="font-serif text-xl text-primary mb-2">
-            {formatPrice(listing.price)}
-          </p>
-          <Link href={`/listing/${listing.id}`} className="inline-flex items-center text-xs uppercase tracking-widest font-bold text-accent hover:text-primary transition-colors" aria-label={`View listing at ${listing.address}`}>
-            View <ArrowRight className="ml-1 h-3 w-3" />
-          </Link>
-        </div>
+        <p className="font-serif text-xl text-primary pt-1">
+          {formatPrice(listing.price)}
+        </p>
       </div>
     </div>
   );

@@ -1,28 +1,58 @@
 import { Section } from "@/components/ui/Section";
 import { Quote } from "lucide-react";
 import testimonials from "@/data/testimonials.json";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export function TestimonialSection() {
   return (
-    <Section>
-      <div className="text-center mb-16">
-        <h2 className="font-serif text-4xl mb-4">Success Stories</h2>
-        <div className="w-20 h-0.5 bg-accent mx-auto" />
-      </div>
+    <Section className="bg-[#f8f8f8]">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-20">
+          <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">Client Stories</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-light text-primary mb-6">Success Stories</h2>
+          <div className="w-24 h-px bg-primary/20 mx-auto" />
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="bg-white p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <Quote className="w-8 h-8 text-accent/40 mb-6" />
-            <p className="font-serif text-lg text-primary mb-6 italic leading-relaxed">
-              "{testimonial.text}"
-            </p>
-            <div>
-              <p className="font-bold text-sm uppercase tracking-wider text-primary">{testimonial.name}</p>
-              <p className="text-xs text-muted-foreground mt-1">{testimonial.location}</p>
+        <div className="max-w-4xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="md:basis-1/1">
+                  <div className="text-center px-4 md:px-12 py-4">
+                    <Quote className="w-10 h-10 text-accent mx-auto mb-8 opacity-50" />
+                    <blockquote className="font-serif text-2xl md:text-3xl text-primary leading-relaxed mb-10 italic font-light">
+                      "{testimonial.text}"
+                    </blockquote>
+                    <div>
+                      <cite className="not-italic font-sans text-xs uppercase tracking-[0.2em] font-bold text-primary block mb-2">
+                        {testimonial.name}
+                      </cite>
+                      <span className="text-muted-foreground text-sm font-light tracking-wide">
+                        {testimonial.location}
+                      </span>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="hidden md:block">
+              <CarouselPrevious className="left-0 border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none -translate-x-12" />
+              <CarouselNext className="right-0 border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none translate-x-12" />
             </div>
-          </div>
-        ))}
+          </Carousel>
+        </div>
       </div>
     </Section>
   );
