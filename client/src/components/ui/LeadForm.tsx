@@ -31,13 +31,15 @@ interface LeadFormProps {
   subtitle?: string;
   ctaText?: string;
   className?: string;
+  formName?: string;
 }
 
 export function LeadForm({ 
   title = "Work with Susie", 
   subtitle = "Ready to start your journey? Let's connect.",
   ctaText = "Submit Request",
-  className 
+  className,
+  formName = "contact"
 }: LeadFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,9 +53,25 @@ export function LeadForm({
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    // In a real app, send to API
-    alert("Thanks for your inquiry! We'll be in touch shortly.");
-    form.reset();
+    
+    // Create FormData for Netlify submission
+    const formData = new FormData();
+    formData.append("form-name", formName);
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("phone", values.phone);
+    if (values.message) formData.append("message", values.message);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => {
+        alert("Thanks for your inquiry! We'll be in touch shortly.");
+        form.reset();
+      })
+      .catch((error) => alert(error));
   }
 
   return (
@@ -64,7 +82,14 @@ export function LeadForm({
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form 
+          name={formName} 
+          method="POST" 
+          data-netlify="true" 
+          onSubmit={form.handleSubmit(onSubmit)} 
+          className="space-y-6"
+        >
+          <input type="hidden" name="form-name" value={formName} />
           <FormField
             control={form.control}
             name="name"

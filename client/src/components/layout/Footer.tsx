@@ -51,7 +51,36 @@ export function Footer() {
           <div>
             <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Newsletter</h4>
             <p className="text-white/80 text-sm mb-4 font-light">Market updates and off market listings.</p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form 
+              className="flex gap-2" 
+              name="newsletter" 
+              method="POST" 
+              data-netlify="true"
+              onSubmit={(e) => {
+                // Let the default form submission happen for Netlify if js is disabled,
+                // but since we preventDefault here, we might need to handle submission differently or remove preventDefault.
+                // For Netlify forms with React, usually a hidden form is needed or just standard submission.
+                // But typically with React we might want to handle it via fetch, or just let it submit.
+                // If we want simple Netlify form handling without fetch, we can remove onSubmit or do e.target.submit()
+                // However, standard practice for static sites is often just letting it post.
+                // Let's remove e.preventDefault() if we want it to actually post to Netlify, 
+                // OR implement a fetch submission.
+                // Given "mockup mode" often implies visual, but the user asked for "needed code for netlify forms",
+                // we should add the attributes.
+                // To keep SPA behavior, we usually fetch.
+                // But for simplicity in this context, let's just add attributes and keep the preventDefault as a placeholder
+                // or remove it to allow testing if deployed.
+                // For now, I will keep the visual behavior but add the attributes.
+                e.preventDefault();
+                const formData = new FormData(e.target as HTMLFormElement);
+                fetch("/", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                  body: new URLSearchParams(formData as any).toString(),
+                }).then(() => alert("Thanks for subscribing!")).catch((error) => alert(error));
+              }}
+            >
+              <input type="hidden" name="form-name" value="newsletter" />
               <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
               <input 
                 id="newsletter-email"

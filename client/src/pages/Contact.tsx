@@ -63,7 +63,11 @@ export default function Contact() {
           </div>
 
           <div className="bg-[#f8f8f8] p-10 md:p-14">
-            <LeadForm title="Send a Message" subtitle="How can we assist you today?" />
+            <LeadForm 
+              title="Send a Message" 
+              subtitle="How can we assist you today?"
+              formName="contact"
+            />
           </div>
         </div>
       </Section>

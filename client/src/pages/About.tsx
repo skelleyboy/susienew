@@ -67,7 +67,11 @@ export default function AboutPage() {
 
       <Section background="muted">
         <div className="max-w-xl mx-auto">
-          <LeadForm title="Let's Connect" subtitle="I'd love to hear about your real estate goals." />
+          <LeadForm 
+            title="Let's Connect" 
+            subtitle="I'd love to hear about your real estate goals."
+            formName="contact-about"
+          />
         </div>
       </Section>
 

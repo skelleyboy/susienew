@@ -58,6 +58,15 @@ export default function HomePage() {
       <Section>
         <div className="text-center mb-24">
           <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">The Process</span>
+          <div className="flex justify-center mb-6">
+             <div className="w-[100px] h-[100px] rounded-full overflow-hidden border-2 border-primary/10 shadow-lg">
+               <img 
+                 src={getImage("susie-hero")} 
+                 alt="Susie Sharak" 
+                 className="w-full h-full object-cover object-top"
+               />
+             </div>
+          </div>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 font-light text-primary">Your Stress Free Path</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed">
             We know navigating the market can be overwhelming. We've simplified the journey into three refined steps.
@@ -235,6 +244,7 @@ export default function HomePage() {
                 title="Get Your Market Guide" 
                 subtitle="Where should we send your blueprint?" 
                 ctaText="Send Me the Guide"
+                formName="market-guide"
               />
             </Suspense>
           </div>

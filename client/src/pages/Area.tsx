@@ -82,6 +82,7 @@ export default function AreaPage() {
                   title={`Reside in ${area.name}`} 
                   subtitle="Receive curated opportunities." 
                   ctaText="Get Listings"
+                  formName={`area-inquiry-${area.slug}`}
                 />
               </div>
             </div>

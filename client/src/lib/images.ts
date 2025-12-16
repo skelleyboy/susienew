@@ -13,7 +13,7 @@ import walkInCloset from "@assets/stock_images/luxury_walk_in_close_6c0ce704.jpg
 import twilightPatio from "@assets/stock_images/luxury_home_exterior_2e1bee3a.jpg"; // Footer image
 
 // New Assets
-import susiePortrait from "@assets/image_1765904757514.png";
+const susiePortrait = "/susie-about.png";
 import classicExterior from "@assets/stock_images/luxury_home_exterior_f8280232.jpg";
 import modernInterior from "@assets/stock_images/modern_home_interior_48a76c52.jpg";
 import limestoneMansion from "@assets/stock_images/luxury_limestone_man_554d9db0.jpg";
