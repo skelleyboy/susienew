@@ -24,8 +24,8 @@ export default function HomePage() {
       
       {/* Hero */}
       <Hero 
-        headline="Elevated Living in Metro Detroit"
-        subhead="Premier real estate service for buyers and sellers in Downriver & Oakland County."
+        headline="Curating Metro Detroit's Finest Lifestyles"
+        subhead="An exclusive real estate experience for those seeking the exceptional in Downriver & Oakland County."
         image={heroImage}
       />
 
@@ -43,7 +43,7 @@ export default function HomePage() {
               <div className="flex justify-center text-accent">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">5-Star Rated</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Uncompromising Quality</p>
             </div>
           </div>
         </div>
@@ -54,22 +54,22 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           <div className="group relative overflow-hidden bg-white p-8 md:p-12 shadow-sm hover:shadow-md transition-all duration-500">
             <Home className="w-10 h-10 text-accent mb-6" />
-            <h3 className="font-serif text-3xl mb-4">Buy a Home</h3>
+            <h3 className="font-serif text-3xl mb-4">Acquire</h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Access off-market listings and expert guidance to find your perfect property in Metro Detroit's most desirable neighborhoods.
+              Secure your legacy. Access off-market masterpieces and receive bespoke guidance to find a residence that reflects your achievements.
             </p>
             <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white uppercase tracking-widest text-xs font-bold px-8" asChild>
-              <Link href="/buy">Find Your Home</Link>
+              <Link href="/buy">Begin Your Search</Link>
             </Button>
           </div>
           <div className="group relative overflow-hidden bg-primary text-white p-8 md:p-12 shadow-sm hover:shadow-md transition-all duration-500">
             <TrendingUp className="w-10 h-10 text-accent mb-6" />
-            <h3 className="font-serif text-3xl mb-4">Sell Your Home</h3>
+            <h3 className="font-serif text-3xl mb-4">Representing Your Property</h3>
             <p className="text-white/80 mb-8 leading-relaxed">
-              Strategic marketing and luxury presentation to maximize your home's value. Get a complimentary valuation today.
+              Articulating the unique narrative of your home to a global audience of qualified buyers. Precision marketing for maximum value.
             </p>
             <Button className="rounded-none bg-white text-primary hover:bg-white/90 uppercase tracking-widest text-xs font-bold px-8" asChild>
-              <Link href="/sell">Get Valuation</Link>
+              <Link href="/sell">Request Consultation</Link>
             </Button>
           </div>
         </div>
@@ -79,8 +79,8 @@ export default function HomePage() {
       <Section>
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="font-serif text-4xl mb-4">Featured Communities</h2>
-            <p className="text-muted-foreground max-w-lg">Explore the most sought-after neighborhoods in Metro Detroit.</p>
+            <h2 className="font-serif text-4xl mb-4">Curated Communities</h2>
+            <p className="text-muted-foreground max-w-lg">Discover the distinctive enclaves that define luxury living in Michigan.</p>
           </div>
           <Button variant="link" className="hidden md:flex text-primary hover:text-accent uppercase tracking-widest text-xs font-bold p-0" asChild>
             <Link href="/communities">View All Areas <ArrowRight className="ml-2 w-4 h-4" /></Link>
@@ -103,8 +103,8 @@ export default function HomePage() {
       {/* Featured Listings */}
       <Section background="muted">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl mb-4">Featured Listings</h2>
-          <p className="text-muted-foreground">Curated properties of distinction.</p>
+          <h2 className="font-serif text-4xl mb-4">Portfolio of Distinction</h2>
+          <p className="text-muted-foreground">A collection of Metro Detroit's most remarkable residences.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -125,10 +125,10 @@ export default function HomePage() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-white">
           <div>
             <h2 className="font-serif text-4xl md:text-5xl mb-6 leading-tight">
-              Unlock the Hidden Market
+              Private Market Access
             </h2>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              Get exclusive access to off-market listings, coming soon properties, and our comprehensive Buyer's Guide for Downriver & Oakland County.
+              The finest opportunities are often spoken in whispers. Join our private client list for access to off-market inventory and deep market intelligence.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
@@ -148,9 +148,9 @@ export default function HomePage() {
           
           <div className="bg-white text-foreground p-8 md:p-12 shadow-2xl max-w-md mx-auto w-full">
             <LeadForm 
-              title="Get the Guide" 
-              subtitle="Join our VIP list for exclusive insights." 
-              ctaText="Send Me the Guide"
+              title="Request Private Access" 
+              subtitle="Begin the conversation." 
+              ctaText="Inquire Now"
             />
           </div>
         </div>

@@ -4,7 +4,7 @@
     "name": "Birmingham",
     "slug": "birmingham",
     "image": "hero-luxury-home.jpg", 
-    "description": "Sophisticated downtown living meets upscale suburban charm. Birmingham offers a walkable community with premier shopping, dining, and parks.",
+    "description": "Where cosmopolitan refinement meets historic elegance. Birmingham offers a walkable tapestry of premier culinary experiences, high-end retail, and distinguished architecture.",
     "highlights": ["Walkable Downtown", "Top Rated Schools", "Luxury Condos"]
   },
   {
@@ -12,7 +12,7 @@
     "name": "Bloomfield Hills",
     "slug": "bloomfield-hills",
     "image": "exterior-day.jpg",
-    "description": "Exclusive estates and rolling hills define this prestigious community. Known for world-class architecture and the Cranbrook Educational Community.",
+    "description": "A sanctuary of privacy and prestige. Rolling hills and winding roads reveal architectural masterpieces and estates of unparalleled grandeur.",
     "highlights": ["Estate Living", "Cranbrook", "Private Clubs"]
   },
   {
@@ -20,7 +20,7 @@
     "name": "Royal Oak",
     "slug": "royal-oak",
     "image": "living-room.jpg",
-    "description": "Vibrant and energetic, Royal Oak features a bustling downtown, diverse housing options, and a central location near Detroit.",
+    "description": "A dynamic fusion of modern energy and community spirit. Royal Oak presents a vibrant lifestyle for the discerning urbanite.",
     "highlights": ["Nightlife", "Detroit Zoo", "Central Location"]
   },
   {
@@ -28,7 +28,7 @@
     "name": "Northville",
     "slug": "northville",
     "image": "kitchen.jpg",
-    "description": "Historic charm with modern amenities. Northville offers a picturesque downtown, rolling terrain, and Victorian-era architecture.",
+    "description": "Timeless elegance in a picturesque setting. Northville balances Victorian heritage with modern luxury, offering a tranquil retreat from the ordinary.",
     "highlights": ["Historic Downtown", "Rolling Hills", "Victorian Homes"]
   }
 ]

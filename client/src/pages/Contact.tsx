@@ -11,16 +11,16 @@ export default function Contact() {
       <Navbar />
       
       <div className="pt-32 pb-12 bg-primary text-white text-center">
-        <h1 className="font-serif text-5xl mb-4">Contact Susie</h1>
+        <h1 className="font-serif text-5xl mb-4">Inquire</h1>
         <p className="text-white/80 max-w-xl mx-auto">
-          Whether you're looking to buy, sell, or just have a question about the market, I'm here to help.
+          For private consultation regarding the acquisition or sale of significant properties, please contact us directly.
         </p>
       </div>
 
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
           <div>
-            <h2 className="font-serif text-3xl mb-8">Get in Touch</h2>
+            <h2 className="font-serif text-3xl mb-8">Direct Line</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div className="bg-accent/10 p-3 rounded-full">

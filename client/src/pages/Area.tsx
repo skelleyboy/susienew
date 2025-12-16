@@ -36,17 +36,16 @@ export default function AreaPage() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="font-serif text-3xl mb-6">About {area.name}</h2>
+            <h2 className="font-serif text-3xl mb-6">The Essence of {area.name}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               {area.description}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               {/* Dummy text for length */}
-              Known for its exceptional quality of life, {area.name} offers a perfect blend of historic charm and modern amenities. 
-              Residents enjoy access to top-rated schools, parks, and a vibrant community atmosphere that makes it one of the most desirable places to live in Michigan.
+              Celebrated for its uncompromising quality of life, {area.name} represents the pinnacle of Michigan living. A harmonious blend of heritage and modernity, it attracts those who seek not just a home, but a legacy.
             </p>
 
-            <h3 className="font-serif text-2xl mb-4 mt-12">Highlights</h3>
+            <h3 className="font-serif text-2xl mb-4 mt-12">Distinguishing Features</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {area.highlights.map((highlight, idx) => (
                 <div key={idx} className="flex items-center gap-3 p-4 bg-muted/50">
@@ -68,7 +67,7 @@ export default function AreaPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-24">
               <div className="bg-primary text-white p-8 mb-8">
-                <h3 className="font-serif text-2xl mb-2">Market Snapshot</h3>
+                <h3 className="font-serif text-2xl mb-2">Market Intelligence</h3>
                 <p className="text-white/60 text-sm mb-6">Real-time data for {area.name}</p>
                 
                 <div className="space-y-6">
@@ -89,8 +88,8 @@ export default function AreaPage() {
 
               <div className="bg-white border border-gray-100 p-8 shadow-lg">
                 <LeadForm 
-                  title={`Move to ${area.name}`} 
-                  subtitle="Get the latest listings sent to your inbox." 
+                  title={`Reside in ${area.name}`} 
+                  subtitle="Receive curated opportunities." 
                   ctaText="Get Listings"
                 />
               </div>
