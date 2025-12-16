@@ -59,7 +59,7 @@ export default function HomePage() {
         <div className="text-center mb-24">
           <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">The Process</span>
           <div className="flex justify-center mb-6">
-             <div className="w-[100px] h-[100px] rounded-full overflow-hidden border-2 border-primary/10 shadow-lg">
+             <div className="w-[200px] h-[200px] rounded-full overflow-hidden border-2 border-primary/10 shadow-lg">
                <img 
                  src={getImage("susie-hero")} 
                  alt="Susie Sharak" 
