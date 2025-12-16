@@ -15,6 +15,8 @@ const Sell = lazy(() => import("@/pages/Sell"));
 const Communities = lazy(() => import("@/pages/Communities"));
 const About = lazy(() => import("@/pages/About"));
 const HomeValue = lazy(() => import("@/pages/HomeValue"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 
 function Router() {
   return (
@@ -28,6 +30,8 @@ function Router() {
         <Route path="/communities" component={Communities} />
         <Route path="/about" component={About} />
         <Route path="/home-value" component={HomeValue} />
+        <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/terms" component={TermsOfService} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
