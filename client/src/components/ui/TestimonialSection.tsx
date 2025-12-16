@@ -6,7 +6,7 @@ export function TestimonialSection() {
   return (
     <Section>
       <div className="text-center mb-16">
-        <h2 className="font-serif text-4xl mb-4">Client Stories</h2>
+        <h2 className="font-serif text-4xl mb-4">Success Stories</h2>
         <div className="w-20 h-0.5 bg-accent mx-auto" />
       </div>
 
