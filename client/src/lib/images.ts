@@ -12,6 +12,13 @@ import spaBathroom from "@assets/stock_images/luxury_bathroom_spa__8f82a893.jpg"
 import walkInCloset from "@assets/stock_images/luxury_walk_in_close_6c0ce704.jpg";
 import twilightPatio from "@assets/stock_images/luxury_home_exterior_2e1bee3a.jpg"; // Footer image
 
+// New Assets
+import susiePortrait from "@assets/image_1765904757514.png";
+import classicExterior from "@assets/stock_images/luxury_home_exterior_f8280232.jpg";
+import modernInterior from "@assets/stock_images/modern_home_interior_48a76c52.jpg";
+import limestoneMansion from "@assets/stock_images/luxury_limestone_man_554d9db0.jpg";
+import penthouseView from "@assets/stock_images/ultra_luxury_modern__3645a243.jpg";
+
 // Listing Images
 import villaInfinity from "@assets/stock_images/modern_luxury_villa__28a2d5ad.jpg";
 import frenchChateau from "@assets/stock_images/french_chateau_style_57515742.jpg";
@@ -27,7 +34,8 @@ import northvilleVictorian from "@assets/stock_images/luxury_victorian_sty_5cf7e
 // Map the JSON "image" keys to the actual imported assets
 const imageMap: Record<string, string> = {
   // Brand assets
-  "susie-hero": mansionGarden, // Fallback for video - Garden view
+  "susie-hero": susiePortrait, // Updated: User provided photo
+  "about-header": limestoneMansion, // New About Page Header
   
   // Feature images
   "hero-luxury-home.jpg": poolTwilight,
@@ -47,9 +55,9 @@ const imageMap: Record<string, string> = {
   "listing-3": concreteModern,
 
   // Areas - Unique images for each
-  "area-1": birminghamStreet,
+  "area-1": limestoneMansion, // Birmingham - New High End Exterior
   "area-2": bloomfieldEstate,
-  "area-3": royalOakLoft,
+  "area-3": penthouseView, // Royal Oak - New High End Interior
   "area-4": northvilleVictorian,
 };
 

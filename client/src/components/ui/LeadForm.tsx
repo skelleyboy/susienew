@@ -74,7 +74,7 @@ export function LeadForm({
                   <Input 
                     placeholder="Full Name" 
                     {...field} 
-                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
+                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-5 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -90,7 +90,7 @@ export function LeadForm({
                   <Input 
                     placeholder="Email Address" 
                     {...field} 
-                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
+                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-5 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -106,7 +106,7 @@ export function LeadForm({
                   <Input 
                     placeholder="Phone Number" 
                     {...field} 
-                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
+                    className="h-12 rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-5 focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -122,7 +122,7 @@ export function LeadForm({
                   <Textarea 
                     placeholder="How can we help you?" 
                     {...field} 
-                    className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-0 min-h-[100px] resize-none focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm py-4"
+                    className="rounded-none border-t-0 border-x-0 border-b border-input bg-transparent px-5 min-h-[100px] resize-none focus-visible:ring-0 focus-visible:border-primary transition-all duration-300 placeholder:text-muted-foreground/60 placeholder:uppercase placeholder:text-[10px] placeholder:tracking-[0.15em] text-sm py-4"
                   />
                 </FormControl>
                 <FormMessage />

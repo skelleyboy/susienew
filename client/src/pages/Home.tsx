@@ -28,7 +28,7 @@ export default function HomePage() {
       <Hero 
         headline="Detroit Luxury Real Estate"
         subhead="Top 5% Agent in Detroit Tri County Area. Your Stress Free Path to Your Dream Home."
-        image={getImage("susie-hero")}
+        image={getImage("hero-luxury-home.jpg")}
         video={videos.hero}
         primaryCta="Start Your Journey"
         secondaryCta="Get Your Valuation"

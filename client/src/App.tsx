@@ -10,13 +10,11 @@ import NotFound from "@/pages/not-found";
 const Home = lazy(() => import("@/pages/Home"));
 const AreaPage = lazy(() => import("@/pages/Area"));
 const Contact = lazy(() => import("@/pages/Contact"));
-
-// Placeholder pages
-const Buy = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">Buy Page</h1><p>Coming Soon</p></div>;
-const Sell = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">Sell Page</h1><p>Coming Soon</p></div>;
-const Communities = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">All Communities</h1><p>Coming Soon</p></div>;
-const About = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">About Page</h1><p>Coming Soon</p></div>;
-const HomeValue = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">Home Valuation</h1><p>Coming Soon</p></div>;
+const Buy = lazy(() => import("@/pages/Buy"));
+const Sell = lazy(() => import("@/pages/Sell"));
+const Communities = lazy(() => import("@/pages/Communities"));
+const About = lazy(() => import("@/pages/About"));
+const HomeValue = lazy(() => import("@/pages/HomeValue"));
 
 function Router() {
   return (

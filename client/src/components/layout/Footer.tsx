@@ -1,8 +1,12 @@
 import { Link } from "wouter";
 import siteData from "@/data/site.json";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, ArrowUp } from "lucide-react";
 
 export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-[#0f1115] text-white pt-32 pb-12">
       <div className="container mx-auto px-4 md:px-6">
@@ -63,11 +67,20 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/60">
-          <p>&copy; {new Date().getFullYear()} Susie Sharak. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p>&copy; {new Date().getFullYear()} Susie Sharak. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
           </div>
+          <button 
+            onClick={scrollToTop}
+            className="group flex items-center gap-2 uppercase tracking-[0.2em] text-[10px] font-semibold hover:text-white transition-colors"
+          >
+            Back to Top
+            <ArrowUp className="w-3 h-3 group-hover:-translate-y-1 transition-transform duration-300" />
+          </button>
         </div>
       </div>
     </footer>
