@@ -1,0 +1,34 @@
+[
+  {
+    "id": "birmingham",
+    "name": "Birmingham",
+    "slug": "birmingham",
+    "image": "hero-luxury-home.jpg", 
+    "description": "Sophisticated downtown living meets upscale suburban charm. Birmingham offers a walkable community with premier shopping, dining, and parks.",
+    "highlights": ["Walkable Downtown", "Top Rated Schools", "Luxury Condos"]
+  },
+  {
+    "id": "bloomfield-hills",
+    "name": "Bloomfield Hills",
+    "slug": "bloomfield-hills",
+    "image": "exterior-day.jpg",
+    "description": "Exclusive estates and rolling hills define this prestigious community. Known for world-class architecture and the Cranbrook Educational Community.",
+    "highlights": ["Estate Living", "Cranbrook", "Private Clubs"]
+  },
+  {
+    "id": "royal-oak",
+    "name": "Royal Oak",
+    "slug": "royal-oak",
+    "image": "living-room.jpg",
+    "description": "Vibrant and energetic, Royal Oak features a bustling downtown, diverse housing options, and a central location near Detroit.",
+    "highlights": ["Nightlife", "Detroit Zoo", "Central Location"]
+  },
+  {
+    "id": "northville",
+    "name": "Northville",
+    "slug": "northville",
+    "image": "kitchen.jpg",
+    "description": "Historic charm with modern amenities. Northville offers a picturesque downtown, rolling terrain, and Victorian-era architecture.",
+    "highlights": ["Historic Downtown", "Rolling Hills", "Victorian Homes"]
+  }
+]
