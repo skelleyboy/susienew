@@ -47,7 +47,7 @@ export default function AboutPage() {
                 Susie's approach is rooted in a deep understanding that buying or selling a home is one of life's most significant decisions. She combines market intelligence with a personalized touch, ensuring every client feels supported, informed, and confident throughout the process.
               </p>
               <p>
-                Whether you are a first-time homebuyer or a seasoned investor, Susie brings the same level of dedication and detail to every interaction, making your goals her top priority.
+                Whether you are a first time homebuyer or a seasoned investor, Susie brings the same level of dedication and detail to every interaction, making your goals her top priority.
               </p>
             </div>
 

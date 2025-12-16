@@ -29,7 +29,7 @@ export default function SellPage() {
               Selling a luxury property requires more than just a listing. It demands a comprehensive marketing strategy that creates desire and commands premium value.
             </p>
             <p className="text-muted-foreground text-lg font-light leading-relaxed">
-              We leverage cutting-edge technology, professional production, and our extensive global network to ensure your property is seen by the right qualified buyers.
+              We leverage cutting edge technology, professional production, and our extensive global network to ensure your property is seen by the right qualified buyers.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-6">

@@ -14,7 +14,7 @@ export default function BuyPage() {
       <Navbar />
       <Hero 
         headline="Find Your Sanctuary"
-        subhead="Access exclusive off-market properties and premier listings in Metro Detroit."
+        subhead="Access exclusive off market properties and premier listings in Metro Detroit."
         image={getImage("service-buying")}
         primaryCta="View Listings"
         primaryCtaLink="#listings"
@@ -38,7 +38,7 @@ export default function BuyPage() {
             </div>
             <h3 className="font-serif text-2xl mb-4">Discovery</h3>
             <p className="text-muted-foreground font-light leading-relaxed">
-              We begin by understanding your lifestyle, preferences, and long-term goals to curate a selection of homes that match your vision.
+              We begin by understanding your lifestyle, preferences, and long term goals to curate a selection of homes that match your vision.
             </p>
           </div>
           <div className="bg-muted/30 p-10 text-center hover:bg-white hover:shadow-xl transition-all duration-500 group">
@@ -47,7 +47,7 @@ export default function BuyPage() {
             </div>
             <h3 className="font-serif text-2xl mb-4">Access</h3>
             <p className="text-muted-foreground font-light leading-relaxed">
-              Gain priority access to off-market opportunities and coming-soon listings before they reach the broader market.
+              Gain priority access to off market opportunities and coming soon listings before they reach the broader market.
             </p>
           </div>
           <div className="bg-muted/30 p-10 text-center hover:bg-white hover:shadow-xl transition-all duration-500 group">

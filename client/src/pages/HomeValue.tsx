@@ -29,7 +29,7 @@ export default function HomeValuePage() {
             <div className="absolute inset-0 p-12 flex flex-col justify-end text-white z-10">
               <h3 className="font-serif text-3xl mb-4">Precision Pricing</h3>
               <p className="font-light text-white/90">
-                Automated tools can't see your home's unique features. We provide a human-verified valuation based on real-time market data.
+                Automated tools can't see your home's unique features. We provide a human verified valuation based on real time market data.
               </p>
             </div>
           </div>

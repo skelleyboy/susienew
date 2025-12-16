@@ -56,6 +56,7 @@ export function Footer() {
               name="newsletter" 
               method="POST" 
               data-netlify="true"
+              netlify-honeypot="bot-field"
               onSubmit={(e) => {
                 // Let the default form submission happen for Netlify if js is disabled,
                 // but since we preventDefault here, we might need to handle submission differently or remove preventDefault.
@@ -81,6 +82,11 @@ export function Footer() {
               }}
             >
               <input type="hidden" name="form-name" value="newsletter" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+              </p>
               <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
               <input 
                 id="newsletter-email"
@@ -101,6 +107,7 @@ export function Footer() {
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+              <a href="https://designgandalf.com/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Website by Gandalf</a>
             </div>
           </div>
           <button 

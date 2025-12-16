@@ -24,6 +24,7 @@ const formSchema = z.object({
     message: "Please enter a valid phone number.",
   }),
   message: z.string().optional(),
+  "bot-field": z.string().optional(),
 });
 
 interface LeadFormProps {
@@ -61,6 +62,7 @@ export function LeadForm({
     formData.append("email", values.email);
     formData.append("phone", values.phone);
     if (values.message) formData.append("message", values.message);
+    if (values["bot-field"]) formData.append("bot-field", values["bot-field"]);
 
     fetch("/", {
       method: "POST",
@@ -86,10 +88,16 @@ export function LeadForm({
           name={formName} 
           method="POST" 
           data-netlify="true" 
+          netlify-honeypot="bot-field"
           onSubmit={form.handleSubmit(onSubmit)} 
           className="space-y-6"
         >
           <input type="hidden" name="form-name" value={formName} />
+          <p className="hidden">
+            <label>
+              Don’t fill this out if you’re human: <input {...form.register("bot-field")} />
+            </label>
+          </p>
           <FormField
             control={form.control}
             name="name"
