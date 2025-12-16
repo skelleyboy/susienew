@@ -19,6 +19,7 @@ import modernInterior from "@assets/stock_images/modern_home_interior_48a76c52.j
 import limestoneMansion from "@assets/stock_images/luxury_limestone_man_554d9db0.jpg";
 import penthouseView from "@assets/stock_images/ultra_luxury_modern__3645a243.jpg";
 import brightLivingRoom from "@assets/stock_images/bright_luxury_living_1e76a4d4.jpg";
+import heroVideoPoster from "@assets/generated_images/hero-video-poster.jpg";
 
 // Listing Images
 import villaInfinity from "@assets/stock_images/modern_luxury_villa__28a2d5ad.jpg";
@@ -39,7 +40,7 @@ const imageMap: Record<string, string> = {
   "about-header": brightLivingRoom, // New About Page Header
   
   // Feature images
-  "hero-luxury-home.jpg": poolTwilight,
+  "hero-luxury-home.jpg": heroVideoPoster, // Updated: Video poster frame
   "exterior-day.jpg": estateExterior,
   "living-room.jpg": livingRoom,
   "kitchen.jpg": kitchen,
