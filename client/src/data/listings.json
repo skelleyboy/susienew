@@ -9,7 +9,7 @@
     "beds": 5,
     "baths": 6,
     "sqft": 5200,
-    "image": "exterior-day.jpg",
+    "image": "listing-1",
     "status": "Active"
   },
   {
@@ -22,7 +22,7 @@
     "beds": 3,
     "baths": 3,
     "sqft": 2800,
-    "image": "living-room.jpg",
+    "image": "listing-2",
     "status": "Pending"
   },
   {
@@ -35,7 +35,7 @@
     "beds": 4,
     "baths": 3,
     "sqft": 2200,
-    "image": "kitchen.jpg",
+    "image": "listing-3",
     "status": "Sold"
   }
 ]

@@ -3,7 +3,7 @@
     "id": "birmingham",
     "name": "Birmingham",
     "slug": "birmingham",
-    "image": "hero-luxury-home.jpg", 
+    "image": "area-1", 
     "description": "Where cosmopolitan refinement meets historic elegance. Birmingham offers a walkable tapestry of premier culinary experiences, high-end retail, and distinguished architecture.",
     "highlights": ["Walkable Downtown", "Top Rated Schools", "Luxury Condos"]
   },
@@ -11,7 +11,7 @@
     "id": "bloomfield-hills",
     "name": "Bloomfield Hills",
     "slug": "bloomfield-hills",
-    "image": "exterior-day.jpg",
+    "image": "area-2",
     "description": "A sanctuary of privacy and prestige. Rolling hills and winding roads reveal architectural masterpieces and estates of unparalleled grandeur.",
     "highlights": ["Estate Living", "Cranbrook", "Private Clubs"]
   },
@@ -19,7 +19,7 @@
     "id": "royal-oak",
     "name": "Royal Oak",
     "slug": "royal-oak",
-    "image": "living-room.jpg",
+    "image": "area-3",
     "description": "A dynamic fusion of modern energy and community spirit. Royal Oak presents a vibrant lifestyle for the discerning urbanite.",
     "highlights": ["Nightlife", "Detroit Zoo", "Central Location"]
   },
@@ -27,7 +27,7 @@
     "id": "northville",
     "name": "Northville",
     "slug": "northville",
-    "image": "kitchen.jpg",
+    "image": "area-4",
     "description": "Timeless elegance in a picturesque setting. Northville balances Victorian heritage with modern luxury, offering a tranquil retreat from the ordinary.",
     "highlights": ["Historic Downtown", "Rolling Hills", "Victorian Homes"]
   }
