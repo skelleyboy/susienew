@@ -13,9 +13,9 @@ import { ArrowRight, Star, Award, Home, TrendingUp } from "lucide-react";
 import siteData from "@/data/site.json";
 import listings from "@/data/listings.json";
 import areas from "@/data/areas.json";
+import { getImage } from "@/lib/images";
 
 // Import generated hero image
-import heroImage from "@assets/generated_images/luxury_home_exterior_at_twilight.png";
 import heroVideo from "@assets/generated_videos/luxury_home_exterior_slow_pan.mp4";
 
 export default function HomePage() {
@@ -25,9 +25,9 @@ export default function HomePage() {
       
       {/* Hero */}
       <Hero 
-        headline="You Deserve a Home That Reflects Your Success"
-        subhead="Navigating the luxury market is complex. We make it simple, ensuring you find the perfect property in Downriver & Oakland County without the stress."
-        image={heroImage}
+        headline="Detroit Luxury Real Estate"
+        subhead="Top 5% Agent in Detroit Tri-County Area. Your Stress-Free Path to Your Dream Home."
+        image={getImage("susie-hero")}
         video={heroVideo}
         primaryCta="Start Your Journey"
         secondaryCta="Get Your Valuation"
@@ -96,25 +96,37 @@ export default function HomePage() {
       {/* Buy / Sell Paths */}
       <Section className="bg-muted/30">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-          <div className="group relative overflow-hidden bg-white p-8 md:p-12 shadow-sm hover:shadow-md transition-all duration-500">
-            <Home className="w-10 h-10 text-accent mb-6" />
-            <h3 className="font-serif text-3xl mb-4">Find the One That's Not on Zillow</h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Most luxury homes never hit the public market. Don't miss out on your dream home because you didn't have access. We open doors to exclusive, off-market properties so you can stop searching and start living.
-            </p>
-            <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white uppercase tracking-widest text-xs font-bold px-8" asChild>
-              <Link href="/buy">Access Private Listings</Link>
-            </Button>
+          <div className="group relative overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-500 h-[500px] flex flex-col justify-end">
+            <div className="absolute inset-0">
+              <img src={getImage("service-buying")} alt="Buying" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            </div>
+            <div className="relative z-10 p-8 md:p-12 text-white">
+              <Home className="w-10 h-10 text-accent mb-6" />
+              <h3 className="font-serif text-3xl mb-4">Find the One That's Not on Zillow</h3>
+              <p className="text-white/80 mb-8 leading-relaxed">
+                Most luxury homes never hit the public market. Don't miss out on your dream home because you didn't have access. We open doors to exclusive, off-market properties.
+              </p>
+              <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-widest text-xs font-bold px-8" asChild>
+                <Link href="/buy">Access Private Listings</Link>
+              </Button>
+            </div>
           </div>
-          <div className="group relative overflow-hidden bg-primary text-white p-8 md:p-12 shadow-sm hover:shadow-md transition-all duration-500">
-            <TrendingUp className="w-10 h-10 text-accent mb-6" />
-            <h3 className="font-serif text-3xl mb-4">Sell with Confidence, Not Compromise</h3>
-            <p className="text-white/80 mb-8 leading-relaxed">
-              Selling a luxury estate requires more than a sign in the yard. It requires a narrative. We craft a compelling story for your home that attracts qualified buyers and commands top dollar, so you don't leave money on the table.
-            </p>
-            <Button className="rounded-none bg-white text-primary hover:bg-white/90 uppercase tracking-widest text-xs font-bold px-8" asChild>
-              <Link href="/sell">Create Your Strategy</Link>
-            </Button>
+          <div className="group relative overflow-hidden bg-primary shadow-sm hover:shadow-md transition-all duration-500 h-[500px] flex flex-col justify-end">
+            <div className="absolute inset-0">
+              <img src={getImage("service-selling")} alt="Selling" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            </div>
+            <div className="relative z-10 p-8 md:p-12 text-white">
+              <TrendingUp className="w-10 h-10 text-accent mb-6" />
+              <h3 className="font-serif text-3xl mb-4">Sell with Confidence, Not Compromise</h3>
+              <p className="text-white/80 mb-8 leading-relaxed">
+                Selling a luxury estate requires more than a sign in the yard. It requires a narrative. We craft a compelling story for your home that attracts qualified buyers.
+              </p>
+              <Button className="rounded-none bg-accent text-white hover:bg-accent/90 uppercase tracking-widest text-xs font-bold px-8" asChild>
+                <Link href="/sell">Create Your Strategy</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </Section>
