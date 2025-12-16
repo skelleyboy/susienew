@@ -47,11 +47,51 @@ export default function HomePage() {
               <div className="flex justify-center text-accent">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">The Guide You Can Trust</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Zillow & Realtor.com Premier</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* The Plan / Process Section */}
+      <Section>
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-4xl mb-4">Your Stress-Free Path to Success</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            We know navigating the market can be overwhelming. We've simplified the journey into three easy steps.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto text-center">
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">1</div>
+            <h3 className="font-serif text-2xl mb-4">Book a Free Intro</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Schedule a 15-minute consultation to discuss your goals. No pressure, just expert advice tailored to your needs.
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">2</div>
+            <h3 className="font-serif text-2xl mb-4">We Build Your Plan</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Whether buying or selling, we create a custom strategy to get you the best deal possible with 24/7 support.
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent font-serif text-2xl font-bold">3</div>
+            <h3 className="font-serif text-2xl mb-4">Celebrate Success</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Close with confidence and move into your new chapter. We handle the details so you can enjoy the result.
+            </p>
+          </div>
+        </div>
+        
+        <div className="text-center mt-12">
+          <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-widest text-xs font-bold px-8" asChild>
+            <Link href="/contact">Book Your Free Consultation</Link>
+          </Button>
+        </div>
+      </Section>
 
       {/* Buy / Sell Paths */}
       <Section className="bg-muted/30">

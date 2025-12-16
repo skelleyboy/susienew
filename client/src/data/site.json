@@ -1,18 +1,18 @@
 {
   "name": "Susie Sharak",
-  "title": "Susie Sharak | Luxury Real Estate",
-  "email": "susie@susiesharak.com",
-  "phone": "(248) 555-0123",
-  "brokerage": "Luxury Presence Realty",
-  "address": "123 Woodward Ave, Birmingham, MI 48009",
+  "title": "Susie Sharak | Detroit Luxury Real Estate",
+  "email": "susie@propertypro1.com",
+  "phone": "248-943-6906",
+  "brokerage": "Golden Realty",
+  "address": "Metro Detroit, MI",
   "socials": {
     "instagram": "https://instagram.com",
     "facebook": "https://facebook.com",
     "linkedin": "https://linkedin.com"
   },
   "stats": [
-    { "label": "Years of Excellence", "value": "15+" },
-    { "label": "Properties Represented", "value": "500+" },
-    { "label": "Volume Transacted", "value": "$250M+" }
+    { "label": "Premier Agent", "value": "Top 5%" },
+    { "label": "Client Satisfaction", "value": "100%" },
+    { "label": "Zillow Reviews", "value": "5-Star" }
   ]
 }
