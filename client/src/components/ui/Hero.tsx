@@ -26,7 +26,7 @@ export function Hero({
   return (
     <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden flex items-center justify-center text-center">
       {/* Background Image/Video with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         {video ? (
           <video
             src={video}
@@ -36,12 +36,16 @@ export function Hero({
             loop
             playsInline
             className="w-full h-full object-cover"
+            // @ts-ignore - fetchpriority is a newer attribute
+            fetchpriority="high"
           />
         ) : (
           <img 
             src={image} 
             alt="Luxury Real Estate" 
             className="w-full h-full object-cover"
+            // @ts-ignore - fetchpriority is a newer attribute
+            fetchpriority="high"
           />
         )}
         <div className="absolute inset-0 bg-black/30 md:bg-black/20" />

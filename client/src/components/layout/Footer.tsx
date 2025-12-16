@@ -13,13 +13,13 @@ export function Footer() {
               Premier real estate agent serving Downriver & Oakland County with a focus on luxury service and exceptional results.
             </p>
             <div className="flex gap-4">
-              <a href={siteData.socials.instagram} target="_blank" rel="noreferrer" className="text-white/60 hover:text-white transition-colors">
+              <a href={siteData.socials.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-white/60 hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href={siteData.socials.facebook} target="_blank" rel="noreferrer" className="text-white/60 hover:text-white transition-colors">
+              <a href={siteData.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-white/60 hover:text-white transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href={siteData.socials.linkedin} target="_blank" rel="noreferrer" className="text-white/60 hover:text-white transition-colors">
+              <a href={siteData.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-white/60 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>

@@ -67,7 +67,7 @@ export function ListingCard({ listing, className }: ListingCardProps) {
           <p className="font-serif text-xl text-primary mb-2">
             {formatPrice(listing.price)}
           </p>
-          <Link href={`/listing/${listing.id}`} className="inline-flex items-center text-xs uppercase tracking-widest font-bold text-accent hover:text-primary transition-colors">
+          <Link href={`/listing/${listing.id}`} className="inline-flex items-center text-xs uppercase tracking-widest font-bold text-accent hover:text-primary transition-colors" aria-label={`View listing at ${listing.address}`}>
             View <ArrowRight className="ml-1 h-3 w-3" />
           </Link>
         </div>

@@ -3,12 +3,15 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Suspense, lazy } from "react";
 import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
-import AreaPage from "@/pages/Area";
-import Contact from "@/pages/Contact";
 
-// Placeholder pages for Buy/Sell to avoid 404s on nav links
+// Lazy load pages
+const Home = lazy(() => import("@/pages/Home"));
+const AreaPage = lazy(() => import("@/pages/Area"));
+const Contact = lazy(() => import("@/pages/Contact"));
+
+// Placeholder pages
 const Buy = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">Buy Page</h1><p>Coming Soon</p></div>;
 const Sell = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">Sell Page</h1><p>Coming Soon</p></div>;
 const Communities = () => <div className="p-20 text-center"><h1 className="text-4xl mb-4">All Communities</h1><p>Coming Soon</p></div>;
@@ -17,17 +20,19 @@ const HomeValue = () => <div className="p-20 text-center"><h1 className="text-4x
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/area/:slug" component={AreaPage} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/buy" component={Buy} />
-      <Route path="/sell" component={Sell} />
-      <Route path="/communities" component={Communities} />
-      <Route path="/about" component={About} />
-      <Route path="/home-value" component={HomeValue} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="animate-pulse w-12 h-12 bg-gray-200 rounded-full"></div></div>}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/area/:slug" component={AreaPage} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/buy" component={Buy} />
+        <Route path="/sell" component={Sell} />
+        <Route path="/communities" component={Communities} />
+        <Route path="/about" component={About} />
+        <Route path="/home-value" component={HomeValue} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 
