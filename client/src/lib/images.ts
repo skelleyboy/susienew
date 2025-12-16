@@ -24,7 +24,7 @@ import heroVideoPoster from "@assets/generated_images/hero-video-poster.jpg";
 // Listing Images
 import villaInfinity from "@assets/stock_images/modern_luxury_villa__28a2d5ad.jpg";
 import frenchChateau from "@assets/stock_images/french_chateau_style_57515742.jpg";
-import concreteModern from "@assets/stock_images/ultra_modern_concret_1898b29b.jpg";
+import classicColonial from "@assets/stock_images/classic_brick_coloni_68778e1b.jpg";
 
 // Area Images
 import birminghamStreet from "@assets/stock_images/luxury_shopping_dist_961549e0.jpg";
@@ -54,7 +54,7 @@ const imageMap: Record<string, string> = {
   // Listings - Unique images for each
   "listing-1": villaInfinity,
   "listing-2": frenchChateau,
-  "listing-3": concreteModern,
+  "listing-3": classicColonial,
 
   // Areas - Unique images for each
   "area-1": limestoneMansion, // Birmingham - New High End Exterior
