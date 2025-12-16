@@ -1,0 +1,147 @@
+Here’s a **Replit prompt** you can paste into an AI agent (or use as your own build spec) to redesign **susiesharak** into a **custom “luxury presence”** site that **converts to leads**.
+
+---
+
+## Replit Prompt: “Susie Sharak — Luxury Presence Lead Machine Redesign”
+
+You are a senior product designer + conversion copywriter + front-end engineer. Redesign and implement a high-end, modern real estate website for **Susie Sharak** that feels like a **custom LuxuryPresence-style** site (clean, editorial, premium), but is **built for lead capture** and city SEO.
+
+### Goals
+
+1. Make the site feel premium and custom (not templated).
+2. Increase leads (calls, texts, email form submissions, home valuation, showing requests).
+3. Support SEO for Michigan city pages (rank for “Realtor in [City]”, “Homes for sale [City]”, etc.).
+4. Fast, mobile-first, accessible, and easy to update.
+
+### Brand + Style Direction
+
+* **Vibe:** modern luxury, calm confidence, editorial, minimal.
+* **Typography:** elegant serif for headlines + clean sans for body.
+* **Layout:** generous whitespace, strong grid, big photography, subtle motion.
+* **Colors:** black/white/soft neutrals + one refined accent (muted gold, deep green, or navy).
+* **UI:** pill buttons, thin dividers, refined hover states, tasteful animations (no gimmicks).
+
+### Core Conversion Strategy
+
+Every page should push the user toward **one of these lead actions**:
+
+* “Schedule a Call”
+* “Request a Showing”
+* “Get Home Value”
+* “Get Listings in Your Inbox”
+* “Text Susie”
+
+Add these conversion elements:
+
+* Sticky header with **primary CTA: “Schedule a Call”** and secondary: “Text”.
+* Floating mobile CTA bar: Call / Text / Home Value.
+* Short forms (name + phone + email + 1 dropdown) with strong microcopy.
+* Social proof (reviews, stats, logos, neighborhoods served).
+* “Instant value” lead magnets:
+
+  * Home valuation request
+  * “Downriver & Oakland Buyer Guide” email capture
+  * “Off-market / Coming soon alerts” capture
+
+### Site Map (Build These Pages)
+
+1. **Home**
+2. **Buy**
+3. **Sell**
+4. **Featured Areas** (hub page)
+5. **Area Pages Template** (SEO city pages)
+6. **About**
+7. **Testimonials**
+8. **Contact**
+9. **Home Value** (dedicated landing page)
+
+### Homepage Structure (Must Follow)
+
+1. Hero (big image/video feel)
+
+   * Headline: clear outcome + luxury vibe
+   * Subhead: location focus (Downriver + Oakland County, Metro Detroit)
+   * CTAs: **Schedule a Call** (primary) + **Get Home Value** (secondary)
+2. Trust row: “X homes sold”, “Y years”, “5-star reviews”, “Local expert”
+3. Two-card section: Buy / Sell paths (each with CTA)
+4. Featured areas carousel/grid (8–12 cities)
+5. Featured listings section (use placeholder data if no MLS)
+6. Testimonials (scrollable, elegant)
+7. “How it works” (3 steps)
+8. Lead capture section (Buyer Guide / Alerts)
+9. Footer with full contact, social, compliance text placeholders
+
+### “LuxuryPresence Feel” Requirements
+
+* Full-bleed hero, cinematic imagery blocks, editorial headings
+* Subtle fade/slide animations on scroll (reduced-motion respected)
+* Premium listing cards with strong typography and spacing
+* Use high-quality placeholder images and swap with easy config
+
+### Tech Requirements (Pick One Approach and Implement Fully)
+
+**Option A (preferred): Next.js + Tailwind**
+
+* App Router, server components where sensible
+* SEO: metadata, OpenGraph, sitemap, robots
+* City pages generated from a JSON dataset
+* Fast performance (Lighthouse focus)
+
+**Option B: Astro + Tailwind**
+
+* Static-first, lightning fast
+* Same SEO + city pages
+
+### Data + Content Model
+
+Create a `/content` folder:
+
+* `site.json` (name, phone, email, socials, brokerage, service areas)
+* `areas.json` (city pages list with unique copy blocks)
+* `testimonials.json`
+* `listings.json` (placeholder listings until MLS integration)
+
+Make it so I can edit those JSON files and the whole site updates.
+
+### SEO Requirements
+
+* Unique title + meta description per page
+* City pages:
+
+  * H1: “Realtor in [City], MI”
+  * Sections: market snapshot, neighborhoods, buyer tips, seller tips, FAQ
+  * Internal linking: nearby cities + Buy/Sell/Home Value
+* Add JSON-LD:
+
+  * LocalBusiness / RealEstateAgent schema
+* Create sitemap.xml automatically
+
+### Lead Forms + Tracking
+
+* Forms should post to a simple endpoint (or use Formspree placeholder)
+* Add event tracking hooks (Google Tag placeholder)
+* Thank-you states and confirmation page option
+
+### Design System Components (Build as reusable)
+
+* Button, Input, Select, Card, Section, Container, Testimonial, AreaCard, ListingCard, CTASection
+
+### Deliverables
+
+1. Fully working site in Replit
+2. Clean, modern UI meeting luxury requirements
+3. At least 6 city pages generated from `areas.json`
+4. Clear lead capture pathways on every page
+5. README: how to update content + deploy
+
+### Constraints
+
+* Do not use cheesy animations or generic template look
+* Prioritize clarity + speed + lead conversion
+* Mobile must feel as premium as desktop
+
+Now build it end-to-end, including: routing, layout, styles, sample content, and forms.
+
+---
+
+If you want, paste your current Susie Sharak homepage copy (or the URL), and I’ll rewrite the **exact hero, CTAs, and city-page template copy** so it feels “luxury” without sounding fake—and is engineered to convert.
