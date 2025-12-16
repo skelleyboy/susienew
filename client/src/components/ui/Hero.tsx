@@ -6,6 +6,7 @@ interface HeroProps {
   headline: string;
   subhead: string;
   image: string;
+  video?: string;
   primaryCta?: string;
   primaryCtaLink?: string;
   secondaryCta?: string;
@@ -16,6 +17,7 @@ export function Hero({
   headline,
   subhead,
   image,
+  video,
   primaryCta = "Schedule a Call",
   primaryCtaLink = "/contact",
   secondaryCta = "Get Home Value",
@@ -23,13 +25,25 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden flex items-center justify-center text-center">
-      {/* Background Image with Overlay */}
+      {/* Background Image/Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={image} 
-          alt="Luxury Real Estate" 
-          className="w-full h-full object-cover"
-        />
+        {video ? (
+          <video
+            src={video}
+            poster={image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img 
+            src={image} 
+            alt="Luxury Real Estate" 
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/30 md:bg-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
       </div>

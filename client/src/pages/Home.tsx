@@ -16,6 +16,7 @@ import areas from "@/data/areas.json";
 
 // Import generated hero image
 import heroImage from "@assets/generated_images/luxury_home_exterior_at_twilight.png";
+import heroVideo from "@assets/generated_videos/luxury_home_exterior_slow_pan.mp4";
 
 export default function HomePage() {
   return (
@@ -27,6 +28,7 @@ export default function HomePage() {
         headline="Curating Metro Detroit's Finest Lifestyles"
         subhead="An exclusive real estate experience for those seeking the exceptional in Downriver & Oakland County."
         image={heroImage}
+        video={heroVideo}
       />
 
       {/* Trust Row */}
