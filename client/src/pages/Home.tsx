@@ -1,26 +1,30 @@
+import { Suspense, lazy } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
 import { Section } from "@/components/ui/Section";
 import { ListingCard } from "@/components/ui/ListingCard";
 import { AreaCard } from "@/components/ui/AreaCard";
-import { TestimonialSection } from "@/components/ui/TestimonialSection";
-import { LeadForm } from "@/components/ui/LeadForm";
 import { MobileCTABar } from "@/components/layout/MobileCTABar";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Star, Award, Home, TrendingUp } from "lucide-react";
+import { ArrowRight, Star, Award } from "lucide-react";
 import siteData from "@/data/site.json";
 import listings from "@/data/listings.json";
 import areas from "@/data/areas.json";
 import { getImage, videos } from "@/lib/images";
+import { Skeleton } from "@/components/ui/skeleton";
+
+// Lazy load below-the-fold components
+const TestimonialSection = lazy(() => import("@/components/ui/TestimonialSection").then(module => ({ default: module.TestimonialSection })));
+const LeadForm = lazy(() => import("@/components/ui/LeadForm").then(module => ({ default: module.LeadForm })));
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <Navbar />
       
-      {/* Hero */}
+      {/* Hero - Eager loaded for LCP */}
       <Hero 
         headline="Detroit Luxury Real Estate"
         subhead="Top 5% Agent in Detroit Tri County Area. Your Stress Free Path to Your Dream Home."
@@ -96,7 +100,14 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center">
             <div className="absolute inset-0">
-              <img src={getImage("service-buying")} alt="Buying" className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
+              <img 
+                src={getImage("service-buying")} 
+                alt="Buying" 
+                className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" 
+                loading="lazy"
+                width="800"
+                height="800"
+              />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-700" />
             </div>
             <div className="relative z-10 p-12 text-white max-w-lg mx-auto transform transition-transform duration-700 translate-y-4 group-hover:translate-y-0">
@@ -112,7 +123,14 @@ export default function HomePage() {
           </div>
           <div className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center">
             <div className="absolute inset-0">
-              <img src={getImage("service-selling")} alt="Selling" className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
+              <img 
+                src={getImage("service-selling")} 
+                alt="Selling" 
+                className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" 
+                loading="lazy"
+                width="800"
+                height="800"
+              />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-700" />
             </div>
             <div className="relative z-10 p-12 text-white max-w-lg mx-auto transform transition-transform duration-700 translate-y-4 group-hover:translate-y-0">
@@ -169,7 +187,9 @@ export default function HomePage() {
       </Section>
 
       {/* Testimonials */}
-      <TestimonialSection />
+      <Suspense fallback={<div className="py-20" />}>
+        <TestimonialSection />
+      </Suspense>
 
       {/* Lead Capture / Guide */}
       <Section className="relative overflow-hidden min-h-[600px] flex items-center">
@@ -178,6 +198,9 @@ export default function HomePage() {
             src={getImage("home-modern")} 
             alt="Luxury Home" 
             className="w-full h-full object-cover"
+            loading="lazy"
+            width="1920"
+            height="1080"
           />
           <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
         </div>
@@ -207,11 +230,13 @@ export default function HomePage() {
           </div>
           
           <div className="bg-white text-foreground p-8 md:p-12 shadow-2xl max-w-md mx-auto w-full">
-            <LeadForm 
-              title="Get Your Market Guide" 
-              subtitle="Where should we send your blueprint?" 
-              ctaText="Send Me the Guide"
-            />
+            <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
+              <LeadForm 
+                title="Get Your Market Guide" 
+                subtitle="Where should we send your blueprint?" 
+                ctaText="Send Me the Guide"
+              />
+            </Suspense>
           </div>
         </div>
       </Section>

@@ -36,16 +36,18 @@ export function Hero({
             loop
             playsInline
             className="w-full h-full object-cover"
-            // @ts-ignore - fetchPriority is supported in React 18.3+ and newer types
-            fetchPriority="high"
+            width="1920"
+            height="1080"
           />
         ) : (
           <img 
             src={image} 
             alt="Luxury Real Estate" 
             className="w-full h-full object-cover"
-            // @ts-ignore - fetchPriority is supported in React 18.3+ and newer types
             fetchPriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
           />
         )}
         <div className="absolute inset-0 bg-black/30 md:bg-black/20" />

@@ -1,0 +1,377 @@
+PageSpeed Insights logo
+PageSpeed Insights
+Report from Dec 16, 2025, 11:45:22 AM
+
+Enter a valid URL
+Discover what your real users are experiencing
+No Data
+Diagnose performance issues
+66
+Performance
+96
+Accessibility
+100
+Best Practices
+92
+SEO
+66 FCP+3LCP+3TBT+30CLS+25SI+5 Performance
+Values are estimated and may vary. The performance score is calculated directly from these metrics.See calculator.
+0–49 50–89 90–100
+Final Screenshot
+Metrics
+Expand view
+First Contentful Paint
+3.5 s
+Largest Contentful Paint
+6.3 s
+Total Blocking Time
+0 ms
+Cumulative Layout Shift
+0
+Speed Index
+5.5 s
+
+    Captured at Dec 16, 2025, 11:45 AM EST
+    Emulated Moto G Power with Lighthouse 13.0.1
+    Single page session
+    Initial page load
+    Slow 4G throttling
+    Using HeadlessChromium 137.0.7151.119 with lr
+
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Show audits relevant to:
+All
+FCP
+LCP
+TBT
+Insights
+Improve image delivery Est savings of 2,801 KiB
+	
+	
+	
+		
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+	
+	
+	
+	
+		
+Render blocking requests Est savings of 1,620 ms
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Forced reflow
+	
+	
+	
+	
+	
+LCP request discovery
+
+Network dependency tree
+Optimize DOM size
+	
+	
+		
+	
+	
+	
+	
+LCP breakdown
+	
+	
+	
+	
+	
+3rd parties
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+These insights are also available in the Chrome DevTools Performance Panel - record a trace to view more detailed information.
+Diagnostics
+Reduce unused JavaScript Est savings of 87 KiB
+	
+	
+	
+	
+	
+	
+	
+	
+Avoid enormous network payloads Total size was 7,738 KiB
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Avoid long main-thread tasks 1 long task found
+	
+	
+		
+	
+	
+More information about the performance of your application. These numbers don't directly affect the Performance score.
+Passed audits (16)
+Show
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+96
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+Contrast
+Background and foreground colors do not have a sufficient contrast ratio.
+These are opportunities to improve the legibility of your content.
+Additional items to manually check (10)
+Show
+These items address areas which an automated testing tool cannot cover. Learn more in our guide on conducting an accessibility review.
+Passed audits (24)
+Show
+Not applicable (35)
+Show
+100
+Best Practices
+Trust and Safety
+Ensure CSP is effective against XSS attacks
+	
+	
+		
+Ensure proper origin isolation with COOP
+	
+	
+		
+Mitigate clickjacking with XFO or CSP
+	
+	
+Mitigate DOM-based XSS with Trusted Types
+	
+	
+Passed audits (13)
+Show
+Not applicable (3)
+Show
+92
+SEO
+These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on Core Web Vitals. Learn more about Google Search Essentials.
+Crawling and Indexing
+robots.txt is not valid 26 errors found
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+To appear in search results, crawlers need access to your app.
+Additional items to manually check (1)
+Show
+Run these additional validators on your site to check additional SEO best practices.
+Passed audits (8)
+Show
+Not applicable (1)
+Show
+More on PageSpeed InsightsWhat's newDocumentationLearn about Web PerformanceAsk questions on Stack OverflowMailing list
+Related ContentUpdatesWeb FundamentalsCase StudiesPodcasts
+ConnectTwitterYoutube
+Google Developers Logo
+Chrome
+Firebase
+All products
+Terms and Privacy Policy
+For details, see the Google Developers Site Policies.

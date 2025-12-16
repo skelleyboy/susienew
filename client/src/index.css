@@ -28,8 +28,8 @@
   --color-secondary: hsl(30 20% 97%); /* Very subtle warm beige/cream */
   --color-secondary-foreground: hsl(220 20% 14%);
   
-  --color-muted: hsl(220 10% 97%);
-  --color-muted-foreground: hsl(220 5% 45%);
+  --color-muted: hsl(220 10% 96%); /* Slightly lighter background for better contrast */
+  --color-muted-foreground: hsl(220 10% 30%); /* Much darker for AA/AAA compliance */
   
   --color-accent: hsl(35 30% 50%); /* refined gold/bronze, less yellow */
   --color-accent-foreground: hsl(0 0% 100%);

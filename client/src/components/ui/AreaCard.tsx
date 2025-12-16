@@ -24,6 +24,9 @@ export function AreaCard({ area, className }: AreaCardProps) {
         <img 
           src={imgSrc} 
           alt={area.name}
+          loading="lazy"
+          width="400"
+          height="533"
           className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-700" />
