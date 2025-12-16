@@ -13,7 +13,7 @@ import { ArrowRight, Star, Award, Home, TrendingUp } from "lucide-react";
 import siteData from "@/data/site.json";
 import listings from "@/data/listings.json";
 import areas from "@/data/areas.json";
-import { getImage } from "@/lib/images";
+import { getImage, videos } from "@/lib/images";
 
 export default function HomePage() {
   return (
@@ -25,6 +25,7 @@ export default function HomePage() {
         headline="Detroit Luxury Real Estate"
         subhead="Top 5% Agent in Detroit Tri County Area. Your Stress Free Path to Your Dream Home."
         image={getImage("susie-hero")}
+        video={videos.hero}
         primaryCta="Start Your Journey"
         secondaryCta="Get Your Valuation"
       />

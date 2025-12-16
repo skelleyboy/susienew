@@ -1,30 +1,30 @@
-// Real images from susiesharak.com
-import susieProfile from "@assets/susie_images/profile.jpg";
-import susieHero from "@assets/susie_images/hero.jpg";
-import homeModern from "@assets/susie_images/home_modern.jpg";
-import buyingService from "@assets/susie_images/buying.jpg";
-import sellingService from "@assets/susie_images/selling.jpg";
-import commercialService from "@assets/susie_images/commercial.jpg";
+// High-end stock assets for luxury feel
+import heroVideo from "@assets/generated_videos/luxury_real_estate_cinematic_tour.mp4";
+import mansionExterior from "@assets/stock_images/luxury_modern_mansio_d6dbb395.jpg";
+import livingRoom from "@assets/stock_images/luxury_living_room_i_5a41ac4c.jpg";
+import kitchen from "@assets/stock_images/luxury_kitchen_inter_aacfdbcc.jpg";
+import detailArch from "@assets/stock_images/modern_architecture__83fa55d0.jpg";
 
 // Map the JSON "image" keys to the actual imported assets
 const imageMap: Record<string, string> = {
-  // Generated fallbacks replaced with real images
-  "hero-luxury-home.jpg": susieHero,
-  "exterior-day.jpg": homeModern,
-  "living-room.jpg": buyingService, // Using real interior/service shots
-  "kitchen.jpg": sellingService, // Using real interior/service shots
+  // Brand assets
+  "susie-hero": mansionExterior, // Fallback for video
   
-  // Real assets keys (can be used in JSON)
-  "susie-profile": susieProfile,
-  "susie-hero": susieHero,
-  "home-modern": homeModern,
-  "service-buying": buyingService,
-  "service-selling": sellingService,
-  "service-commercial": commercialService,
+  // Feature images
+  "hero-luxury-home.jpg": mansionExterior,
+  "exterior-day.jpg": mansionExterior,
+  "living-room.jpg": livingRoom,
+  "kitchen.jpg": kitchen,
+  
+  // Service images
+  "home-modern": detailArch,
+  "service-buying": livingRoom,
+  "service-selling": kitchen,
+  "service-commercial": detailArch,
 };
 
-// Fallback image - use a high quality real image
-const fallbackImage = susieHero;
+// Fallback image
+const fallbackImage = mansionExterior;
 
 export function getImage(key: string): string {
   if (!key) return fallbackImage;
@@ -33,3 +33,7 @@ export function getImage(key: string): string {
   // Return mapped image or fallback
   return imageMap[key] || fallbackImage;
 }
+
+export const videos = {
+  hero: heroVideo
+};
