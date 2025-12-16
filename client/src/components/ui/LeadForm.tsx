@@ -88,7 +88,6 @@ export function LeadForm({
           name={formName} 
           method="POST" 
           data-netlify="true" 
-          netlify-honeypot="bot-field"
           onSubmit={form.handleSubmit(onSubmit)} 
           className="space-y-6"
         >
