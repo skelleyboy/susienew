@@ -87,7 +87,17 @@ export function Hero({
             className="bg-white text-primary hover:bg-white/90 rounded-none px-10 py-7 uppercase tracking-[0.2em] text-xs font-medium min-w-[220px] transition-all duration-300"
             asChild
           >
-            <Link href={primaryCtaLink}>{primaryCta}</Link>
+            {primaryCtaLink.startsWith('#') ? (
+              <a href={primaryCtaLink} onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector(primaryCtaLink);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>{primaryCta}</a>
+            ) : (
+              <Link href={primaryCtaLink}>{primaryCta}</Link>
+            )}
           </Button>
           <Button 
             size="lg" 
@@ -95,7 +105,17 @@ export function Hero({
             className="border-white text-white hover:bg-white hover:text-primary rounded-none px-10 py-7 uppercase tracking-[0.2em] text-xs font-medium min-w-[220px] backdrop-blur-sm transition-all duration-300"
             asChild
           >
-            <Link href={secondaryCtaLink}>{secondaryCta}</Link>
+            {secondaryCtaLink?.startsWith('#') ? (
+              <a href={secondaryCtaLink} onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector(secondaryCtaLink);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>{secondaryCta}</a>
+            ) : (
+              <Link href={secondaryCtaLink}>{secondaryCta}</Link>
+            )}
           </Button>
         </motion.div>
       </div>
