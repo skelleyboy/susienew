@@ -23,23 +23,13 @@ export default function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {BLOG_POSTS.map((post) => (
               <Link key={post.id} href={`/blog/${post.id}`} className="group cursor-pointer block h-full">
-                <Card className="h-full border-none shadow-none bg-transparent rounded-none overflow-hidden flex flex-col">
-                  <div className="relative aspect-[4/3] overflow-hidden mb-6 bg-gray-100">
-                    {/* Placeholder for images if they don't exist yet, using a colored div or the image if available */}
-                    <div className="absolute inset-0 bg-gray-200 group-hover:scale-105 transition-transform duration-700 ease-out">
-                       {/* If we had real images we would render them here. For now, a placeholder effect */}
-                       {/* Using a subtle gradient or pattern could also work */}
-                    </div>
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] uppercase tracking-widest font-medium">
-                      {post.category}
-                    </div>
-                  </div>
+                <Card className="h-full border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-white rounded-none flex flex-col p-6">
                   
                   <CardHeader className="p-0 mb-4 space-y-3">
                     <div className="flex items-center gap-3 text-xs text-muted-foreground font-light tracking-wide">
-                      <span>{post.date}</span>
+                      <span className="uppercase tracking-widest text-primary font-medium">{post.category}</span>
                       <span className="w-px h-3 bg-border" />
-                      <span>{post.readTime}</span>
+                      <span>{post.date}</span>
                     </div>
                     <h3 className="font-serif text-2xl leading-tight group-hover:text-primary transition-colors duration-300">
                       {post.title}

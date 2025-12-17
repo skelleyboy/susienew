@@ -6,7 +6,6 @@ export const BLOG_POSTS = [
     date: "June 12, 2025",
     category: "Market Trends",
     readTime: "5 min read",
-    image: "/images/blog/market-outlook.jpg",
     content: `
       <p>The luxury real estate market in Oakland County is undergoing a significant transformation as we move further into 2025. Discerning buyers in Birmingham, Bloomfield Hills, and Troy are no longer just looking for square footage; they are seeking a lifestyle that seamlessly integrates technology, sustainability, and wellness.</p>
       
@@ -32,7 +31,6 @@ export const BLOG_POSTS = [
     date: "May 28, 2025",
     category: "Seller's Guide",
     readTime: "7 min read",
-    image: "/images/blog/staging-guide.jpg",
     content: `
       <p>When selling a luxury estate in Macomb County, first impressions are everything. Staging is not merely about decorating; it is strategic marketing that highlights a home's best features while minimizing any potential drawbacks. In the high-end market, effective staging can be the difference between a property lingering on the market and a record-breaking sale.</p>
       
@@ -58,7 +56,6 @@ export const BLOG_POSTS = [
     date: "May 15, 2025",
     category: "Neighborhood Spotlight",
     readTime: "6 min read",
-    image: "/images/blog/hidden-gems.jpg",
     content: `
       <p>Rochester Hills is renowned for its upscale living, excellent schools, and vibrant downtown. While many are familiar with its prominent gated communities, there are hidden enclaves that offer a unique blend of privacy, prestige, and natural beauty. These "hidden gems" are quickly becoming the address of choice for Detroit's elite who value discretion and exclusivity.</p>
       
@@ -81,7 +78,6 @@ export const BLOG_POSTS = [
     date: "April 30, 2025",
     category: "Design & Architecture",
     readTime: "4 min read",
-    image: "/images/blog/modern-farmhouse.jpg",
     content: `
       <p>Drive through the new luxury developments in Oakland County, and one architectural style stands out: the Modern Farmhouse. Characterized by white board-and-batten siding, black window frames, and metal roofs, this aesthetic has captured the hearts of luxury buyers. But is it a fleeting trend, or is it here to stay?</p>
       
@@ -104,7 +100,6 @@ export const BLOG_POSTS = [
     date: "April 12, 2025",
     category: "Investment",
     readTime: "8 min read",
-    image: "/images/blog/waterfront-investing.jpg",
     content: `
       <p>Waterfront living is the ultimate dream for many in Michigan. Whether it's the expansive views of Lake St. Clair or the serene beauty of Oakland County's inland lakes like Orchard Lake or Cass Lake, waterfront properties are the crown jewels of real estate. However, purchasing and maintaining these estates requires specific knowledge and due diligence.</p>
       
