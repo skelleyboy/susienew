@@ -14,7 +14,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <h3 className="font-serif text-3xl mb-8 tracking-tight">Susie Sharak</h3>
             <p className="text-white/80 text-sm leading-relaxed mb-8 font-light max-w-xs">
-              Premier real estate agent serving Downriver & Oakland County with a focus on luxury service and exceptional results.
+              Premier real estate agent serving Oakland & Macomb County with a focus on luxury service and exceptional results.
             </p>
             <div className="flex gap-4">
               <a href={siteData.socials.instagram} target="_blank" rel="noreferrer" aria-label="Follow us on Instagram" className="text-white/80 hover:text-white transition-colors">
