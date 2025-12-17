@@ -13,6 +13,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+import { Link } from "wouter";
+import { Checkbox } from "@/components/ui/checkbox";
+
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
@@ -24,6 +27,9 @@ const formSchema = z.object({
     message: "Please enter a valid phone number.",
   }),
   message: z.string().optional(),
+  agreement: z.boolean().default(false).refine((val) => val === true, {
+    message: "You must agree to the terms to proceed.",
+  }),
   "bot-field": z.string().optional(),
 });
 
@@ -49,6 +55,7 @@ export function LeadForm({
       email: "",
       phone: "",
       message: "",
+      agreement: false,
     },
   });
 
@@ -161,6 +168,29 @@ export function LeadForm({
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name="agreement"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0 mt-6">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="mt-1"
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                  <FormLabel className="text-xs font-light leading-relaxed text-muted-foreground block">
+                    I agree to be contacted by Susie Sharak Realty via call, email, and text. To opt-out, you can reply 'stop' at any time or click the unsubscribe link in the emails. Message and data rates may apply. <Link href="/privacy" className="underline hover:text-primary">Privacy Policy</Link>
+                  </FormLabel>
+                  <FormMessage />
+                </div>
+              </FormItem>
+            )}
+          />
+
           <Button type="submit" className="w-full rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-[0.2em] text-xs font-medium h-14 mt-8 transition-all duration-300">
             {ctaText}
           </Button>
