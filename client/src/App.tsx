@@ -17,6 +17,8 @@ const About = lazy(() => import("@/pages/About"));
 const HomeValue = lazy(() => import("@/pages/HomeValue"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
 
 function Router() {
   return (
@@ -32,6 +34,8 @@ function Router() {
         <Route path="/home-value" component={HomeValue} />
         <Route path="/privacy" component={PrivacyPolicy} />
         <Route path="/terms" component={TermsOfService} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/:id" component={BlogPost} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

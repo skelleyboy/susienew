@@ -23,6 +23,7 @@ export function Navbar() {
     { href: "/buy", label: "Buy" },
     { href: "/sell", label: "Sell" },
     { href: "/communities", label: "Communities" },
+    { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];

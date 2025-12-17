@@ -35,6 +35,7 @@ export function Footer() {
               <Link href="/buy" className="hover:text-white transition-colors">Buy a Home</Link>
               <Link href="/sell" className="hover:text-white transition-colors">Sell Your Home</Link>
               <Link href="/communities" className="hover:text-white transition-colors">Featured Areas</Link>
+              <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
               <Link href="/home-value" className="hover:text-white transition-colors">Home Valuation</Link>
             </div>
           </div>
