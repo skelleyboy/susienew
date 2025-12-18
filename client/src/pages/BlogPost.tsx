@@ -8,7 +8,7 @@ import NotFound from "@/pages/not-found";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:id");
-  const id = params?.id ? parseInt(params.id) : null;
+  const id = params?.id;
   const post = BLOG_POSTS.find((p) => p.id === id);
 
   if (!post) {
