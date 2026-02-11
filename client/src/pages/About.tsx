@@ -38,10 +38,10 @@ export default function AboutPage() {
           
           <div>
             <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">About Susie</span>
-            <h2 className="font-serif text-4xl md:text-5xl mb-8 text-primary">Your Trusted Advisor</h2>
+            <h2 className="font-serif text-4xl md:text-5xl mb-8 text-primary">Your Trusted Advisor in Royal Oak & Troy</h2>
             <div className="space-y-6 text-muted-foreground font-light text-lg leading-relaxed">
               <p>
-                With a reputation built on trust, integrity, and exceptional results, Susie Sharak has established herself as a leading force in Metro Detroit's luxury real estate market.
+                With a reputation built on trust, integrity, and exceptional results, Susie Sharak has established herself as a leading force in the Royal Oak, Troy, and Sterling Heights real estate markets.
               </p>
               <p>
                 Susie's approach is rooted in a deep understanding that buying or selling a home is one of life's most significant decisions. She combines market intelligence with a personalized touch, ensuring every client feels supported, informed, and confident throughout the process.

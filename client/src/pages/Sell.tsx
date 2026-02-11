@@ -11,8 +11,8 @@ export default function SellPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero 
-        headline="Maximize Value"
-        subhead="Strategic marketing campaigns designed to showcase your property's unique story."
+        headline="Sell Your Home in Metro Detroit"
+        subhead="Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Ferndale. Get the highest price for your property."
         image={getImage("service-selling")}
         primaryCta="Get a Valuation"
         primaryCtaLink="/home-value"
@@ -26,7 +26,7 @@ export default function SellPage() {
             <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">The Strategy</span>
             <h2 className="font-serif text-4xl md:text-5xl mb-6 text-primary">Marketing Mastery</h2>
             <p className="text-muted-foreground text-lg font-light leading-relaxed mb-8">
-              Selling a luxury property requires more than just a listing. It demands a comprehensive marketing strategy that creates desire and commands premium value.
+              Selling a home in competitive markets like Royal Oak and Troy requires more than just a listing. It demands a comprehensive marketing strategy that creates desire and commands premium value.
             </p>
             <p className="text-muted-foreground text-lg font-light leading-relaxed">
               We leverage cutting edge technology, professional production, and our extensive global network to ensure your property is seen by the right qualified buyers.

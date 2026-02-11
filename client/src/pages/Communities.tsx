@@ -11,8 +11,8 @@ export default function CommunitiesPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero 
-        headline="Metro Detroit Communities"
-        subhead="Explore the diverse and vibrant neighborhoods we serve."
+        headline="Royal Oak, Troy & Sterling Heights Communities"
+        subhead="Explore the diverse and vibrant neighborhoods we serve across Oakland and Macomb County."
         image={getImage("area-1")}
         primaryCta="View Areas"
         primaryCtaLink="#areas"
