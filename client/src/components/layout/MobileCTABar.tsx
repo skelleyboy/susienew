@@ -10,10 +10,10 @@ export function MobileCTABar() {
         <Phone className="w-5 h-5" strokeWidth={1.5} />
         <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Call</span>
       </a>
-      <Link href="/contact" className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+      <a href={`sms:${siteData.phone}`} className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
         <Mail className="w-5 h-5" strokeWidth={1.5} />
-        <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Email</span>
-      </Link>
+        <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Text</span>
+      </a>
       <Link href="/home-value" className="flex flex-col items-center gap-1.5 text-white/80 hover:text-white transition-colors">
         <Home className="w-5 h-5" strokeWidth={1.5} />
         <span className="text-[9px] uppercase font-medium tracking-[0.2em]">Value</span>

@@ -57,8 +57,8 @@ export function Navbar() {
           </a>
           <Button 
             className={cn(
-              "px-8 uppercase tracking-[0.2em] text-[10px] font-semibold h-12 transition-all duration-300",
-              scrolled || !isHome ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"
+              "px-8 uppercase tracking-[0.2em] text-[10px] font-semibold h-12 transition-all duration-300 shadow-md",
+              scrolled || !isHome ? "bg-accent text-white hover:bg-accent/90" : "bg-white text-primary hover:bg-white/90"
             )}
             asChild
           >

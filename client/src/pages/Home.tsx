@@ -54,6 +54,39 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* High Conversion Home Value Hook */}
+      <Section background="muted" className="bg-[#f8f5f2]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
+          <div className="md:w-1/2 text-left">
+            <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-4">Sellers</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6 leading-tight">Curious what your home is worth?</h2>
+            <p className="text-muted-foreground text-lg font-light leading-relaxed mb-8">
+              Property values in Oakland & Macomb County have changed significantly. Get a free, professional valuation report delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-[0.2em] text-xs font-medium px-8 h-14 w-full sm:w-auto shadow-lg" asChild>
+                <Link href="/home-value">Get Instant Valuation</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white uppercase tracking-[0.2em] text-xs font-medium px-8 h-14 w-full sm:w-auto" asChild>
+                <a href={`tel:${siteData.phone}`}>Call {siteData.phone}</a>
+              </Button>
+            </div>
+          </div>
+          <div className="md:w-1/2 relative">
+             <div className="aspect-[4/3] bg-white p-4 shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500">
+               <img 
+                 src={getImage("home-modern")} 
+                 alt="Luxury Home Valuation" 
+                 className="w-full h-full object-cover"
+               />
+               <div className="absolute -bottom-6 -left-6 bg-accent text-white p-6 shadow-lg max-w-[200px] hidden md:block">
+                 <p className="font-serif text-2xl italic">"Sold for 15% over asking"</p>
+               </div>
+             </div>
+          </div>
+        </div>
+      </Section>
+
       {/* The Plan / Process Section */}
       <Section>
         <div className="text-center mb-24">
