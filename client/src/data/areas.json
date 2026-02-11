@@ -24,11 +24,27 @@
     "highlights": ["Nightlife", "Detroit Zoo", "Central Location"]
   },
   {
-    "id": "northville",
-    "name": "Northville",
-    "slug": "northville",
+    "id": "troy",
+    "name": "Troy",
+    "slug": "troy",
+    "image": "area-2",
+    "description": "The perfect blend of suburban luxury and metropolitan convenience. Top-rated schools and world-class shopping define this premier destination.",
+    "highlights": ["Top Rated Schools", "Somerset Collection", "Luxury Estates"]
+  },
+  {
+    "id": "sterling-heights",
+    "name": "Sterling Heights",
+    "slug": "sterling-heights",
     "image": "area-4",
-    "description": "Timeless elegance in a picturesque setting. Northville balances Victorian heritage with modern luxury, offering a tranquil retreat from the ordinary.",
-    "highlights": ["Historic Downtown", "Rolling Hills", "Victorian Homes"]
+    "description": "A community on the rise with diverse housing options and exceptional amenities. Experience the best of Macomb County living.",
+    "highlights": ["Dodge Park", "Utica Schools", "Family Friendly"]
+  },
+  {
+    "id": "ferndale",
+    "name": "Ferndale",
+    "slug": "ferndale",
+    "image": "area-1", 
+    "description": "Creative, diverse, and undeniably cool. Ferndale offers a unique character with its artsy downtown and charming historic bungalows.",
+    "highlights": ["Trendy Downtown", "Arts & Culture", "Walkable"]
   }
 ]

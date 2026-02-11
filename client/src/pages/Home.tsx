@@ -26,8 +26,8 @@ export default function HomePage() {
       
       {/* Hero - Eager loaded for LCP */}
       <Hero 
-        headline="Detroit Luxury Real Estate"
-        subhead="Top 5% Agent in Detroit Tri County Area. Your Stress Free Path to Your Dream Home."
+        headline="Sell Your House for Top Dollar in Metro Detroit"
+        subhead="The #1 Real Estate Agent serving Royal Oak, Troy, Sterling Heights, and Ferndale. We find home buyers when others can't."
         image={getImage("hero-luxury-home.jpg")}
         video={videos.hero}
         primaryCta="Start Your Journey"
@@ -61,7 +61,7 @@ export default function HomePage() {
             <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-4">Sellers</span>
             <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6 leading-tight">Curious what your home is worth?</h2>
             <p className="text-muted-foreground text-lg font-light leading-relaxed mb-8">
-              Property values in Oakland & Macomb County have changed significantly. Get a free, professional valuation report delivered to your inbox.
+              Property values in Royal Oak, Troy, and Sterling Heights have skyrocketed. Get a free, professional valuation report delivered to your inbox to see what your home is worth today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-[0.2em] text-xs font-medium px-8 h-14 w-full sm:w-auto shadow-lg" asChild>
