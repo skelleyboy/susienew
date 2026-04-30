@@ -6,8 +6,15 @@ import { LeadForm } from "@/components/ui/LeadForm";
 import { TestimonialSection } from "@/components/ui/TestimonialSection";
 import siteData from "@/data/site.json";
 import { getImage } from "@/lib/images";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function AboutPage() {
+  useSEO({
+    title: "About Susie Sharak | Top 5% Realtor in Oakland & Macomb County",
+    description: "Meet Susie Sharak, your trusted real estate advisor in Royal Oak, Troy, and Sterling Heights. Dedicated to elevating your real estate experience.",
+    canonicalUrl: "https://susiesharak.com/about"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

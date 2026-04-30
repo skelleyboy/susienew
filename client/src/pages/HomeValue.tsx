@@ -4,8 +4,15 @@ import { Hero } from "@/components/ui/Hero";
 import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
 import { getImage } from "@/lib/images";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function HomeValuePage() {
+  useSEO({
+    title: "What is your home worth? | Free Property Valuation",
+    description: "Receive a comprehensive market analysis and personalized home valuation for your property in Metro Detroit. Precision pricing backed by real time data.",
+    canonicalUrl: "https://susiesharak.com/home-value"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

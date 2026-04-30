@@ -4,8 +4,15 @@ import { Section } from "@/components/ui/Section";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Link } from "wouter";
 import { BLOG_POSTS } from "@/data/blog";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function Blog() {
+  useSEO({
+    title: "Luxury Real Estate Blog | Oakland & Macomb County Market Insights",
+    description: "Expert perspectives on luxury real estate, market trends, and lifestyle in Oakland and Macomb Counties.",
+    canonicalUrl: "https://susiesharak.com/blog"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

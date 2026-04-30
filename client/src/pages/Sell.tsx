@@ -5,8 +5,15 @@ import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
 import { getImage } from "@/lib/images";
 import { Camera, Globe, Users, TrendingUp } from "lucide-react";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function SellPage() {
+  useSEO({
+    title: "Sell Your Home in Metro Detroit | Expert Marketing Strategy",
+    description: "Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Ferndale. Get the highest price for your property with our marketing mastery.",
+    canonicalUrl: "https://susiesharak.com/sell"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

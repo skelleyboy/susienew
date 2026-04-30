@@ -4,8 +4,15 @@ import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
 import siteData from "@/data/site.json";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function Contact() {
+  useSEO({
+    title: "Contact Susie Sharak | Real Estate Agent in Metro Detroit",
+    description: "Contact Susie Sharak for a private consultation regarding the acquisition or sale of significant properties in Oakland and Macomb County.",
+    canonicalUrl: "https://susiesharak.com/contact"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

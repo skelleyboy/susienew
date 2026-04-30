@@ -7,8 +7,15 @@ import { LeadForm } from "@/components/ui/LeadForm";
 import listings from "@/data/listings.json";
 import { getImage } from "@/lib/images";
 import { Search, Key, Home } from "lucide-react";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function BuyPage() {
+  useSEO({
+    title: "Buy a Home in Metro Detroit | Access Exclusive Listings",
+    description: "Access exclusive off market properties and premier real estate listings in Royal Oak, Troy, Sterling Heights, and across Metro Detroit.",
+    canonicalUrl: "https://susiesharak.com/buy"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

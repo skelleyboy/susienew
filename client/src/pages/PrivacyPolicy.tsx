@@ -2,8 +2,15 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { Link } from "wouter";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function PrivacyPolicy() {
+  useSEO({
+    title: "Privacy Policy | Susie Sharak Real Estate",
+    description: "Privacy policy and terms of service for Susie Sharak Real Estate serving Oakland and Macomb County.",
+    canonicalUrl: "https://susiesharak.com/privacy"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

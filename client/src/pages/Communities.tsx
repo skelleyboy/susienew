@@ -5,8 +5,15 @@ import { Section } from "@/components/ui/Section";
 import { AreaCard } from "@/components/ui/AreaCard";
 import areas from "@/data/areas.json";
 import { getImage } from "@/lib/images";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function CommunitiesPage() {
+  useSEO({
+    title: "Metro Detroit Communities | Royal Oak, Troy & Sterling Heights",
+    description: "Explore the diverse and vibrant neighborhoods we serve across Oakland and Macomb County. Find the perfect backdrop for your life.",
+    canonicalUrl: "https://susiesharak.com/communities"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

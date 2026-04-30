@@ -1,8 +1,15 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function TermsOfService() {
+  useSEO({
+    title: "Terms of Service | Susie Sharak Real Estate",
+    description: "Terms of service for Susie Sharak Real Estate website.",
+    canonicalUrl: "https://susiesharak.com/terms"
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

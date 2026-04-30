@@ -14,12 +14,19 @@ import listings from "@/data/listings.json";
 import areas from "@/data/areas.json";
 import { getImage, videos } from "@/lib/images";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useSEO } from "@/hooks/use-seo";
 
 // Lazy load below-the-fold components
 const TestimonialSection = lazy(() => import("@/components/ui/TestimonialSection").then(module => ({ default: module.TestimonialSection })));
 const LeadForm = lazy(() => import("@/components/ui/LeadForm").then(module => ({ default: module.LeadForm })));
 
 export default function HomePage() {
+  useSEO({
+    title: "Susie Sharak | Top Real Estate Agent Royal Oak, Troy & Sterling Heights",
+    description: "Looking to sell your house in Royal Oak, Troy, or Sterling Heights? Susie Sharak is a top 5% Realtor helping home buyers and sellers in Oakland & Macomb County get the best results.",
+    canonicalUrl: "https://susiesharak.com"
+  });
+
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <Navbar />

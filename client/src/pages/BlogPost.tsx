@@ -5,6 +5,7 @@ import { useRoute, Link } from "wouter";
 import { BLOG_POSTS } from "@/data/blog";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import NotFound from "@/pages/not-found";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:id");
@@ -14,6 +15,12 @@ export default function BlogPost() {
   if (!post) {
     return <NotFound />;
   }
+
+  useSEO({
+    title: `${post.title} | Susie Sharak Real Estate Blog`,
+    description: post.excerpt,
+    canonicalUrl: `https://susiesharak.com/blog/${post.id}`
+  });
 
   return (
     <div className="min-h-screen bg-background">

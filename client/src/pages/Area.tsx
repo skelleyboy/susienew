@@ -7,6 +7,7 @@ import { LeadForm } from "@/components/ui/LeadForm";
 import areas from "@/data/areas.json";
 import { Check } from "lucide-react";
 import { getImage } from "@/lib/images";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function AreaPage() {
   const params = useParams();
@@ -14,6 +15,12 @@ export default function AreaPage() {
   const area = areas.find(a => a.slug === slug);
 
   if (!area) return <div>Area not found</div>;
+
+  useSEO({
+    title: `Living in ${area.name} | Real Estate Guide | Susie Sharak`,
+    description: `Discover the lifestyle, real estate, and community in ${area.name}. Explore the latest market trends and find your dream home in ${area.name}, Michigan.`,
+    canonicalUrl: `https://susiesharak.com/area/${slug}`
+  });
 
   return (
     <div className="min-h-screen bg-background">
