@@ -21,7 +21,7 @@
     "slug": "royal-oak",
     "image": "area-3",
     "description": "A dynamic fusion of modern energy and community spirit. Royal Oak presents a vibrant lifestyle for the discerning urbanite.",
-    "highlights": ["Nightlife", "Detroit Zoo", "Central Location"]
+    "highlights": ["Nightlife", "Local Zoo", "Central Location"]
   },
   {
     "id": "troy",
@@ -40,11 +40,11 @@
     "highlights": ["Dodge Park", "Utica Schools", "Family Friendly"]
   },
   {
-    "id": "ferndale",
-    "name": "Ferndale",
-    "slug": "ferndale",
-    "image": "area-1", 
-    "description": "Creative, diverse, and undeniably cool. Ferndale offers a unique character with its artsy downtown and charming historic bungalows.",
-    "highlights": ["Trendy Downtown", "Arts & Culture", "Walkable"]
+    "id": "washington-twp",
+    "name": "Washington Twp",
+    "slug": "washington-twp",
+    "image": "area-1",
+    "description": "A picturesque community blending rural charm with upscale living. Known for spacious lots, beautiful parks, and a peaceful atmosphere.",
+    "highlights": ["Spacious Lots", "Stony Creek Metropark", "Peaceful Living"]
   }
 ]

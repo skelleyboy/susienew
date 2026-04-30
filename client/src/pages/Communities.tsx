@@ -9,7 +9,7 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function CommunitiesPage() {
   useSEO({
-    title: "Metro Detroit Communities | Royal Oak, Troy & Sterling Heights",
+    title: "Communities | Royal Oak, Troy & Sterling Heights",
     description: "Explore the diverse and vibrant neighborhoods we serve across Oakland and Macomb County. Find the perfect backdrop for your life.",
     canonicalUrl: "https://susiesharak.com/communities"
   });

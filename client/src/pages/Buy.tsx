@@ -4,6 +4,7 @@ import { Hero } from "@/components/ui/Hero";
 import { Section } from "@/components/ui/Section";
 import { ListingCard } from "@/components/ui/ListingCard";
 import { LeadForm } from "@/components/ui/LeadForm";
+import { TestimonialSection } from "@/components/ui/TestimonialSection";
 import listings from "@/data/listings.json";
 import { getImage } from "@/lib/images";
 import { Search, Key, Home } from "lucide-react";
@@ -11,8 +12,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function BuyPage() {
   useSEO({
-    title: "Buy a Home in Metro Detroit | Access Exclusive Listings",
-    description: "Access exclusive off market properties and premier real estate listings in Royal Oak, Troy, Sterling Heights, and across Metro Detroit.",
+    title: "Buy a Home in Oakland & Macomb County | Access Exclusive Listings",
+    description: "Access exclusive off market properties and premier real estate listings in Royal Oak, Troy, Sterling Heights, Washington Twp, and across Oakland & Macomb County.",
     canonicalUrl: "https://susiesharak.com/buy"
   });
 
@@ -21,7 +22,7 @@ export default function BuyPage() {
       <Navbar />
       <Hero 
         headline="Find Your Sanctuary"
-        subhead="Access exclusive off market properties and premier listings in Metro Detroit."
+        subhead="Access exclusive off market properties and premier listings in Oakland & Macomb County."
         image={getImage("service-buying")}
         primaryCta="View Listings"
         primaryCtaLink="#listings"
@@ -81,6 +82,8 @@ export default function BuyPage() {
           ))}
         </div>
       </Section>
+
+      <TestimonialSection />
 
       <Section>
         <div className="max-w-xl mx-auto">

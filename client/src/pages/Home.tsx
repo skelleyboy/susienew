@@ -33,8 +33,8 @@ export default function HomePage() {
       
       {/* Hero - Eager loaded for LCP */}
       <Hero 
-        headline="Sell Your House for Top Dollar in Metro Detroit"
-        subhead="The #1 Real Estate Agent serving Royal Oak, Troy, Sterling Heights, and Ferndale. We find home buyers when others can't."
+        headline="Sell Your House for Top Dollar in Oakland & Macomb County"
+        subhead="The #1 Real Estate Agent serving Royal Oak, Troy, Sterling Heights, and Washington Twp. We find home buyers when others can't."
         image={getImage("hero-luxury-home.jpg")}
         video={videos.hero}
         primaryCta="Start Your Journey"
@@ -260,7 +260,7 @@ export default function HomePage() {
               Stop Guessing. Get the Blueprint.
             </h2>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              The market is shifting. Don't make a move without the latest intelligence. Download our exclusive guide to understand exactly what's happening in Metro Detroit luxury real estate and avoid costly mistakes.
+              The market is shifting. Don't make a move without the latest intelligence. Download our exclusive guide to understand exactly what's happening in Oakland & Macomb County luxury real estate and avoid costly mistakes.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">

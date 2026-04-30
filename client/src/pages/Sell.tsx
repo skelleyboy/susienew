@@ -3,14 +3,15 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
 import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
+import { TestimonialSection } from "@/components/ui/TestimonialSection";
 import { getImage } from "@/lib/images";
 import { Camera, Globe, Users, TrendingUp } from "lucide-react";
 import { useSEO } from "@/hooks/use-seo";
 
 export default function SellPage() {
   useSEO({
-    title: "Sell Your Home in Metro Detroit | Expert Marketing Strategy",
-    description: "Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Ferndale. Get the highest price for your property with our marketing mastery.",
+    title: "Sell Your Home in Oakland & Macomb County | Expert Marketing Strategy",
+    description: "Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Washington Twp. Get the highest price for your property with our marketing mastery.",
     canonicalUrl: "https://susiesharak.com/sell"
   });
 
@@ -18,8 +19,8 @@ export default function SellPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero 
-        headline="Sell Your Home in Metro Detroit"
-        subhead="Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Ferndale. Get the highest price for your property."
+        headline="Sell Your Home in Oakland & Macomb County"
+        subhead="Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Washington Twp. Get the highest price for your property."
         image={getImage("service-selling")}
         primaryCta="Get a Valuation"
         primaryCtaLink="/home-value"
@@ -63,6 +64,8 @@ export default function SellPage() {
           </div>
         </div>
       </Section>
+
+      <TestimonialSection />
 
       <Section background="muted" className="text-center">
         <div className="max-w-3xl mx-auto">

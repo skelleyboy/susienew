@@ -52,6 +52,13 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-6">
+          <Button 
+            variant="ghost"
+            className="text-[11px] font-medium uppercase tracking-[0.2em] hover:text-accent transition-colors"
+            asChild
+          >
+            <Link href="/home-value">What's My Home Worth?</Link>
+          </Button>
           <a href={`tel:${siteData.phone}`} className="text-[11px] font-medium tracking-[0.1em] hover:text-accent transition-colors">
             {siteData.phone}
           </a>

@@ -8,7 +8,7 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function Contact() {
   useSEO({
-    title: "Contact Susie Sharak | Real Estate Agent in Metro Detroit",
+    title: "Contact Susie Sharak | Real Estate Agent in Oakland & Macomb County",
     description: "Contact Susie Sharak for a private consultation regarding the acquisition or sale of significant properties in Oakland and Macomb County.",
     canonicalUrl: "https://susiesharak.com/contact"
   });
