@@ -54,7 +54,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <Button 
             variant="ghost"
-            className="text-[11px] font-medium uppercase tracking-[0.2em] hover:text-accent transition-colors"
+            className="text-[11px] font-medium uppercase tracking-[0.2em] hover:text-accent hover:bg-transparent transition-colors"
             asChild
           >
             <Link href="/home-value">What's My Home Worth?</Link>
