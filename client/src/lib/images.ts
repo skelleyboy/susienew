@@ -26,7 +26,7 @@ import villaInfinity from "@assets/stock_images/modern_luxury_villa__28a2d5ad.jp
 import frenchChateau from "@assets/stock_images/french_chateau_style_57515742.jpg";
 import classicColonial from "@assets/stock_images/classic_brick_coloni_68778e1b.jpg";
 
-import troyModernMansion from "@assets/stock_images/luxury_modern_mansio_a23d466e.jpg";
+import troyInterior from "@assets/stock_images/luxury_home_interior_a0b73e32.jpg";
 
 // Area Images
 import birminghamStreet from "@assets/stock_images/luxury_shopping_dist_961549e0.jpg";
@@ -63,7 +63,7 @@ const imageMap: Record<string, string> = {
   "area-2": bloomfieldEstate,
   "area-3": penthouseView, // Royal Oak - New High End Interior
   "area-4": northvilleVictorian,
-  "area-5": troyModernMansion, // Troy - Modern Mansion
+  "area-5": troyInterior, // Troy - Inside House
   "area-6": mansionGarden, // Washington Twp
 };
 
