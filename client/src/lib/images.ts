@@ -61,6 +61,8 @@ const imageMap: Record<string, string> = {
   "area-2": bloomfieldEstate,
   "area-3": penthouseView, // Royal Oak - New High End Interior
   "area-4": northvilleVictorian,
+  "area-5": classicExterior, // Troy - Classic Exterior
+  "area-6": mansionGarden, // Washington Twp
 };
 
 // Fallback image

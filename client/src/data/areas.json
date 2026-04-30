@@ -3,7 +3,7 @@
     "id": "birmingham",
     "name": "Birmingham",
     "slug": "birmingham",
-    "image": "area-1", 
+    "image": "area-1",
     "description": "Where cosmopolitan refinement meets historic elegance. Birmingham offers a walkable tapestry of premier culinary experiences, high end retail, and distinguished architecture.",
     "highlights": ["Walkable Downtown", "Top Rated Schools", "Luxury Condos"]
   },
@@ -27,7 +27,7 @@
     "id": "troy",
     "name": "Troy",
     "slug": "troy",
-    "image": "area-2",
+    "image": "area-5",
     "description": "The perfect blend of suburban luxury and metropolitan convenience. Top-rated schools and world-class shopping define this premier destination.",
     "highlights": ["Top Rated Schools", "Somerset Collection", "Luxury Estates"]
   },
@@ -43,7 +43,7 @@
     "id": "washington-twp",
     "name": "Washington Twp",
     "slug": "washington-twp",
-    "image": "area-1",
+    "image": "area-6",
     "description": "A picturesque community blending rural charm with upscale living. Known for spacious lots, beautiful parks, and a peaceful atmosphere.",
     "highlights": ["Spacious Lots", "Stony Creek Metropark", "Peaceful Living"]
   }
