@@ -31,6 +31,25 @@ export default function SellPage() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
+            <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">Our Markets</span>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6 text-primary">Where We Sell</h2>
+            <p className="text-muted-foreground text-lg font-light leading-relaxed mb-8">
+              We help clients sell houses in Troy, Royal Oak, Sterling Heights, Washington Twp, Birmingham, and Bloomfield Hills. Our hyper-local knowledge ensures your home is positioned perfectly within its specific market.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="/area/troy" className="text-sm border border-primary/20 px-4 py-2 hover:bg-primary hover:text-white transition-colors">Sell in Troy</a>
+              <a href="/area/royal-oak" className="text-sm border border-primary/20 px-4 py-2 hover:bg-primary hover:text-white transition-colors">Sell in Royal Oak</a>
+              <a href="/area/sterling-heights" className="text-sm border border-primary/20 px-4 py-2 hover:bg-primary hover:text-white transition-colors">Sell in Sterling Heights</a>
+              <a href="/area/washington-twp" className="text-sm border border-primary/20 px-4 py-2 hover:bg-primary hover:text-white transition-colors">Sell in Washington Twp</a>
+            </div>
+          </div>
+          <div>
+             <img src={getImage("living-room.jpg")} alt="Luxury living room" className="w-full h-auto shadow-2xl" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div>
             <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">The Strategy</span>
             <h2 className="font-serif text-4xl md:text-5xl mb-6 text-primary">Marketing Mastery</h2>
             <p className="text-muted-foreground text-lg font-light leading-relaxed mb-8">

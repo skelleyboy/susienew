@@ -17,8 +17,8 @@ export default function AreaPage() {
   if (!area) return <div>Area not found</div>;
 
   useSEO({
-    title: `Living in ${area.name} | Real Estate Guide | Susie Sharak`,
-    description: `Discover the lifestyle, real estate, and community in ${area.name}. Explore the latest market trends and find your dream home in ${area.name}, Michigan.`,
+    title: `Top Real Estate Agent in ${area.name}, MI | Buy & Sell Homes | Susie Sharak`,
+    description: `Looking to sell your house in ${area.name}, Michigan? Discover the lifestyle, real estate, and community. Explore market trends and find your dream home.`,
     canonicalUrl: `https://susiesharak.com/area/${slug}`
   });
 
@@ -41,6 +41,16 @@ export default function AreaPage() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               {/* Dummy text for length */}
               Celebrated for its uncompromising quality of life, {area.name} represents the pinnacle of Michigan living. A harmonious blend of heritage and modernity, it attracts those who seek not just a home, but a legacy.
+            </p>
+
+            <h3 className="font-serif text-2xl mb-4 mt-12">Selling Your Home in {area.name}</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              If you are looking to sell your house in {area.name} Michigan, you need a marketing strategy that highlights the unique value of your property. We leverage targeted digital campaigns, professional staging, and our extensive network to connect your home with qualified buyers.
+            </p>
+
+            <h3 className="font-serif text-2xl mb-4 mt-12">Home Buyers in {area.name}</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              For home buyers in {area.name}, the market offers a diverse range of properties from historic estates to modern new builds. We provide exclusive access to off-market listings and guide you through every step of the purchasing process.
             </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Distinguishing Features</h3>
@@ -86,9 +96,17 @@ export default function AreaPage() {
 
               <div className="bg-white border border-gray-100 p-8 shadow-lg">
                 <LeadForm 
-                  title={`Reside in ${area.name}`} 
-                  subtitle="Receive curated opportunities." 
-                  ctaText="Get Listings"
+                  title={`What's My ${area.name} Home Worth?`} 
+                  subtitle="Get a professional valuation of your property." 
+                  ctaText="Get Home Value"
+                  formName={`area-valuation-${area.slug}`}
+                />
+              </div>
+              <div className="bg-white border border-gray-100 p-8 shadow-lg mt-6">
+                <LeadForm 
+                  title={`Get ${area.name} Listings`} 
+                  subtitle="Receive curated opportunities directly to your inbox." 
+                  ctaText="View Listings"
                   formName={`area-inquiry-${area.slug}`}
                 />
               </div>
