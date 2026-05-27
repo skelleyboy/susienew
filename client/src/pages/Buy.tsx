@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
@@ -12,8 +13,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function BuyPage() {
   useSEO({
-    title: "Buy a Home in Oakland & Macomb County | Access Exclusive Listings",
-    description: "Access exclusive off market properties and premier real estate listings in Royal Oak, Troy, Sterling Heights, Washington Twp, and across Oakland & Macomb County.",
+    title: "Buy a Home in Oakland & Macomb County | Luxury Real Estate & Exclusive Listings",
+    description: "Access exclusive off-market properties and premier luxury real estate listings in Royal Oak, Troy, Sterling Heights, Shelby Township, Washington Twp, and across Oakland & Macomb County.",
     canonicalUrl: "https://susiesharak.com/buy"
   });
 

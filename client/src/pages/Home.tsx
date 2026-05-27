@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Suspense, lazy } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -22,8 +23,8 @@ const LeadForm = lazy(() => import("@/components/ui/LeadForm").then(module => ({
 
 export default function HomePage() {
   useSEO({
-    title: "Susie Sharak | Best Realtor in Royal Oak, Troy & Shelby Township",
-    description: "Looking for the best Realtor in Royal Oak, Troy, Shelby Township, and surrounding areas? Susie Sharak is a top 5% real estate agent helping buyers and sellers get top results.",
+    title: "Susie Sharak | Top Luxury Real Estate Agent in Royal Oak, Troy & Shelby Township",
+    description: "Looking for the best luxury Realtor in Royal Oak, Troy, Shelby Township, and Oakland & Macomb County? Susie Sharak is a top 5% real estate agent helping buyers and sellers get exceptional results.",
     canonicalUrl: "https://susiesharak.com"
   });
 
@@ -147,7 +148,7 @@ export default function HomePage() {
       {/* Buy / Sell Paths */}
       <Section className="bg-muted/20 px-0 md:px-0 py-0 md:py-0" container={false}>
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center">
+          <Link href="/buy" className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center cursor-pointer">
             <div className="absolute inset-0">
               <img 
                 src={getImage("service-buying")} 
@@ -165,12 +166,12 @@ export default function HomePage() {
               <p className="text-white/90 mb-10 leading-relaxed font-light text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                 Access off market properties and hidden gems before they reach the public eye.
               </p>
-              <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-[0.2em] text-xs font-medium px-8 py-6" asChild>
-                <Link href="/buy">Find Your Home</Link>
-              </Button>
+              <div className="mt-8 flex items-center justify-center text-white text-sm tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200">
+                Find Your Home <ArrowRight className="ml-2 w-4 h-4" />
+              </div>
             </div>
-          </div>
-          <div className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center">
+          </Link>
+          <Link href="/sell" className="group relative overflow-hidden h-[600px] md:h-[800px] flex flex-col justify-center items-center text-center cursor-pointer">
             <div className="absolute inset-0">
               <img 
                 src={getImage("service-selling")} 
@@ -188,11 +189,11 @@ export default function HomePage() {
               <p className="text-white/90 mb-10 leading-relaxed font-light text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                 Showcase your property with a narrative that commands attention and maximizes value.
               </p>
-              <Button variant="outline" className="rounded-none border-white text-white hover:bg-white hover:text-primary uppercase tracking-[0.2em] text-xs font-medium px-8 py-6" asChild>
-                <Link href="/sell">Sell Your Home</Link>
-              </Button>
+              <div className="mt-8 flex items-center justify-center text-white text-sm tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200">
+                Sell Your Home <ArrowRight className="ml-2 w-4 h-4" />
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </Section>
 
@@ -208,7 +209,7 @@ export default function HomePage() {
           </Button>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
           {areas.slice(0, 4).map((area) => (
             <AreaCard key={area.id} area={area} />
           ))}

@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
@@ -10,8 +11,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function SellPage() {
   useSEO({
-    title: "Sell Your Home in Oakland & Macomb County | Expert Marketing Strategy",
-    description: "Expert home selling strategies for Royal Oak, Troy, Sterling Heights, and Washington Twp. Get the highest price for your property with our marketing mastery.",
+    title: "Sell Your Home in Oakland & Macomb County | Luxury Real Estate Marketing Strategy",
+    description: "Expert home selling strategies for Royal Oak, Troy, Sterling Heights, Shelby Township, and Washington Twp. Get the highest price for your luxury property with our marketing mastery.",
     canonicalUrl: "https://susiesharak.com/sell"
   });
 

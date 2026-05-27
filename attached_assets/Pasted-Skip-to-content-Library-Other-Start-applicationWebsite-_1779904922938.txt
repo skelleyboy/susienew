@@ -1,0 +1,160 @@
+Skip to content
+
+Library
+Other
+Start applicationWebsite
+Images
+luxury home exterior bright day
+luxury home exterior bright dayImage
+You are currently viewing a preview of the main version.
+
+
+PrivacyTerms
+Page indexing
+Duplicate without user-selected canonical
+Last update: 5/21/26
+info
+Duplicate without user-selected canonical
+These pages aren't indexed or served on Google
+
+Validation Started
+Started: 5/27/26
+Affected pages
+4
+2/25/263/8/263/19/263/30/264/10/264/21/265/2/265/13/266420
+Examples
+
+URL
+
+Last crawled
+https://susiesharak.com/terms
+May 16, 2026
+https://susiesharak.com/blog/10-essential-tips-for-home-buyers-in-ferndale-michigan/
+May 9, 2026
+https://susiesharak.com/novi-real-estate/
+May 1, 2026
+https://susiesharak.com/blog/10-essential-tips-for-home-buyers-in-troy-michigan/
+Apr 12, 2026
+Rows per page:
+1-4 of 4
+Page indexing
+
+
+PrivacyTerms
+Page indexing
+Page with redirect
+Last update: 5/21/26
+info
+Page with redirect
+These pages aren't indexed or served on Google
+First detected: 5/2/26Done fixing?
+Affected pages
+2
+2/25/263/8/263/19/263/30/264/10/264/21/265/2/265/13/263210
+Examples
+
+URL
+
+Last crawled
+http://susiesharak.com/
+Apr 9, 2026
+https://susiesharak.com/dearborn-real-estate
+Nov 10, 2025
+Rows per page:
+1-2 of 2
+Page indexing
+
+
+PrivacyTerms
+Page indexing
+Discovered - currently not indexed
+Last update: 5/21/26
+info
+Discovered - currently not indexed
+These pages aren't indexed or served on Google
+First detected: 5/9/26Done fixing?
+Affected pages
+37
+2/25/263/8/263/19/263/30/264/10/264/21/265/2/265/13/264530150
+Examples
+
+URL
+
+Last crawled
+https://susiesharak.com/about
+N/A
+https://susiesharak.com/area/birmingham
+N/A
+https://susiesharak.com/area/bloomfield-hills
+N/A
+https://susiesharak.com/area/rochester-hills
+N/A
+https://susiesharak.com/area/royal-oak
+N/A
+https://susiesharak.com/area/sterling-heights
+N/A
+https://susiesharak.com/area/troy
+N/A
+https://susiesharak.com/area/washington-twp
+N/A
+https://susiesharak.com/blog
+N/A
+https://susiesharak.com/blog/10-essential-real-estate-tips-for-home-buyers-in-royal-oak-michigan
+N/A
+Rows per page:
+1-10 of 37
+Page indexing
+
+
+PrivacyTerms
+Page indexing
+Crawled - currently not indexed
+Last update: 5/21/26
+info
+Crawled - currently not indexed
+These pages aren't indexed or served on Google
+
+Validation Started
+Started: 5/27/26
+Affected pages
+16
+2/25/263/8/263/19/263/30/264/10/264/21/265/2/265/13/26241680
+Examples
+
+URL
+
+Last crawled
+https://susiesharak.com/blog/10-essential-real-estate-tips-for-home-buyers-in-royal-oak-michigan/
+Mar 21, 2026
+http://www.susiesharak.com/
+Mar 7, 2026
+https://susiesharak.com/southfield-real-estate/
+Mar 6, 2026
+https://susiesharak.com/detroit-real-estate/
+Mar 6, 2026
+https://www.susiesharak.com/
+Mar 4, 2026
+https://susiesharak.com/rochester-hills-real-estate/
+Mar 4, 2026
+https://susiesharak.com/farmington-hills-real-estate/
+Mar 4, 2026
+https://susiesharak.com/sterling-heights-real-estate/
+Mar 4, 2026
+https://susiesharak.com/blog/
+Feb 20, 2026
+https://susiesharak.com/shelby-township-real-estate/
+Feb 19, 2026
+Rows per page:
+1-10 of 16
+Page indexing
+12 minutes ago
+
+I see you've shared some Google Search Console indexing data for susiesharak.com. What would you like to do with this data?
+
+make updates to fix it
+12 minutes ago
+
+make sure alll pages work and rank
+9 minutes ago
+
+some of the pages dont load. make the black cards more like big text links too

@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { useParams } from "wouter";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -39,8 +40,7 @@ export default function AreaPage() {
               {area.description}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              {/* Dummy text for length */}
-              Celebrated for its uncompromising quality of life, {area.name} represents the pinnacle of Michigan living. A harmonious blend of heritage and modernity, it attracts those who seek not just a home, but a legacy.
+              Celebrated for its uncompromising quality of life, {area.name} represents the pinnacle of Michigan living. A harmonious blend of heritage and modernity, it attracts those who seek not just a home, but a legacy. From top-rated school districts to vibrant downtown areas and serene parks, {area.name} offers a robust lifestyle for professionals, families, and retirees alike.
             </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Selling Your Home in {area.name}</h3>
@@ -55,7 +55,7 @@ export default function AreaPage() {
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Distinguishing Features</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {area.highlights.map((highlight, idx) => (
+              {(area.highlights || []).map((highlight, idx) => (
                 <div key={idx} className="flex items-center gap-3 p-4 bg-muted/50">
                   <Check className="text-accent w-5 h-5" />
                   <span className="font-medium">{highlight}</span>

@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
@@ -8,8 +9,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function HomeValuePage() {
   useSEO({
-    title: "What is your home worth? | Free Property Valuation",
-    description: "Receive a comprehensive market analysis and personalized home valuation for your property in Oakland & Macomb County. Precision pricing backed by real time data.",
+    title: "What is your home worth? | Free Property Valuation in Oakland & Macomb County",
+    description: "Receive a comprehensive market analysis and personalized home valuation for your luxury property in Royal Oak, Troy, Shelby Township, Oakland & Macomb County. Precision pricing backed by real time data.",
     canonicalUrl: "https://susiesharak.com/home-value"
   });
 

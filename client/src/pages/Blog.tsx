@@ -1,3 +1,5 @@
+import { SEO } from "@/components/SEO";
+import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
@@ -8,8 +10,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function Blog() {
   useSEO({
-    title: "Luxury Real Estate Blog | Oakland & Macomb County Market Insights",
-    description: "Expert perspectives on luxury real estate, market trends, and lifestyle in Oakland and Macomb Counties.",
+    title: "Luxury Real Estate Blog | Royal Oak, Troy & Shelby Township Market Insights",
+    description: "Expert perspectives on luxury real estate, market trends, and lifestyle in Royal Oak, Troy, Shelby Township, Oakland and Macomb Counties.",
     canonicalUrl: "https://susiesharak.com/blog"
   });
 

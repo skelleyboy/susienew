@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
@@ -10,8 +11,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function AboutPage() {
   useSEO({
-    title: "About Susie Sharak | Best Realtor in Royal Oak, Troy & Shelby Township",
-    description: "Meet Susie Sharak, widely recognized as one of the best real estate agents in Royal Oak, Troy, and Shelby Township. Dedicated to elevating your real estate experience.",
+    title: "About Susie Sharak | Top Real Estate Agent in Royal Oak, Troy & Shelby Township",
+    description: "Meet Susie Sharak, widely recognized as one of the best luxury real estate agents in Royal Oak, Troy, Shelby Township, and Macomb County. Dedicated to elevating your real estate experience with proven results.",
     canonicalUrl: "https://susiesharak.com/about"
   });
 

@@ -1,4 +1,6 @@
-import { Link } from "wouter";
+const fs = require('fs');
+
+const content = `import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
@@ -17,7 +19,7 @@ interface AreaCardProps {
 
 export function AreaCard({ area, className }: AreaCardProps) {
   return (
-    <Link href={`/area/${area.slug}`}>
+    <Link href={\`/area/\${area.slug}\`}>
       <div className={cn(
         "group relative aspect-square sm:aspect-[4/5] overflow-hidden cursor-pointer bg-[#0f1115] hover:bg-black transition-colors duration-700 flex flex-col justify-center items-center text-center", 
         className
@@ -34,3 +36,7 @@ export function AreaCard({ area, className }: AreaCardProps) {
     </Link>
   );
 }
+`;
+
+fs.writeFileSync('client/src/components/ui/AreaCard.tsx', content);
+console.log('Updated AreaCard to be a big text link design');

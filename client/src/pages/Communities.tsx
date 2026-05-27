@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
@@ -9,8 +10,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function CommunitiesPage() {
   useSEO({
-    title: "Communities | Royal Oak, Troy & Sterling Heights",
-    description: "Explore the diverse and vibrant neighborhoods we serve across Oakland and Macomb County. Find the perfect backdrop for your life.",
+    title: "Communities | Royal Oak, Troy, Shelby Township & Sterling Heights Real Estate",
+    description: "Explore the diverse and vibrant neighborhoods we serve across Oakland and Macomb County including Royal Oak, Troy, Shelby Township, and more. Find the perfect luxury backdrop for your life.",
     canonicalUrl: "https://susiesharak.com/communities"
   });
 

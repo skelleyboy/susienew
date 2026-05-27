@@ -1,9 +1,11 @@
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Suspense, lazy } from "react";
+import { useCanonical } from "./hooks/useCanonical";
 import NotFound from "@/pages/not-found";
 
 // Lazy load pages
@@ -21,6 +23,7 @@ const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 
 function Router() {
+  useCanonical();
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="animate-pulse w-12 h-12 bg-gray-200 rounded-full"></div></div>}>
       <Switch>
@@ -45,10 +48,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
       <TooltipProvider>
         <Toaster />
         <Router />
       </TooltipProvider>
+          </HelmetProvider>
     </QueryClientProvider>
   );
 }

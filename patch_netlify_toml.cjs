@@ -1,4 +1,6 @@
-[build]
+const fs = require('fs');
+
+const tomlContent = `[build]
   command = "npm run build"
   publish = "dist/public"
 
@@ -41,3 +43,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
+`;
+
+fs.writeFileSync('netlify.toml', tomlContent);
+console.log('Updated netlify.toml with 301 redirects and trailing slash rules');
