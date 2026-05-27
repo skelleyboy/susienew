@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getImage } from "@/lib/images";
+import siteData from "@/data/site.json";
 
 interface HeroProps {
   headline: string;
@@ -66,21 +67,26 @@ export function Hero({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="hidden md:flex justify-center mb-8"
         >
-          <div className="bg-white/95 backdrop-blur-md pl-2 pr-4 sm:pr-6 py-2 sm:py-2 rounded-full flex flex-col sm:flex-row items-center gap-2 sm:gap-4 shadow-xl border border-white/20">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0 hidden sm:block">
+          <div className="bg-white/95 backdrop-blur-md pl-2 pr-4 py-2 rounded-full flex items-center gap-3 shadow-xl border border-white/20">
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
                <img src={getImage("susie-hero")} alt="Susie Sharak" className="w-full h-full object-cover object-top" />
             </div>
-            <img src="/zillow-logo.svg" alt="Zillow" className="h-6 sm:h-7 object-contain mb-1 sm:mb-0" />
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg key={star} className="w-4 h-4 sm:w-5 sm:h-5 text-[#006AFF] fill-current" viewBox="0 0 24 24">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
-              ))}
-            </div>
-            <div className="flex flex-col text-center sm:text-left border-t sm:border-t-0 sm:border-l pt-2 sm:pt-0 sm:pl-4 border-gray-200 w-full sm:w-auto">
-              <span className="text-[10px] sm:text-xs font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
-              <span className="text-[9px] sm:text-[10px] text-gray-600 font-medium tracking-wide">Top 5% Realtor</span>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 mb-1">
+                <img src="/zillow-logo.svg" alt="Zillow" className="h-4 object-contain" />
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg key={star} className="w-3 h-3 text-[#006AFF] fill-current" viewBox="0 0 24 24">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
+                <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+                <span className="text-[10px] text-gray-600 font-medium tracking-wide">Top 5% Realtor</span>
+              </div>
             </div>
           </div>
 
@@ -111,23 +117,28 @@ export function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex md:hidden justify-center mb-6"
+          className="flex md:hidden justify-center mb-6 px-4"
         >
-          <div className="bg-white/95 backdrop-blur-md pl-2 pr-4 sm:pr-6 py-2 sm:py-2 rounded-full flex flex-col sm:flex-row items-center gap-2 sm:gap-4 shadow-xl border border-white/20">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0 hidden sm:block">
-               <img src={getImage("susie-hero")} alt="Susie Sharak" className="w-full h-full object-cover object-top" />
+          <div className="bg-white/95 backdrop-blur-md p-3 rounded-2xl flex flex-col items-center shadow-xl border border-white/20 w-full max-w-[280px]">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
+                 <img src={getImage("susie-hero")} alt="Susie Sharak" className="w-full h-full object-cover object-top" />
+              </div>
+              <div className="flex flex-col items-start">
+                <img src="/zillow-logo.svg" alt="Zillow" className="h-4 object-contain mb-1" />
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg key={star} className="w-4 h-4 text-[#006AFF] fill-current" viewBox="0 0 24 24">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
             </div>
-            <img src="/zillow-logo.svg" alt="Zillow" className="h-6 sm:h-7 object-contain mb-1 sm:mb-0" />
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg key={star} className="w-4 h-4 sm:w-5 sm:h-5 text-[#006AFF] fill-current" viewBox="0 0 24 24">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
-              ))}
-            </div>
-            <div className="flex flex-col text-center sm:text-left border-t sm:border-t-0 sm:border-l pt-2 sm:pt-0 sm:pl-4 border-gray-200 w-full sm:w-auto">
-              <span className="text-[10px] sm:text-xs font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
-              <span className="text-[9px] sm:text-[10px] text-gray-600 font-medium tracking-wide">Top 5% Realtor</span>
+            <div className="flex items-center justify-center gap-2 border-t border-gray-200 pt-2 w-full">
+              <span className="text-[10px] font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
+              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
+              <span className="text-[10px] text-gray-600 font-medium tracking-wide">Top 5%</span>
             </div>
           </div>
 
@@ -137,7 +148,7 @@ export function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="hidden"
+          className="hidden md:flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Button 
             size="lg" 
@@ -174,6 +185,10 @@ export function Hero({
               <Link href={secondaryCtaLink}>{secondaryCta}</Link>
             )}
           </Button>
+          <div className="flex items-center gap-2 mt-6 md:mt-0 md:ml-4 text-white/90">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href={`tel:${siteData.phone}`} className="font-medium tracking-wider hover:text-white transition-colors">{siteData.phone}</a>
+          </div>
         </motion.div>
       </div>
     </section>
