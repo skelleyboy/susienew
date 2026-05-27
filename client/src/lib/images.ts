@@ -27,6 +27,7 @@ import frenchChateau from "@assets/stock_images/french_chateau_style_57515742.jp
 import classicColonial from "@assets/stock_images/classic_brick_coloni_68778e1b.jpg";
 
 import troyInterior from "@assets/stock_images/luxury_home_interior_a0b73e32.jpg";
+import shelbyExterior from "@assets/stock_images/shelby_township_exterior.jpg";
 
 // Area Images
 import birminghamStreet from "@assets/stock_images/luxury_shopping_dist_961549e0.jpg";
@@ -65,6 +66,7 @@ const imageMap: Record<string, string> = {
   "area-4": northvilleVictorian,
   "area-5": troyInterior, // Troy - Inside House
   "area-6": mansionGarden, // Washington Twp
+  "area-7": shelbyExterior, // Shelby Township
 };
 
 // Fallback image

@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "uWsn9q5oO9M-vYyRs_okQ"
+uri = "file://client/src/assets/stock_images/shelby_township_exterior.jpg"
+type = "image"
+title = "luxury home exterior bright day"

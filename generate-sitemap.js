@@ -28,7 +28,8 @@ const staticRoutes = [
   '/area/birmingham',
   '/area/bloomfield-hills',
   '/area/rochester-hills',
-  '/area/washington-twp'
+  '/area/washington-twp',
+  '/area/shelby-township'
 ];
 
 const baseUrl = 'https://susiesharak.com';

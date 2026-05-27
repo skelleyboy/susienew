@@ -34,7 +34,7 @@ export default function HomePage() {
       {/* Hero - Eager loaded for LCP */}
       <Hero 
         headline="Sell Your House for Top Dollar in Oakland & Macomb County"
-        subhead="The #1 Real Estate Agent serving Royal Oak, Troy, Sterling Heights, and Washington Twp. We find home buyers when others can't."
+        subhead="The #1 Real Estate Agent serving Royal Oak, Troy, Sterling Heights, Washington Twp, and Shelby Township. We find home buyers when others can't."
         image={getImage("hero-luxury-home.jpg")}
         video={videos.hero}
         primaryCta="Start Your Journey"

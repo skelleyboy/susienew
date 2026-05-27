@@ -46,5 +46,13 @@
     "image": "area-6",
     "description": "A picturesque community blending rural charm with upscale living. Known for spacious lots, beautiful parks, and a peaceful atmosphere.",
     "highlights": ["Spacious Lots", "Stony Creek Metropark", "Peaceful Living"]
+  },
+  {
+    "id": "shelby-township",
+    "name": "Shelby Township",
+    "slug": "shelby-township",
+    "image": "area-7",
+    "description": "A premier community offering a perfect balance of luxury living and outdoor recreation. Known for its beautiful parks, excellent schools, and stunning new developments.",
+    "highlights": ["Stony Creek Metropark", "Cherry Creek Golf Club", "Top Rated Schools"]
   }
 ]
