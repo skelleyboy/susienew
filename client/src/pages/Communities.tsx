@@ -35,7 +35,7 @@ export default function CommunitiesPage() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {areas.map((area) => (
-            <AreaCard key={area.id} area={area} />
+            <AreaCard key={area.slug} area={area as any} />
           ))}
         </div>
       </Section>
