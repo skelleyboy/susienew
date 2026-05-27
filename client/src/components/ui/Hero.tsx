@@ -130,7 +130,7 @@ export function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-6 justify-center"
+          className="hidden"
         >
           <Button 
             size="lg" 
