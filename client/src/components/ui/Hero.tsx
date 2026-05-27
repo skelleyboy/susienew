@@ -26,7 +26,7 @@ export function Hero({
   secondaryCtaLink = "/home-value"
 }: HeroProps) {
   return (
-    <section className="relative min-h-[100svh] md:min-h-[600px] md:h-[90vh] w-full overflow-hidden flex items-center justify-center text-center pt-32 pb-24 md:pt-0 md:pb-0">
+    <section className="relative min-h-[100svh] md:min-h-[600px] md:h-[90vh] w-full overflow-hidden flex items-center justify-center text-center pt-20 pb-24 md:pt-0 md:pb-0">
       {/* Background Image/Video with Overlay */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         {video ? (
