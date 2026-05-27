@@ -40,17 +40,17 @@ export default function AreaPage() {
               {area.description}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Celebrated for its uncompromising quality of life, {area.name} represents the pinnacle of Michigan living. A harmonious blend of heritage and modernity, it attracts those who seek not just a home, but a legacy. From top-rated school districts to vibrant downtown areas and serene parks, {area.name} offers a robust lifestyle for professionals, families, and retirees alike.
+              {area.longDescription || `Celebrated for its uncompromising quality of life, ${area.name} represents the pinnacle of Michigan living. A harmonious blend of heritage and modernity, it attracts those who seek not just a home, but a legacy. From top-rated school districts to vibrant downtown areas and serene parks, ${area.name} offers a robust lifestyle for professionals, families, and retirees alike.`}
             </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Selling Your Home in {area.name}</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              If you are looking to sell your house in {area.name} Michigan, you need a marketing strategy that highlights the unique value of your property. We leverage targeted digital campaigns, professional staging, and our extensive network to connect your home with qualified buyers.
+              {area.sellingTips || `If you are looking to sell your house in ${area.name} Michigan, you need a marketing strategy that highlights the unique value of your property. We leverage targeted digital campaigns, professional staging, and our extensive network to connect your home with qualified buyers.`}
             </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Home Buyers in {area.name}</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              For home buyers in {area.name}, the market offers a diverse range of properties from historic estates to modern new builds. We provide exclusive access to off-market listings and guide you through every step of the purchasing process.
+              {area.buyingTips || `For home buyers in ${area.name}, the market offers a diverse range of properties from historic estates to modern new builds. We provide exclusive access to off-market listings and guide you through every step of the purchasing process.`}
             </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Distinguishing Features</h3>
@@ -61,14 +61,6 @@ export default function AreaPage() {
                   <span className="font-medium">{highlight}</span>
                 </div>
               ))}
-              <div className="flex items-center gap-3 p-4 bg-muted/50">
-                <Check className="text-accent w-5 h-5" />
-                <span className="font-medium">Strong Community</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-muted/50">
-                <Check className="text-accent w-5 h-5" />
-                <span className="font-medium">Excellent Dining</span>
-              </div>
             </div>
           </div>
           
