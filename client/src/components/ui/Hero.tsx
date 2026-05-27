@@ -26,7 +26,7 @@ export function Hero({
   secondaryCtaLink = "/home-value"
 }: HeroProps) {
   return (
-    <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden flex items-center justify-center text-center pt-24 md:pt-0">
+    <section className="relative min-h-[100svh] md:min-h-[600px] md:h-[90vh] w-full overflow-hidden flex items-center justify-center text-center pt-32 pb-24 md:pt-0 md:pb-0">
       {/* Background Image/Video with Overlay */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         {video ? (
@@ -63,7 +63,7 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         >
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight drop-shadow-lg font-light tracking-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 sm:mb-8 leading-tight drop-shadow-lg font-light tracking-tight">
             {headline}
           </h1>
         </motion.div>
@@ -73,7 +73,7 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          <p className="font-sans text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+          <p className="font-sans text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
             {subhead}
           </p>
         </motion.div>
@@ -82,7 +82,7 @@ export function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-6 sm:mb-8"
         >
           <div className="bg-white/95 backdrop-blur-md pl-2 pr-3 sm:pr-4 py-1.5 sm:py-2 rounded-full flex items-center gap-2 sm:gap-3 shadow-xl border border-white/20 scale-90 sm:scale-100 origin-center">
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
@@ -112,11 +112,11 @@ export function Hero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4"
         >
           <Button 
             size="lg" 
-            className="bg-white text-primary hover:bg-white/90 rounded-none px-10 py-7 uppercase tracking-[0.2em] text-xs font-medium min-w-[220px] transition-all duration-300"
+            className="bg-white text-primary hover:bg-white/90 rounded-none px-6 py-5 sm:px-10 sm:py-7 uppercase tracking-[0.2em] text-xs font-medium w-full sm:w-auto sm:min-w-[220px] transition-all duration-300"
             asChild
           >
             {primaryCtaLink.startsWith('#') ? (
@@ -134,7 +134,7 @@ export function Hero({
           <Button 
             size="lg" 
             variant="outline"
-            className="border-white text-white hover:bg-white hover:text-primary rounded-none px-10 py-7 uppercase tracking-[0.2em] text-xs font-medium min-w-[220px] backdrop-blur-sm transition-all duration-300"
+            className="border-white text-white hover:bg-white hover:text-primary rounded-none px-6 py-5 sm:px-10 sm:py-7 uppercase tracking-[0.2em] text-xs font-medium w-full sm:w-auto sm:min-w-[220px] backdrop-blur-sm transition-all duration-300"
             asChild
           >
             {secondaryCtaLink?.startsWith('#') ? (
@@ -149,7 +149,7 @@ export function Hero({
               <Link href={secondaryCtaLink}>{secondaryCta}</Link>
             )}
           </Button>
-          <div className="flex items-center gap-2 mt-6 md:mt-0 md:ml-4 text-white/90">
+          <div className="flex items-center gap-2 mt-4 md:mt-0 md:ml-4 text-white/90">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <a href={`tel:${siteData.phone}`} className="font-medium tracking-wider hover:text-white transition-colors">{siteData.phone}</a>
           </div>
