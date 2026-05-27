@@ -58,16 +58,33 @@ export function Hero({
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-4xl mt-16 md:mt-0">
-        
-
-          
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex justify-center mb-6 md:mb-8"
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         >
-          <div className="bg-white/95 backdrop-blur-md pl-2 pr-4 py-2 rounded-full flex items-center gap-3 shadow-xl border border-white/20">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight drop-shadow-lg font-light tracking-tight">
+            {headline}
+          </h1>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
+          <p className="font-sans text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+            {subhead}
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+          className="flex justify-center mb-8"
+        >
+          <div className="bg-white/95 backdrop-blur-md pl-2 pr-3 sm:pr-4 py-1.5 sm:py-2 rounded-full flex items-center gap-2 sm:gap-3 shadow-xl border border-white/20 scale-90 sm:scale-100 origin-center">
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
                <img src={getImage("susie-hero")} alt="Susie Sharak" className="w-full h-full object-cover object-top" />
             </div>
@@ -89,29 +106,7 @@ export function Hero({
               </div>
             </div>
           </div>
-
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-        >
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight drop-shadow-lg font-light tracking-tight">
-            {headline}
-          </h1>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-        >
-          <p className="font-sans text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
-            {subhead}
-          </p>
-        </motion.div>
-        
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
