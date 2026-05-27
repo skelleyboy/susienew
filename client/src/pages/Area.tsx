@@ -73,15 +73,15 @@ export default function AreaPage() {
                 <div className="space-y-6">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-white/60">Median Price</p>
-                    <p className="font-serif text-2xl">$450,000</p>
+                    <p className="font-serif text-2xl">{area.marketStats?.avgPrice || "$450,000"}</p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-white/60">Avg. Days on Market</p>
-                    <p className="font-serif text-2xl">12 Days</p>
+                    <p className="font-serif text-2xl">{area.marketStats?.daysOnMarket || "12"} Days</p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-white/60">Active Listings</p>
-                    <p className="font-serif text-2xl">45</p>
+                    <p className="font-serif text-2xl">{area.marketStats?.homesSold || "45"}</p>
                   </div>
                 </div>
               </div>
