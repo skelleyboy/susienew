@@ -17,8 +17,8 @@ export default function AreaPage() {
   if (!area) return <div>Area not found</div>;
 
   useSEO({
-    title: `Top Real Estate Agent in ${area.name}, MI | Buy & Sell Homes | Susie Sharak`,
-    description: `Looking to sell your house in ${area.name}, Michigan? Discover the lifestyle, real estate, and community. Explore market trends and find your dream home.`,
+    title: `Best Realtor in ${area.name}, MI | Top Real Estate Agent | Susie Sharak`,
+    description: `Looking for the best real estate agent to buy or sell a house in ${area.name}, Michigan? Susie Sharak offers top-tier real estate services, market trends, and luxury homes.`,
     canonicalUrl: `https://susiesharak.com/area/${slug}`
   });
 

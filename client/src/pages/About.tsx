@@ -10,8 +10,8 @@ import { useSEO } from "@/hooks/use-seo";
 
 export default function AboutPage() {
   useSEO({
-    title: "About Susie Sharak | Top 5% Realtor in Oakland & Macomb County",
-    description: "Meet Susie Sharak, your trusted real estate advisor in Royal Oak, Troy, and Sterling Heights. Dedicated to elevating your real estate experience.",
+    title: "About Susie Sharak | Best Realtor in Royal Oak, Troy & Shelby Township",
+    description: "Meet Susie Sharak, widely recognized as one of the best real estate agents in Royal Oak, Troy, and Shelby Township. Dedicated to elevating your real estate experience.",
     canonicalUrl: "https://susiesharak.com/about"
   });
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
           
           <div>
             <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">About Susie</span>
-            <h2 className="font-serif text-4xl md:text-5xl mb-8 text-primary">Your Trusted Advisor in Royal Oak & Troy</h2>
+            <h2 className="font-serif text-4xl md:text-5xl mb-8 text-primary">The Best Real Estate Agent in Royal Oak, Troy & Shelby Township</h2>
             <div className="space-y-6 text-muted-foreground font-light text-lg leading-relaxed">
               <p>
                 With a reputation built on trust, integrity, and exceptional results, Susie Sharak has established herself as a leading force in the Royal Oak, Troy, and Sterling Heights real estate markets.

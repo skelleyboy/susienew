@@ -1,20 +1,128 @@
 [
   {
-    "id": 1,
-    "name": "Client",
-    "location": "Commerce Township, MI",
-    "text": "Susie was essential in finding our new home. She worked SO HARD and was so in tune with what we wanted that she ended up finding us the perfect house. I can't thank her (and her team) enough for finding us our forever home."
-  },
-  {
-    "id": 2,
-    "name": "Client",
-    "location": "Novi, MI",
-    "text": "Susie was great to work with. She was knowledgeable about the market and we appreciated her communication throughout the selling and buying process. Susie had our best interest at heart. Susie and her team are Golden."
-  },
-  {
     "id": 3,
-    "name": "Client",
-    "location": "Farmington Hills, MI",
-    "text": "I've been in the market on and off to find a house for almost 2 years. Susie made sure she checked in frequently. Finally we found this property and it was a breeze working with her to close. Will definitely recommend her."
+    "name": "zuser20180531104005541",
+    "location": "Helped me rent a Single Family home in Warren, MI",
+    "date": "7/24/2024",
+    "text": "Great communication/responsiveness, helped close deal within timely matter! Process was very easy especially with the time frame I was looking for. Knowledgeable of the area/neighborhood as well."
+  },
+  {
+    "id": 4,
+    "name": "m2bmmpjf9h",
+    "location": "Helped me rent a Vacant Land home in Warren, MI",
+    "date": "7/23/2024",
+    "text": "I had an exceptional experience with Joe. I needed to move states and rent a home with a limited amount of time. One of my closest friends recommended Joe. Let me tell you, He did not disappoint!! He guided me through every step of the home renting process."
+  },
+  {
+    "id": 7,
+    "name": "Julette Lynn Lymon",
+    "location": "Bought and sold a Condo home in Novi, MI",
+    "date": "6/12/2024",
+    "text": "Susie was great to work with. She was knowledgeable about the market and we appreciated her communication throughout the selling and buying process. Susie had our best interest at heart. It was a pleasure to work with her as we sold our property and purchased a new home. Susie and her team are Golden."
+  },
+  {
+    "id": 8,
+    "name": "Hayley Bauer",
+    "location": "Bought and sold a Single Family home in Highland park, MI",
+    "date": "6/12/2024",
+    "text": "Where do I begin? From start to finish Susie has made the house selling and buying process nearly stress free. She makes things easy to understand and protects her clients. She truly cares and it shows. Susie was able to land us our dream home at a fair price and made sure we were protected in the process. As someone who has worked with other relators, Susie's expertise is unmatched. She is the only relator I would send my loved ones to."
+  },
+  {
+    "id": 9,
+    "name": "SkelleyDaniels",
+    "location": "Bought and sold a Single Family home in Ferndale, MI",
+    "date": "6/12/2024",
+    "text": "Susie is a miracle worker. She helped me sell my first home in Ferndale during a very difficult time. She was extremenly knowledgable, patient and supportive every step of the way. She helped me get through everything and went above and beyond for me. We tackled court issues, foundation issues, electric issues. You name it. She helped me with advice, contractors and was FAST! Things were looking bad for a second and she saved my life!"
+  },
+  {
+    "id": 10,
+    "name": "Shreyas Raju",
+    "location": "Bought a Condo home in Farmington hills, MI",
+    "date": "9/17/2023",
+    "text": "I've been in the market on and off to find a house since the past 2 years (almost). Susie made sure she checked in frequently and update me on what's going in the market. Finally we found this property and it was a breeze working with her to close. Will definitely recommend her to anyone who's in the hunt."
+  },
+  {
+    "id": 11,
+    "name": "parrmich",
+    "location": "Bought and sold a Single Family home in Commerce township, MI",
+    "date": "8/22/2023",
+    "text": "Susie was essential in finding our new home. She worked SO HARD and was so in-tune with what we wanted that she ended up finding us the perfect house. I can't thank her (and her team) enough for finding us out forever home."
+  },
+  {
+    "id": 12,
+    "name": "kellyaliceparr",
+    "location": "Bought and sold a Single Family home in Duvall-edison, Dearborn, MI",
+    "date": "8/22/2023",
+    "text": "We loved having Susie help us with our home buying process. As a young family with a toddler and a newborn, she took care of everything, was incredibly flexible, and really understood the needs of our family. She would even hold my infant son so we could focus on looking at the house during a tour without having to juggle him on my hip."
+  },
+  {
+    "id": 13,
+    "name": "Micah Ragland",
+    "location": "Bought a Single Family home in Grosse pointe park, MI",
+    "date": "3/3/2022",
+    "text": "Susie played a pivotal role in helping my family and I purchase our recent home in Grosse Pointe Park, MI. She is very thorough in her analysis, politely candid with guidance she provides and was a staunch advocate in advancing the best interests of her clients (my family) throughout the entire home purchasing process. My wife and I had an instantaneous connection with Susie largely because she is kind, extremely responsive and has awesome attention to detail."
+  },
+  {
+    "id": 14,
+    "name": "LilianM.Franco",
+    "location": "Bought a Condo home in Rochester hills, MI",
+    "date": "3/2/2022",
+    "text": "Susie is hardworking ,honest and very knowledgeable in the area she represents . I feel so comfortable when she does her showings , very professional , patient and friendly. She’s honest when you ask her opinion about the property we like. She always after our welfare. Satisfaction is her goal."
+  },
+  {
+    "id": 15,
+    "name": "norakashat",
+    "location": "Sold a Single Family home in Northeast corner, Auburn hills, MI",
+    "date": "3/2/2022",
+    "text": "Susie is the realtor you’re looking for!!! She has a heart of gold! She will listen to all of your wants and expectations. I had a great experience with her. My house sold with only 3 days on the market and we got above asking! She was also able to find me a new home that I am in love with now! I will never use anyone else for my real estate needs."
+  },
+  {
+    "id": 16,
+    "name": "zuser20170310164927021",
+    "location": "Bought and sold a Apartment home in Clinton township, MI",
+    "date": "3/2/2022",
+    "text": "Susie was so patient with us. She went above and beyond to find us the Condo we’re looking for. she’s very honest and she’d point to any problem she sees in the property . That gave me confidence that she’s not after making a quick sale. If you’re looking for an honest hearted real estate agent, Susie is the one."
+  },
+  {
+    "id": 17,
+    "name": "bigkelve313det",
+    "location": "Bought a Single Family home in Canton, MI",
+    "date": "8/21/2021",
+    "text": "Susie is absolutely wonderful to work with. It’s like having a friend on the “inside” that is working for you. She really care about her clients. Her professionalism, knowledge, honesty, integrity and hard work ethics are very much appreciated and respected. She is detail oriented, honest, good with people and made my home buying experience enjoyable."
+  },
+  {
+    "id": 18,
+    "name": "wvbnet",
+    "location": "Bought a Single Family home in Sterling heights, MI",
+    "date": "5/3/2021",
+    "text": "Zillow is the best site for buying or selling a house and Susie Sharak is a shining star. Zillow will give you all the details you need about the house you wish to buy... Also, Zillow, please recognize Ms. Susie Sharak for outstanding customer service. She has amazing sales skills. If you are a buyer and you find a house for sale that you like, I highly recommend you contact her."
+  },
+  {
+    "id": 19,
+    "name": "mjdalal",
+    "location": "Bought a Single Family home in Sterling heights, MI",
+    "date": "5/3/2021",
+    "text": "Susie Sharak she is an amazing exceptional hard worker, she goes above and beyond. She really is a team player! Susie is a positive spirited person as well as very organized. She has an honest heart and cared for her customers. She is really dedicated and professional in her work. I would recommend Susie Sharak to anyone, thank you Susie for your time and dedication in helping my family!"
+  },
+  {
+    "id": 20,
+    "name": "bluecantenelli",
+    "location": "Bought and sold a Single Family home in Royal oak, MI",
+    "date": "3/15/2021",
+    "text": "We loved working with susie! She helped us buy and sell ??????????She also referred us to photographers and inspectors. One stop shopping honestly! She’s very knowledgeable about the Royal Oak area and will go above and beyond to get you in to your new home and sell your old home!"
+  },
+  {
+    "id": 21,
+    "name": "user76236607",
+    "location": "Sold a home in MI 48067",
+    "date": "3/15/2021",
+    "text": "Susie was absolutely amazing from beginning to end! She made sure we understood the process and answered every single question I had even if it was 1000 times! When I first saw the house I told her this is my house and to make sure know one else gets it! The next day our offer was accepted and we closed a week later! We are now living in our forever home! Susie made it happen! Selling our old home, it sold on the first day of showing!"
+  },
+  {
+    "id": 22,
+    "name": "bigguy3231",
+    "location": "Bought a Single Family home in Warrendale, Detroit, MI",
+    "date": "3/9/2021",
+    "text": "Susie is the best agent I've dealt with. She goes above and beyond to ensure I was happy and was on top of the task obtaining any information needed for properties being sold."
   }
 ]

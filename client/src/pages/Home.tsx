@@ -22,8 +22,8 @@ const LeadForm = lazy(() => import("@/components/ui/LeadForm").then(module => ({
 
 export default function HomePage() {
   useSEO({
-    title: "Susie Sharak | Top Real Estate Agent Royal Oak, Troy & Sterling Heights",
-    description: "Looking to sell your house in Royal Oak, Troy, or Sterling Heights? Susie Sharak is a top 5% Realtor helping home buyers and sellers in Oakland & Macomb County get the best results.",
+    title: "Susie Sharak | Best Realtor in Royal Oak, Troy & Shelby Township",
+    description: "Looking for the best Realtor in Royal Oak, Troy, Shelby Township, and surrounding areas? Susie Sharak is a top 5% real estate agent helping buyers and sellers get top results.",
     canonicalUrl: "https://susiesharak.com"
   });
 
@@ -33,8 +33,8 @@ export default function HomePage() {
       
       {/* Hero - Eager loaded for LCP */}
       <Hero 
-        headline="Sell Your House for Top Dollar in Oakland & Macomb County"
-        subhead="The #1 Real Estate Agent serving Royal Oak, Troy, Sterling Heights, Washington Twp, and Shelby Township. We find home buyers when others can't."
+        headline="Work with the Best Realtor in Royal Oak, Troy & Shelby Township"
+        subhead="Ranked among the top real estate agents in Michigan. Whether you're buying or selling a house in Oakland or Macomb County, Susie Sharak delivers top dollar results."
         image={getImage("hero-luxury-home.jpg")}
         video={videos.hero}
         primaryCta="Start Your Journey"
@@ -218,6 +218,47 @@ export default function HomePage() {
           <Button variant="link" className="text-primary hover:text-accent uppercase tracking-widest text-xs font-bold p-0" asChild>
             <Link href="/communities">Explore All Communities <ArrowRight className="ml-2 w-4 h-4" /></Link>
           </Button>
+        </div>
+      </Section>
+
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">Recent Record Sale</span>
+          <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6 leading-tight">2632 Hawthorne Dr</h2>
+          <p className="text-muted-foreground">See how our strategic marketing delivers results.</p>
+        </div>
+        
+        <div className="flex flex-col md:flex-row gap-12 max-w-6xl mx-auto items-center">
+           <div className="md:w-1/2">
+             <div className="aspect-[4/3] bg-white p-4 shadow-xl">
+               <img 
+                 src={getImage("home-modern")} 
+                 alt="2632 Hawthorne Dr Sold Property" 
+                 className="w-full h-full object-cover"
+               />
+             </div>
+           </div>
+           <div className="md:w-1/2 text-left space-y-6">
+              <h3 className="font-serif text-3xl">Sold Over Asking in Days</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                 When the owners of 2632 Hawthorne Dr reached out, they needed a targeted approach. Through our exclusive network and professional staging, we positioned this property perfectly for the local market, resulting in a swift, record-breaking sale.
+              </p>
+              <ul className="space-y-4 pt-4 border-t border-gray-200">
+                <li className="flex items-center gap-3">
+                  <span className="font-bold text-primary w-24 uppercase text-xs tracking-wider">Location</span>
+                  <span className="text-muted-foreground">Shelby Township, MI</span>
+                </li>
+                 <li className="flex items-center gap-3">
+                  <span className="font-bold text-primary w-24 uppercase text-xs tracking-wider">Result</span>
+                  <span className="text-accent font-medium">Multiple Offers, Over Asking</span>
+                </li>
+              </ul>
+              <div className="pt-6">
+                <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 uppercase tracking-[0.2em] text-xs font-medium px-8" asChild>
+                  <Link href="/sell">Sell Your Home With Us</Link>
+                </Button>
+              </div>
+           </div>
         </div>
       </Section>
 

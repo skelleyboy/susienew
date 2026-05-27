@@ -56,10 +56,36 @@ export function Hero({
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-4xl">
+        
+
+          
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="hidden md:flex justify-center mb-8"
+        >
+          <div className="bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-3 rounded-xl flex flex-col sm:flex-row items-center gap-2 sm:gap-4 shadow-xl border border-white/20">
+            <img src="/zillow-logo.svg" alt="Zillow" className="h-7 object-contain mb-1" />
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <svg key={star} className="w-5 h-5 text-[#006AFF] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
+            </div>
+            <div className="flex flex-col text-center sm:text-left border-t sm:border-t-0 sm:border-l pt-2 sm:pt-0 sm:pl-4 border-gray-200 w-full sm:w-auto">
+              <span className="text-xs font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
+              <span className="text-[10px] text-gray-600 font-medium tracking-wide">Top 5% Realtor</span>
+            </div>
+          </div>
+
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         >
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight drop-shadow-lg font-light tracking-tight">
             {headline}
@@ -76,6 +102,30 @@ export function Hero({
           </p>
         </motion.div>
         
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex md:hidden justify-center mb-6"
+        >
+          <div className="bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-3 rounded-xl flex flex-col sm:flex-row items-center gap-2 sm:gap-4 shadow-xl border border-white/20">
+            <img src="/zillow-logo.svg" alt="Zillow" className="h-7 object-contain mb-1" />
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <svg key={star} className="w-5 h-5 text-[#006AFF] fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
+            </div>
+            <div className="flex flex-col text-center sm:text-left border-t sm:border-t-0 sm:border-l pt-2 sm:pt-0 sm:pl-4 border-gray-200 w-full sm:w-auto">
+              <span className="text-xs font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
+              <span className="text-[10px] text-gray-600 font-medium tracking-wide">Top 5% Realtor</span>
+            </div>
+          </div>
+
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

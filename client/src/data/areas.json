@@ -1,58 +1,90 @@
 [
   {
-    "id": "birmingham",
-    "name": "Birmingham",
-    "slug": "birmingham",
-    "image": "area-1",
-    "description": "Where cosmopolitan refinement meets historic elegance. Birmingham offers a walkable tapestry of premier culinary experiences, high end retail, and distinguished architecture.",
-    "highlights": ["Walkable Downtown", "Top Rated Schools", "Luxury Condos"]
-  },
-  {
-    "id": "bloomfield-hills",
-    "name": "Bloomfield Hills",
-    "slug": "bloomfield-hills",
-    "image": "area-2",
-    "description": "A sanctuary of privacy and prestige. Rolling hills and winding roads reveal architectural masterpieces and estates of unparalleled grandeur.",
-    "highlights": ["Estate Living", "Cranbrook", "Private Clubs"]
-  },
-  {
-    "id": "royal-oak",
-    "name": "Royal Oak",
     "slug": "royal-oak",
-    "image": "area-3",
-    "description": "A dynamic fusion of modern energy and community spirit. Royal Oak presents a vibrant lifestyle for the discerning urbanite.",
-    "highlights": ["Nightlife", "Local Zoo", "Central Location"]
+    "name": "Royal Oak",
+    "description": "Known as one of the most desirable cities in Oakland County, Royal Oak offers a vibrant downtown, tree-lined streets, and beautiful historic homes. Having the best Realtor in Royal Oak on your side is critical in this competitive market.",
+    "image": "area-royal-oak",
+    "marketStats": {
+      "avgPrice": "$350,000",
+      "daysOnMarket": "14",
+      "homesSold": "45"
+    }
   },
   {
-    "id": "troy",
-    "name": "Troy",
     "slug": "troy",
-    "image": "area-5",
-    "description": "The perfect blend of suburban luxury and metropolitan convenience. Top-rated schools and world-class shopping define this premier destination.",
-    "highlights": ["Top Rated Schools", "Somerset Collection", "Luxury Estates"]
+    "name": "Troy",
+    "description": "Troy is consistently ranked as one of the safest cities in Michigan, featuring top-rated schools, luxury shopping at the Somerset Collection, and gorgeous estates. Work with a top real estate agent in Troy to find your perfect home.",
+    "image": "area-troy",
+    "marketStats": {
+      "avgPrice": "$475,000",
+      "daysOnMarket": "18",
+      "homesSold": "32"
+    }
   },
   {
-    "id": "sterling-heights",
-    "name": "Sterling Heights",
-    "slug": "sterling-heights",
-    "image": "area-4",
-    "description": "A community on the rise with diverse housing options and exceptional amenities. Experience the best of Macomb County living.",
-    "highlights": ["Dodge Park", "Utica Schools", "Family Friendly"]
-  },
-  {
-    "id": "washington-twp",
-    "name": "Washington Twp",
-    "slug": "washington-twp",
-    "image": "area-6",
-    "description": "A picturesque community blending rural charm with upscale living. Known for spacious lots, beautiful parks, and a peaceful atmosphere.",
-    "highlights": ["Spacious Lots", "Stony Creek Metropark", "Peaceful Living"]
-  },
-  {
-    "id": "shelby-township",
-    "name": "Shelby Township",
     "slug": "shelby-township",
-    "image": "area-7",
-    "description": "A premier community offering a perfect balance of luxury living and outdoor recreation. Known for its beautiful parks, excellent schools, and stunning new developments.",
-    "highlights": ["Stony Creek Metropark", "Cherry Creek Golf Club", "Top Rated Schools"]
+    "name": "Shelby Township",
+    "description": "Offering a perfect blend of natural beauty and modern amenities, Shelby Township features sprawling parks, excellent schools, and stunning new construction homes. Partner with the best Realtor in Shelby Township to navigate this growing market.",
+    "image": "area-shelby",
+    "marketStats": {
+      "avgPrice": "$420,000",
+      "daysOnMarket": "21",
+      "homesSold": "28"
+    }
+  },
+  {
+    "slug": "sterling-heights",
+    "name": "Sterling Heights",
+    "description": "As one of Michigan's largest cities, Sterling Heights boasts diverse neighborhoods, strong community spirit, and excellent property values.",
+    "image": "area-sterling",
+    "marketStats": {
+      "avgPrice": "$310,000",
+      "daysOnMarket": "15",
+      "homesSold": "55"
+    }
+  },
+  {
+    "slug": "birmingham",
+    "name": "Birmingham",
+    "description": "Birmingham represents the pinnacle of luxury living in Michigan, with an upscale downtown, world-class dining, and magnificent estates.",
+    "image": "area-birmingham",
+    "marketStats": {
+      "avgPrice": "$850,000",
+      "daysOnMarket": "25",
+      "homesSold": "18"
+    }
+  },
+  {
+    "slug": "bloomfield-hills",
+    "name": "Bloomfield Hills",
+    "description": "Home to some of the most prestigious properties in the state, Bloomfield Hills offers unparalleled privacy, sprawling acreage, and exclusive country clubs.",
+    "image": "area-bloomfield",
+    "marketStats": {
+      "avgPrice": "$1,200,000",
+      "daysOnMarket": "35",
+      "homesSold": "12"
+    }
+  },
+  {
+    "slug": "rochester-hills",
+    "name": "Rochester Hills",
+    "description": "Rochester Hills provides a picturesque setting with rolling hills, excellent schools, and a charming downtown area perfect for families.",
+    "image": "area-rochester",
+    "marketStats": {
+      "avgPrice": "$510,000",
+      "daysOnMarket": "22",
+      "homesSold": "26"
+    }
+  },
+  {
+    "slug": "washington-twp",
+    "name": "Washington Twp",
+    "description": "Washington Township offers a serene, slightly more rural feel with large lot sizes, newer developments, and beautiful natural surroundings.",
+    "image": "area-washington",
+    "marketStats": {
+      "avgPrice": "$550,000",
+      "daysOnMarket": "28",
+      "homesSold": "15"
+    }
   }
 ]
