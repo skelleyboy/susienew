@@ -65,7 +65,7 @@ export function Hero({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="hidden md:flex justify-center mb-8"
+          className="flex justify-center mb-6 md:mb-8"
         >
           <div className="bg-white/95 backdrop-blur-md pl-2 pr-4 py-2 rounded-full flex items-center gap-3 shadow-xl border border-white/20">
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
@@ -116,39 +116,8 @@ export function Hero({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex md:hidden justify-center mb-6 px-4"
-        >
-          <div className="bg-white/95 backdrop-blur-md p-3 rounded-2xl flex flex-col items-center shadow-xl border border-white/20 w-full max-w-[280px]">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
-                 <img src={getImage("susie-hero")} alt="Susie Sharak" className="w-full h-full object-cover object-top" />
-              </div>
-              <div className="flex flex-col items-start">
-                <img src="/zillow-logo.svg" alt="Zillow" className="h-4 object-contain mb-1" />
-                <div className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} className="w-4 h-4 text-[#006AFF] fill-current" viewBox="0 0 24 24">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-2 border-t border-gray-200 pt-2 w-full">
-              <span className="text-[10px] font-bold text-[#006AFF] tracking-wider uppercase">Premier Agent</span>
-              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-              <span className="text-[10px] text-gray-600 font-medium tracking-wide">Top 5%</span>
-            </div>
-          </div>
-
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="hidden md:flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Button 
             size="lg" 
