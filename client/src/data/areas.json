@@ -1,45 +1,5 @@
 [
   {
-    "slug": "royal-oak",
-    "name": "Royal Oak",
-    "description": "Known as one of the most desirable cities in Oakland County, Royal Oak offers a vibrant downtown, tree-lined streets, and beautiful historic homes. Having the best Realtor in Royal Oak on your side is critical in this competitive luxury real estate market.",
-    "longDescription": "Royal Oak is the beating heart of Oakland County, renowned for its highly walkable downtown, diverse dining scene, and iconic entertainment venues like the Royal Oak Music Theatre. It seamlessly blends historic charm with modern developments, attracting young professionals, growing families, and downsizers who want to be close to the action.",
-    "sellingTips": "Selling a home in Royal Oak requires a strategy that capitalizes on its vibrant lifestyle. Highlighting walkability scores, proximity to downtown amenities, and unique architectural details of historic bungalows or modern lofts is key to attracting premium buyers.",
-    "buyingTips": "The Royal Oak market is highly competitive. Buyers need to act fast, especially for updated homes near the downtown core or the highly sought-after Northwood area. Working with a hyper-local expert ensures you have access to off-market opportunities before they list.",
-    "highlights": [
-      "Walkable Downtown",
-      "Royal Oak Farmers Market",
-      "Detroit Zoo",
-      "Vibrant Nightlife"
-    ],
-    "image": "area-royal-oak",
-    "marketStats": {
-      "avgPrice": "$395,000",
-      "daysOnMarket": "18",
-      "homesSold": "85"
-    }
-  },
-  {
-    "slug": "troy",
-    "name": "Troy",
-    "description": "Troy is consistently ranked as one of the safest cities in Michigan, featuring top-rated schools, luxury shopping at the Somerset Collection, and gorgeous estates. Work with a top real estate agent in Troy to find your perfect home.",
-    "longDescription": "Troy stands as a premier destination for families and professionals in Southeast Michigan. Nationally recognized for its outstanding public school system, Troy also serves as a major business hub and is home to world-class shopping at the Somerset Collection. It offers a perfect balance of residential tranquility and urban convenience.",
-    "sellingTips": "When selling in Troy, your marketing must emphasize the award-winning Troy School District and family-friendly community features. Showcasing spacious yards, updated family living areas, and proximity to major corporate headquarters will drive the highest offers.",
-    "buyingTips": "Troy offers a diverse housing stock, from established mid-century neighborhoods to newer luxury subdivisions. Navigating the Troy market requires understanding the nuances of its different school boundary zones and prioritizing the features that matter most to your long-term goals.",
-    "highlights": [
-      "Top-Rated Troy Schools",
-      "Somerset Collection",
-      "Major Business Hub",
-      "Family-Friendly Parks"
-    ],
-    "image": "area-troy",
-    "marketStats": {
-      "avgPrice": "$525,000",
-      "daysOnMarket": "16",
-      "homesSold": "120"
-    }
-  },
-  {
     "slug": "shelby-township",
     "name": "Shelby Township",
     "description": "Offering a perfect blend of natural beauty and modern amenities, Shelby Township features sprawling parks, excellent schools, and stunning new construction homes. Partner with the best Realtor in Shelby Township to navigate this growing market.",
@@ -80,6 +40,106 @@
     }
   },
   {
+    "slug": "royal-oak",
+    "name": "Royal Oak",
+    "description": "Known as one of the most desirable cities in Oakland County, Royal Oak offers a vibrant downtown, tree-lined streets, and beautiful historic homes. Having the best Realtor in Royal Oak on your side is critical in this competitive luxury real estate market.",
+    "longDescription": "Royal Oak is the beating heart of Oakland County, renowned for its highly walkable downtown, diverse dining scene, and iconic entertainment venues like the Royal Oak Music Theatre. It seamlessly blends historic charm with modern developments, attracting young professionals, growing families, and downsizers who want to be close to the action.",
+    "sellingTips": "Selling a home in Royal Oak requires a strategy that capitalizes on its vibrant lifestyle. Highlighting walkability scores, proximity to downtown amenities, and unique architectural details of historic bungalows or modern lofts is key to attracting premium buyers.",
+    "buyingTips": "The Royal Oak market is highly competitive. Buyers need to act fast, especially for updated homes near the downtown core or the highly sought-after Northwood area. Working with a hyper-local expert ensures you have access to off-market opportunities before they list.",
+    "highlights": [
+      "Walkable Downtown",
+      "Royal Oak Farmers Market",
+      "Detroit Zoo",
+      "Vibrant Nightlife"
+    ],
+    "image": "area-royal-oak",
+    "marketStats": {
+      "avgPrice": "$395,000",
+      "daysOnMarket": "18",
+      "homesSold": "85"
+    }
+  },
+  {
+    "slug": "rochester-hills",
+    "name": "Rochester Hills",
+    "description": "Rochester Hills provides a picturesque setting with rolling hills, excellent schools, and a charming downtown area perfect for families. Secure your dream home with the best real estate agent in Rochester Hills.",
+    "longDescription": "Rochester Hills perfectly blends natural beauty with upscale suburban living. Residents enjoy access to the Clinton River Trail, the charming downtown Rochester area nearby, and top-tier Rochester Community Schools. It's a community that values outdoor recreation just as much as premium amenities.",
+    "sellingTips": "To maximize your sale in Rochester Hills, emphasize the lifestyle. Showcase proximity to the Village of Rochester Hills, access to nature trails, and features that cater to active, family-oriented buyers. High-quality visuals of outdoor living spaces are a must.",
+    "buyingTips": "Buyers in Rochester Hills are drawn to the scenic, rolling topography and strong community feel. Whether you're looking for a home in a prestigious gated community or a property backing up to a nature preserve, acting quickly on prime inventory is essential.",
+    "highlights": [
+      "Village of Rochester Hills",
+      "Clinton River Trail",
+      "Rochester Community Schools",
+      "Scenic Topography"
+    ],
+    "image": "area-rochester",
+    "marketStats": {
+      "avgPrice": "$585,000",
+      "daysOnMarket": "20",
+      "homesSold": "80"
+    }
+  },
+  {
+    "slug": "troy",
+    "name": "Troy",
+    "description": "Troy is consistently ranked as one of the safest cities in Michigan, featuring top-rated schools, luxury shopping at the Somerset Collection, and gorgeous estates. Work with a top real estate agent in Troy to find your perfect home.",
+    "longDescription": "Troy stands as a premier destination for families and professionals in Southeast Michigan. Nationally recognized for its outstanding public school system, Troy also serves as a major business hub and is home to world-class shopping at the Somerset Collection. It offers a perfect balance of residential tranquility and urban convenience.",
+    "sellingTips": "When selling in Troy, your marketing must emphasize the award-winning Troy School District and family-friendly community features. Showcasing spacious yards, updated family living areas, and proximity to major corporate headquarters will drive the highest offers.",
+    "buyingTips": "Troy offers a diverse housing stock, from established mid-century neighborhoods to newer luxury subdivisions. Navigating the Troy market requires understanding the nuances of its different school boundary zones and prioritizing the features that matter most to your long-term goals.",
+    "highlights": [
+      "Top-Rated Troy Schools",
+      "Somerset Collection",
+      "Major Business Hub",
+      "Family-Friendly Parks"
+    ],
+    "image": "area-troy",
+    "marketStats": {
+      "avgPrice": "$525,000",
+      "daysOnMarket": "16",
+      "homesSold": "120"
+    }
+  },
+  {
+    "slug": "macomb-township",
+    "name": "Macomb Township",
+    "description": "Macomb Township is one of Michigan's fastest-growing communities, offering excellent schools, abundant parks, and beautiful new construction homes. Find the best Realtor in Macomb Township.",
+    "longDescription": "Macomb Township is a thriving community known for its steady growth and family-friendly atmosphere. Boasting top-tier schools within the Chippewa Valley and Utica Community school districts, alongside outstanding recreational facilities like the Macomb Township Recreation Center, it's a prime destination for families looking for a high quality of life.",
+    "sellingTips": "When selling in Macomb Township, focus on family appeal. Highlighting proximity to schools, parks, and community centers, as well as showcasing modern updates and open-concept living spaces, will attract eager buyers in this growing market.",
+    "buyingTips": "With ongoing development, Macomb Township offers a mix of established subdivisions and brand-new construction. Buyers should consider future development plans and proximity to key amenities when selecting their ideal home in this expanding area.",
+    "highlights": [
+      "Fastest-Growing Community",
+      "Top-Tier Schools",
+      "Outstanding Recreation Center",
+      "Beautiful New Construction"
+    ],
+    "image": "home-modern",
+    "marketStats": {
+      "avgPrice": "$410,000",
+      "daysOnMarket": "19",
+      "homesSold": "105"
+    }
+  },
+  {
+    "slug": "clinton-township",
+    "name": "Clinton Township",
+    "description": "Clinton Township offers diverse housing options, a robust parks system, and excellent access to Lake St. Clair. Work with a top real estate agent in Clinton Township to find your perfect home.",
+    "longDescription": "As the most populous township in Michigan, Clinton Township offers a dynamic mix of residential neighborhoods, commercial hubs, and extensive recreational opportunities. Residents enjoy the beautiful George George Memorial Park and easy access to the water activities on Lake St. Clair.",
+    "sellingTips": "Clinton Township's diverse market means your property needs targeted marketing. Highlight unique features such as waterfront access, proximity to the vibrant Partridge Creek area, or established neighborhood charm to stand out to potential buyers.",
+    "buyingTips": "Clinton Township caters to a wide range of lifestyles and budgets. Whether you're looking for a cozy starter home, a spacious family residence, or a luxury waterfront property, a local expert can guide you to the neighborhood that best fits your needs.",
+    "highlights": [
+      "Diverse Housing Options",
+      "George George Memorial Park",
+      "Access to Lake St. Clair",
+      "Vibrant Commercial Hubs"
+    ],
+    "image": "service-buying",
+    "marketStats": {
+      "avgPrice": "$295,000",
+      "daysOnMarket": "16",
+      "homesSold": "135"
+    }
+  },
+  {
     "slug": "birmingham",
     "name": "Birmingham",
     "description": "Birmingham represents the pinnacle of luxury living in Michigan, with an upscale downtown, world-class dining, and magnificent estates. Work with a luxury real estate expert in Birmingham.",
@@ -117,26 +177,6 @@
       "avgPrice": "$1,650,000",
       "daysOnMarket": "35",
       "homesSold": "40"
-    }
-  },
-  {
-    "slug": "rochester-hills",
-    "name": "Rochester Hills",
-    "description": "Rochester Hills provides a picturesque setting with rolling hills, excellent schools, and a charming downtown area perfect for families. Secure your dream home with the best real estate agent in Rochester Hills.",
-    "longDescription": "Rochester Hills perfectly blends natural beauty with upscale suburban living. Residents enjoy access to the Clinton River Trail, the charming downtown Rochester area nearby, and top-tier Rochester Community Schools. It's a community that values outdoor recreation just as much as premium amenities.",
-    "sellingTips": "To maximize your sale in Rochester Hills, emphasize the lifestyle. Showcase proximity to the Village of Rochester Hills, access to nature trails, and features that cater to active, family-oriented buyers. High-quality visuals of outdoor living spaces are a must.",
-    "buyingTips": "Buyers in Rochester Hills are drawn to the scenic, rolling topography and strong community feel. Whether you're looking for a home in a prestigious gated community or a property backing up to a nature preserve, acting quickly on prime inventory is essential.",
-    "highlights": [
-      "Village of Rochester Hills",
-      "Clinton River Trail",
-      "Rochester Community Schools",
-      "Scenic Topography"
-    ],
-    "image": "area-rochester",
-    "marketStats": {
-      "avgPrice": "$585,000",
-      "daysOnMarket": "20",
-      "homesSold": "80"
     }
   },
   {

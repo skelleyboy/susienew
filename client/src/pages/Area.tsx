@@ -62,6 +62,34 @@ export default function AreaPage() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-16 pt-8 border-t border-gray-100">
+              <h3 className="font-serif text-2xl mb-6">Explore Oakland & Macomb County</h3>
+              <p className="text-muted-foreground mb-6">
+                Are you exploring other options? As top luxury real estate agents, we cover many other incredible neighborhoods. Check out our detailed guides for other cities, or learn more <a href="/about" className="text-primary hover:underline font-medium">about us</a> and how we can help you. Ready to make a move? <a href="/contact" className="text-primary hover:underline font-medium">Contact us today</a>.
+              </p>
+              
+              <div className="flex flex-wrap gap-3">
+                <a href="/" className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                  Home
+                </a>
+                <a href="/about" className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                  About Us
+                </a>
+                <a href="/contact" className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                  Contact
+                </a>
+                {areas.filter(a => a.slug !== area.slug).map(a => (
+                  <a 
+                    key={a.slug} 
+                    href={`/area/${a.slug}`}
+                    className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors"
+                  >
+                    {a.name} Real Estate
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
           
           <div className="lg:col-span-1">

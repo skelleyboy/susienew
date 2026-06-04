@@ -1,123 +1,87 @@
 import { Link } from "wouter";
-import siteData from "@/data/site.json";
-import { Facebook, Instagram, Linkedin, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import areas from "@/data/areas.json";
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0f1115] text-white pt-32 pb-12">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12 mb-20">
-          <div className="md:col-span-1">
-            <h3 className="font-serif text-3xl mb-8 tracking-tight">Susie Sharak</h3>
-            <p className="text-white/80 text-sm leading-relaxed mb-8 font-light max-w-xs">
-              Premier real estate agent serving Royal Oak, Troy, Sterling Heights, Washington Twp, and Shelby Township with a focus on luxury service and exceptional results.
+    <footer className="bg-[#15191e] text-white/80 pt-20 pb-10 border-t border-white/10">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-serif text-white mb-2">Susie Sharak</h3>
+              <p className="text-sm tracking-widest uppercase text-white/50">Luxury Real Estate</p>
+            </div>
+            <p className="text-sm leading-relaxed max-w-sm">
+              Top 5% real estate agent providing unparalleled service, strategic marketing, and exclusive access to Oakland & Macomb County's finest properties.
             </p>
             <div className="flex gap-4">
-              <a href={siteData.socials.instagram} target="_blank" rel="noreferrer" aria-label="Follow us on Instagram" className="text-white/80 hover:text-white transition-colors">
-                <Instagram className="h-5 w-5" />
+              <a href="https://facebook.com/susiesharakrealtor" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all">
+                <Facebook className="w-4 h-4" />
               </a>
-              <a href={siteData.socials.facebook} target="_blank" rel="noreferrer" aria-label="Follow us on Facebook" className="text-white/80 hover:text-white transition-colors">
-                <Facebook className="h-5 w-5" />
+              <a href="https://instagram.com/susiesharak" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all">
+                <Instagram className="w-4 h-4" />
               </a>
-              <a href={siteData.socials.linkedin} target="_blank" rel="noreferrer" aria-label="Connect on LinkedIn" className="text-white/80 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all">
+                <Linkedin className="w-4 h-4" />
               </a>
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Navigation</h4>
-            <div className="flex flex-col space-y-4 text-sm text-white/80 font-light tracking-wide">
-              <Link href="/buy" className="hover:text-white transition-colors">Buy a Home</Link>
-              <Link href="/sell" className="hover:text-white transition-colors">Sell Your Home</Link>
-              <Link href="/communities" className="hover:text-white transition-colors">Featured Areas</Link>
-              <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-              <Link href="/home-value" className="hover:text-white transition-colors">Home Valuation</Link>
             </div>
           </div>
 
           <div>
-            <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Contact</h4>
-            <ul className="space-y-4 text-sm text-white/80 font-light tracking-wide">
-              <li><a href={`mailto:${siteData.email}`} className="hover:text-white transition-colors">{siteData.email}</a></li>
-              <li><a href={`tel:${siteData.phone}`} className="hover:text-white transition-colors">{siteData.phone}</a></li>
-              <li className="text-white/80">{siteData.address}</li>
+            <h4 className="text-white font-medium mb-6 uppercase tracking-widest text-sm">Navigation</h4>
+            <ul className="space-y-4">
+              <li><Link href="/buy" className="hover:text-primary transition-colors text-sm">Buy a Home</Link></li>
+              <li><Link href="/sell" className="hover:text-primary transition-colors text-sm">Sell Your Home</Link></li>
+              <li><Link href="/communities" className="hover:text-primary transition-colors text-sm">Communities</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors text-sm">About Susie</Link></li>
+              <li><Link href="/home-value" className="hover:text-primary transition-colors text-sm">Home Valuation</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition-colors text-sm">Real Estate Journal</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors text-sm">Contact Us</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold mb-6 text-accent">Newsletter</h4>
-            <p className="text-white/80 text-sm mb-4 font-light">Market updates and off market listings.</p>
-            <form 
-              className="flex gap-2" 
-              name="newsletter" 
-              method="POST" 
-              data-netlify="true"
-              onSubmit={(e) => {
-                // Let the default form submission happen for Netlify if js is disabled,
-                // but since we preventDefault here, we might need to handle submission differently or remove preventDefault.
-                // For Netlify forms with React, usually a hidden form is needed or just standard submission.
-                // But typically with React we might want to handle it via fetch, or just let it submit.
-                // If we want simple Netlify form handling without fetch, we can remove onSubmit or do e.target.submit()
-                // However, standard practice for static sites is often just letting it post.
-                // Let's remove e.preventDefault() if we want it to actually post to Netlify, 
-                // OR implement a fetch submission.
-                // Given "mockup mode" often implies visual, but the user asked for "needed code for netlify forms",
-                // we should add the attributes.
-                // To keep SPA behavior, we usually fetch.
-                // But for simplicity in this context, let's just add attributes and keep the preventDefault as a placeholder
-                // or remove it to allow testing if deployed.
-                // For now, I will keep the visual behavior but add the attributes.
-                e.preventDefault();
-                const formData = new FormData(e.target as HTMLFormElement);
-                fetch("/", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                  body: new URLSearchParams(formData as any).toString(),
-                }).then(() => alert("Thanks for subscribing!")).catch((error) => alert(error));
-              }}
-            >
-              <input type="hidden" name="form-name" value="newsletter" />
-              <p className="hidden">
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-              </p>
-              <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
-              <input 
-                id="newsletter-email"
-                name="email"
-                type="email" 
-                placeholder="Email Address" 
-                className="bg-white/5 border-b border-white/20 text-white placeholder:text-white/50 text-xs px-0 py-2 w-full focus:outline-none focus:border-accent transition-colors font-light tracking-wide rounded-none"
-              />
-              <button type="submit" className="text-white/90 hover:text-white px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-semibold hover:bg-white/5 transition-all border-b border-transparent hover:border-white/20">
-                Join
-              </button>
-            </form>
+            <h4 className="text-white font-medium mb-6 uppercase tracking-widest text-sm">Featured Areas</h4>
+            <ul className="space-y-4">
+              {areas.slice(0, 8).map(area => (
+                <li key={area.slug}>
+                  <Link href={`/area/${area.slug}`} className="hover:text-primary transition-colors text-sm">
+                    {area.name} Real Estate
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-medium mb-6 uppercase tracking-widest text-sm">Contact</h4>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-3 text-sm">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <span>1120 E Long Lake Rd<br />Troy, MI 48085</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm">
+                <Phone className="w-5 h-5 text-primary shrink-0" />
+                <a href="tel:2489436906" className="hover:text-primary transition-colors">248-943-6906</a>
+              </li>
+              <li className="flex items-center gap-3 text-sm">
+                <Mail className="w-5 h-5 text-primary shrink-0" />
+                <a href="mailto:susie@propertypro1.com" className="hover:text-primary transition-colors">susie@propertypro1.com</a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/60">
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <p>&copy; {new Date().getFullYear()} Susie Sharak. All rights reserved.</p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-              <a href="https://designgandalf.com/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Website by Gandalf</a>
-            </div>
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+          <p>&copy; {currentYear} Susie Sharak Real Estate. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
-          <button 
-            onClick={scrollToTop}
-            className="group flex items-center gap-2 uppercase tracking-[0.2em] text-[10px] font-semibold hover:text-white transition-colors"
-          >
-            Back to Top
-            <ArrowUp className="w-3 h-3 group-hover:-translate-y-1 transition-transform duration-300" />
-          </button>
         </div>
       </div>
     </footer>
