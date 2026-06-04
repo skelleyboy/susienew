@@ -1,5 +1,5 @@
 import { SEO } from "@/components/SEO";
-import { useParams } from "wouter";
+import { useParams, Link } from "wouter";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/ui/Hero";
@@ -47,10 +47,16 @@ export default function AreaPage() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               {area.sellingTips || `If you are looking to sell your house in ${area.name} Michigan, you need a marketing strategy that highlights the unique value of your property. We leverage targeted digital campaigns, professional staging, and our extensive network to connect your home with qualified buyers.`}
             </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              Wondering where to start? Learn more <Link href="/about" className="text-primary hover:text-accent underline font-medium">about Susie Sharak</Link>, explore our comprehensive <Link href="/sell" className="text-primary hover:text-accent underline font-medium">selling strategy</Link>, or contact us directly to discuss your goals.
+            </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Home Buyers in {area.name}</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               {area.buyingTips || `For home buyers in ${area.name}, the market offers a diverse range of properties from historic estates to modern new builds. We provide exclusive access to off-market listings and guide you through every step of the purchasing process.`}
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              Ready to find your dream home? <Link href="/buy" className="text-primary hover:text-accent underline font-medium">View our buying services</Link>, browse <Link href="/" className="text-primary hover:text-accent underline font-medium">our homepage</Link> for featured listings, or <Link href="/contact" className="text-primary hover:text-accent underline font-medium">contact our team</Link> to schedule a private tour.
             </p>
 
             <h3 className="font-serif text-2xl mb-4 mt-12">Distinguishing Features</h3>
@@ -64,31 +70,24 @@ export default function AreaPage() {
             </div>
 
             <div className="mt-16 pt-8 border-t border-gray-100">
-              <h3 className="font-serif text-2xl mb-6">Explore Oakland & Macomb County</h3>
+              <h3 className="font-serif text-2xl mb-6">Explore Other Communities</h3>
               <p className="text-muted-foreground mb-6">
-                Are you exploring other options? As top luxury real estate agents, we cover many other incredible neighborhoods. Check out our detailed guides for other cities, or learn more <a href="/about" className="text-primary hover:underline font-medium">about us</a> and how we can help you. Ready to make a move? <a href="/contact" className="text-primary hover:underline font-medium">Contact us today</a>.
+                Oakland and Macomb counties offer a variety of exceptional neighborhoods. If you're expanding your search beyond {area.name}, explore our local real estate guides for these nearby communities:
               </p>
               
-              <div className="flex flex-wrap gap-3">
-                <a href="/" className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors">
-                  Home
-                </a>
-                <a href="/about" className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors">
-                  About Us
-                </a>
-                <a href="/contact" className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors">
-                  Contact
-                </a>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {areas.filter(a => a.slug !== area.slug).map(a => (
-                  <a 
-                    key={a.slug} 
-                    href={`/area/${a.slug}`}
-                    className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 text-sm font-medium hover:bg-primary hover:text-white transition-colors"
-                  >
-                    {a.name} Real Estate
-                  </a>
+                  <li key={a.slug} className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <Link 
+                      href={`/area/${a.slug}`}
+                      className="text-primary hover:text-accent hover:underline font-medium transition-colors cursor-pointer"
+                    >
+                      {a.name} Real Estate
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
           
