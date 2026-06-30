@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
 import { TestimonialSection } from "@/components/ui/TestimonialSection";
 import { getImage } from "@/lib/images";
-import { Camera, Globe, Users, TrendingUp } from "lucide-react";
+import { Camera, Globe, Users, TrendingUp, Info } from "lucide-react";
 import { useSEO } from "@/hooks/use-seo";
 
 export default function SellPage() {
@@ -16,8 +16,32 @@ export default function SellPage() {
     canonicalUrl: "https://susiesharak.com/sell"
   });
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where do you sell homes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We sell homes across Oakland and Macomb Counties, with hyper-local expertise in Troy, Royal Oak, Sterling Heights, Washington Twp, Shelby Township, Birmingham, and Bloomfield Hills."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is your marketing strategy for selling a home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our comprehensive strategy includes cinematic video tours, editorial photography, global syndication to international portals, direct outreach to top agents, and data-driven pricing."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       <Navbar />
       <Hero 
         headline="Sell Your Home in Oakland & Macomb County"
@@ -30,6 +54,18 @@ export default function SellPage() {
       />
       
       <Section>
+        <div className="max-w-4xl mx-auto mb-16 bg-muted/30 border border-muted p-6 rounded-lg flex gap-4">
+          <Info className="text-primary w-6 h-6 shrink-0 mt-1" />
+          <div>
+            <h3 className="font-medium text-lg mb-2">TL;DR: Selling Your Home</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>• <strong>Service Areas:</strong> Expert representation in Oakland & Macomb counties.</li>
+              <li>• <strong>Marketing:</strong> High-end cinematic video, photography, and global syndication.</li>
+              <li>• <strong>Strategy:</strong> Data-driven pricing and direct outreach to qualified buyers.</li>
+            </ul>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
             <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-6">Our Markets</span>

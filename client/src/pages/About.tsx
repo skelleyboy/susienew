@@ -7,6 +7,7 @@ import { LeadForm } from "@/components/ui/LeadForm";
 import { TestimonialSection } from "@/components/ui/TestimonialSection";
 import siteData from "@/data/site.json";
 import { getImage } from "@/lib/images";
+import { Info } from "lucide-react";
 import { useSEO } from "@/hooks/use-seo";
 
 export default function AboutPage() {
@@ -16,8 +17,23 @@ export default function AboutPage() {
     canonicalUrl: "https://susiesharak.com/about"
   });
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Susie Sharak",
+    "jobTitle": "Luxury Real Estate Agent",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Property Pro Real Estate"
+    },
+    "description": "Top luxury real estate agent serving Oakland & Macomb County, specializing in Royal Oak, Troy, and Shelby Township.",
+    "url": "https://susiesharak.com/about",
+    "image": "https://susiesharak.com/susie-about.png"
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       <Navbar />
       <Hero 
         headline="Meet Susie Sharak"
@@ -28,6 +44,18 @@ export default function AboutPage() {
       />
       
       <Section>
+        <div className="max-w-4xl mx-auto mb-16 bg-muted/30 border border-muted p-6 rounded-lg flex gap-4">
+          <Info className="text-primary w-6 h-6 shrink-0 mt-1" />
+          <div>
+            <h3 className="font-medium text-lg mb-2">TL;DR: About Susie Sharak</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>• <strong>Expertise:</strong> Top 5% real estate agent in Oakland & Macomb County.</li>
+              <li>• <strong>Specialties:</strong> Luxury homes, exclusive listings, and personalized client experiences.</li>
+              <li>• <strong>Focus Areas:</strong> Royal Oak, Troy, Sterling Heights, and Shelby Township.</li>
+            </ul>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <div className="aspect-[3/4] bg-muted relative overflow-hidden">

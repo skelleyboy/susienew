@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { useRoute, Link } from "wouter";
 import { BLOG_POSTS } from "@/data/blog";
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag, Info } from "lucide-react";
 import NotFound from "@/pages/not-found";
 import { useSEO } from "@/hooks/use-seo";
 
@@ -23,8 +23,30 @@ export default function BlogPost() {
     canonicalUrl: `https://susiesharak.com/blog/${post.id}`
   });
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": {
+      "@type": "Person",
+      "name": "Susie Sharak"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Susie Sharak Real Estate",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://susiesharak.com/logo-small.png"
+      }
+    },
+    "datePublished": post.date,
+    "dateModified": post.date
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Navbar />
       
       <div className="pt-40 pb-12 bg-gray-50 border-b border-gray-100">
@@ -57,6 +79,17 @@ export default function BlogPost() {
 
       <Section>
         <div className="max-w-3xl mx-auto">
+          
+          <div className="bg-muted/30 border border-muted p-6 rounded-lg mb-12 flex gap-4">
+            <Info className="text-primary w-6 h-6 shrink-0 mt-1" />
+            <div>
+              <h3 className="font-medium text-lg mb-2">TL;DR Summary</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {post.excerpt}
+              </p>
+            </div>
+          </div>
+
           <div className="prose prose-lg prose-stone max-w-none 
             prose-headings:font-serif prose-headings:font-light prose-headings:mt-16 prose-headings:mb-8 prose-headings:text-3xl
             prose-p:font-light prose-p:leading-loose prose-p:mb-8 prose-p:text-gray-600

@@ -6,7 +6,7 @@ import { Hero } from "@/components/ui/Hero";
 import { Section } from "@/components/ui/Section";
 import { LeadForm } from "@/components/ui/LeadForm";
 import areas from "@/data/areas.json";
-import { Check } from "lucide-react";
+import { Check, Info } from "lucide-react";
 import { getImage } from "@/lib/images";
 import { useSEO } from "@/hooks/use-seo";
 
@@ -23,6 +23,29 @@ export default function AreaPage() {
     canonicalUrl: `https://susiesharak.com/area/${slug}`
   });
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `Is ${area.name} a good place to live?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": area.longDescription || `${area.name} represents the pinnacle of Michigan living, offering top-rated school districts, vibrant downtown areas, and a robust lifestyle for professionals, families, and retirees alike.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `What is the housing market like in ${area.name}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `The median home price in ${area.name} is currently ${area.marketStats?.avgPrice || "$450,000"} with homes averaging ${area.marketStats?.daysOnMarket || "12"} days on the market.`
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -33,8 +56,22 @@ export default function AreaPage() {
       />
       
       <Section>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
+            <div className="bg-muted/30 border border-muted p-6 rounded-lg mb-10 flex gap-4">
+              <Info className="text-primary w-6 h-6 shrink-0 mt-1" />
+              <div>
+                <h3 className="font-medium text-lg mb-2">TL;DR: {area.name} Real Estate</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Median home price is <strong>{area.marketStats?.avgPrice || "$450,000"}</strong>.</li>
+                  <li>• Homes spend an average of <strong>{area.marketStats?.daysOnMarket || "12"} days</strong> on market.</li>
+                  <li>• Renowned for {area.highlights?.[0] || 'great schools'} and {area.highlights?.[1] || 'beautiful parks'}.</li>
+                  <li>• Perfect for buyers looking for {area.buyingTips?.slice(0, 80) || 'a mix of historic estates and modern new builds'}...</li>
+                </ul>
+              </div>
+            </div>
+
             <h2 className="font-serif text-3xl mb-6">The Essence of {area.name}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               {area.description}
