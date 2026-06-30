@@ -25,7 +25,14 @@ export function useSEO({ title, description, canonicalUrl, ogImage }: SEOProps) 
 
     // Update Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
-    const finalCanonicalUrl = canonicalUrl || window.location.href.split('?')[0];
+    
+    // Ensure consistent canonical URL format (remove trailing slash except for root)
+    let finalCanonicalUrl = canonicalUrl || window.location.href.split('?')[0];
+    
+    // Strip trailing slash if it's not the root domain
+    if (finalCanonicalUrl.endsWith('/') && finalCanonicalUrl.split('/').length > 4) {
+      finalCanonicalUrl = finalCanonicalUrl.slice(0, -1);
+    }
     
     if (canonical) {
       canonical.setAttribute('href', finalCanonicalUrl);

@@ -1,0 +1,164 @@
+
+
+    Plans
+    Case Studies
+    Design Portfolio
+
+(310) 955-1077
+Log in
+Get started
+AI’s Potential in Real Estate: An Interview with Luxury Presence CTO Jesse Pedersen
+
+    August 28, 2023
+    Artificial Intelligence
+
+Luxury Presence CTO Jesse Pedersen
+
+AI is set to massively transform the real estate experience for both agents and consumers. We sat down with industry expert and Luxury Presence CTO Jesse Pedersen to pick his brain on the most exciting recent innovations in AI tech, how agents can harness the technology to grow their businesses, and how Luxury Presence is keeping our clients ahead of the curve with unprecedented AI products.
+What attracted you to the field of technology and what brought you to Luxury Presence?
+
+I’ve loved technology since I was young and have been building websites since the 7th grade. In 2013, I cofounded BuildingConnected, a network for the commercial construction industry. I was CTO and helped grow the company to about 220 people. It was a great experience and I learned a ton about technology, leading, and the construction space. In 2019 we sold to Autodesk, where I managed a 500-person global team focused on anything and everything related to data. I learned a lot more about the broader built environment, as well as leading at scale, but I also knew that my passion was in startups. 
+
+When Luxury Presence came knocking, I loved what they were doing. I was excited to extend the knowledge I had in both the construction space and the broader built-in space to PropTech and the real estate industry. My wife’s entire family is in residential real estate, so I have a lot of emotional connections to this space as well.
+How do you steer Luxury Presence’s technological direction?
+
+I inherited a very strong technical foundation with this role. We had great people in place, and great technology, products, and processes. This lets me focus on what I think is arguably most important for a technical leader in this type of environment, which is ensuring that our engineers are constantly working in tandem with our product and design counterparts. 
+
+We operate in these trifectas at every level of our organization: someone who represents product, someone who represents engineering, and someone who represents design. We have this on our executive team and at every level, all the way down to our individual Scrum Teams. I’m very fortunate to work with some incredible product minds and designers, some of the best I’ve ever worked with. My most important role is making sure that all facets of that trifecta are operating as well as possible at all times.
+How is AI transforming the real estate industry? What are some key trends you’re observing?
+
+One thing we’re seeing is the potential to put more powerful data and insights right at the fingertips of agents when they’re in the field and when they’re in conversation with a customer or a lead. You’re seeing this flow of information pushing its way to agents faster than we’ve ever seen. 
+
+In terms of trends, I think there’s a pretty gross misrepresentation and perhaps even misunderstanding of what AI is and what’s just another feature that uses some basic math under the hood. The reality is many of these “AI products” are not actually using AI. So the word of caution for the industry is to not get swept up in the hype. 
+
+Instead, continue to ask yourself, “What is going to make me a better agent? What is going to give me that competitive advantage when I’m out in the field?”
+
+What excites you most about the potential of AI in this sector?
+
+First, is efficiency. AI is going to be able to replace and automate mundane, repetitive tasks and perhaps do them better than an agent would want to do themselves. This will give agents time back. Some agents are going to use that time to chase more deals and make more money. It’s also going to unlock more time for agents and their families. If AI can get you home to your kids 15 or 30 minutes faster every day, that’s a win all around. 
+
+I also think AI is going to create better experiences for consumers, because it will allow agents to respond in a more timely and personalized manner, meeting a lead where they’re at. 
+
+Finally, I believe that AI is going to make the playing field more equitable for agents. A lot of these models are open source or are coming from companies like OpenAI that everyone can use. What I really appreciate about this wave of innovation is that agents everywhere are going to be able to access the benefits of AI.
+What are some recent innovations in AI that have caught your attention and how can they be applied to real estate?
+
+I’m quite bullish on VR and AR experiences. I think the upcoming Apple Vision Pro is going to set a new standard for what those experiences might look like. A lot of people assume this will mean better tours and open houses through VR, and I do think that will happen, but there’s actually a more nuanced use case that I think is going to be a lot more valuable.
+
+Very rarely when you’re looking at a house does it meet all of your perfect specifications—but you can almost always get it there with some creativity. I think you’re going to be able to put on one of these headsets, look at a floor plan or photos, and say, “I’d like a bathroom off of the primary bedroom” and it will show you, in real-time, examples of how you can make that happen. This is going to open up home purchasers’ minds to what they can do with the house that they’re looking at.
+
+Luxury Presence Copilot App
+How is Luxury Presence currently leveraging AI? How are these innovations improving the client experience and helping clients grow their businesses?
+
+A great example is one of the major features we’re releasing with our branded app, AI voice notes. The use case is this: an agent is driving to their next listing and gets a phone call from a buyer lead. The lead tells the agent what they’re looking for and then the call ends. Today, an agent might pull over and jot down a couple of quick notes if they can, or they might do their best to remember the details when they get home that night. 
+
+With AI voice notes, an agent can just tap open the app, record a voice note, summarize the entire conversation while they’re still driving, and be done in seconds. Our AI can now take that quick voice note and extract all of the rich data: who the client is, how many bedrooms and baths they’re looking for, etc. We’ve completely eliminated data entry for the agent.
+
+And taking it a step further, we can pump that information directly into the agent’s CRM and actually set up a saved search for the client. An exercise that used to take an agent maybe 15, 20, or even 30 minutes is now done in a matter of 15 seconds. It’s going to save agents a ton of time and give their lead personalization and responsiveness faster than they’ve ever experienced before.
+What other AI technologies or features is Luxury Presence planning to introduce?
+
+We’re infusing AI into almost every part of our product service area right now. I’ll give you a small example of how we’re leveraging AI even behind the scenes. We ingest over 350 different MLS feeds from across the country. Anyone who’s ever dealt with MLS data knows that it comes in very different shapes, sizes, and formats. The vocabulary one person might use to refer to a pool in Tennessee can be very different from how someone talks about a pool in Los Angeles. So, one of the ways that we’ve found AI very useful is to help normalize that data and create a more consistent experience across all of our customer’s MLS data. 
+AI is a rapidly advancing field. How does your team stay ahead of the curve and ensure that Luxury Presence is always offering the latest innovations to clients?
+
+As leadership, we realized we had to promote the use of AI internally and let our team know that it’s not only okay but actually encouraged to use these tools. For example, I’d use ChatGPT when writing an email to the team and would add a note at the bottom that said “This email was composed with the help of ChatGPT.”  For All Hands slides, I’d show images and the prompts I used in Midjourney to generate them. As leaders in a rapidly emerging field, you have to create that safety for your team and encourage them to adopt this new technology. 
+
+The biggest thing we’ve done to really push our employees to adopt AI is our internal hackathons. We take all of our engineers, data analysts, designers, and product managers, and say for one week, you can create anything you want that you think will be valuable for our clients. The only rule is you have to use AI to do so. Some of our best new features were born out of these hackathons, like the AI voice notes I mentioned earlier. When you take a hundred people who are bright and driven and you release some of the constraints of the normal development cycle and add in AI, some really, really cool ideas are born.
+How can real estate agents harness the power of AI to improve their businesses?
+
+The most important thing they can do right now is to look at opportunities to offload the repetitive and mundane daily or weekly tasks that aren’t unique to their businesses and don’t give them a competitive advantage. Taking these tasks off your plate gives you more time to be more creative, to think about how you can separate yourself in the market, to work a lead that much harder, and to get back to your family sooner. 
+
+ChatGPT
+What advice would you give to agents who are considering integrating AI into their workflow but might be hesitant or unsure where to start?
+
+Go into your email and find a message from a really disgruntled lead. Grab that email, copy it, and paste it into ChatGPT with this prompt:
+
+The following email is from a disgruntled lead. Compose a reply that ensures the lead knows I am on their side and that we are going to work together to make this happen. 
+
+Hit enter and see what it comes up with. I think you’ll be blown away at how good these AI models have gotten at understanding the context of an email and replying in a way that gets your message across. It’s a great way to dip your toes into the water and it resonates because everyone’s had one of these experiences, right? 
+
+Every agent has dealt with someone who’s just an absolute nightmare to work with, who’s sent a nasty email on a Friday night at 6 pm. When you think your work week’s over and you don’t know how to respond, let AI take a crack at doing that for you.
+Get the platform that drives results.
+
+Agents using Luxury Presence grew sales nearly 2x faster than their peers, increased sold listings by 6%, and closed over $300B in transactions. Ready to grow your business? Let us show you how.
+
+ 
+
+ 
+
+    Book a Demo
+
+Share article
+
+About the author
+
+Katherine Evans
+
+Kate Evans is a content marketing strategist at Luxury Presence, the leading growth platform for high-performing real estate professionals. She develops data-driven editorial content and supports SEO strategy and brand voice frameworks that help agents attract qualified leads and establish market authority. Her published work covers topics including CRM strategy, social media marketing, and digital growth, supporting thousands of agents in scaling their businesses through modern marketing.
+
+See all posts by Katherine Evans
+Related posts
+luxury presence idx software
+
+    June 2, 2026
+    SEO
+
+IDX SEO Strategy for Real Estate Agents
+
+One of the most common conversations I have with clients goes something like this: "Kyle, I have my IDX on my website. It's syncing …
+Read more
+
+    June 1, 2026
+    GEO
+    SEO
+
+The 7 questions every real estate agent is asking about Google’s AI search changes
+
+Google just made its biggest changes to search in 25 years. AI Overviews, AI Mode, Information Agents, agentic booking, generative UI. If you're a …
+Read more
+
+    May 1, 2026
+    CRMs
+
+Product Update: AI CRM
+
+What’s New Our AI CRM is a relationship-first CRM built for how agents actually work. It syncs your contacts from email, phone, and social …
+Read more
+Call us: (310) 955-1077
+Book a Demo
+
+    Products
+        Real Estate Websites
+        SEO & GEO
+        Social Media Management
+        Paid Ads Management
+        AI CRM
+        Listing Alerts & Homeowner Reports
+        AI Lead Nurture
+        Collaborative Search
+        CMA & Presentations
+        Branded Mobile App
+    Solutions
+        For Solo Agents
+        For Celebrity Agents
+        For Growing Teams
+        For Brokerages
+    Company
+        Case Studies
+        Design Portfolio
+        Reviews
+        Careers
+        News & Press
+        Referral Program
+        Corporate Philanthropy
+    Resources
+        Blog
+        Podcasts
+        Comparisons
+        Collective by Luxury Presence
+        Help Center
+
+© Copyright 2026 Luxury Presence, Inc. — All rights reserved.
+
+    Privacy Policy
+    Terms of Service
+    DMCA Notice
+

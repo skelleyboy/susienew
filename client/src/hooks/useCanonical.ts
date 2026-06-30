@@ -5,7 +5,8 @@ export function useCanonical() {
   const [location] = useLocation();
 
   useEffect(() => {
-    // Remove trailing slash if present for canonical
+    // Make sure we use a consistent trailing slash strategy.
+    // Let's strip trailing slashes for consistency.
     const path = location === "/" ? "" : location.replace(/\/$/, "");
     const canonicalUrl = `https://susiesharak.com${path}`;
     

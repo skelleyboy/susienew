@@ -1,0 +1,205 @@
+
+
+    Plans
+    Case Studies
+    Design Portfolio
+
+(310) 955-1077
+Log in
+Get started
+The 7 questions every real estate agent is asking about Google’s AI search changes
+
+    June 1, 2026
+    GEO
+    SEO
+
+Google just made its biggest changes to search in 25 years. AI Overviews, AI Mode, Information Agents, agentic booking, generative UI. If you’re a real estate agent, team lead, or brokerage owner, you’ve probably heard the buzz and walked away with more questions than answers.
+
+I hear the same ones every week, from clients, from colleagues, from fellow experts. So I wanted to put the seven most common ones in one place, give them real answers, and separate what actually matters from what you can ignore.
+
+Find It Fast
+
+    “Is SEO dead now that Google is using AI everywhere?”
+    “What’s happening with keywords? Do they still matter?”
+    “What does ‘AI agents are now users’ actually mean for my website?”
+    “How should I be structuring my content differently?”
+    “What about structured data and schema markup?”
+    “How important is my Google Business Profile now?”
+    “What metrics should I be tracking? CTR feels less reliable.”
+    “I keep hearing about ‘brand authority’ for AI search. What does that mean?”
+    The bottom line
+
+“Is SEO dead now that Google is using AI everywhere?”
+
+Far from it. Google themselves have been publishing content over the last few weeks saying exactly this. Their own AI optimization guide states plainly that good “AEO” (Answer Engine Optimization) and “GEO” (Generative Engine Optimization) is just good SEO. The foundational work still matters: quality content, solid technical structure, clear topical authority.
+
+What has changed is what search looks like on the other end. AI Mode has crossed one billion monthly users, with queries more than doubling every quarter. Search is now about being a source that AI synthesizes, an option that an AI agent surfaces, and a destination that either users or AI agents choose to engage with. You’re competing to be the answer, and the answer might get delivered by a machine before a human ever clicks through to your site.
+“What’s happening with keywords? Do they still matter?”
+
+Keywords matter, but the way we use them needs to change. Queries are getting longer, more conversational, and increasingly multimodal (think voice, images, even video). 
+
+According to Google’s own data, the average AI Mode query is now three times longer than a traditional search. Conversational queries starting with “Tell me about” surged 70% year over year, and one in six AI Mode searches in the U.S. are now multimodal. 
+
+The traditional approach of chasing a high-volume keyword in SEMRush or Ahrefs and building a page around it is becoming less effective on its own.
+
+What matters more now is intent clusters and entity coverage. Keyword research as we’ve known it is better put to use mapping intent clusters and making sure you have thorough entity coverage across your market. 
+
+The raw volume number attached to a keyword in SEMRush, DataForSEO, or Ahrefs will carry less weight going forward. 
+
+Depth and coverage will carry more.
+“What does ‘AI agents are now users’ actually mean for my website?”
+
+This is the part that catches most people off guard. When Google talks about agentic experiences, they’re describing AI systems that can browse websites, read your content, pull structured data, and take actions (like booking an appointment or comparing listings) on behalf of a human user. 
+
+At I/O 2026, Google announced Information Agents that work in the background 24/7, scanning blogs, news sites, social posts, and real-time data to alert users when something relevant changes.
+
+That means your website now has two audiences: humans and AI agents. 
+
+AI agents will scan your content looking for real-time changes, client listings, market reports, and structured data. What gets surfaced to the end user depends on what the AI agent thinks is relevant. 
+
+The practical takeaway: fresh, well-structured, machine-readable content wins. An AI agent cares about whether it can quickly extract that you’re a top-producing real estate agent in a specific market with current listings and recent market data.
+“How should I be structuring my content differently?”
+
+A few things are now baseline expectations:
+
+Answer-first formatting. Lead with the takeaway. Summary blocks, TLDRs, FAQ schema. AI agents and AI Overviews extract synthesized snippets from your pages. If your answer is buried in paragraph six, it might as well not exist. 88% of AI Overviews cite three or more sources, and longer AI responses cite upwards of 28. The content that gets cited is the content that answers clearly and quickly.
+
+Build around entities and relationships. Neighborhoods, schools, market segments, your key differentiators as a real estate agent or brokerage. Google’s AI systems are getting better at understanding relationships between entities, and content that maps those relationships clearly gets rewarded. Keywords still play a role, but entities are what the AI connects.
+
+Freshness signals matter more than ever. AI agents are watching for changes and updates. Updated market reports and new listing-driven content will have staying power. Stale “best of” posts from two years ago won’t. Practically, this means content ideation cycles need to be trimmed down from a year to updating every 90 days. At Luxury Presence, we’ve already been making that shift, and the results speak for themselves.
+“What about structured data and schema markup?”
+
+More valuable than ever. RealEstateAgent, Place, LocalBusiness, FAQPage, and Event schema all give AI agents the machine-readable facts they need to synthesize confidently.
+
+Here’s a real-world way to think about it: Google’s own demo of agentic search used an apartment-hunting example. That’s essentially the real estate use case. Listings that were indexed, fresh, well-structured, and discoverable on the open web were what the AI agent surfaced. Anything trapped behind JS-heavy frameworks or thin metadata was invisible to the AI agent’s scan.
+
+If your listings live behind an IDX iframe with no structured data and no indexable content on the open web, AI agents can’t find you. 
+“How important is my Google Business Profile now?”
+
+Google is building features where AI agents can call businesses on your behalf, book appointments, and compare local options. The AI agent picks who to call based on your Google Business Profile data. At I/O 2026, Google announced agentic booking is expanding to home repair, beauty, pet care, and local services this summer. Real estate is a natural next step.
+
+The data already tells a story. An Invoca study tracking Google’s AI-initiated calls found volumes surged over 300% month over month in November 2025. In plumbing alone, call volumes jumped over 650% in a single month. And here’s the competitive gap: 26% of businesses failed to answer the AI agent’s call entirely, and 48% of businesses that did answer couldn’t provide pricing information. 
+
+When you’re talking to an AI intermediary that’s comparing you against competitors who did provide answers, that’s a dead end.
+
+That means GBP completeness matters more than ever: accurate hours, correct service categories, up-to-date photos, and review velocity. The AI agent decides who gets the call based on this data.
+“What metrics should I be tracking? CTR feels less reliable.”
+
+You’re right to question it. Some answers will stay inside search (Google is building generative UI mini-apps right in the results). Some will flow through AI Mode follow-ups. Some will get booked via an AI agent. And yes, some will still result in a traditional click.
+
+The numbers back this up. A controlled study found that AI Overviews reduced organic clicks by 38% on triggered queries, with zero-click searches rising from 54% to 72%. AI Overviews now appear on roughly 48% of all tracked queries, up from 31% a year ago. That’s a lot of searches where a traditional click never happens.
+
+But here’s the flip side: brands that get cited in AI Overviews receive 35% more organic clicks and 91% more paid clicks compared to uncited competitors on the same results page. The game has shifted from ranking to citation. 
+
+CTR conversations will still matter, but our metrics need to move toward visibility and citations: branded mentions in AI Overviews, AI Mode citation rates, AI agent-surfaced placements. 
+
+The good news is that Google has said they’ll be providing this data. 
+
+We’re watching it closely at Luxury Presence and building our reporting around it as the data becomes available.
+“I keep hearing about ‘brand authority’ for AI search. What does that mean?”
+
+This is the single most underrated lever in AI search right now. Being a known entity across the web directly feeds the models that power AI search.
+
+PR coverage, podcast appearances, third-party mentions on industry sites, Wikipedia-adjacent presence: all of these feed the LLM training and retrieval layers. 
+
+When an AI agent is deciding who to recommend, it skews toward entities the model recognizes confidently. If you’re a brokerage that only exists on your own website, you’re starting from behind.
+
+The challenge is doing this at scale without breaking the bank. Short-term, the move is to build playbooks, either at the individual real estate agent level or as a brokerage-wide marketing effort. 
+
+Get your people on podcasts, contribute to industry publications, pursue local press for notable transactions, and make sure your brand shows up in the places where LLMs are learning. 
+
+Long-term, this needs to be a sustained, strategic effort, and how to do it at scale is the question we’re all working through.
+The bottom line
+
+None of this requires you to throw out your SEO playbook. Google’s own guidance confirms that the fundamentals have expanded, and most of this confirms the direction we’ve been pushing at Luxury Presence with our new offering. 
+
+The real question is whether your SEO strategy accounts for the fact that AI agents are now sitting at the table alongside your human audience.
+
+Here’s what to prioritize right now:
+
+    Audit your content for freshness. Anything older than 90 days without an update needs attention.
+    Implement answer-first formatting across your highest-traffic pages.
+    Review your structured data. RealEstateAgent, LocalBusiness, and FAQPage schema should be in place.
+    Complete your Google Business Profile. Every field, current photos, and an active review strategy.
+    Start building entity recognition. PR, podcasts, guest contributions, third-party mentions.
+    Shift your reporting to include AI visibility metrics as they become available.
+
+If you’ve been doing the right things (creating genuinely useful content, keeping your technical house in order, building real authority) you’re already ahead of most. The AI agents coming to read your site are just a new kind of visitor. Make sure there’s something worth finding when they arrive.
+
+Share article
+
+About the author
+
+Kyle Whigham
+
+SEO Manager
+
+Kyle Whigham is a digital marketing professional with a background in SEO, content strategy, and brand growth. He brings a disciplined, results-driven approach to his work, shaped by years of experience collaborating with teams to deliver measurable outcomes. Kyle focuses on helping organizations strengthen their digital presence and connect more effectively with their audiences.
+
+See all posts by Kyle Whigham
+Related posts
+luxury presence idx software
+
+    June 2, 2026
+    SEO
+
+IDX SEO Strategy for Real Estate Agents
+
+One of the most common conversations I have with clients goes something like this: "Kyle, I have my IDX on my website. It's syncing …
+Read more
+
+    May 1, 2026
+    CRMs
+
+Product Update: AI CRM
+
+What’s New Our AI CRM is a relationship-first CRM built for how agents actually work. It syncs your contacts from email, phone, and social …
+Read more
+
+    April 30, 2026
+    Conference
+
+What Brian Buffini Got Right at UNITE 2026, and Where the Conversation Should Go Next
+
+Brian Buffini took the stage at UNITE 2026 in Charleston and did what he does better than almost anyone in real estate: he picked …
+Read more
+Call us: (310) 955-1077
+Book a Demo
+
+    Products
+        Real Estate Websites
+        SEO & GEO
+        Social Media Management
+        Paid Ads Management
+        AI CRM
+        Listing Alerts & Homeowner Reports
+        AI Lead Nurture
+        Collaborative Search
+        CMA & Presentations
+        Branded Mobile App
+    Solutions
+        For Solo Agents
+        For Celebrity Agents
+        For Growing Teams
+        For Brokerages
+    Company
+        Case Studies
+        Design Portfolio
+        Reviews
+        Careers
+        News & Press
+        Referral Program
+        Corporate Philanthropy
+    Resources
+        Blog
+        Podcasts
+        Comparisons
+        Collective by Luxury Presence
+        Help Center
+
+© Copyright 2026 Luxury Presence, Inc. — All rights reserved.
+
+    Privacy Policy
+    Terms of Service
+    DMCA Notice
+
