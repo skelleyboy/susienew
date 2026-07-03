@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    metaImagesPlugin(),
+    // metaImagesPlugin(), // Disabled to prevent build failures on external platforms missing REPLIT_DEV_DOMAIN
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [

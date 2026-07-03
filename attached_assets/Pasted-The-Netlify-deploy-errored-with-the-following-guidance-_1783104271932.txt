@@ -1,0 +1,72 @@
+The Netlify deploy errored, with the following guidance provided:
+
+- Relevant log lines
+  - [line 23](#L23) shows dependency installation failed.
+  - [line 24](#L24)–[line 26](#L26) show an npm ENOTFOUND network error.
+  - [line 27](#L27) shows npm attempted to download from a non-public/internal registry: http://package-firewall.replit.local/...
+  - [line 33](#L33) indicates npm produced a debug log for the failure.
+
+Diagnosis
+- npm cannot reach a private/internal registry (package-firewall.replit.local) during install, causing the build to fail with ENOTFOUND. This usually happens because a project-level or environment npm config (.npmrc or NPM_CONFIG_REGISTRY) points to a non-public registry, or the lockfile contains resolved URLs pointing to that registry.
+
+Solution — steps to fix and verify
+1. Verify what registry is configured in the repo
+   - Search the repo for any npm config that points to the Replit firewall:
+     - git grep -n "package-firewall" || true
+     - git grep -n "registry=" || true
+   - Check these files in the repo (if present): .npmrc, package.json, package-lock.json / npm-shrinkwrap.json.
+     - package.json: https://github.com/skelleyboy/susienew/blob/main/package.json
+     - package-lock.json: https://github.com/skelleyboy/susienew/blob/main/package-lock.json
+2. If you find a .npmrc (or other config) that points to the Replit registry, change it to the public npm registry (or remove the file), commit, and push:
+   - Example .npmrc to use the public registry:
+```text
+registry=https://registry.npmjs.org/
+```
+   - Commit the change and push. Then trigger a new Netlify build.
+3. If package-lock.json contains resolved URLs that reference the internal registry, regenerate the lockfile locally after updating .npmrc:
+   - Locally:
+     - rm -rf node_modules
+     - npm cache clean --force
+     - npm install    # regenerates lockfile entries with the correct registry
+   - Commit the updated package-lock.json and push.
+4. If you intentionally need a private registry (private packages):
+   - Verify the private package is listed in package.json and is accessible from Netlify.
+   - Add the appropriate auth token as a Netlify build environment variable (for npm using NPM_TOKEN) and configure .npmrc to use it:
+```text
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}
+```
+   - In Netlify UI: Site settings → Build & deploy → Environment → Add variable NPM_TOKEN with the token value.
+5. As an alternative if you cannot change repo files, set the registry at build time in Netlify (Site settings → Build & deploy → Environment):
+   - Add NPM_CONFIG_REGISTRY = https://registry.npmjs.org/
+   - That will force npm to use the public registry for the build.
+6. Re-run the build on Netlify. The install step should now contact the public registry and succeed.
+
+Notes
+- The failure is network/config related (registry URL), not a Vite or Node compatibility issue. If at any point you suspect Node version problems, Netlify docs for changing Node versions are here: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript.
+
+The relevant error logs are:
+
+Line 13: mise ~/.config/mise/config.toml tools: ruby@3.4.8
+Line 14: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 15: Downloading and installing node v22.23.1...
+Line 16: Downloading https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz...
+Line 17: Computing checksum with sha256sum
+Line 18: Checksums matched!
+Line 19: Now using node v22.23.1 (npm v10.9.8)
+Line 20: Enabling Node.js Corepack
+Line 21: No npm workspaces detected
+Line 22: Installing npm packages using npm version 10.9.8
+Line 23: Failed during stage 'Install dependencies': dependency_installation script returned non-zero exit code: 1
+Line 24: npm error code ENOTFOUND
+Line 25: npm error syscall getaddrinfo
+Line 26: npm error errno ENOTFOUND
+Line 27: npm error network request to http://package-firewall.replit.local/npm/baseline-browser-mapping/-/baseline-browser-mapping-2.10.4
+Line 28: npm error network This is a problem related to network connectivity.
+Line 29: npm error network In most cases you are behind a proxy or have bad network settings.
+Line 30: npm error network
+Line 31: npm error network If you are behind a proxy, please make sure that the
+Line 32: npm error network 'proxy' config is set properly.  See: 'npm help config'
+Line 33: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-06-30T19_53_46_467Z-debug-0.log
+Line 34: Error during npm install
+Line 35: Failing build: Failed to install dependencies
+Line 36: Finished processing build request in 1m18.928s
