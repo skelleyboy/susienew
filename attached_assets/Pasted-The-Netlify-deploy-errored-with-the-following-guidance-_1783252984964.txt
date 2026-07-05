@@ -1,0 +1,63 @@
+The Netlify deploy errored, with the following guidance provided:
+
+Diagnosis
+- Relevant log lines: [line 22](#L22), [line 23](#L23), [line 24](#L24), [line 26](#L26), [line 27](#L27), [line 28](#L28).
+- Error type: npm internal failure during dependency installation ("Exit handler never called!").
+- Probable cause: npm crashed while running install on the build agent. This commonly happens when the Node/npm pair on the build image is incompatible or when npm v10 (shipped with Node 22 in your build) hits a bug with some install scripts or native builds. The build stops at "Failed to install dependencies" because npm terminated with an internal error.
+
+Solution (recommended)
+1. Pin the Node version Netlify uses to a stable LTS (Node 20) to avoid the npm v10 / Node 22 combination that triggered the npm crash.
+   - Add a .nvmrc file at the repository root with the single line:
+```text
+20
+```
+   - Commit and push the file, then re-deploy.
+
+   Alternative: set the build environment Node version in netlify.toml (if you prefer):
+```toml
+[build.environment]
+  NODE_VERSION = "20"
+```
+   After pushing the change, clear Netlify cache and re-deploy.
+
+2. If you prefer to keep Node 22, try forcing a different npm version before installs (less preferred):
+   - Add a preinstall script in package.json to downgrade npm to v9:
+```json
+"scripts": {
+  "preinstall": "npm i -g npm@9",
+  ...
+}
+```
+   This makes the build use npm 9 for the rest of the install. Commit and push, then re-deploy.
+
+3. Investigate the npm debug log if the above doesn't resolve:
+   - The build points to an npm debug log at [line 26](#L26). Inspect that file for the specific stack trace.
+   - Run npm install (or npm ci) locally with the same Node version to reproduce and get more info.
+
+Notes and troubleshooting tips
+- After making changes, clear the Netlify build cache via the Netlify UI (Deploys → Trigger deploy → Clear cache and deploy) to ensure a fresh install.
+- If Node version mismatch might be the root cause, see Netlify docs for changing Node versions: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+
+References
+- Repository package.json (verify engines or scripts if you change Node/npm): https://github.com/skelleyboy/susienew/blob/main/package.json
+
+The relevant error logs are:
+
+Line 12: mise ~/.config/mise/config.toml tools: ruby@3.4.8
+Line 13: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 14: Downloading and installing node v22.23.1...
+Line 15: Downloading https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz...
+Line 16: Computing checksum with sha256sum
+Line 17: Checksums matched!
+Line 18: Now using node v22.23.1 (npm v10.9.8)
+Line 19: Enabling Node.js Corepack
+Line 20: No npm workspaces detected
+Line 21: Installing npm packages using npm version 10.9.8
+Line 22: Failed during stage 'Install dependencies': dependency_installation script returned non-zero exit code: 1
+Line 23: npm error Exit handler never called!
+Line 24: npm error This is an error with npm itself. Please report this error at:
+Line 25: npm error   <https://github.com/npm/cli/issues>
+Line 26: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T12_00_18_308Z-debug-0.log
+Line 27: Error during npm install
+Line 28: Failing build: Failed to install dependencies
+Line 29: Finished processing build request in 1m17.845s
