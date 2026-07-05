@@ -1,0 +1,196 @@
+9:23:36 AM: Netlify Build                                                 
+9:23:36 AM: ────────────────────────────────────────────────────────────────
+9:23:36 AM: ​
+9:23:36 AM: ❯ Version
+9:23:36 AM:   @netlify/build 36.1.0
+9:23:36 AM: ​
+9:23:36 AM: ❯ Flags
+9:23:37 AM:   accountId: 5c9a4f966df558b18a0cd45d
+9:23:37 AM:   baseRelDir: true
+9:23:37 AM:   buildId: 6a4a5a895aea5700086a3d48
+9:23:37 AM:   deployId: 6a4a5a895aea5700086a3d4a
+9:23:37 AM: ​
+9:23:37 AM: ❯ Current directory
+9:23:37 AM:   /opt/build/repo
+9:23:37 AM: ​
+9:23:37 AM: ❯ Config file
+9:23:37 AM:   /opt/build/repo/netlify.toml
+9:23:37 AM: ​
+9:23:37 AM: ❯ Context
+9:23:37 AM:   production
+9:23:37 AM: ​
+9:23:37 AM: build.command from netlify.toml                               
+9:23:37 AM: ────────────────────────────────────────────────────────────────
+9:23:37 AM: ​
+9:23:37 AM: $ npm run build
+9:23:37 AM: > rest-express@1.0.0 build
+9:23:37 AM: > tsx script/build.ts
+9:23:37 AM: building client...
+9:23:38 AM: vite v7.1.12 building for production...
+9:23:38 AM: transforming...
+9:23:39 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+9:23:39 AM: ✓ 97 modules transformed.
+9:23:39 AM: ✗ Build failed in 1.10s
+9:23:39 AM: [vite]: Rollup failed to resolve import "@radix-ui/react-accordion" from "/opt/build/repo/client/src/components/ui/accordion.tsx".
+9:23:39 AM: This is most likely unintended because it can break your application at runtime.
+9:23:39 AM: If you do want to externalize this module explicitly add it to
+9:23:39 AM: `build.rollupOptions.external`
+9:23:39 AM:     at viteLog (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33865:57)
+9:23:39 AM:     at <anonymous> (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33899:73)
+9:23:39 AM:     at onwarn (/opt/build/repo/node_modules/@vitejs/plugin-react/dist/index.js:76:7)
+9:23:39 AM:     at <anonymous> (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33899:28)
+9:23:39 AM:     at onRollupLog (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33894:63)
+9:23:39 AM:     at onLog (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33697:4)
+9:23:39 AM:     at <anonymous> (/opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20937:32)
+9:23:39 AM:     at Object.logger (/opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:22823:9)
+9:23:39 AM:     at ModuleLoader.handleInvalidResolvedId (/opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21567:26)
+9:23:39 AM:     at <anonymous> (/opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21525:26) {
+9:23:39 AM:   watchFiles: [
+9:23:39 AM:     '/opt/build/repo/client/index.html',
+9:23:39 AM:     '/opt/build/repo/client/src/main.tsx',
+9:23:39 AM:     '/opt/build/repo/package.json',
+9:23:39 AM:     '/opt/build/repo/node_modules/react/jsx-runtime.js',
+9:23:39 AM:     '/opt/build/repo/node_modules/react-dom/client.js',
+9:23:39 AM:     '/opt/build/repo/client/src/App.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/index.css',
+9:23:39 AM:     '/opt/build/repo/node_modules/tailwindcss/index.css',
+9:23:39 AM:     '/opt/build/repo/node_modules/tw-animate-css/dist/tw-animate.css',
+9:23:39 AM:     '/opt/build/repo/node_modules/react/cjs/react-jsx-runtime.production.js',
+9:23:39 AM:     '/opt/build/repo/client/public/_redirects',
+9:23:39 AM:     '/opt/build/repo/client/public/zillow-logo.svg',
+9:23:39 AM:     '/opt/build/repo/client/public/robots.txt',
+9:23:39 AM:     '/opt/build/repo/client/public/sitemap.xml',
+9:23:39 AM:     '/opt/build/repo/client/public/favicon.svg',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Sell.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/About.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/TermsOfService.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/not-found.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/areas/Troy.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/areas/ShelbyTownship.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/areas/RoyalOak.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/HomeValue.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Buy.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Blog.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/BlogPost.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Area.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/PrivacyPolicy.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Communities.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Contact.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/pages/Home.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/tabs.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/ListingCard.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/command.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/badge.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/card.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/Section.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/input-otp.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/table.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/skeleton.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/switch.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/empty.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/sheet.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/item.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/popover.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/select.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/TestimonialSection.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/hover-card.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/toggle.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/spinner.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/toaster.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/Hero.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/sidebar.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/textarea.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/button-group.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/button.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/toast.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/toggle-group.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/resizable.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/label.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/alert-dialog.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/sonner.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/pagination.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/progress.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/separator.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/input.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/AreaCard.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/calendar.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/kbd.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/navigation-menu.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/avatar.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/chart.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/checkbox.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/context-menu.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/field.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/slider.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/form.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/dialog.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/aspect-ratio.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/LeadForm.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/dropdown-menu.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/alert.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/radio-group.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/input-group.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/carousel.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/scroll-area.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/accordion.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/tooltip.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/collapsible.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/drawer.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/breadcrumb.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/ui/menubar.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/SEO.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/layout/Navbar.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/layout/Footer.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/components/layout/MobileCTABar.tsx',
+9:23:39 AM:     '/opt/build/repo/client/src/lib/utils.ts',
+9:23:39 AM:     '/opt/build/repo/client/src/lib/queryClient.ts',
+9:23:39 AM:     '/opt/build/repo/client/src/lib/images.ts',
+9:23:39 AM:     '/opt/build/repo/client/src/data/areas.json',
+9:23:39 AM:     ... 47 more items
+9:23:39 AM:   ]
+9:23:39 AM: }
+9:23:39 AM: ​
+9:23:39 AM: "build.command" failed                                        
+9:23:39 AM: ────────────────────────────────────────────────────────────────
+9:23:39 AM: ​
+9:23:39 AM:   Error message
+9:23:39 AM:   Command failed with exit code 1: npm run build (https://ntl.fyi/exit-code-1)
+9:23:39 AM: ​
+9:23:39 AM:   Error location
+9:23:39 AM:   In build.command from netlify.toml:
+9:23:39 AM:   npm run build
+9:23:39 AM: ​
+9:23:39 AM:   Resolved config
+9:23:39 AM:   build:
+9:23:39 AM:     command: npm run build
+9:23:39 AM:     commandOrigin: config
+9:23:39 AM:     publish: /opt/build/repo/dist/public
+9:23:39 AM:     publishOrigin: config
+9:23:39 AM:   redirects:
+9:23:39 AM:     - force: true
+9:23:39 AM:       from: http://susiesharak.com/*
+9:23:39 AM:       status: 301
+9:23:39 AM:       to: https://susiesharak.com/:splat
+9:23:39 AM:     - force: true
+9:23:39 AM:       from: http://www.susiesharak.com/*
+9:23:39 AM:       status: 301
+9:23:39 AM:       to: https://susiesharak.com/:splat
+9:23:39 AM:     - force: true
+9:23:39 AM:       from: https://www.susiesharak.com/*
+9:23:39 AM:       status: 301
+9:23:39 AM:       to: https://susiesharak.com/:splat
+9:23:39 AM:     - force: true
+9:23:39 AM:       from: /blog/*/
+      status: 301
+      to: /blog/:splat
+    - force: true
+      from: /*/
+9:23:39 AM:       status: 301
+9:23:39 AM:       to: /:splat
+9:23:39 AM:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+9:23:39 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+9:23:39 AM: Failing build: Failed to build site
+9:23:40 AM: Finished processing build request in 1m21.052s
