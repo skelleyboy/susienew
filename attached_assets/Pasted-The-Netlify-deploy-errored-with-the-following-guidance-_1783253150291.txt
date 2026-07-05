@@ -1,0 +1,154 @@
+The Netlify deploy errored, with the following guidance provided:
+
+Diagnosis
+- Vite/Rollup failed to resolve the import "@radix-ui/react-accordion" from your client code ([line 64](#L64)). This is the immediate error causing the build to exit non‑zero ([line 61](#L61), [line 183](#L183)).
+- The build ran from the repo root and Netlify reported "No npm workspaces detected" ([line 18](#L18)). The failing imports are coming from files under client/ (example list in the log, e.g. [line 173](#L173) and nearby), which suggests the client/ package dependencies were not available to Vite when building.
+- Likely cause: the @radix-ui package (or other client dependencies) are not installed in the location where Vite is building (client code running under the root build), so Rollup cannot resolve the module.
+
+Solution
+1) Verify the dependency is declared
+- Open the client package.json and confirm @radix-ui/react-accordion is listed in dependencies:
+  https://github.com/skelleyboy/susienew/blob/main/client/package.json
+- If it is missing, add it to client/package.json (or to the root package.json if you intend to install dependencies at root).
+
+If the dependency is missing, install it (example commands):
+- From the client folder:
+```bash
+cd client
+npm install @radix-ui/react-accordion
+```
+- Or from the repo root (installs into client node_modules):
+```bash
+npm --prefix client install @radix-ui/react-accordion
+```
+
+2) Ensure Netlify installs the client deps before building
+- Because Netlify detected "No npm workspaces", the client/ folder dependencies are not automatically installed. Modify your Netlify build command so client dependencies are installed prior to running the build. Update your netlify.toml build.command (or the Build settings) to something like:
+```bash
+# Example: install client deps and run build from client
+npm --prefix client ci && npm --prefix client run build
+```
+or
+```bash
+# If your root build script starts a custom script that builds client, ensure it installs client deps first:
+cd client && npm ci && npm run build
+```
+Make sure you commit the updated netlify.toml (or change the Build command in the Netlify UI).
+
+3) (Only if package is present and the module still fails to resolve)
+- Verify node_modules is present under client/ after your install step in the Netlify build logs.
+- As a last resort you can externalize the module in Vite’s rollup options, but only after you confirm the package exists in package.json and is committed. To externalize (not usually recommended for this case), add to vite.config.ts:
+```ts
+// vite.config.ts
+export default defineConfig({
+  // ...
+  build: {
+    rollupOptions: {
+      external: ['@radix-ui/react-accordion']
+    }
+  }
+});
+```
+(Only do this if you understand the package will then be expected to be provided at runtime externally.)
+
+Notes
+- The important log lines: Vite resolution error [line 64](#L64), "No npm workspaces detected" [line 18](#L18), and build command that was run [line 55](#L55)-[line 57](#L57).
+- After making the above changes, push and trigger a new deploy. If you still see unresolved imports, paste the new build log lines showing the install step and the subsequent Vite error.
+
+The relevant error logs are:
+
+Line 10: Installing dependencies
+Line 11: mise ~/.config/mise/config.toml tools: python@3.14.3
+Line 12: mise ~/.config/mise/config.toml tools: ruby@3.4.8
+Line 13: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 14: Attempting Node.js version '20' from .nvmrc
+Line 15: v20.20.2 is already installed.
+Line 16: Now using node v20.20.2 (npm v10.8.2)
+Line 17: Enabling Node.js Corepack
+Line 18: No npm workspaces detected
+Line 19: Installing npm packages using npm version 10.8.2
+Line 20: npm error Exit handler never called!
+Line 21: npm error This is an error with npm itself. Please report this error at:
+Line 22: npm error   <https://github.com/npm/cli/issues>
+Line 23: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T12_03_53_228Z-debug-0.log
+Line 24: npm packages installed
+Line 25: Successfully installed dependencies
+Line 26: Detected 1 framework(s)
+Line 27: "vite" at version "7.1.12"
+Line 28: Starting build script
+Line 29: Section completed: initializing
+Line 30: ​
+Line 31: Netlify Build                                                 
+Line 32: ────────────────────────────────────────────────────────────────
+Line 33: ​
+Line 51: ​
+Line 52: build.command from netlify.toml                               
+Line 53: ────────────────────────────────────────────────────────────────
+Line 54: ​
+Line 55: $ npm run build
+Line 56: > rest-express@1.0.0 build
+Line 57: > tsx script/build.ts
+Line 58: building client...
+Line 59: vite v7.1.12 building for production...
+Line 60: transforming...
+Line 61: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 62: ✓ 117 modules transformed.
+Line 63: ✗ Build failed in 1.03s
+Line 64: [vite]: Rollup failed to resolve import "@radix-ui/react-accordion" from "/opt/build/repo/client/src/components/ui/accordio
+Line 65: This is most likely unintended because it can break your application at runtime.
+Line 66: If you do want to externalize this module explicitly add it to
+Line 67: `build.rollupOptions.external`
+Line 68:     at viteLog (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33865:57)
+Line 69:     at <anonymous> (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33899:73)
+Line 70:     at onwarn (/opt/build/repo/node_modules/@vitejs/plugin-react/dist/index.js:76:7)
+Line 71:     at <anonymous> (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33899:28)
+Line 72:     at onRollupLog (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33894:63)
+Line 73:     at onLog (/opt/build/repo/node_modules/vite/dist/node/chunks/config.js:33697:4)
+Line 74:     at <anonymous> (/opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20937:32)
+Line 173:     '/opt/build/repo/client/src/components/ui/ListingCard.tsx',
+Line 174:     '/opt/build/repo/client/src/components/ui/sonner.tsx',
+Line 175:     '/opt/build/repo/client/src/components/ui/menubar.tsx',
+Line 176:     '/opt/build/repo/client/src/components/SEO.tsx',
+Line 177:     '/opt/build/repo/client/src/hooks/useCanonical.ts',
+Line 178:     '/opt/build/repo/client/src/hooks/use-toast.ts',
+Line 179:     ... 68 more items
+Line 180:   ]
+Line 181: }
+Line 182: ​
+Line 183: "build.command" failed                                        
+Line 184: ────────────────────────────────────────────────────────────────
+Line 185: ​
+Line 186:   Error message
+Line 187:   Command failed with exit code 1: npm run build
+Line 188: ​
+Line 189:   Error location
+Line 190:   In build.command from netlify.toml:
+Line 191:   npm run build
+Line 192: ​
+Line 193:   Resolved config
+Line 194:   build:
+Line 195:     command: npm run build
+Line 196:     commandOrigin: config
+Line 197:     publish: /opt/build/repo/dist/public
+Line 198:     publishOrigin: config
+Line 199:   redirects:
+Line 207:       to: https://susiesharak.com/:splat
+Line 208:     - force: true
+Line 209:       from: https://www.susiesharak.com/*
+Line 210:       status: 301
+Line 211:       to: https://susiesharak.com/:splat
+Line 212:     - force: true
+Line 213:       from: /blog/*/
+      status: 301
+      to: /blog/:splat
+    - force: true
+      from: /*/
+Line 214:       status: 301
+Line 215:       to: /:splat
+Line 216:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 217: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 218: Failing build: Failed to build site
+Line 219: Finished processing build request in 1m20.231s
