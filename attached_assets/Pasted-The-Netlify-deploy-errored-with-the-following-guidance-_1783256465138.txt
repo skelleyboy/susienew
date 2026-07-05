@@ -1,0 +1,128 @@
+The Netlify deploy errored, with the following guidance provided:
+
+Diagnosis
+
+- Relevant log lines:
+  - Node engine warnings for Vite: [lines 21–28](#L21-L28) and [lines 67–75](#L67-L75). These show Vite and @vitejs/plugin-react require Node ^20.19.0 or >=22.12.0 while the build is running Node v18.20.8.
+  - npm internal warning (likely triggered by engine mismatch): [lines 31–34](#L31-L34) and [lines 78–81](#L78-L81).
+  - The immediate build error: the build script runs "tsx script/build.ts" but tsx is not found: [lines 82–85](#L82-L85). This produces the exit code that fails the build ([lines 86–96](#L86-L96)).
+
+Root cause
+- Primary immediate failure: the CLI "tsx" binary is missing when running the build, causing "sh: 1: tsx: not found" ([line 84](#L84)). That makes npm exit with code 127.
+- Underlying issue: the project uses Vite/@vitejs/plugin-react which require Node >=20.19.0 (or >=22.12.0). The build environment is running Node v18.20.8 ([lines 21–28](#L21-L28), [67–75](#L67-L75)). The Node mismatch likely causes npm instability ("Exit handler never called!") and may prevent some dev tools from being installed or executed as expected.
+
+Solution
+
+1) Verify tsx is in package.json (and committed)
+- Open your package.json and confirm tsx appears under dependencies or devDependencies. Example file in your repo: https://github.com/skelleyboy/susienew/blob/main/package.json
+- If tsx is missing, add it and commit. From your project root locally run:
+```bash
+# add tsx as a dev dependency and update lockfile
+npm install -D tsx@latest
+
+git add package.json package-lock.json
+git commit -m "chore: add tsx dev dependency"
+git push
+```
+- If tsx is already listed, ensure package.json and package-lock.json are committed and pushed.
+
+2) Fix the Node version mismatch on Netlify (required)
+- Netlify is currently using Node v18; Vite requires Node >=20.19.0. Update the build environment to use Node 20+.
+- Two easy options (pick one and commit/push):
+  - Add an .nvmrc file at the repo root with the desired version, e.g.:
+    ```text
+    20.19.0
+    ```
+    Commit and push .nvmrc.
+  - Or set the NODE_VERSION environment variable in your Netlify site settings to "20.19.0" (or a newer compatible 20.x/22.x) via the Netlify UI.
+- More details on changing Node versions on Netlify: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+
+3) Redeploy
+- After committing tsx (if needed) and adding .nvmrc (or updating the Netlify Node setting), trigger a new deploy. Netlify will pick up the Node version, install dependencies, and tsx should be available for the "npm run build" step.
+
+Notes and troubleshooting
+- If you still see "Exit handler never called!" after switching Node, re-trigger a clean build; it is often an npm internal error caused by engine mismatch and should be resolved by using a supported Node version.
+- If tsx is present but "not found" persists, ensure the install step actually ran (check logs for "installed" and that no install failures occurred). You can also change the build command to run "npx tsx script/build.ts" as a temporary workaround, but the proper fix is to have tsx listed in package.json and ensure the correct Node version is used.
+
+The relevant error logs are:
+
+Line 21: npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+Line 22: npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+Line 23: npm warn EBADENGINE }
+Line 24: npm warn EBADENGINE Unsupported engine {
+Line 25: npm warn EBADENGINE   package: 'vite@7.1.12',
+Line 26: npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+Line 27: npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+Line 28: npm warn EBADENGINE }
+Line 29: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+Line 30: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+Line 31: npm error Exit handler never called!
+Line 32: npm error This is an error with npm itself. Please report this error at:
+Line 33: npm error   <https://github.com/npm/cli/issues>
+Line 34: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T12_40_42_302Z-debug-0.log
+Line 35: npm packages installed
+Line 36: Successfully installed dependencies
+Line 37: Detected 1 framework(s)
+Line 38: "vite" at version "7.1.12"
+Line 39: Starting build script
+Line 40: Section completed: initializing
+Line 41: ​
+Line 42: Netlify Build                                                 
+Line 43: ────────────────────────────────────────────────────────────────
+Line 44: ​
+Line 67: npm warn EBADENGINE Unsupported engine {
+Line 68: npm warn EBADENGINE   package: '@vitejs/plugin-react@5.1.0',
+Line 69: npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+Line 70: npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+Line 71: npm warn EBADENGINE }
+Line 72: npm warn EBADENGINE Unsupported engine {
+Line 73: npm warn EBADENGINE   package: 'vite@7.1.12',
+Line 74: npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+Line 75: npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+Line 76: npm warn EBADENGINE }
+Line 77: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 78: npm error Exit handler never called!
+Line 79: npm error This is an error with npm itself. Please report this error at:
+Line 80: npm error   <https://github.com/npm/cli/issues>
+Line 81: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T12_41_56_111Z-debug-0.log
+Line 82: > rest-express@1.0.0 build
+Line 83: > tsx script/build.ts
+Line 84: sh: 1: tsx: not found
+Line 85: ​
+Line 86: "build.command" failed                                        
+Line 87: ────────────────────────────────────────────────────────────────
+Line 88: ​
+Line 89:   Error message
+Line 90:   Command failed with exit code 127: npm install && npm run build
+Line 91: ​
+Line 92:   Error location
+Line 93:   In build.command from netlify.toml:
+Line 94:   npm install && npm run build
+Line 95: ​
+Line 96:   Resolved config
+Line 97:   build:
+Line 98:     command: npm install && npm run build
+Line 99:     commandOrigin: config
+Line 100:     publish: /opt/build/repo/dist/public
+Line 101:     publishOrigin: config
+Line 102:   redirects:
+Line 110:       to: https://susiesharak.com/:splat
+Line 111:     - force: true
+Line 112:       from: https://www.susiesharak.com/*
+Line 113:       status: 301
+Line 114:       to: https://susiesharak.com/:splat
+Line 115:     - force: true
+Line 116:       from: /blog/*/
+      status: 301
+      to: /blog/:splat
+    - force: true
+      from: /*/
+Line 117:       status: 301
+Line 118:       to: /:splat
+Line 119:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 120: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 121: Failing build: Failed to build site
+Line 122: Finished processing build request in 2m30.236s

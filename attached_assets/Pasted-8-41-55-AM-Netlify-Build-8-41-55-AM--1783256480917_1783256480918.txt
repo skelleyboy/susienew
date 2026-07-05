@@ -1,0 +1,88 @@
+8:41:55 AM: Netlify Build                                                 
+8:41:55 AM: ────────────────────────────────────────────────────────────────
+8:41:55 AM: ​
+8:41:55 AM: ❯ Version
+8:41:55 AM:   @netlify/build 36.1.0
+8:41:55 AM: ​
+8:41:55 AM: ❯ Flags
+8:41:55 AM:   accountId: 5c9a4f966df558b18a0cd45d
+8:41:55 AM:   baseRelDir: true
+8:41:55 AM:   buildId: 6a4a50c44ef0037f35c9ec18
+8:41:55 AM:   deployId: 6a4a50c44ef0037f35c9ec1a
+8:41:56 AM: ​
+8:41:56 AM: ❯ Current directory
+8:41:56 AM:   /opt/build/repo
+8:41:56 AM: ​
+8:41:56 AM: ❯ Config file
+8:41:56 AM:   /opt/build/repo/netlify.toml
+8:41:56 AM: ​
+8:41:56 AM: ❯ Context
+8:41:56 AM:   production
+8:41:56 AM: ​
+8:41:56 AM: build.command from netlify.toml                               
+8:41:56 AM: ────────────────────────────────────────────────────────────────
+8:41:56 AM: ​
+8:41:56 AM: $ npm install && npm run build
+8:41:56 AM: npm warn EBADENGINE Unsupported engine {
+8:41:56 AM: npm warn EBADENGINE   package: '@vitejs/plugin-react@5.1.0',
+8:41:56 AM: npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+8:41:56 AM: npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+8:41:56 AM: npm warn EBADENGINE }
+8:41:56 AM: npm warn EBADENGINE Unsupported engine {
+8:41:56 AM: npm warn EBADENGINE   package: 'vite@7.1.12',
+8:41:56 AM: npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+8:41:56 AM: npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+8:41:56 AM: npm warn EBADENGINE }
+8:43:07 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+8:43:07 AM: npm error Exit handler never called!
+8:43:07 AM: npm error This is an error with npm itself. Please report this error at:
+8:43:07 AM: npm error   <https://github.com/npm/cli/issues&gt;
+8:43:07 AM: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T12_41_56_111Z-debug-0.log
+8:43:07 AM: > rest-express@1.0.0 build
+8:43:07 AM: > tsx script/build.ts
+8:43:07 AM: sh: 1: tsx: not found
+8:43:07 AM: ​
+8:43:07 AM: "build.command" failed                                        
+8:43:07 AM: ────────────────────────────────────────────────────────────────
+8:43:07 AM: ​
+8:43:07 AM:   Error message
+8:43:07 AM:   Command failed with exit code 127: npm install && npm run build (https://ntl.fyi/exit-code-127)
+8:43:07 AM: ​
+8:43:07 AM:   Error location
+8:43:07 AM:   In build.command from netlify.toml:
+8:43:07 AM:   npm install && npm run build
+8:43:07 AM: ​
+8:43:07 AM:   Resolved config
+8:43:07 AM:   build:
+8:43:07 AM:     command: npm install && npm run build
+8:43:07 AM:     commandOrigin: config
+8:43:07 AM:     publish: /opt/build/repo/dist/public
+8:43:07 AM:     publishOrigin: config
+8:43:07 AM:   redirects:
+8:43:07 AM:     - force: true
+8:43:07 AM:       from: http://susiesharak.com/*
+8:43:07 AM:       status: 301
+8:43:07 AM:       to: https://susiesharak.com/:splat
+8:43:07 AM:     - force: true
+8:43:07 AM:       from: http://www.susiesharak.com/*
+8:43:07 AM:       status: 301
+8:43:07 AM:       to: https://susiesharak.com/:splat
+8:43:07 AM:     - force: true
+8:43:07 AM:       from: https://www.susiesharak.com/*
+8:43:07 AM:       status: 301
+8:43:07 AM:       to: https://susiesharak.com/:splat
+8:43:07 AM:     - force: true
+8:43:07 AM:       from: /blog/*/
+      status: 301
+      to: /blog/:splat
+    - force: true
+      from: /*/
+8:43:07 AM:       status: 301
+8:43:07 AM:       to: /:splat
+8:43:07 AM:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+8:43:07 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+8:43:07 AM: Failing build: Failed to build site
+8:43:07 AM: Finished processing build request in 2m30.236s
