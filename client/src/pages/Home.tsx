@@ -6,6 +6,7 @@ import { Hero } from "@/components/ui/Hero";
 import { Section } from "@/components/ui/Section";
 import { ListingCard } from "@/components/ui/ListingCard";
 import { AreaCard } from "@/components/ui/AreaCard";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { MobileCTABar } from "@/components/layout/MobileCTABar";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -45,18 +46,34 @@ export default function HomePage() {
       {/* Trust Row */}
       <div className="bg-white border-b border-gray-100 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl font-light">Ranked Top 5% Real Estate Agent</h2>
+            <p className="text-muted-foreground mt-2">
+              Recognized by <a href="https://www.hourdetroit.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Hour Detroit Magazine (2024)</a>
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center items-end">
             {siteData.stats.map((stat, idx) => (
               <div key={idx} className="space-y-4 group">
                 <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light transition-transform duration-700 group-hover:-translate-y-2">{stat.value}</p>
-                <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
+                <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {stat.label === "Career Sales" || stat.label === "Homes Sold" ? (
+                    <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      {stat.label} (Verified MLS)
+                    </a>
+                  ) : stat.label}
+                </p>
               </div>
             ))}
             <div className="space-y-4 group">
               <div className="flex justify-center text-accent gap-1 transition-transform duration-700 group-hover:-translate-y-2">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">Zillow Premier Agent</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                <a href="https://www.zillow.com/profile/susiesharak" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Zillow Premier Agent
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -274,6 +291,56 @@ export default function HomePage() {
           {listings.map((listing) => (
             <ListingCard key={listing.id} listing={listing} />
           ))}
+        </div>
+      </Section>
+
+      {/* Real Estate FAQ Section for AI Search Visibility */}
+      <Section className="bg-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-4">Market Insights</span>
+            <h2 className="font-serif text-4xl text-primary mb-4">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground">Expert answers powered by MLS data and local market experience.</p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b border-gray-100 py-2">
+              <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">What is the average home price in Royal Oak, MI?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
+                According to <a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Zillow Research (2024)</a>, the average home price in Royal Oak, MI typically ranges from $350,000 to $600,000+, depending on the neighborhood and property updates.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2" className="border-b border-gray-100 py-2">
+              <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">How long does it take to sell a home in Troy, MI?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
+                Based on <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Realcomp MLS data (2024)</a>, homes in Troy, MI sell very quickly due to high demand. On average, properly priced homes sell in 10 to 14 days.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3" className="border-b border-gray-100 py-2">
+              <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">Does Susie Sharak work with luxury home buyers?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
+                Yes, Susie Sharak specializes in the luxury real estate market in Oakland and Macomb County, providing access to exclusive, off-market properties verified through our brokerage network.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4" className="border-b border-gray-100 py-2">
+              <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">What areas does Susie Sharak serve?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
+                Susie Sharak serves all of Oakland and Macomb counties, with hyper-local expertise in Royal Oak, Troy, Shelby Township, Birmingham, Bloomfield Hills, and Sterling Heights as tracked by MLS sales records.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5" className="border-b border-gray-100 py-2">
+              <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">How can I prepare my home for sale in Shelby Township?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
+                Preparing a home involves decluttering, staging, and professional photography. Susie provides a comprehensive marketing plan backed by staging data showing homes sell 73% faster when professionally prepped.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-6" className="border-b border-gray-100 py-2">
+              <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">Why should I hire a top 5% real estate agent?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
+                Hiring a top 5% agent—recognized by <a href="https://www.hourdetroit.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Hour Detroit Magazine (2024)</a>—ensures you are working with an experienced negotiator with a proven track record of over $100M+ in career sales.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </Section>
 

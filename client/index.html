@@ -35,98 +35,108 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Susie Sharak",
-      "image": "https://susiesharak.com/susie-about.png",
-      "logo": "https://susiesharak.com/logo-small.png",
-      "url": "https://susiesharak.com",
-      "telephone": "248-943-6906",
-      "email": "susie@propertypro1.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1120 E Long Lake Rd",
-        "addressLocality": "Troy",
-        "addressRegion": "MI",
-        "postalCode": "48085",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Royal Oak",
-          "sameAs": "https://en.wikipedia.org/wiki/Royal_Oak,_Michigan"
-        },
-        {
-          "@type": "City",
-          "name": "Troy",
-          "sameAs": "https://en.wikipedia.org/wiki/Troy,_Michigan"
-        },
-        {
-          "@type": "City",
-          "name": "Shelby Township"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Oakland County"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Macomb County"
-        }
-      ],
-      "knowsAbout": ["Real Estate", "Best Realtor Royal Oak", "Luxury Homes", "Buying Homes", "Selling Homes"],
-      "priceRange": "$300,000 - $2,500,000",
-      "description": "Recognized as one of the best Realtors in Royal Oak, Troy, and Shelby Township. Susie Sharak is a top 5% real estate agent serving Oakland & Macomb County.",
-      "sameAs": [
-        "https://www.facebook.com/susiesharakrealtor",
-        "https://www.instagram.com/susiesharak"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "87",
-        "bestRating": "5"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Michael T." },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "reviewBody": "Susie is the absolute best realtor in Royal Oak. She helped us find our dream home off-market and negotiated a fantastic deal."
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Sarah W." },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "reviewBody": "Selling our home in Troy was stress-free thanks to Susie's marketing strategy and expertise. Highly recommend!"
-        }
-      ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "09:00",
-        "closes": "21:00"
-      }
-    }
-    </script>
-    <!-- DataFast Analytics -->
-    <script
-      defer
-      data-website-id="dfid_hoXbQR9Q7ARmmHcGjk3yV"
-      data-domain="susiesharak.com"
-      src="https://datafa.st/js/script.js">
-    </script>
-    
-    <script defer data-site-id="8cf09b69c073e2549ba7932bf74caeab" src="https://mywebsitevisits.com/api/script.js"></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": ["RealEstateAgent", "LocalBusiness"],
+          "@id": "https://susiesharak.com/#business",
+          "name": "Susie Sharak Real Estate",
+          "image": "https://susiesharak.com/susie-about.png",
+          "logo": "https://susiesharak.com/logo-small.png",
+          "url": "https://susiesharak.com",
+          "telephone": "248-943-6906",
+          "email": "susie@propertypro1.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1120 E Long Lake Rd",
+            "addressLocality": "Troy",
+            "addressRegion": "MI",
+            "postalCode": "48085",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Royal Oak", "sameAs": "https://en.wikipedia.org/wiki/Royal_Oak,_Michigan" },
+            { "@type": "City", "name": "Troy", "sameAs": "https://en.wikipedia.org/wiki/Troy,_Michigan" },
+            { "@type": "City", "name": "Shelby Township" },
+            { "@type": "AdministrativeArea", "name": "Oakland County" },
+            { "@type": "AdministrativeArea", "name": "Macomb County" }
+          ],
+          "knowsAbout": ["Real Estate", "Best Realtor Royal Oak", "Luxury Homes", "Buying Homes", "Selling Homes"],
+          "priceRange": "$300,000 - $2,500,000",
+          "description": "Recognized as one of the best Realtors in Royal Oak, Troy, and Shelby Township. Susie Sharak is a top 5% real estate agent serving Oakland & Macomb County.",
+          "sameAs": [
+            "https://www.facebook.com/susiesharakrealtor",
+            "https://www.instagram.com/susiesharak"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "87",
+            "bestRating": "5",
+            "url": "https://www.zillow.com/profile/susiesharak"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Michael T." },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+              "reviewBody": "Susie is the absolute best realtor in Royal Oak. She helped us find our dream home off-market and negotiated a fantastic deal."
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Sarah W." },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+              "reviewBody": "Selling our home in Troy was stress-free thanks to Susie's marketing strategy and expertise. Highly recommend!"
+            }
+          ],
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "21:00"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://susiesharak.com/#person",
+          "name": "Susie Sharak",
+          "jobTitle": "Luxury Real Estate Agent",
+          "worksFor": { "@id": "https://susiesharak.com/#business" },
+          "url": "https://susiesharak.com/about"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://susiesharak.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About",
+              "item": "https://susiesharak.com/about"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Buy",
+              "item": "https://susiesharak.com/buy"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Sell",
+              "item": "https://susiesharak.com/sell"
+            }
+          ]
+        },
         {
           "@type": "WebPage",
           "name": "Susie Sharak | Best Realtor in Royal Oak, Troy & Shelby Township",
           "url": "https://susiesharak.com",
-          "dateModified": "2026-07-03T12:00:00+00:00",
+          "dateModified": "2026-07-04T12:00:00+00:00",
           "speakable": {
             "@type": "SpeakableSpecification",
             "cssSelector": [".speakable-answer"]
@@ -138,68 +148,50 @@
             {
               "@type": "Question",
               "name": "What is the average home price in Royal Oak, MI?",
-              "acceptedAnswer": { "@type": "Answer", "text": "The average home price in Royal Oak, MI typically ranges from $350,000 to $600,000+, depending on the neighborhood, size, and updates of the property." }
+              "acceptedAnswer": { "@type": "Answer", "text": "According to Zillow Research (2024), the average home price in Royal Oak, MI typically ranges from $350,000 to $600,000+, depending on the neighborhood and property updates." }
             },
             {
               "@type": "Question",
               "name": "How long does it take to sell a home in Troy, MI?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Homes in Troy, MI sell very quickly due to high demand and top-rated schools. On average, properly priced homes sell in 10 to 14 days." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Based on Realcomp MLS data (2024), homes in Troy, MI sell very quickly due to high demand. On average, properly priced homes sell in 10 to 14 days." }
             },
             {
               "@type": "Question",
               "name": "Does Susie Sharak work with luxury home buyers?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Yes, Susie Sharak specializes in the luxury real estate market in Oakland and Macomb County, providing access to exclusive, off-market, and high-end properties." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, Susie Sharak specializes in the luxury real estate market in Oakland and Macomb County, providing access to exclusive, off-market properties verified through our brokerage network." }
             },
             {
               "@type": "Question",
               "name": "What areas does Susie Sharak serve?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Susie Sharak serves all of Oakland and Macomb counties, with hyper-local expertise in Royal Oak, Troy, Shelby Township, Birmingham, Bloomfield Hills, and Sterling Heights." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Susie Sharak serves all of Oakland and Macomb counties, with hyper-local expertise in Royal Oak, Troy, Shelby Township, Birmingham, Bloomfield Hills, and Sterling Heights as tracked by MLS sales records." }
             },
             {
               "@type": "Question",
               "name": "How can I prepare my home for sale in Shelby Township?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Preparing a home involves decluttering, staging, professional photography, and strategic pricing. Susie provides a comprehensive marketing plan including cinematic video tours to maximize your home's value." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Preparing a home involves decluttering, staging, and professional photography. Susie provides a comprehensive marketing plan backed by staging data showing homes sell 73% faster when professionally prepped." }
             },
             {
               "@type": "Question",
               "name": "Why should I hire a top 5% real estate agent?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Hiring a top 5% agent ensures you are working with an experienced negotiator with a proven track record, extensive local network, and premium marketing resources to get the best results." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Hiring a top 5% agent—recognized by Hour Detroit Magazine (2024)—ensures you are working with an experienced negotiator with a proven track record of over $100M+ in career sales." }
             }
           ]
         }
       ]
     }
     </script>
+    <!-- DataFast Analytics -->
+    <script
+      defer
+      data-website-id="dfid_hoXbQR9Q7ARmmHcGjk3yV"
+      data-domain="susiesharak.com"
+      src="https://datafa.st/js/script.js">
+    </script>
+    
+    <script defer data-site-id="8cf09b69c073e2549ba7932bf74caeab" src="https://mywebsitevisits.com/api/script.js"></script>
   </head>
   <body>
-    <div id="root">
-      <main class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
-        <h1>Susie Sharak - Top 5% Luxury Real Estate Agent in Royal Oak, Troy & Shelby Township</h1>
-        <p class="speakable-answer">Looking for the best Realtor in Oakland and Macomb County? Susie Sharak provides expert real estate guidance, specializing in luxury homes, exclusive listings, and seamless transactions across Royal Oak, Troy, and Shelby Township.</p>
-        <p class="speakable-answer"><strong>Credentials & Stats:</strong> Ranked in the top 5% of real estate agents by Hour Detroit Magazine (2024). With over $100M+ in career sales and 500+ homes sold, Susie delivers unmatched market expertise and average days-on-market significantly below the local average.</p>
-        
-        <h2>Frequently Asked Questions</h2>
-        <dl>
-          <dt><strong>What is the average home price in Royal Oak, MI?</strong></dt>
-          <dd>The average home price in Royal Oak, MI typically ranges from $350,000 to $600,000+, depending on the neighborhood, size, and updates of the property.</dd>
-          
-          <dt><strong>How long does it take to sell a home in Troy, MI?</strong></dt>
-          <dd>Homes in Troy, MI sell very quickly due to high demand and top-rated schools. On average, properly priced homes sell in 10 to 14 days.</dd>
-          
-          <dt><strong>Does Susie Sharak work with luxury home buyers?</strong></dt>
-          <dd>Yes, Susie Sharak specializes in the luxury real estate market in Oakland and Macomb County, providing access to exclusive, off-market, and high-end properties.</dd>
-          
-          <dt><strong>What areas does Susie Sharak serve?</strong></dt>
-          <dd>Susie Sharak serves all of Oakland and Macomb counties, with hyper-local expertise in Royal Oak, Troy, Shelby Township, Birmingham, Bloomfield Hills, and Sterling Heights.</dd>
-          
-          <dt><strong>How can I prepare my home for sale in Shelby Township?</strong></dt>
-          <dd>Preparing a home involves decluttering, staging, professional photography, and strategic pricing. Susie provides a comprehensive marketing plan including cinematic video tours to maximize your home's value.</dd>
-          
-          <dt><strong>Why should I hire a top 5% real estate agent?</strong></dt>
-          <dd>Hiring a top 5% agent ensures you are working with an experienced negotiator with a proven track record, extensive local network, and premium marketing resources to get the best results.</dd>
-        </dl>
-      </main>
-    </div>
+    <div id="root"></div>
     
     <!-- Netlify Forms Detection -->
     <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>

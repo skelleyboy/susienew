@@ -33,6 +33,11 @@ const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 
+// Dedicated Area Pages
+const RoyalOakPage = lazy(() => import("@/pages/areas/RoyalOak"));
+const TroyPage = lazy(() => import("@/pages/areas/Troy"));
+const ShelbyTownshipPage = lazy(() => import("@/pages/areas/ShelbyTownship"));
+
 function Router() {
   useCanonical();
   return (
@@ -41,7 +46,15 @@ function Router() {
       <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="animate-pulse w-12 h-12 bg-gray-200 rounded-full"></div></div>}>
       <Switch>
         <Route path="/" component={Home} />
+        
+        {/* Dedicated Deep Area Pages for AI/SEO */}
+        <Route path="/area/royal-oak" component={RoyalOakPage} />
+        <Route path="/area/troy" component={TroyPage} />
+        <Route path="/area/shelby-township" component={ShelbyTownshipPage} />
+        
+        {/* Dynamic Area Page Fallback */}
         <Route path="/area/:slug" component={AreaPage} />
+        
         <Route path="/contact" component={Contact} />
         <Route path="/buy" component={Buy} />
         <Route path="/sell" component={Sell} />

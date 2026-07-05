@@ -1,0 +1,35 @@
+mywebsitevisits
+
+Back to susiesharak.com
+AI search visibility
+Track how ready susiesharak.com is to be cited by AI tools like ChatGPT, and how often it actually gets mentioned.
+AI-search readiness score
+How well your homepage is set up to be picked up and quoted by AI engines.
+52
+/ 100
+Depth
+10
+Direct answers
+10
+Sources & stats
+8
+Technical setup
+12
+Structure
+12
+Jul 4
+Score : 52/100
+Top fixes
+
+Move Core Content Out of sr-only Hidden Div
+The entire visible content block including the H1, credential stats, and FAQ section is inside a CSS sr-only element (1px × 1px, clipped, overflow hidden). AI crawlers and rendering engines may treat this as cloaked or decorative content and ignore it entirely; move this substantive content into the visible rendered DOM inside the React root so it is actually present in the page's readable body.
+Add Sourced, Verifiable Citations to Credential Claims
+The page states Susie is 'Ranked in the top 5% of real estate agents by Hour Detroit Magazine (2024)' and has '$100M+ in career sales and 500+ homes sold,' but no link, award page URL, or third-party source is referenced. AI engines strongly favor quotable statistics backed by named, linkable sources—add an href to the Hour Detroit award listing and a link to MLS transaction records or a brokerage verification page.
+Expand FAQ Answers with Local Market Data and Named Sources
+All six FAQPage schema answers are qualitative and self-referential (e.g., 'homes sell in 10 to 14 days' with no citation). Enrich each answer with a named data source such as Realcomp MLS or Zillow Research, a specific year, and a hyperlink so AI engines can treat the answer as a citable fact rather than marketing copy.
+Add BreadcrumbList, LocalBusiness, and Person Schema to Complement RealEstateAgent Type
+The structured data uses RealEstateAgent and FAQPage correctly, but there is no Person schema for Susie as an individual expert (which supports AI entity disambiguation), no BreadcrumbList (which aids content hierarchy signals), and the aggregateRating of 4.9 / 87 reviews has no reviewUrl pointing to a verifiable third-party review source like Google or Zillow—add these to increase schema richness and AI trust signals.
+Create Dedicated Crawlable Inner Pages for Each Service Area
+The homepage targets Royal Oak, Troy, Shelby Township, Birmingham, Bloomfield Hills, and Sterling Heights all in one page with shallow coverage of each. AI engines favor topical depth and freshness per topic; build separate landing pages (e.g., /royal-oak-realtor, /troy-mi-homes) with local market stats, recent sold comps, and neighborhood guides so each location query has a deep, citable page to surface.
+Last checked Jul 4 at 8:39 PM
+
