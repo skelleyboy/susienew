@@ -1,0 +1,31 @@
+mywebsitevisits
+
+Back to susiesharak.com
+AI search visibility
+Track how ready susiesharak.com is to be cited by AI tools like ChatGPT, and how often it actually gets mentioned.
+AI-search readiness score
+How well your homepage is set up to be picked up and quoted by AI engines.
+28
+/ 100
+Depth
+2
+Direct answers
+2
+Sources & stats
+3
+Technical setup
+17
+Structure
+4
+Top fixes
+
+Render crawlable body content — the page is effectively invisible to AI engines
+The entire page renders inside a JavaScript bundle via <div id='root'></div>, meaning AI crawlers (ChatGPT, Perplexity, Google AIO) see a blank body with no headings, paragraphs, statistics, or answers. Add server-side rendered or statically generated HTML containing at minimum an H1, a 2-3 sentence direct answer about Susie Sharak's services, and key stats (e.g. '500+ homes sold,' 'top 5% of Michigan agents') so AI engines have quotable text to surface.
+Add substantive, cited statistics and named third-party credentials to the visible HTML
+The meta description claims 'top 5%' but no source, ranking body, or year is referenced anywhere in crawlable content. Add inline HTML text citing the verifying organization (e.g. 'Ranked top 5% by MichiganRealtors.com, 2024') and include transaction volume figures or average days-on-market metrics with attribution so AI engines can quote a named, verifiable claim.
+Build an FAQ section with structured FAQPage JSON-LD targeting buyer and seller questions
+There is no FAQ block in the HTML body and no FAQPage schema in the existing JSON-LD. Add at least 6 Q&A pairs (e.g. 'What is the average home price in Royal Oak, MI?', 'How long does it take to sell a home in Troy, MI?') as visible HTML and mirror them in a FAQPage schema block — this is the highest-ROI format for triggering AI Overview inclusion.
+Augment the RealEstateAgent schema with Review and AggregateRating entities
+The existing JSON-LD schema is well-structured for NAP and areaServed but lacks any 'aggregateRating' or 'review' nodes, which AI engines weight heavily as authority signals. Add a schema block like '"aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87", "bestRating": "5"}' along with 2-3 representative Review objects with named reviewers and specific testimonial text.
+Fix the Twitter card creator tag and add Article or WebPage schema to establish freshness signals
+The twitter:site tag incorrectly points to '@replit' instead of Susie Sharak's own handle, which undermines entity association for AI knowledge graphs. Additionally, add a WebPage or LocalBusiness schema node with 'dateModified' set to the current date and a 'speakable' property pointing to the primary answer paragraphs, signaling content freshness to Google AIO and Perplexity crawlers.
