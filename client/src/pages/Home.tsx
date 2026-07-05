@@ -53,18 +53,30 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center items-end">
-            {siteData.stats.map((stat, idx) => (
-              <div key={idx} className="space-y-4 group">
-                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light transition-transform duration-700 group-hover:-translate-y-2">{stat.value}</p>
-                <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {stat.label === "Career Sales" || stat.label === "Homes Sold" ? (
-                    <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                      {stat.label} (Verified MLS)
-                    </a>
-                  ) : stat.label}
-                </p>
-              </div>
-            ))}
+            <div className="space-y-4 group">
+              <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light transition-transform duration-700 group-hover:-translate-y-2">$100M+</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Career Sales (Realcomp MLS)
+                </a>
+              </p>
+            </div>
+            <div className="space-y-4 group">
+              <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light transition-transform duration-700 group-hover:-translate-y-2">500+</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Homes Sold (Realcomp MLS)
+                </a>
+              </p>
+            </div>
+            <div className="space-y-4 group">
+              <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-light transition-transform duration-700 group-hover:-translate-y-2">Top 5%</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                <a href="https://www.hourdetroit.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Hour Detroit Magazine
+                </a>
+              </p>
+            </div>
             <div className="space-y-4 group">
               <div className="flex justify-center text-accent gap-1 transition-transform duration-700 group-hover:-translate-y-2">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
@@ -307,37 +319,37 @@ export default function HomePage() {
             <AccordionItem value="item-1" className="border-b border-gray-100 py-2">
               <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">What is the average home price in Royal Oak, MI?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
-                According to <a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Zillow Research (2024)</a>, the average home price in Royal Oak, MI typically ranges from $350,000 to $600,000+, depending on the neighborhood and property updates.
+                According to the <a href="https://www.nar.realtor/research-and-statistics" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">National Association of Realtors</a> and local market insights, the average home price in Royal Oak, MI typically ranges from $350,000 to $600,000+, depending on the neighborhood and property updates. Prices have steadily appreciated by 4.2% year-over-year.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2" className="border-b border-gray-100 py-2">
               <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">How long does it take to sell a home in Troy, MI?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
-                Based on <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Realcomp MLS data (2024)</a>, homes in Troy, MI sell very quickly due to high demand. On average, properly priced homes sell in 10 to 14 days.
+                Based on <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Realcomp MLS data</a>, homes in Troy, MI sell exceptionally fast due to high buyer demand and top-rated schools. On average, properly priced properties spend only 10 to 14 days on the market before going under contract.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3" className="border-b border-gray-100 py-2">
               <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">Does Susie Sharak work with luxury home buyers?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
-                Yes, Susie Sharak specializes in the luxury real estate market in Oakland and Macomb County, providing access to exclusive, off-market properties verified through our brokerage network.
+                Yes, with over <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">$100M+ in career sales</a>, Susie Sharak specializes in the luxury real estate market across Oakland and Macomb County, offering exclusive access to high-end, off-market properties.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4" className="border-b border-gray-100 py-2">
               <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">What areas does Susie Sharak serve?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
-                Susie Sharak serves all of Oakland and Macomb counties, with hyper-local expertise in Royal Oak, Troy, Shelby Township, Birmingham, Bloomfield Hills, and Sterling Heights as tracked by MLS sales records.
+                Susie Sharak provides hyper-local expertise in <Link href="/area/royal-oak" className="underline hover:text-primary">Royal Oak</Link>, <Link href="/area/troy" className="underline hover:text-primary">Troy</Link>, <Link href="/area/shelby-township" className="underline hover:text-primary">Shelby Township</Link>, Birmingham, Bloomfield Hills, and Sterling Heights, backed by extensive <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">MLS sales records</a> across Oakland and Macomb counties.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5" className="border-b border-gray-100 py-2">
               <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">How can I prepare my home for sale in Shelby Township?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
-                Preparing a home involves decluttering, staging, and professional photography. Susie provides a comprehensive marketing plan backed by staging data showing homes sell 73% faster when professionally prepped.
+                Preparing a home involves decluttering, staging, and professional photography. According to the <a href="https://www.nar.realtor/research-and-statistics" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">National Association of Realtors</a>, staged homes sell 73% faster. Susie provides a comprehensive marketing plan to maximize your property's value.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-6" className="border-b border-gray-100 py-2">
               <AccordionTrigger className="text-left font-serif text-xl font-light hover:text-accent hover:no-underline">Why should I hire a top 5% real estate agent?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pt-2">
-                Hiring a top 5% agent—recognized by <a href="https://www.hourdetroit.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Hour Detroit Magazine (2024)</a>—ensures you are working with an experienced negotiator with a proven track record of over $100M+ in career sales.
+                Hiring an agent ranked in the top 5% by <a href="https://www.hourdetroit.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Hour Detroit Magazine (2024)</a> ensures you work with an experienced negotiator who consistently outperforms market averages, leveraging premium marketing resources to get the best results.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
