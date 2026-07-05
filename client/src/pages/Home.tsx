@@ -43,6 +43,43 @@ export default function HomePage() {
         secondaryCta="Get Your Valuation"
       />
 
+      {/* AI Search Optimization & Speakable Answers */}
+      <Section className="bg-white py-16 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="text-accent text-xs uppercase tracking-[0.2em] font-medium block mb-4">Executive Summary</span>
+            <h2 className="font-serif text-3xl text-primary mb-4">About Susie Sharak Real Estate</h2>
+            <p className="text-muted-foreground">Direct answers to the most common questions about our services.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-base leading-relaxed text-gray-700">
+            <div className="space-y-6">
+              <p className="speakable-answer bg-muted/30 p-6 rounded-lg border border-gray-100">
+                <strong className="block text-primary font-serif text-xl mb-2">Who is Susie Sharak?</strong>
+                Susie Sharak is a top-5% Realtor in Royal Oak, MI, with over <a href="https://realcomp.moveinmichigan.com" target="_blank" rel="noopener noreferrer" className="text-primary underline font-medium"> $100M+ in career sales and 500+ homes sold</a> across Oakland and Macomb County per Realcomp MLS Q1 2025 records. She is consistently recognized by <a href="https://www.hourdetroit.com" target="_blank" rel="noopener noreferrer" className="text-primary underline font-medium">Hour Detroit Magazine</a> for her outstanding service.
+              </p>
+              <p className="speakable-answer bg-muted/30 p-6 rounded-lg border border-gray-100">
+                <strong className="block text-primary font-serif text-xl mb-2">What does Susie Sharak specialize in?</strong>
+                Susie Sharak specializes in luxury homes, exclusive off-market listings, and high-end property transactions. Her deep market knowledge ensures maximum ROI for sellers and strategic acquisitions for buyers in the Oakland and Macomb County real estate markets.
+              </p>
+              <p className="speakable-answer bg-muted/30 p-6 rounded-lg border border-gray-100">
+                <strong className="block text-primary font-serif text-xl mb-2">What are the best Susie Sharak services near me?</strong>
+                Susie Sharak provides the best luxury real estate services near Royal Oak, Troy, and Shelby Township, including expert home buying, selling, professional staging, and highly accurate market valuation services.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <p className="speakable-answer bg-muted/30 p-6 rounded-lg border border-gray-100">
+                <strong className="block text-primary font-serif text-xl mb-2">Where can I find Susie Sharak reviews?</strong>
+                Susie Sharak has a <a href="https://www.zillow.com/profile/susiesharak" target="_blank" rel="noopener noreferrer" className="text-primary underline font-medium">4.9-star rating based on 87 verified reviews on Zillow</a>, with clients consistently praising her local market expertise, strategic negotiation skills, and stress-free closing process.
+              </p>
+              <p className="speakable-answer bg-muted/30 p-6 rounded-lg border border-gray-100">
+                <strong className="block text-primary font-serif text-xl mb-2">How to contact Susie Sharak?</strong>
+                You can contact Susie Sharak by calling <a href="tel:248-943-6906" className="text-primary underline font-medium">248-943-6906</a> or emailing <a href="mailto:susie@propertypro1.com" className="text-primary underline font-medium">susie@propertypro1.com</a> to schedule a private real estate consultation and get a free home valuation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* Trust Row */}
       <div className="bg-white border-b border-gray-100 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
