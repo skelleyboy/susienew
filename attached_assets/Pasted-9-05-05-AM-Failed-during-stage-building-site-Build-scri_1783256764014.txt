@@ -1,0 +1,78 @@
+9:05:05 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+9:05:04 AM: Netlify Build                                                 
+9:05:04 AM: ────────────────────────────────────────────────────────────────
+9:05:04 AM: ​
+9:05:04 AM: ❯ Version
+9:05:04 AM:   @netlify/build 36.1.0
+9:05:04 AM: ​
+9:05:04 AM: ❯ Flags
+9:05:04 AM:   accountId: 5c9a4f966df558b18a0cd45d
+9:05:04 AM:   baseRelDir: true
+9:05:04 AM:   buildId: 6a4a5632212500000833ad0c
+9:05:04 AM:   deployId: 6a4a5632212500000833ad0e
+9:05:05 AM: ​
+9:05:05 AM: ❯ Current directory
+9:05:05 AM:   /opt/build/repo
+9:05:05 AM: ​
+9:05:05 AM: ❯ Config file
+9:05:05 AM:   /opt/build/repo/netlify.toml
+9:05:05 AM: ​
+9:05:05 AM: ❯ Context
+9:05:05 AM:   production
+9:05:05 AM: ​
+9:05:05 AM: build.command from netlify.toml                               
+9:05:05 AM: ────────────────────────────────────────────────────────────────
+9:05:05 AM: ​
+9:05:05 AM: $ npm i -g pnpm && pnpm install && npm run build
+9:05:05 AM: npm error code EEXIST
+9:05:05 AM: npm error path /opt/buildhome/.nvm/versions/node/v20.20.2/bin/pnpm
+9:05:05 AM: npm error EEXIST: file already exists
+9:05:05 AM: npm error File exists: /opt/buildhome/.nvm/versions/node/v20.20.2/bin/pnpm
+9:05:05 AM: npm error Remove the existing file and try again, or run npm
+9:05:05 AM: npm error with --force to overwrite files recklessly.
+9:05:05 AM: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T13_05_05_109Z-debug-0.log
+9:05:05 AM: ​
+9:05:05 AM: "build.command" failed                                        
+9:05:05 AM: ────────────────────────────────────────────────────────────────
+9:05:05 AM: ​
+9:05:05 AM:   Error message
+9:05:05 AM:   Command failed with exit code 1: npm i -g pnpm && pnpm install && npm run build (https://ntl.fyi/exit-code-1)
+9:05:05 AM: ​
+9:05:05 AM:   Error location
+9:05:05 AM:   In build.command from netlify.toml:
+9:05:05 AM:   npm i -g pnpm && pnpm install && npm run build
+9:05:05 AM: ​
+9:05:05 AM:   Resolved config
+9:05:05 AM:   build:
+9:05:05 AM:     command: npm i -g pnpm && pnpm install && npm run build
+9:05:05 AM:     commandOrigin: config
+9:05:05 AM:     publish: /opt/build/repo/dist/public
+9:05:05 AM:     publishOrigin: config
+9:05:05 AM:   redirects:
+9:05:05 AM:     - force: true
+9:05:05 AM:       from: http://susiesharak.com/*
+9:05:05 AM:       status: 301
+9:05:05 AM:       to: https://susiesharak.com/:splat
+9:05:05 AM:     - force: true
+9:05:05 AM:       from: http://www.susiesharak.com/*
+9:05:05 AM:       status: 301
+9:05:05 AM:       to: https://susiesharak.com/:splat
+9:05:05 AM:     - force: true
+9:05:05 AM:       from: https://www.susiesharak.com/*
+9:05:05 AM:       status: 301
+9:05:05 AM:       to: https://susiesharak.com/:splat
+9:05:05 AM:     - force: true
+9:05:05 AM:       from: /blog/*/
+      status: 301
+      to: /blog/:splat
+    - force: true
+      from: /*/
+9:05:05 AM:       status: 301
+9:05:05 AM:       to: /:splat
+9:05:05 AM:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+9:05:05 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+9:05:05 AM: Failing build: Failed to build site
+9:05:06 AM: Finished processing build request in 1m19.139s
