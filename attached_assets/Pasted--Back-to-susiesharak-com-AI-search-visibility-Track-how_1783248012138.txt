@@ -1,0 +1,93 @@
+ Back to susiesharak.com
+AI search visibility
+
+Track how ready susiesharak.com is to be cited by AI tools like ChatGPT, and how often it actually gets mentioned.
+AI-search readiness score
+How well your homepage is set up to be picked up and quoted by AI engines.
+52/ 100
+Depth
+11
+Direct answers
+10
+Sources & stats
+8
+Technical setup
+11
+Structure
+12
+
+Top fixes
+
+Move core content out of sr-only hidden container
+
+The entire visible text body — including the H1, credentials paragraph, and FAQ dl/dt/dd block — is wrapped in a sr-only div styled with clip, overflow:hidden, and 1px dimensions, making it invisible to sighted users and likely discounted by AI crawlers that cross-reference rendered output. Move this content into the normal document flow using semantic HTML so it is part of the actual rendered page AI engines index.
+
+Add sourced, verifiable citations to the credentials claims
+
+The page claims 'Ranked in the top 5% of real estate agents by Hour Detroit Magazine (2024)' and '$100M+ in career sales / 500+ homes sold' but provides no hyperlink or external reference. Add an anchor tag linking directly to the Hour Detroit listing or a verifiable third-party source, and cite the MLS or brokerage record for the transaction volume so AI engines can treat these as citable facts rather than unverified self-claims.
+
+Expand FAQ answers with specific, data-backed local market statistics
+
+FAQ answers such as 'homes sell in 10 to 14 days' and '$350,000 to $600,000+' are stated without a source year, data provider, or MLS citation. Append each answer with a source reference (e.g., 'per REALCOMP MLS Q1 2025 data') and expand the home-sale-prep answer into a numbered checklist so AI engines can surface it as a structured snippet.
+
+Add a LocalBusiness or Person schema with verified review source links
+
+The aggregateRating block shows 4.9 stars across 87 reviews but does not include a 'url' property pointing to the review platform (Google, Zillow, Realtor.com) where those reviews live. Add a 'sameAs' or review source URL to the aggregateRating and link each Review entity to a public profile, otherwise AI engines cannot verify the rating and are unlikely to surface it in rich results.
+
+Implement speakable content in rendered HTML, not only JSON-LD
+
+The speakable SpeakableSpecification targets '.speakable-answer' CSS selectors, but those elements are hidden inside the sr-only container and will not match rendered DOM that AI voice and overview systems parse. Place at least two .speakable-answer paragraphs in the visible body with a direct, question-answering opening sentence (e.g., 'Susie Sharak is a top-5% Realtor in Royal Oak, MI, with 500+ homes sold across Oakland and Macomb County.') so the selector resolves to indexable content.
+
+Last checked Jul 5, 6:39 AM
+AI mention tracking
+We ask an AI assistant your target questions and check if it mentions your brand.
+
+This checks what the AI model already knows from training, not a live web search. Treat it as a directional signal for brand awareness, not a guarantee of what every AI search engine shows right now.
+
+Target questions
+best susie sharak services near me
+who is susie sharak
+susie sharak reviews
+what does susie sharak specialize in
+how to contact susie sharak
+Recent checks
+
+best susie sharak services near me
+
+Not mentioned · Jul 5
+
+how to contact susie sharak
+
+Not mentioned · Jul 5
+
+susie sharak reviews
+
+Not mentioned · Jul 5
+
+who is susie sharak
+
+Not mentioned · Jul 5
+
+what does susie sharak specialize in
+
+Not mentioned · Jul 5
+
+best susie sharak services near me
+
+Not mentioned · Jul 4
+
+how to contact susie sharak
+
+Not mentioned · Jul 4
+
+susie sharak reviews
+
+Not mentioned · Jul 4
+
+what does susie sharak specialize in
+
+Not mentioned · Jul 4
+
+who is susie sharak
+
+Not mentioned · Jul 4
