@@ -1,0 +1,77 @@
+The Netlify deploy errored, with the following guidance provided:
+
+Diagnosis
+- Relevant log lines: [Installing npm packages started](#L23), [install stage failed](#L24), [npm internal error "Exit handler never called!"](#L25) and pointer to the npm debug log on the build host [line with the log path](#L28). The build stopped during dependency installation [line 29-30](#L29-L30).
+- Error type and cause: npm crashed during install with an internal error ("Exit handler never called!"). This is typically caused by an npm runtime bug or an incompatibility between npm (bundled with Node 22.23.1 here) and either a native build step or a package install script in your dependency tree. The build used Node 22 because Netlify picked up .nvmrc (Attempting Node.js version '22' from .nvmrc) [line 15-20](#L15-L20), so an npm/Node version mismatch or an npm bug is the most likely cause.
+
+Solution — steps to diagnose and fix
+1. Reproduce locally and inspect the npm debug log
+   - Verify package.json is present and committed to the repo before changing build environment:
+```bash
+git ls-files package.json || echo "package.json not found - please add and commit it"
+```
+   - Reproduce locally with the same Node version Netlify used (22) to see full error and the npm debug log:
+```bash
+# with nvm installed
+nvm install 22
+nvm use 22
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+# if it fails, inspect the generated npm log (path will be printed by npm)
+```
+   - The full npm debug log will show the failing package or script. If you can reproduce locally, paste that log or the failing package line into the repo issues/PR or share it here.
+
+2. Quick fix: try a different Node LTS (most fixes are resolved by using Node 18 or Node 20)
+   - Update .nvmrc to Node 18 (recommended LTS) or Node 20 and commit the change so Netlify will use that version instead of 22. Example:
+```bash
+echo "18" > .nvmrc
+git add .nvmrc
+git commit -m "Set Node 18 for Netlify build to avoid npm crash"
+git push
+```
+   - Alternatively set the Node version in Netlify UI or package.json "engines" field. See Netlify docs for changing Node versions: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+
+3. If you prefer to keep Node 22, try workarounds
+   - Force a different npm (upgrade/downgrade) in the build by adding a preinstall step in your build command:
+```bash
+# example Netlify build command or add to a preinstall script
+npm install -g npm@10.9.0 || true    # or try npm@10.8.x / 9.x if you want to test different npm versions
+npm install
+```
+   - Or add CI flags if peer conflicts are suspected:
+```bash
+npm install --legacy-peer-deps
+```
+   Add these in the Netlify build settings (Build command) or package.json scripts.
+
+4. If the crash is caused by a native module build (node-gyp) or a package install script
+   - Ensure build-image has required system dependencies or remove/replace offending native dependency. The npm debug log (step 1) will identify which package failed; act on that package (e.g., add required OS packages or use a pure-JS alternative).
+
+5. After fixing, rerun Netlify build
+   - Commit the change (.nvmrc or package.json engines or build command update) and push. Watch the new build; if it still fails, share the full npm debug log (the local reproduction log or the Netlify log path indicated in the build output) for the next diagnosis.
+
+Notes
+- Because the build log shows Netlify used .nvmrc to select Node 22 [line 15](#L15), changing .nvmrc is the simplest way to change the Node version on Netlify. Documentation: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+- If you share the local/npm debug log output (or the failing package name from that log), I can provide a targeted fix (e.g., add a missing system package or pin/replace a dependency).
+
+The relevant error logs are:
+
+Line 14: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 15: Attempting Node.js version '22' from .nvmrc
+Line 16: Downloading and installing node v22.23.1...
+Line 17: Downloading https://nodejs.org/dist/v22.23.1/node-v22.23.1-linux-x64.tar.xz...
+Line 18: Computing checksum with sha256sum
+Line 19: Checksums matched!
+Line 20: Now using node v22.23.1 (npm v10.9.8)
+Line 21: Enabling Node.js Corepack
+Line 22: No npm workspaces detected
+Line 23: Installing npm packages using npm version 10.9.8
+Line 24: Failed during stage 'Install dependencies': dependency_installation script returned non-zero exit code: 1
+Line 25: npm error Exit handler never called!
+Line 26: npm error This is an error with npm itself. Please report this error at:
+Line 27: npm error   <https://github.com/npm/cli/issues>
+Line 28: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T13_46_17_128Z-debug-0.log
+Line 29: Error during npm install
+Line 30: Failing build: Failed to install dependencies
+Line 31: Finished processing build request in 1m18.54s
