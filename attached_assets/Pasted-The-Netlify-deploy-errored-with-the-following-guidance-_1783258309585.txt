@@ -1,0 +1,115 @@
+The Netlify deploy errored, with the following guidance provided:
+
+- Relevant log lines
+  - [line 21](#L21) shows an npm internal error during install.
+  - The failing error is the npm ENOTEMPTY rename failure: [line 58](#L58) through [line 64](#L64).
+
+- Diagnosis
+  - Error type: npm install failure (ENOTEMPTY, errno -39) while renaming a scoped package directory.
+  - Root cause: npm attempted to rename /node_modules/@radix-ui/react-accordion to a temporary name during install but the destination already existed and was not empty, causing the rename to fail. This commonly happens because of leftover node_modules state (partial/previous installs, build cache) or an npm race/rename edge-case when doing installs on top of an existing node_modules tree.
+
+- Solution
+  1. Change the build command to perform a clean, deterministic install. In your netlify.toml replace the current build.command ("npm install && npm run build") with an npm ci flow that removes node_modules and installs from the lockfile:
+     - Edit /netlify.toml (repo file: https://github.com/skelleyboy/susienew/blob/main/netlify.toml) and update the command. Example change:
+     ```toml
+     [build]
+     command = "npm ci && npm run build"
+     publish = "dist/public"
+     ```
+     (If you prefer to keep the command inline in your Netlify UI, replace it there instead.)
+
+  2. Clear Netlify’s build cache and re-deploy once the command is updated. The cached node_modules can cause the same rename conflict; from the Netlify UI choose "Clear cache and deploy site", or trigger a deploy after the change with the checkbox to clear cache.
+
+  3. If you still see the error after the above:
+     - Try removing any committed node_modules (should not be committed) and ensure package-lock.json is present and consistent with package.json.
+     - As an alternative to the CI change, you can force a clean install in the build step:
+       ```bash
+       rm -rf node_modules && npm ci && npm run build
+       ```
+     - If the install continues to fail intermittently, try upgrading/downgrading npm (rare) or pinning a different npm version. If you change Node/npm settings, see Netlify docs for changing Node versions: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+
+Notes:
+- Using npm ci ensures node_modules is removed and a clean install happens from package-lock.json, which prevents the rename/leftover-dir race that produced ENOTEMPTY. Clearing the cache ensures no stale node_modules persist between builds.
+
+The relevant error logs are:
+
+Line 11: Installing dependencies
+Line 12: mise ~/.config/mise/config.toml tools: python@3.14.3
+Line 13: mise ~/.config/mise/config.toml tools: ruby@3.4.8
+Line 14: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 15: Attempting Node.js version '20' from .nvmrc
+Line 16: v20.20.2 is already installed.
+Line 17: Now using node v20.20.2 (npm v10.8.2)
+Line 18: Enabling Node.js Corepack
+Line 19: No npm workspaces detected
+Line 20: Installing npm packages using npm version 10.8.2
+Line 21: npm error Exit handler never called!
+Line 22: npm error This is an error with npm itself. Please report this error at:
+Line 23: npm error   <https://github.com/npm/cli/issues>
+Line 24: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T13_29_54_793Z-debug-0.log
+Line 25: npm packages installed
+Line 26: Successfully installed dependencies
+Line 27: Detected 1 framework(s)
+Line 28: "vite" at version "7.1.12"
+Line 29: Starting build script
+Line 30: Section completed: initializing
+Line 31: ​
+Line 32: Netlify Build                                                 
+Line 33: ────────────────────────────────────────────────────────────────
+Line 34: ​
+Line 47: ❯ Config file
+Line 48:   /opt/build/repo/netlify.toml
+Line 49: ​
+Line 50: ❯ Context
+Line 51:   production
+Line 52: ​
+Line 53: build.command from netlify.toml                               
+Line 54: ────────────────────────────────────────────────────────────────
+Line 55: ​
+Line 56: $ npm install && npm run build
+Line 57: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 58: npm error code ENOTEMPTY
+Line 59: npm error syscall rename
+Line 60: npm error path /opt/build/repo/node_modules/@radix-ui/react-accordion
+Line 61: npm error dest /opt/build/repo/node_modules/@radix-ui/.react-accordion-hCjCULwq
+Line 62: npm error errno -39
+Line 63: npm error ENOTEMPTY: directory not empty, rename '/opt/build/repo/node_modules/@radix-ui/react-accordion' -> '/opt/build/repo/no
+Line 64: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T13_31_08_685Z-debug-0.log
+Line 65: ​
+Line 66: "build.command" failed                                        
+Line 67: ────────────────────────────────────────────────────────────────
+Line 68: ​
+Line 69:   Error message
+Line 70:   Command failed with exit code 217: npm install && npm run build
+Line 71: ​
+Line 72:   Error location
+Line 73:   In build.command from netlify.toml:
+Line 74:   npm install && npm run build
+Line 75: ​
+Line 76:   Resolved config
+Line 77:   build:
+Line 78:     command: npm install && npm run build
+Line 79:     commandOrigin: config
+Line 80:     environment:
+Line 81:       - NODE_VERSION
+Line 82:     publish: /opt/build/repo/dist/public
+Line 92:       to: https://susiesharak.com/:splat
+Line 93:     - force: true
+Line 94:       from: https://www.susiesharak.com/*
+Line 95:       status: 301
+Line 96:       to: https://susiesharak.com/:splat
+Line 97:     - force: true
+Line 98:       from: /blog/*/
+      status: 301
+      to: /blog/:splat
+    - force: true
+      from: /*/
+Line 99:       status: 301
+Line 100:       to: /:splat
+Line 101:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 102: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 103: Failing build: Failed to build site
+Line 104: Finished processing build request in 1m19.568s
