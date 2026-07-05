@@ -1,0 +1,106 @@
+The Netlify deploy errored, with the following guidance provided:
+
+- Relevant log lines
+  - npm internal error: [line 22](#L22) — "npm error Exit handler never called!"
+  - npm error help and debug log path: [line 23](#L23) — [line 25](#L25)
+  - build command failing (netlify running "npm ci && npm run build"): [line 57](#L57) — [line 60](#L60)
+
+Diagnosis
+- Error type: npm CLI internal failure during the install/build step ("Exit handler never called!"), which caused the build command to return a non-zero exit code (2). See the npm error output at [line 22](#L22) and the pointer to the debug log at [line 25](#L25).
+- Probable causes:
+  - An npm runtime bug or incompatibility between the installed Node.js / npm versions and a postinstall script or package lifecycle script in the repo.
+  - A failing postinstall/prepare script or corrupted lockfile that causes npm to abort.
+  - The log shown is truncated and does not show the underlying package/script that triggered npm to fail — the full npm debug log referenced at [line 25](#L25) will contain the actionable stack trace.
+
+Solution (steps, ordered, reproduce & fix)
+1. Inspect the npm debug log Netlify wrote (it contains the real error stack)
+   - The build log points to a debug file: see [line 25](#L25). Open that debug file to see the underlying cause (it will name the package or script that failed).
+   - If you cannot access Netlify’s VM logs directly, reproduce the failure locally (next step).
+
+2. Reproduce locally with the same Node/npm used by Netlify
+   - Netlify used Node 20.20.2 and npm 10.8.2 earlier in the logs. Use nvm to match that locally and run the build commands to capture full errors:
+```bash
+# using nvm
+nvm install 20.20.2
+nvm use 20.20.2
+node -v
+npm -v
+
+# reproduce the CI step locally
+rm -rf node_modules
+npm ci
+npm run build
+```
+   - If the error appears locally, the terminal output will give the exact package/script that triggers the npm internal error.
+
+3. Common fixes depending on what you find
+   - If a postinstall/prepare script in package.json is failing:
+     - Open package.json and inspect scripts for "prepare", "postinstall", etc. (repo package.json: https://github.com/skelleyboy/susienew/blob/main/package.json).
+     - Fix the failing script or make it non-blocking. You can temporarily comment/remove it to confirm.
+   - If the failure appears to be an npm bug with Node 20 / npm 10 combination:
+     - Try switching to Node 18 (LTS) on Netlify (often more stable with some toolchains) and re-run the build. Add an .nvmrc with "18" at repo root or set the Node version in netlify.toml:
+```toml
+[build.environment]
+  NODE_VERSION = "18"
+```
+     - Netlify docs for changing Node versions: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+   - Alternatively, pin npm to a different version in the build step before install (if you confirm npm itself is the problem):
+```bash
+npm i -g npm@9   # or another recommended version you tested
+npm ci
+npm run build
+```
+   - If package-lock.json is corrupted or incompatible:
+     - Locally: remove node_modules and package-lock.json, run npm install, run the app/build, then commit the new package-lock.json:
+```bash
+rm -rf node_modules package-lock.json
+npm install
+npm run build
+git add package-lock.json
+git commit -m "Regenerate lockfile to fix CI install"
+git push
+```
+
+4. Re-run a Netlify build after the fix
+   - If you changed Node version, ensure the change is committed (.nvmrc or netlify.toml).
+   - If you updated package.json/scripts or regenerated package-lock.json, commit and push those changes and trigger a redeploy.
+
+If after checking the npm debug log you still can’t identify the failing package/script, paste the relevant portion of that debug log (or the local npm error output) and I’ll point to the exact change needed.
+
+The relevant error logs are:
+
+Line 12: mise ~/.config/mise/config.toml tools: ruby@3.4.8
+Line 13: mise ~/.config/mise/config.toml tools: go@1.26.2
+Line 14: Attempting Node.js version '20' from .nvmrc
+Line 15: v20.20.2 is already installed.
+Line 16: Now using node v20.20.2 (npm v10.8.2)
+Line 17: Enabling Node.js Corepack
+Line 18: No npm workspaces detected
+Line 19: Installing npm packages using npm version 10.8.2
+Line 20: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+Line 21: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+Line 22: npm error Exit handler never called!
+Line 23: npm error This is an error with npm itself. Please report this error at:
+Line 24: npm error   <https://github.com/npm/cli/issues>
+Line 25: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-07-05T13_36_57_832Z-debug-0.log
+Line 26: npm packages installed
+Line 27: Successfully installed dependencies
+Line 28: Detected 1 framework(s)
+Line 29: "vite" at version "7.1.12"
+Line 30: Starting build script
+Line 31: Section completed: initializing
+Line 32: ​
+Line 33: Netlify Build                                                 
+Line 34: ────────────────────────────────────────────────────────────────
+Line 35: ​
+Line 50: ​
+Line 51: ❯ Context
+Line 52:   production
+Line 53: ​
+Line 54: build.command from netlify.toml                               
+Line 55: ────────────────────────────────────────────────────────────────
+Line 56: ​
+Line 57: $ npm ci && npm run build
+Line 58: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+Line 59: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+Line 60: Failed during stage 'building site': Build script returned non-zero exit code: 2
