@@ -41,5 +41,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-# End of config
