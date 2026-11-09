@@ -34,7 +34,7 @@ export function header(path = "/") {
       <summary aria-label="Toggle navigation menu"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9h12M6 15h12" stroke="currentColor" stroke-width="1.4"/></svg><svg class="menu-close-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6"/></svg></summary>
       <nav aria-label="Site and social links"><div class="menu-columns">
         <div class="menu-pages">${nav.map(([t,h])=>a(h,t,path===h?"current":"")).join("")}</div>
-        <div class="menu-group"><h2>Buying &amp; selling</h2><a href="/buy">Help me find a home</a><a href="/sell">Help me sell my home</a><a href="/home-value">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
+        <div class="menu-group menu-resources"><h2>Buying &amp; selling</h2><a href="/buy">Help me find a home</a><a href="/sell">Help me sell my home</a><a href="/home-value">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
         <div class="menu-group"><h2>Reviews &amp; profiles</h2>${agentProfiles.map(profileBrandLink).join("")}</div>
         <div class="menu-group"><h2>Follow along</h2>${socialBrandLinks()}</div>
       </div><div class="menu-bottom"><div><h2>Susie Sharak</h2><p>${brokerage}</p><p>${email}</p></div>${buttonLink("/contact","Message Susie")}</div></nav>
