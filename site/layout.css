@@ -283,6 +283,9 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 
 @media (max-width: 767px) {
   .floating-contact:not([hidden]) { display: inline-flex; }
+  .footer-top { grid-template-columns: minmax(0,1fr); }
+  .footer-top > div { grid-column: 1/-1; min-width: 0; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 699px) {
