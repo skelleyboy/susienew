@@ -6,3 +6,18 @@ id = "uWsn9q5oO9M-vYyRs_okQ"
 uri = "file://client/src/assets/stock_images/shelby_township_exterior.jpg"
 type = "image"
 title = "luxury home exterior bright day"
+logical_id = "56b47f56-f190-4a29-bbc9-fbadbf246eff"
+
+[[outputs]]
+id = "HnvlByLpdc8gWyGd4jt4p"
+uri = "file://site/assets/brand-lockup.svg"
+type = "image"
+title = "Susie Sharak logo"
+description = "Scalable vector logo with custom SS monogram and wordmark. Matching light and dark versions are used throughout the site."
+logical_id = "d8acb6f9-0a2d-42d9-92f0-ad5356c61be0"
+content_hash = "sha256:af7b27bcf4b5bd393dafc923c62801883e20ef2b7f39d66073e8e2aedb5762eb"
+size = 7077
+mtime_ms = 1794233399942
+storage_uri = "gcs://replit-rams-assets-worf/rams/assets/repl:499ab42f-4400-42a1-bc43-030016c28e43/d8acb6f9-0a2d-42d9-92f0-ad5356c61be0/3c5eddc3-4454-448c-a64f-fcf41ee15298"
+storage_version_token = "1794234012026103"
+content_type = "image/svg+xml"

@@ -1,4 +1,5 @@
-import { mkdir, rm, writeFile, copyFile, access } from "node:fs/promises";
+import { mkdir, rm, writeFile, copyFile, access, cp, readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { pages, header, footer } from "../site/pages.mjs";
@@ -43,11 +44,14 @@ function structuredData(page: any) {
 export async function buildSite() {
   await rm(output, { recursive: true, force: true });
   await mkdir(`${output}/assets`, { recursive: true });
-  for (const file of ["site.css", "susie.webp", "home.webp", "interior.webp", "selling.webp", "logo.svg"]) {
-    await copyFile(file === "site.css" ? "site/styles.css" : `site/assets/${file}`, `${output}/assets/${file}`);
-  }
-  await copyFile("client/public/favicon.svg", `${output}/favicon.svg`);
-  await copyFile("client/public/social-share.jpg", `${output}/social-share.jpg`);
+  await cp("site/assets", `${output}/assets`, { recursive: true });
+  const css = `${await readFile("site/styles.css", "utf8")}\n${await readFile("site/layout.css", "utf8")}`;
+  const stylesheet = `/assets/site-${createHash("sha256").update(css).digest("hex").slice(0, 10)}.css`;
+  await writeFile(`${output}${stylesheet}`, css);
+  // Keep a stable stylesheet for the development server's error responses.
+  await writeFile(`${output}/assets/site.css`, css);
+  await copyFile("site/assets/favicon.svg", `${output}/favicon.svg`);
+  await copyFile("site/assets/social-share.jpg", `${output}/social-share.jpg`);
   try { await access("site/site.js"); await copyFile("site/site.js", `${output}/assets/site.js`); } catch {}
   const routes = new Set<string>();
   for (const page of pages) {
@@ -61,6 +65,7 @@ export async function buildSite() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#35362f">
 <title>${escape(page.title)}</title>
 <meta name="description" content="${escape(page.description)}">
 <meta name="robots" content="${page.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}">
@@ -76,7 +81,7 @@ export async function buildSite() {
 <meta name="twitter:description" content="${escape(page.description)}">
 <meta name="twitter:image" content="${origin}/social-share.jpg">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="${stylesheet}">
 ${page.path === "/" ? '<link rel="preload" href="/assets/susie.webp" as="image" fetchpriority="high">' : ""}
 <script type="application/ld+json">${structuredData(page)}</script>
 </head>

@@ -16,11 +16,26 @@ const docs = new Map<string, string>();
 const attr = (html: string, name: string) => html.match(new RegExp(`(?:^|\\s)${name}=["']([^"']*)["']`, "i"))?.[1];
 const fileFor = (path: string) => path === "/" ? `${root}/index.html` : `${root}${path}.html`;
 for (const page of pages) docs.set(page.path, await readFile(fileFor(page.path), "utf8"));
+const stylesheetPath = docs.get("/")!.match(/rel="stylesheet" href="([^"]+)"/)?.[1];
+assert(stylesheetPath?.startsWith("/assets/site-"), "Versioned shared brand stylesheet missing");
+const css = await readFile(resolve(root, "." + stylesheetPath), "utf8");
+for (const image of css.matchAll(/url\(["']?(\/assets\/[^"')]+)["']?\)/g)) {
+  await access(resolve(root, "." + image[1]));
+}
+await access(`${root}/favicon.svg`);
+await access(`${root}/social-share.jpg`);
 
 for (const page of pages) {
   const html = docs.get(page.path)!;
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${page.path}: exactly one visible H1 required`);
   assert(html.includes('<main id="main">'), `${page.path}: main landmark missing`);
+  assert(html.includes("/assets/brand-lockup.svg"), `${page.path}: shared logo missing`);
+  assert(html.includes("/assets/brand-lockup-light.svg"), `${page.path}: shared reverse footer logo missing`);
+  const pageHeader = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0];
+  assert(pageHeader && !pageHeader.includes("Golden Realty"), `${page.path}: brokerage text must not return to header`);
+  if (!page.noindex && !["/privacy", "/terms"].includes(page.path)) {
+    assert(/<form\b/.test(html), `${page.path}: marketing page has no inquiry form`);
+  }
   assert(!/ai-seo-content|createRoot|type="module"|\/src\/main/.test(html), `${page.path}: old client-only rendering remains`);
   assert(!html.includes("—"), `${page.path}: em dash`);
   assert(!titles.has(page.title), `Duplicate title: ${page.title}`); titles.add(page.title);

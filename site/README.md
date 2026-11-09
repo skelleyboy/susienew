@@ -1,6 +1,6 @@
 # Static real estate website
 
-The active website is built from `pages.mjs` and `styles.css`. The old React source is retained for reference but is not shipped to visitors.
+The active website is built from `pages.mjs`, `home.mjs`, `styles.css`, and `layout.css`. The old React source is retained for reference but is not shipped to visitors.
 
 - `npm run build`: generates full HTML pages in `dist/public`, plus assets, sitemap, robots, structured data, and Netlify routing.
 - `npm run dev:client`: serves the generated website on port 5000. Changes to imported templates restart the build.
@@ -10,6 +10,8 @@ The active website is built from `pages.mjs` and `styles.css`. The old React sou
 ## Content
 
 Update the actual visible content, not a separate crawler-only block. Market figures must state their reporting period, scope, and original source. A county median is not a home valuation. Do not add invented listings, sales results, reviews, rankings, or guarantees.
+
+`layout.css` defines the shared mobile-first layout and 12-column desktop grid. The build combines the stylesheets and fingerprints the result so deployed design changes are not hidden by stale browser caches. The logo assets in `site/assets/` include the custom monogram, path-based wordmarks, light and dark lockups, a favicon, and a social preview. `script/create-brand.py` regenerates the path-based lockups using the optional fonttools authoring dependency; it is not required to build the website.
 
 ## Netlify forms
 
