@@ -9,12 +9,35 @@
   const form = document.querySelector("#contact-form, #buyer-form, #seller-form, #valuation-form");
   if (form) button.href = "#" + form.id;
   let scheduled = false;
+  let headerPinned = false;
+  let headerExitTimer = null;
+  const restoreHeader = () => {
+    header.classList.toggle("is-scrolled", false);
+    header.classList.toggle("is-leaving", false);
+    headerSpacer.hidden = true;
+    headerPinned = false;
+    headerExitTimer = null;
+  };
   const update = () => {
     if (header?.classList && headerSpacer?.style) {
       const scrolled = window.scrollY > 240;
-      headerSpacer.style.height = `${header.offsetHeight}px`;
-      headerSpacer.hidden = !scrolled;
-      header.classList.toggle("is-scrolled", scrolled);
+      if (scrolled) {
+        if (headerExitTimer !== null) {
+          window.clearTimeout(headerExitTimer);
+          headerExitTimer = null;
+        }
+        header.classList.toggle("is-leaving", false);
+        header.classList.toggle("is-scrolled", true);
+        headerSpacer.hidden = false;
+        headerPinned = true;
+      } else if (headerPinned && headerExitTimer === null) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          restoreHeader();
+        } else {
+          header.classList.toggle("is-leaving", true);
+          headerExitTimer = window.setTimeout(restoreHeader, 160);
+        }
+      }
     }
     const bounds = form?.getBoundingClientRect?.();
     const formVisible = bounds && bounds.top < window.innerHeight && bounds.bottom > 0;

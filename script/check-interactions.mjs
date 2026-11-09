@@ -97,6 +97,9 @@ console.log("PASS: page navigation starts at the top while explicit form and sec
 {
   const events = {};
   const classes = new Set();
+  const timers = new Map();
+  let nextTimer = 0;
+  let reducedMotion = false;
   const header = {
     offsetHeight: 96,
     classList: { toggle: (name, enabled) => enabled ? classes.add(name) : classes.delete(name) },
@@ -104,9 +107,15 @@ console.log("PASS: page navigation starts at the top while explicit form and sec
   const spacer = { hidden: true, style: {} };
   const window = {
     scrollY: 0,
-    matchMedia: () => ({ matches: false }),
+    matchMedia: query => ({ matches: query.includes("prefers-reduced-motion") && reducedMotion }),
     requestAnimationFrame: fn => fn(),
     addEventListener: (name, fn) => { events[name] = fn; },
+    setTimeout: (fn, delay) => {
+      assert.equal(delay, 160);
+      timers.set(++nextTimer, fn);
+      return nextTimer;
+    },
+    clearTimeout: id => timers.delete(id),
   };
   vm.runInNewContext(source, {
     window,
@@ -125,13 +134,46 @@ console.log("PASS: page navigation starts at the top while explicit form and sec
   events.scroll();
   assert(classes.has("is-scrolled"), "Pin the dark header after scrolling");
   assert.equal(spacer.hidden, false);
-  assert.equal(spacer.style.height, "96px", "Reserve header space to avoid a content jump");
-  header.offsetHeight = 88;
+  assert.equal(spacer.style.height, undefined, "Let the responsive spacer retain the full original height");
+  header.offsetHeight = 50;
   events.resize();
-  assert.equal(spacer.style.height, "88px", "Preserve layout on mobile resize");
+  assert.equal(spacer.style.height, undefined, "Do not shrink the spacer to the compact header height");
+  window.scrollY = 100;
+  events.scroll();
+  assert(classes.has("is-leaving"), "Fade out before restoring the normal header");
+  assert(classes.has("is-scrolled"), "Keep header fixed throughout the exit animation");
+  assert(!spacer.hidden, "Keep layout space until the fade completes");
+  assert.equal(timers.size, 1);
+  window.scrollY = 260;
+  events.scroll();
+  assert(!classes.has("is-leaving"), "Cancel fade-out when the visitor scrolls down again");
+  assert(classes.has("is-scrolled"));
+  assert.equal(timers.size, 0, "Cancel stale exit timers");
   window.scrollY = 0;
   events.scroll();
+  assert(classes.has("is-leaving"));
+  const finishExit = [...timers.values()][0];
+  timers.clear();
+  finishExit();
   assert(!classes.has("is-scrolled"), "Restore the original header when returning to the top");
   assert(spacer.hidden);
+  window.scrollY = 260;
+  events.scroll();
+  reducedMotion = true;
+  window.scrollY = 0;
+  events.scroll();
+  assert(!classes.has("is-scrolled"), "Skip exit animation when reduced motion is requested");
+  assert(spacer.hidden);
+  assert.equal(timers.size, 0);
 }
-console.log("PASS: delayed fixed header, scroll threshold, layout spacer, responsive height, and return-to-top reset.");
+console.log("PASS: delayed fixed header, layout spacer, fade-out completion, rapid scroll reversal, and reduced-motion reset.");
+
+{
+  const css = await readFile("site/layout.css", "utf8");
+  assert(/\.site-header\.is-scrolled\s*\{[^}]*height:\s*50px/.test(css), "Scrolled header must be exactly 50px tall");
+  assert(css.includes(".header-spacer { height: var(--expanded-header-height); }"), "Spacer must retain the expanded height");
+  assert(css.includes("--expanded-header-height: 89px") && css.includes("--expanded-header-height: 97px"), "Use separate mobile and desktop expanded heights");
+  assert(css.includes("header-dismiss 160ms"), "Exit should have quick easing");
+  assert(css.includes("prefers-reduced-motion"), "Respect reduced-motion preferences");
+}
+console.log("PASS: 50px compact header, responsive layout reservation, entrance/exit easing, and reduced-motion CSS.");
