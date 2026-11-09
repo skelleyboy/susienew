@@ -23,7 +23,10 @@ The public profiles list Golden Key Realty Group LLC. The main website retains S
 - Homes.com official WebP supplied by the user: https://www.homes.com/assets/images/homes/logo.webp
 - FastExpert official SVG supplied by the user: https://assets.fastexpert.com/images/FE-Logo.svg
 
-All five logos are hosted locally. Homes.com and FastExpert block automated downloads, and FastExpert additionally blocks cross-origin display. Their genuine marks were isolated from the user-supplied profile-logo screenshot, rather than recreated or replaced with invented marks. The other three marks retain their original SVG format.
+All five logos are hosted locally. The original screenshot-derived Homes.com and FastExpert logos were replaced with higher-resolution genuine marks to improve smoothness, with continuous alpha transparency rather than hard-cut edges. The other three marks retain their original SVG format.
+
+- Homes.com current logo, 600px source: https://images.seeklogo.com/logo-png/43/1/homes-com-logo-png_seeklogo-432987.png
+- FastExpert logo, 350px source: https://geodoma.com/ReviewImages/FastExpert-logo.png
 
 Instagram, Facebook, LinkedIn and TikTok brand SVGs come from Font Awesome Free's brands collection, hosted locally with the original copyright notices and `site/assets/social-icons-LICENSE.txt`. Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/brands
 

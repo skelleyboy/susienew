@@ -73,4 +73,10 @@ The user stated that black and white are Susie’s brand colors.
 
 **Why:** The user’s explicit brand direction supersedes earlier olive, cream and gold choices.
 
-**How to apply:** Use black, white and neutral grays for the site and Susie’s logo. Keep third-party logos in their genuine brand colors on white backgrounds; use legible monochrome marks on dark backgrounds. Use color photography naturally and maintain generous section spacing.
+**How to apply:** Use black, white and neutral grays for the site and Susie’s logo. The user subsequently requested black third-party logos in the expanded menu; keep legible white marks in the dark footer. Use color photography naturally and maintain generous section spacing.
+
+The user requested removing Instagram and TikTok and having page links open at the top.
+
+**Why:** The user asked.
+
+**How to apply:** Do not reintroduce Instagram or TikTok links. Normal page navigation should start at the top; preserve explicit contact-form anchors so inquiry buttons still take visitors to the form.

@@ -4,15 +4,13 @@ export const agentProfiles = [
   { name: "Zillow", url: "https://www.zillow.com/profile/susiesharak", logo: "/assets/zillow-logo.svg", detail: "Read client reviews" },
   { name: "Realtor.com", url: "https://www.realtor.com/realestateagents/5f16af077e854c0011079d63", logo: "/assets/realtor-logo.svg", detail: "See listings and sales" },
   { name: "SOLD.com", url: "https://www.sold.com/agent-profile/Susie-Sharak-154288", logo: "/assets/sold-logo.svg", detail: "Read client reviews" },
-  { name: "Homes.com", url: "https://www.homes.com/real-estate-agents/susie-sharak/wyy5z3l/", logo: "/assets/homes-logo.png", detail: "See past sales" },
-  { name: "FastExpert", url: "https://www.fastexpert.com/agents/susie-sharak-96097/", logo: "/assets/fastexpert-logo.png", detail: "Read reviews and ratings" },
+  { name: "Homes.com", url: "https://www.homes.com/real-estate-agents/susie-sharak/wyy5z3l/", logo: "/assets/homes-logo-sharp.png", detail: "See past sales" },
+  { name: "FastExpert", url: "https://www.fastexpert.com/agents/susie-sharak-96097/", logo: "/assets/fastexpert-logo-sharp.png", detail: "Read reviews and ratings" },
 ];
 
 export const socialProfiles = [
-  { name: "Instagram", url: "https://www.instagram.com/susiesharak/", logo: "/assets/social-instagram.svg" },
   { name: "Facebook", url: "https://www.facebook.com/susie.sharakzetouna/", logo: "/assets/social-facebook-f.svg" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/susie-sharak-5810251bb/", logo: "/assets/social-linkedin-in.svg" },
-  { name: "TikTok", url: "https://www.tiktok.com/@susiesharak", logo: "/assets/social-tiktok.svg" },
 ];
 
 export const profileBrandLink = ({ name, url, logo }) => `<a class="profile-logo-link" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="View Susie Sharak on ${name}"><img src="${logo}" width="140" height="32" alt="${name}"><span aria-hidden="true">↗</span></a>`;

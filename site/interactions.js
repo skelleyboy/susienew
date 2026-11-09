@@ -1,4 +1,7 @@
 (() => {
+  if (window.history && "scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
   const button = document.querySelector(".floating-contact");
   if (!button) return;
   const form = document.querySelector("#contact-form, #buyer-form, #seller-form, #valuation-form");
@@ -15,7 +18,12 @@
     scheduled = true;
     window.requestAnimationFrame(update);
   }, { passive: true });
-  window.addEventListener("pageshow", update);
+  window.addEventListener("pageshow", () => {
+    if (window.location && !window.location.hash) {
+      window.scrollTo?.({ top: 0, left: 0, behavior: "instant" });
+    }
+    update();
+  });
   window.addEventListener("resize", update, { passive: true });
   const menu = document.querySelector(".mobile-menu");
   if (menu) {

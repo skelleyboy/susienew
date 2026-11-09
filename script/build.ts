@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { pages, header, footer } from "../site/pages.mjs";
-import { agentProfiles, brokerage } from "../site/profiles.mjs";
+import { agentProfiles, socialProfiles, brokerage } from "../site/profiles.mjs";
 import { legacyRedirects } from "./legacy-redirects";
 
 const output = resolve("dist/public");
@@ -19,7 +19,7 @@ function structuredData(page: any) {
     telephone: "+1-248-943-6906", email: "susie@propertypro1.com",
     image: `${origin}/assets/susie.webp`,
     areaServed: ["Oakland County, Michigan", "Macomb County, Michigan"],
-    sameAs: ["https://www.instagram.com/susiesharak/", "https://www.facebook.com/susie.sharakzetouna/", ...agentProfiles.map(profile => profile.url)],
+    sameAs: [...socialProfiles.map(profile => profile.url), ...agentProfiles.map(profile => profile.url)],
   };
   const graph: any[] = [
     business,

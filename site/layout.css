@@ -81,6 +81,10 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .personal-hero-portrait img { width: 100%; height: 260px; object-fit: cover; object-position: center 22%; }
 .personal-hero-portrait figcaption { display: none; }
 .personal-hero-portrait figcaption span { color: var(--ink-soft); }
+@media (max-width: 699px) {
+  .personal-hero-portrait { width: 184px; height: 184px; border-radius: 50%; overflow: hidden; }
+  .personal-hero-portrait img { display: block; width: 184px; height: 184px; object-fit: cover; object-position: center; }
+}
 .personal-hero-copy { text-align: center; }
 .personal-hero-copy .eyebrow { color: #eee8da; font-size: 12px; margin-bottom: 10px; }
 .personal-hero-copy h1 { font-size: 36px; line-height: 1.12; margin-bottom: 14px; letter-spacing: -.02em; }

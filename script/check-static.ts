@@ -126,6 +126,9 @@ for (const [from,to] of Object.entries(legacyRedirects)) {
 }
 const homeHtml = docs.get("/")!;
 const navHtml = homeHtml.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || "";
+for (const html of docs.values()) {
+  assert(!/instagram\.com|tiktok\.com|social-instagram\.svg|social-tiktok\.svg/.test(html), "Removed social networks must not appear on the site");
+}
 for (const {logo} of [...agentProfiles,...socialProfiles]) assert(navHtml.includes(`src="${logo}"`), `Menu is missing logo ${logo}`);
 assert(homeHtml.includes("/assets/garden-living-room.webp"), "Updated testimonial photo missing");
 const communitiesHtml = docs.get("/communities") || "";

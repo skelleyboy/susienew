@@ -73,3 +73,23 @@ console.log("PASS: menu Escape handling, focus restoration, and closing after fo
   assert.equal(button.hidden, false, "Restore the shortcut after scrolling past the form");
 }
 console.log("PASS: mobile contact shortcut stays out of the way of inquiry forms.");
+
+for (const hash of ["", "#contact-form", "#buyer-form", "#community-map-heading"]) {
+  const events = {};
+  const positions = [];
+  const history = { scrollRestoration: "auto" };
+  vm.runInNewContext(source, {
+    window: {
+      history, location: { hash }, scrollY: 400,
+      scrollTo: position => positions.push(position),
+      matchMedia: () => ({ matches: true }),
+      addEventListener: (name, fn) => { events[name] = fn; },
+    },
+    document: { querySelector: selector => selector === ".floating-contact" ? { hidden: true } : null },
+  });
+  assert.equal(history.scrollRestoration, "manual");
+  events.pageshow();
+  assert.equal(positions.length, hash ? 0 : 1, "Start normal navigation at the top without overriding form anchors");
+  if (!hash) assert.equal(positions[0].top, 0);
+}
+console.log("PASS: page navigation starts at the top while explicit form and section links retain their destinations.");
