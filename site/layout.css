@@ -40,8 +40,10 @@ p { margin-bottom: 18px; }
 .social-brand-link { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; }
 .social-brand-link img { flex-shrink: 0; width: 24px; height: 24px; object-fit: contain; }
 .site-footer .profile-logo-link img,.site-footer .social-brand-link img { filter: grayscale(1) brightness(0) invert(1); }
+.site-footer .profile-logo-link > span { display: none; }
 .social-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .mobile-menu nav .profile-logo-link,.mobile-menu nav .social-brand-link { display: flex; align-items: center; gap: 12px; min-height: 48px; }
+.mobile-menu .profile-logo-link img,.mobile-menu .social-brand-link img { filter: brightness(0); }
 .header-inner > .brand { flex: 0 1 248px; }
 .brand-lockup { width: 210px; max-width: 100%; height: auto; }
 .brand-brokerage { font-size: 12px; line-height: 1.4; margin-top: 3px; padding-left: 55px; }
@@ -145,6 +147,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .lead-form input:not([type=checkbox]),.lead-form textarea { font-size: 16px; min-height: 50px; }
 .lead-form .consent input { width: 18px; height: 18px; flex: 0 0 18px; }
 .contact-methods p { grid-template-columns: 1fr; gap: 4px; }
+.contact-portrait { display: block; width: 104px; height: 104px; border-radius: 50%; object-fit: cover; object-position: center 24%; margin-bottom: 24px; }
 .contact-bottom h2,.about-local h2,.communities-note h2 { font-size: 30px; }
 .faq-section { padding-block: var(--section-space); }
 .faq-section h2 { font-size: 30px; }
