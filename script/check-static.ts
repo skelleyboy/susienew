@@ -1,10 +1,12 @@
 import { readFile, access } from "node:fs/promises";
 import { resolve } from "node:path";
+import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import { pages } from "../site/pages.mjs";
 import { agentProfiles } from "../site/profiles.mjs";
 import { socialProfiles } from "../site/profiles.mjs";
 import { legacyRedirects } from "./legacy-redirects";
+import { blogImages } from "../site/blog-images.mjs";
 import { BLOG_POSTS } from "../client/src/data/blog";
 
 const root = resolve("dist/public");
@@ -153,6 +155,22 @@ for (const page of pages.filter(page => !page.noindex && !["/", "/about", "/cont
   }
 }
 const communitiesHtml = docs.get("/communities") || "";
+const blogHtml = docs.get("/blog") || "";
+const articlePhotos = new Set();
+const articlePhotoHashes = new Set();
+for (const [slug, photo] of Object.entries(blogImages)) {
+  const articleHtml = docs.get(`/blog/${slug}`) || "";
+  assert(articleHtml.includes(`<figure class="article-image"><img src="${photo.src}"`), `${slug}: article photo missing`);
+  const card = blogHtml.match(new RegExp(`<a class="blog-card-image" href="/blog/${slug}"[^>]*><img src="([^"]+)"`));
+  assert.equal(card?.[1], photo.src, `${slug}: thumbnail and article photo must match`);
+  assert(!articlePhotos.has(photo.src), `${slug}: article image reused`);
+  articlePhotos.add(photo.src);
+  const bytes = await readFile(`${root}${photo.src}`);
+  const hash = createHash("sha256").update(bytes).digest("hex");
+  assert(!articlePhotoHashes.has(hash), `${slug}: duplicate photo file under another name`);
+  articlePhotoHashes.add(hash);
+}
+assert.equal(articlePhotos.size, pages.filter(page => page.path.startsWith("/blog/")).length, "Every article needs its own photo");
 assert(communitiesHtml.includes('name="community-map-frame"'), "Communities Google map missing");
 assert(communitiesHtml.includes('title="Google map of Susie Sharak’s communities in southeast Michigan"'), "Map needs an accessible title");
 const mapLinks = [...communitiesHtml.matchAll(/<a href="https:\/\/maps\.google\.com\/maps\?q=[^"]+" target="community-map-frame"/g)];

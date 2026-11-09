@@ -100,3 +100,9 @@ The user explicitly prohibited these photos:
 **Why:** The user said “dont ever use this photo” for the sunset house and “dont use” for the white mansion.
 
 **How to apply:** Never reuse either image in page content, article thumbnails, backgrounds or generated assets, even under another filename.
+
+The user requested unique photos for every blog article.
+
+**Why:** The user rejected repeated photos across the blog grid.
+
+**How to apply:** Assign each article its own image rather than cycling through a small photo pool. Keep that article’s thumbnail and main photo consistent, and never imply stock photography is an actual local listing.

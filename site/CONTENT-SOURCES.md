@@ -35,4 +35,8 @@ Instagram, Facebook, LinkedIn and TikTok brand SVGs come from Font Awesome Free'
 
 The replacement testimonial interior was selected through image search from Unsplash: https://images.unsplash.com/photo-1600210492493-0946911123ea . The downloaded source is retained in `attached_assets/testimonial-living-room-source.webp`; the optimized site image is local. It is a decorative background and is not represented as a client property or an available listing.
 
+## Individual blog photography
+
+Each article now has a distinct photo, shared only between its thumbnail and article page. `site/blog-images.mjs` records the article-to-image assignments, descriptive alt text and source URLs for the 16 additional Unsplash photographs. Downloaded originals are in `attached_assets/blog_photos/`; optimized WebP copies are served locally from `/assets/blog/`. Six existing photos are retained for six different articles. These are topic photographs, not claimed to depict the named Michigan community, Susie’s clients or available listings.
+
 The Search Console priorities and limitations of the November 9, 2026 user-provided export are documented in `site/SEARCH-OPPORTUNITIES.md`. Search performance is not evidence of form conversions.
