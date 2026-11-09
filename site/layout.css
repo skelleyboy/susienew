@@ -214,6 +214,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .site-footer h2 { font-size: 18px; letter-spacing: 0; text-transform: none; }
 .site-footer p,.site-footer li { font-size: 16px; }
 .footer-bottom { font-size: 16px; line-height: 1.7; }
+.footer-credit { margin-top: 24px; font-size: 16px; line-height: 1.7; }
 .footer-top ul a { display: inline-block; min-height: 38px; }
 .contact-capture { background: var(--paper-dark); padding-block: var(--section-space); scroll-margin-top: 28px; }
 .capture-copy h2 { max-width: 440px; }

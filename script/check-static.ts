@@ -56,6 +56,7 @@ for (const page of pages) {
   assert(!html.includes("/assets/twilight.webp"), `${page.path}: rejected sunset house photo must not be used`);
   assert(!html.includes("/assets/home.webp"), `${page.path}: rejected white mansion photo must not be used`);
   assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);
+  assert(html.includes('href="https://designgandalf.com/" target="_blank" rel="noopener noreferrer">Website &amp; SEO by Gandalf</a>'), `${page.path}: missing Gandalf website and SEO credit`);
   if (page.path === "/thank-you") {
     assert(html.includes('class="page-headshot" src="/assets/susie-headshot.webp"'), "Thank-you page should include Susie's headshot");
     assert(html.includes("I’ll get back to you using the contact details you shared."), "Thank-you message should explain the next step in Susie's voice");
