@@ -54,6 +54,9 @@ const page = (path,title,description,body,faq,noindex=false) => {
     .replace('class="buyer-form-section"', 'class="buyer-form-section" id="buyer-form"')
     .replace('class="seller-form-section"', 'class="seller-form-section" id="seller-form"')
     .replace('class="contact-form-card"', 'class="contact-form-card" id="contact-form"');
+  if (!noindex && !["/", "/about", "/contact", "/privacy", "/terms"].includes(path)) {
+    content = content.replace("<h1", '<img class="page-headshot" src="/assets/susie-headshot.webp" width="76" height="76" alt="Susie Sharak"><h1');
+  }
   if (path === "/privacy") content = content.replace("<h2>How it is handled</h2>", "<h2>Where your inquiry came from</h2><p>When you submit a form, it can include the page you submitted it from, the first page visited during that browser-tab session, the referring website’s domain and campaign labels from the link you used. Temporary session storage keeps those source details as you move between pages. It does not store what you type into forms, and this feature does not send information to a separate analytics service. Full referring URLs and unrelated search parameters are not collected.</p><h2>How it is handled</h2>");
   if (hasOwnForm || addContactForm) content = content.replace(/href="\/contact(?:#contact-form)?"/g, `href="${formTarget}"`);
   const cleanBody = `${content}${path === "/about" ? magazineFeature() + profileLinks() : ""}${addContactForm ? contactCapture(path) : ""}${faq?.length ? faqBlock(faq) : ""}`

@@ -80,3 +80,9 @@ The user requested removing Instagram and TikTok and having page links open at t
 **Why:** The user asked.
 
 **How to apply:** Do not reintroduce Instagram or TikTok links. Normal page navigation should start at the top; preserve explicit contact-form anchors so inquiry buttons still take visitors to the form.
+
+The user wants Susie's headshot above the fold wherever it makes sense, in a little circle. They separately asked to put the homepage photo back as it was.
+
+**Why:** The user wants a personal presence across the site, while retaining the original homepage portrait treatment.
+
+**How to apply:** Keep small circular introductory headshots on service, community, market and journal pages. Keep the homepage portrait rectangular, and avoid redundant portraits where About and Contact already introduce Susie with a photo.

@@ -131,6 +131,13 @@ for (const html of docs.values()) {
 }
 for (const {logo} of [...agentProfiles,...socialProfiles]) assert(navHtml.includes(`src="${logo}"`), `Menu is missing logo ${logo}`);
 assert(homeHtml.includes("/assets/garden-living-room.webp"), "Updated testimonial photo missing");
+assert(homeHtml.includes('src="/assets/zillow-top-agent.png"'), "Verified Zillow badge missing");
+assert(!homeHtml.includes('<source media="(max-width: 699px)"'), "Homepage should retain its rectangular portrait on mobile");
+for (const page of pages.filter(page => !page.noindex && !["/", "/about", "/contact", "/privacy", "/terms"].includes(page.path))) {
+  const html = docs.get(page.path) || "";
+  assert(html.includes('class="page-headshot"'), `${page.path}: introductory headshot missing`);
+  assert(html.indexOf('class="page-headshot"') < html.indexOf("<h1"), `${page.path}: headshot must appear above the heading`);
+}
 const communitiesHtml = docs.get("/communities") || "";
 assert(communitiesHtml.includes('name="community-map-frame"'), "Communities Google map missing");
 assert(communitiesHtml.includes('title="Google map of Susie Sharak’s communities in southeast Michigan"'), "Map needs an accessible title");

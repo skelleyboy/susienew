@@ -14,7 +14,7 @@ export const homeBody = `
   <img class="personal-hero-background" src="/assets/architecture.webp" width="1280" height="720" alt="">
   <div class="site-shell twelve-grid personal-hero-grid">
     <figure class="personal-hero-portrait">
-      <picture><source media="(max-width: 699px)" srcset="/assets/susie-headshot.webp"><img src="/assets/susie.webp" width="720" height="1080" fetchpriority="high" alt="Susie Sharak, real estate agent with Golden Realty"></picture>
+      <img src="/assets/susie.webp" width="720" height="1080" fetchpriority="high" alt="Susie Sharak, real estate agent with Golden Realty">
       <figcaption>Susie Sharak <span>Golden Realty</span></figcaption>
     </figure>
     <div class="personal-hero-copy">

@@ -28,6 +28,9 @@ All five logos are hosted locally. The original screenshot-derived Homes.com and
 - Homes.com current logo, 600px source: https://images.seeklogo.com/logo-png/43/1/homes-com-logo-png_seeklogo-432987.png
 - FastExpert logo, 350px source: https://geodoma.com/ReviewImages/FastExpert-logo.png
 
+- Zillow Top Agent status is supported by the user-supplied screenshot `attached_assets/image_1794240353691.png`. No ranking, geographic superlative or award year is implied.
+- The local Zillow Top Agent badge is cropped from Zillow’s official illustration: https://www.zillowstatic.com/bedrock/app/uploads/sites/33/2023/09/TopAgentZillowBadge_V1.png. Only the badge is used, not the example agent or profile information.
+
 Instagram, Facebook, LinkedIn and TikTok brand SVGs come from Font Awesome Free's brands collection, hosted locally with the original copyright notices and `site/assets/social-icons-LICENSE.txt`. Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/brands
 
 The replacement testimonial interior was selected through image search from Unsplash: https://images.unsplash.com/photo-1600210492493-0946911123ea . The downloaded source is retained in `attached_assets/testimonial-living-room-source.webp`; the optimized site image is local. It is a decorative background and is not represented as a client property or an available listing.
