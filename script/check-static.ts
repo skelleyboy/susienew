@@ -51,6 +51,7 @@ for (const page of pages) {
   assert(footerHtml.includes("(248) 943-6906"), `${page.path}: footer phone number missing`);
   assert(!/href=["']tel:/i.test(html), `${page.path}: click-to-call link remains`);
   assert(!html.includes("/assets/twilight.webp"), `${page.path}: rejected sunset house photo must not be used`);
+  assert(!html.includes("/assets/home.webp"), `${page.path}: rejected white mansion photo must not be used`);
   assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);
   assert(!/Illustrative home|Illustrative architecture|not a local listing|not an available property/i.test(html), `${page.path}: unwanted photo caption remains`);
   assert(html.includes('class="floating-contact"'), `${page.path}: scroll contact button missing`);
@@ -145,8 +146,8 @@ assert(!homeHtml.includes('<source media="(max-width: 699px)"'), "Homepage shoul
 for (const page of pages.filter(page => !page.noindex && !["/", "/about", "/contact", "/privacy", "/terms"].includes(page.path))) {
   const html = docs.get(page.path) || "";
   assert(html.includes('class="page-headshot"'), `${page.path}: introductory headshot missing`);
-  if (["/buy", "/sell"].includes(page.path)) {
-    assert(html.indexOf('class="page-headshot"') > html.indexOf('<a class="button"'), `${page.path}: headshot must follow the main CTA`);
+  if (["/buy", "/sell", "/home-value"].includes(page.path)) {
+    assert(/<div class="personal-heading"><img class="page-headshot"[^>]+><h1/.test(html), `${page.path}: photo must sit beside the main heading`);
   } else {
     assert(html.indexOf('class="page-headshot"') < html.indexOf("<h1"), `${page.path}: headshot must appear above the heading`);
   }

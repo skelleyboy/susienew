@@ -91,10 +91,12 @@ The user wants Susie's headshot above the fold wherever it makes sense, in a lit
 
 **Why:** The user wants a personal presence across the site, while retaining the original homepage portrait treatment.
 
-**How to apply:** Keep small circular introductory headshots on service, community, market and journal pages. On Buy and Sell, the user specifically wants the photo below the main CTA. Keep the homepage portrait rectangular, and avoid redundant portraits where About and Contact already introduce Susie with a photo.
+**How to apply:** Keep small circular introductory headshots on service, community, market and journal pages. The latest Buy, Sell and Home Worth direction supersedes the earlier below-CTA request: put her photo beside the headline, as in the Communities reference. Keep the homepage portrait rectangular. Include her small headshot in inquiry-section introductions too.
 
-The user explicitly prohibited the stock sunset house photo with the purple sky, wet driveway and two-car garage, previously called `twilight.webp`.
+The user explicitly prohibited these photos:
+- The stock sunset house photo with the purple sky, wet driveway and two-car garage, previously called `twilight.webp`.
+- The white mansion with the tall arched entry, oversized black-framed windows and large blue sky, previously called `home.webp`.
 
-**Why:** The user said “dont ever use this photo.”
+**Why:** The user said “dont ever use this photo” for the sunset house and “dont use” for the white mansion.
 
-**How to apply:** Never reuse that image in page content, article thumbnails, backgrounds or generated assets, even under another filename.
+**How to apply:** Never reuse either image in page content, article thumbnails, backgrounds or generated assets, even under another filename.

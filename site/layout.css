@@ -83,7 +83,9 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .personal-hero-portrait figcaption { display: none; }
 .personal-hero-portrait figcaption span { color: var(--ink-soft); }
 .page-headshot { display: block; width: 76px; height: 76px; border-radius: 50%; object-fit: cover; margin: 0 0 24px; }
-.page-hero .button + .page-headshot { margin: 24px 0 0; }
+.personal-heading { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 20px; align-items: center; margin-bottom: 24px; }
+.personal-heading > .page-headshot { width: 64px; height: 64px; margin: 0; }
+.personal-heading > h1 { margin: 0; }
 .profile-card .zillow-top-agent-badge { width: 140px; height: 48px; object-fit: contain; }
 .personal-hero-copy { text-align: center; }
 .personal-hero-copy .eyebrow { color: #eee8da; font-size: 12px; margin-bottom: 10px; }
@@ -403,4 +405,31 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition: none !important; animation: none !important; }
+}
+
+/* Shared form rhythm: only short name/email labels share a row. */
+:is(.capture-form,.buyer-form-section,.seller-form-section,.contact-form-card,.valuation-form-wrap) .lead-form {
+  grid-template-columns: minmax(0,1fr);
+  gap: 24px 16px;
+}
+:is(.capture-form,.buyer-form-section,.seller-form-section,.contact-form-card,.valuation-form-wrap) .lead-form > label {
+  grid-column: 1/-1;
+}
+.buyer-form-section,.seller-form-section,.valuation-form-wrap { background: #f4f4f4; }
+.buyer-form-section > div:first-child,.seller-form-section > div:first-child,.valuation-form-wrap > .form-heading { max-width: 440px; }
+.buyer-form-section h2,.seller-form-section h2,.valuation-form-wrap h2 { font-size: clamp(30px,3vw,38px); line-height: 1.2; }
+.lead-form textarea { min-height: 140px; }
+@media (min-width: 1024px) {
+  .personal-heading { grid-template-columns: 88px minmax(0,1fr); gap: 24px; }
+  .personal-heading > .page-headshot { width: 88px; height: 88px; }
+  .personal-heading > h1 { font-size: 42px; }
+  .buyer-form-section,.seller-form-section,.valuation-form-wrap {
+    display: grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: 28px;
+    padding: 88px max(48px,calc((100vw - 1248px)/2)); align-items: start;
+  }
+  .buyer-form-section > div:first-child,.seller-form-section > div:first-child,.valuation-form-wrap > .form-heading { grid-column: 1/6; margin: 0; }
+  .buyer-form-section > form,.seller-form-section > form,.valuation-form-wrap > form { grid-column: 7/13; }
+  :is(.capture-form,.buyer-form-section,.seller-form-section,.contact-form-card,.valuation-form-wrap) .lead-form { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  :is(.capture-form,.buyer-form-section,.seller-form-section,.contact-form-card,.valuation-form-wrap) .lead-form > label:has(input[name="name"]),
+  :is(.capture-form,.buyer-form-section,.seller-form-section,.contact-form-card,.valuation-form-wrap) .lead-form > label:has(input[name="email"]) { grid-column: span 1; }
 }
