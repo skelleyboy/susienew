@@ -57,6 +57,18 @@ The user refined the header reference to compact sans-serif links aligned right 
 
 **How to apply:** Keep the expanded menu’s grouped layout, but use clean sans-serif type for the header links and no visible hamburger label. The circular menu toggle is separate from the square main call-to-action buttons.
 
+The user wants navigation to scroll normally at first, then become fixed after some scrolling with a black background and inverted white logo.
+
+**Why:** The user asked.
+
+**How to apply:** Preserve the initial light header. Show the dark fixed version only after a scroll threshold, with legible white navigation and menu icon, and restore the normal header near the top.
+
+The user rejected the diagonal arrow text characters and explicitly requested SVGs instead.
+
+**Why:** The user said “dont ever use these” about the text glyphs, then clarified “use svgs for them.”
+
+**How to apply:** Use consistent inline SVG icons, not Unicode arrow glyphs, for diagonal link indicators. Keep footer profile logos arrow-free as previously requested.
+
 The user asked to remove the profile logo cards and put the linked logos immediately below the hero.
 
 **Why:** The user asked.

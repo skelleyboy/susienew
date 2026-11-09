@@ -52,6 +52,7 @@ for (const page of pages) {
   assert(!headerHtml.includes('class="header-phone"'), `${page.path}: removed header phone strip returned`);
   assert(footerHtml.includes("(248) 943-6906"), `${page.path}: footer phone number missing`);
   assert(!/href=["']tel:/i.test(html), `${page.path}: click-to-call link remains`);
+  assert(!html.includes("↗"), `${page.path}: use SVG icons, not diagonal arrow text glyphs`);
   assert(!html.includes("/assets/twilight.webp"), `${page.path}: rejected sunset house photo must not be used`);
   assert(!html.includes("/assets/home.webp"), `${page.path}: rejected white mansion photo must not be used`);
   assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);

@@ -93,3 +93,45 @@ for (const hash of ["", "#contact-form", "#buyer-form", "#community-map-heading"
   if (!hash) assert.equal(positions[0].top, 0);
 }
 console.log("PASS: page navigation starts at the top while explicit form and section links retain their destinations.");
+
+{
+  const events = {};
+  const classes = new Set();
+  const header = {
+    offsetHeight: 96,
+    classList: { toggle: (name, enabled) => enabled ? classes.add(name) : classes.delete(name) },
+  };
+  const spacer = { hidden: true, style: {} };
+  const window = {
+    scrollY: 0,
+    matchMedia: () => ({ matches: false }),
+    requestAnimationFrame: fn => fn(),
+    addEventListener: (name, fn) => { events[name] = fn; },
+  };
+  vm.runInNewContext(source, {
+    window,
+    document: { querySelector: selector => ({
+      ".floating-contact": { hidden: true },
+      ".site-header": header,
+      ".header-spacer": spacer,
+    })[selector] || null },
+  });
+  assert(!classes.has("is-scrolled"), "Header should scroll normally at the top");
+  assert(spacer.hidden);
+  window.scrollY = 240;
+  events.scroll();
+  assert(!classes.has("is-scrolled"), "Do not pin the header before the threshold");
+  window.scrollY = 241;
+  events.scroll();
+  assert(classes.has("is-scrolled"), "Pin the dark header after scrolling");
+  assert.equal(spacer.hidden, false);
+  assert.equal(spacer.style.height, "96px", "Reserve header space to avoid a content jump");
+  header.offsetHeight = 88;
+  events.resize();
+  assert.equal(spacer.style.height, "88px", "Preserve layout on mobile resize");
+  window.scrollY = 0;
+  events.scroll();
+  assert(!classes.has("is-scrolled"), "Restore the original header when returning to the top");
+  assert(spacer.hidden);
+}
+console.log("PASS: delayed fixed header, scroll threshold, layout spacer, responsive height, and return-to-top reset.");

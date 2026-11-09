@@ -27,7 +27,7 @@ const marketLink = `<a href="/market-update">See the September county snapshot <
 export function header(path = "/") {
   const nav = [["Buy","/buy"],["Sell","/sell"],["Home value","/home-value"],["Communities","/communities"],["About Susie","/about"],["Blog","/blog"],["Contact","/contact"]];
   const headerNav = [["Meet Susie","/about"],["Communities","/communities"],["Buy","/buy"],["Sell","/sell"],["Home value","/home-value"],["Let’s connect","/contact#contact-form"]];
-  return `<a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner">
+  return `<a class="skip" href="#main">Skip to content</a><div class="header-spacer" hidden aria-hidden="true"></div><header class="site-header"><div class="header-inner">
     <a class="brand" href="/" aria-label="Susie Sharak home"><img class="brand-lockup" src="/assets/brand-lockup.svg" width="475" height="100" alt="Susie Sharak Real Estate"></a>
     <nav class="desktop-nav" aria-label="Main navigation">${headerNav.map(([t,h])=>a(h,t,path===h.split("#")[0]?"current":"")).join("")}</nav>
     <details class="mobile-menu">

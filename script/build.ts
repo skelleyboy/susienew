@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { pages, header, footer } from "../site/pages.mjs";
 import { agentProfiles, socialProfiles, brokerage } from "../site/profiles.mjs";
 import { legacyRedirects } from "./legacy-redirects";
+import { withSvgArrows } from "../site/icons.mjs";
 
 const output = resolve("dist/public");
 const origin = "https://susiesharak.com";
@@ -99,7 +100,7 @@ ${footer()}
 <script src="${interactionPath}" defer></script>
 </body>
 </html>`;
-    await writeFile(target, html);
+    await writeFile(target, withSvgArrows(html));
   }
   if (!routes.has("/404")) throw new Error("A real 404 page is required");
   const indexed = pages.filter((p: any) => !p.noindex && p.path !== "/404");

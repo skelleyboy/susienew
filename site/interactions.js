@@ -4,10 +4,18 @@
   }
   const button = document.querySelector(".floating-contact");
   if (!button) return;
+  const header = document.querySelector(".site-header");
+  const headerSpacer = document.querySelector(".header-spacer");
   const form = document.querySelector("#contact-form, #buyer-form, #seller-form, #valuation-form");
   if (form) button.href = "#" + form.id;
   let scheduled = false;
   const update = () => {
+    if (header?.classList && headerSpacer?.style) {
+      const scrolled = window.scrollY > 240;
+      headerSpacer.style.height = `${header.offsetHeight}px`;
+      headerSpacer.hidden = !scrolled;
+      header.classList.toggle("is-scrolled", scrolled);
+    }
     const bounds = form?.getBoundingClientRect?.();
     const formVisible = bounds && bounds.top < window.innerHeight && bounds.bottom > 0;
     button.hidden = window.scrollY < 300 || !window.matchMedia("(max-width: 767px)").matches || Boolean(formVisible);
