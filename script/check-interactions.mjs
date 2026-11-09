@@ -100,8 +100,10 @@ console.log("PASS: page navigation starts at the top while explicit form and sec
   const timers = new Map();
   let nextTimer = 0;
   let reducedMotion = false;
+  const headerProperties = new Map();
   const header = {
     offsetHeight: 96,
+    style: { setProperty: (name, value) => headerProperties.set(name, value) },
     classList: { toggle: (name, enabled) => enabled ? classes.add(name) : classes.delete(name) },
   };
   const spacer = { hidden: true, style: {} };
@@ -133,9 +135,19 @@ console.log("PASS: page navigation starts at the top while explicit form and sec
   window.scrollY = 241;
   events.scroll();
   assert(classes.has("is-scrolled"), "Pin the dark header after scrolling");
+  assert.equal(Number(headerProperties.get("--header-shrink")), 1/160, "Start shrinking progressively at the pin threshold");
+  window.scrollY = 320;
+  events.scroll();
+  assert.equal(Number(headerProperties.get("--header-shrink")), .5, "Halfway through the scroll range should be halfway shrunk");
+  window.scrollY = 400;
+  events.scroll();
+  assert.equal(Number(headerProperties.get("--header-shrink")), 1, "Reach the 60px height at the end of the shrink range");
+  window.scrollY = 1200;
+  events.scroll();
+  assert.equal(Number(headerProperties.get("--header-shrink")), 1, "Do not shrink smaller than 60px");
   assert.equal(spacer.hidden, false);
   assert.equal(spacer.style.height, undefined, "Let the responsive spacer retain the full original height");
-  header.offsetHeight = 50;
+  header.offsetHeight = 60;
   events.resize();
   assert.equal(spacer.style.height, undefined, "Do not shrink the spacer to the compact header height");
   window.scrollY = 100;
@@ -170,10 +182,14 @@ console.log("PASS: delayed fixed header, layout spacer, fade-out completion, rap
 
 {
   const css = await readFile("site/layout.css", "utf8");
-  assert(/\.site-header\.is-scrolled\s*\{[^}]*height:\s*50px/.test(css), "Scrolled header must be exactly 50px tall");
+  assert(css.includes("(var(--expanded-header-height) - 60px) * var(--header-shrink,1)"), "Header height must interpolate with scroll to 60px");
+  const reveal = css.match(/@keyframes header-reveal\s*\{[\s\S]*?\n\}/)?.[0] || "";
+  assert(!reveal.includes("height:"), "Do not replace scroll-driven resizing with timed height animation");
+  const scrolledLogo = css.match(/\.site-header\.is-scrolled \.header-inner > \.brand \.brand-lockup\s*\{[^}]*\}/)?.[0] || "";
+  assert(scrolledLogo.includes("invert(1)") && !/width:|height:|scale\(/.test(scrolledLogo), "Keep the logo the same size while inverting its color");
   assert(css.includes(".header-spacer { height: var(--expanded-header-height); }"), "Spacer must retain the expanded height");
   assert(css.includes("--expanded-header-height: 89px") && css.includes("--expanded-header-height: 97px"), "Use separate mobile and desktop expanded heights");
   assert(css.includes("header-dismiss 160ms"), "Exit should have quick easing");
   assert(css.includes("prefers-reduced-motion"), "Respect reduced-motion preferences");
 }
-console.log("PASS: 50px compact header, responsive layout reservation, entrance/exit easing, and reduced-motion CSS.");
+console.log("PASS: scroll-driven 60px compact header, responsive layout reservation, entrance/exit easing, and reduced-motion CSS.");

@@ -57,7 +57,7 @@ The user refined the header reference to compact sans-serif links aligned right 
 
 **How to apply:** Keep the expanded menu’s grouped layout, but use clean sans-serif type for the header links and no visible hamburger label. The circular menu toggle is separate from the square main call-to-action buttons.
 
-The user wants navigation to scroll normally at first, then become fixed after some scrolling with a black background and inverted white logo, quick easing and a fade-out when returning. The scrolled header should be 50px tall so its transformation is visible.
+The user wants navigation to scroll normally at first, then become fixed after some scrolling with a black background and inverted white logo, quick easing and a fade-out when returning. The latest refinement is to shrink progressively with scrolling to 60px, not a timed shrink to 50px, while keeping the logo the same size.
 
 **Why:** The user asked.
 

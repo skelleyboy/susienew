@@ -22,6 +22,10 @@
     if (header?.classList && headerSpacer?.style) {
       const scrolled = window.scrollY > 240;
       if (scrolled) {
+        const progress = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? 1
+          : Math.min(1, Math.max(0, (window.scrollY - 240) / 160));
+        header.style?.setProperty("--header-shrink", String(progress));
         if (headerExitTimer !== null) {
           window.clearTimeout(headerExitTimer);
           headerExitTimer = null;
