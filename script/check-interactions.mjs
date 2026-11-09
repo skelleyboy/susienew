@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 
-const source = await readFile("site/interactions.js", "utf8");
+const source = await readFile(process.argv[2] || "site/interactions.js", "utf8");
 for (const id of ["contact-form", "buyer-form", "seller-form", "valuation-form", null]) {
   const button = { hidden: true, href: "/contact#contact-form" };
   const events = {};

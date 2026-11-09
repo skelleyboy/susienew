@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["script/build.ts", "script/serve-static.ts", "script/check-static.ts", "site/pages.d.mts", "client/src/data/blog.ts"],
+  "include": ["script/build.ts", "script/serve-static.ts", "script/check-static.ts", "netlify/edge-functions/markdown.ts", "site/pages.d.mts", "client/src/data/blog.ts"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "target": "ES2022",

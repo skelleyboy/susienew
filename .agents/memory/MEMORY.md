@@ -1,2 +1,4 @@
 - [Static website direction](static-site-direction.md) - Human, local, lead-focused HTML content, without a separate crawler-only version.
 - [Inquiry attribution](inquiry-attribution.md) - Keep source tracking minimal, private and optional; never interrupt native form delivery.
+- [External profile checks](external-profile-checks.md) - Bot blocks are not proof of missing profiles; preserve verified destinations until independently checked.
+- [Preview crawler headers](preview-robots-headers.md) - The dev proxy injects restrictive indexing headers; judge production indexability on the live domain.

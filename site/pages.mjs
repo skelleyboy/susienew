@@ -1,5 +1,6 @@
 import { homeBody } from "./home.mjs";
 import { blogImages } from "./blog-images.mjs";
+import { markdownPath } from "./markdown.mjs";
 import { agentProfiles, brokerage, magazineFeature, profileLinks, profileBrandLink, socialBrandLinks } from "./profiles.mjs";
 
 const esc = (s = "") => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -34,10 +35,10 @@ export function header(path = "/") {
       <summary aria-label="Toggle navigation menu"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9h12M6 15h12" stroke="currentColor" stroke-width="1.4"/></svg><svg class="menu-close-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6"/></svg></summary>
       <nav aria-label="Site and social links"><div class="menu-topbar"><a class="menu-brand" href="/" aria-label="Susie Sharak home"><img src="/assets/brand-lockup.svg" width="475" height="100" alt="Susie Sharak Real Estate"></a></div><div class="menu-columns">
         <div class="menu-pages">${nav.map(([t,h])=>a(h,t,path===h?"current":"")).join("")}</div>
-        <div class="menu-group menu-resources"><h2>Buying &amp; selling</h2><a href="/buy">Help me find a home</a><a href="/sell">Help me sell my home</a><a href="/home-value">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
-        <div class="menu-group"><h2>Reviews &amp; profiles</h2>${agentProfiles.map(profileBrandLink).join("")}</div>
-        <div class="menu-group"><h2>Follow along</h2>${socialBrandLinks()}</div>
-      </div><div class="menu-bottom"><div><h2>Susie Sharak</h2><p>${brokerage}</p><p>${email}</p></div>${buttonLink("/contact","Message Susie")}</div></nav>
+        <div class="menu-group menu-resources" role="group" aria-labelledby="menu-buying-title"><p class="menu-group-title" id="menu-buying-title">Buying &amp; selling</p><a href="/buy">Help me find a home</a><a href="/sell">Help me sell my home</a><a href="/home-value">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
+        <div class="menu-group" role="group" aria-labelledby="menu-profiles-title"><p class="menu-group-title" id="menu-profiles-title">Reviews &amp; profiles</p>${agentProfiles.map(profileBrandLink).join("")}</div>
+        <div class="menu-group" role="group" aria-labelledby="menu-social-title"><p class="menu-group-title" id="menu-social-title">Follow along</p>${socialBrandLinks()}</div>
+      </div><div class="menu-bottom"><div><p class="menu-agent-name">Susie Sharak</p><p>${brokerage}</p><p>${email}</p></div>${buttonLink("/contact","Message Susie")}</div></nav>
     </details>
     <a class="header-call" href="/contact#contact-form"><strong>Message Susie</strong></a>
   </div></header>`;
@@ -45,8 +46,10 @@ export function header(path = "/") {
 function footerContent() {
   return `<footer class="site-footer"><div class="footer-top"><div><a class="brand brand-light" href="/" aria-label="Susie Sharak home"><img class="brand-lockup" src="/assets/brand-lockup-light.svg" width="475" height="100" alt="Susie Sharak Real Estate"></a><p class="footer-brokerage">${brokerage}</p><p>Serving Oakland and Macomb County, Michigan.</p></div><div><h2>How can I help?</h2><ul><li>${a("/buy#buyer-form","Buying a home")}</li><li>${a("/sell#seller-form","Selling a home")}</li><li>${a("/home-value#valuation-form","Home value")}</li><li>${a("/contact#contact-form","Send a message")}</li></ul></div><div><h2>Find me online</h2><ul>${agentProfiles.map(profile => `<li>${profileBrandLink(profile)}</li>`).join("")}</ul><p>${contact}</p><p>${email}</p></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Susie Sharak · ${brokerage}</span><span>${a("/privacy","Privacy")} · ${a("/terms","Terms")}</span><span class="social-links">${socialBrandLinks()}</span></div></footer>`;
 }
-export const footer = () => footerContent().replaceAll("Golden Realty", brokerage).replace(/href="(\/[^"#]*)#[^"]*"/g, 'href="$1"');
-const page = (path,title,description,body,faq,noindex=false) => {
+export const footer = (path = "/") => footerContent()
+  .replace(a("/terms","Terms"), `${a("/terms","Terms")}${path !== "/404" ? ` · ${a(markdownPath(path),"Text version")}` : ""}`)
+  .replaceAll("Golden Realty", brokerage).replace(/href="(\/[^"#]*)#[^"]*"/g, 'href="$1"');
+const page = (path,title,description,body,faq,noindex=false,dateModified="2026-11-09") => {
   const hasOwnForm = ["/buy", "/sell", "/home-value", "/contact"].includes(path);
   const addContactForm = !hasOwnForm && !noindex && !["/privacy", "/terms"].includes(path);
   const formTarget = path === "/buy" ? "#buyer-form" : path === "/sell" ? "#seller-form" : path === "/home-value" ? "#valuation-form" : "#contact-form";
@@ -70,7 +73,8 @@ const page = (path,title,description,body,faq,noindex=false) => {
     .replace(/<span>Illustrative architecture<\/span>/g, "")
     .replace(/alt="[^"]*(?:illustrative|Illustrative)[^"]*"/g, 'alt=""')
     .replaceAll("Golden Realty", brokerage);
-  return {path,title:title.replaceAll("Golden Realty", brokerage),description:description.replaceAll("Golden Realty", brokerage),body: cleanBody,...(faq?.length?{faq}:{}),...(noindex?{noindex:true}:{})};
+  // Actual content revision, not the build date. Update only when content changes.
+  return {path,title:title.replaceAll("Golden Realty", brokerage),description:description.replaceAll("Golden Realty", brokerage),body: cleanBody,dateModified,...(faq?.length?{faq}:{}),...(noindex?{noindex:true}:{})};
 };
 const sectionLabel = () => "";
 const ctaBand = (headline, copy, href="/contact", label="Send me a message") => `<section class="cta-band"><div><p class="eyebrow">I’d love to hear from you</p><h2>${headline}</h2><p>${copy}</p></div>${buttonLink(href,label)}</section>`;
@@ -136,7 +140,7 @@ const formBuyer = form("buyer-inquiry",`${input("Name","name","text",true)}${inp
 const formSeller = form("seller-inquiry",`${input("Name","name","text",true)}${input("Email","email","email",true)}${input("Phone (optional)","phone","tel")}${input("Property address or city (optional)","address")}${textarea("When are you thinking of selling? (optional)","message")}`,"Help me plan my sale");
 
 export const pages = [
-page("/","Susie Sharak | Oakland & Macomb County Realtor","Buy or sell a home in Oakland or Macomb County, Michigan, with Realtor Susie Sharak. Ask about a home, your selling plans or what your property could be worth.",homeBody,[{question:"Where does Susie work?",answer:`Susie Sharak with ${brokerage} serves Oakland and Macomb County, Michigan, including communities such as Royal Oak, Troy, Sterling Heights, Shelby Township and others.`},{question:"Can I talk with Susie before I am ready to buy or sell?",answer:"Yes. An early conversation can help you understand options and the information you may need. There is no requirement to be ready to transact."},{question:"How do I find out what my home may be worth?",answer:"Share the address and some details. Susie can discuss relevant nearby sales and current competition. A county statistic or automated estimate is not an appraisal."}]),
+page("/","Susie Sharak | Oakland & Macomb County, MI Realtor","Buying or selling in Oakland or Macomb County, MI? Susie Sharak helps you plan your next move. Ask about a home, a sale or your home’s value.",homeBody,[{question:"Where does Susie work?",answer:`Susie Sharak with ${brokerage} serves Oakland and Macomb County, Michigan, including communities such as Royal Oak, Troy, Sterling Heights, Shelby Township and others.`},{question:"Can I talk with Susie before I am ready to buy or sell?",answer:"Yes. An early conversation can help you understand options and the information you may need. There is no requirement to be ready to transact."},{question:"How do I find out what my home may be worth?",answer:"Share the address and some details. Susie can discuss relevant nearby sales and current competition. A county statistic or automated estimate is not an appraisal."}]),
 page("/buy","Buying a Home in Oakland & Macomb County | Susie Sharak","A straightforward home-buying plan for Oakland and Macomb County, Michigan. Talk through budget, offers, inspections and next steps with Susie Sharak.",`
 <section class="page-hero page-hero-buy"><div><h1>Let’s find a home<br>that fits your life.</h1><p class="lede">Buying a home comes with a lot of questions. I’ll help you compare homes, understand the costs and make an offer you feel good about.</p>${buttonLink("/contact","Tell me what you’re looking for")}</div><figure><img src="/assets/interior.webp" alt="Bright living room with an open staircase"></figure></section>
 <section class="steps-section"><h2>Here’s how I’ll help.</h2><div class="step-list"><article><span>01</span><div><h3>Tell me about your plans</h3><p>Where do you want to live? What do you need in a home? We’ll start with your wish list and a monthly payment you’re comfortable with.</p></div></article><article><span>02</span><div><h3>Find the right home</h3><p>We’ll tour homes together and look beyond the photos. I’ll help you compare condition, location and recent sales before you decide.</p></div></article><article><span>03</span><div><h3>Get from offer to closing</h3><p>I’ll explain the offer, negotiate on your behalf and keep track of the deadlines. You’ll know what’s happening and what you need to do next.</p></div></article></div></section>

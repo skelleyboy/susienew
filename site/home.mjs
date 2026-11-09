@@ -40,15 +40,15 @@ ${profileLinks()}
   <div class="section-heading"><h2>What can I help you with?</h2></div>
   <div class="twelve-grid service-grid">
     <article class="service-card">
-      <a href="/buy#buyer-form" class="service-image" tabindex="-1" aria-hidden="true"><img src="/assets/living.webp" width="1200" height="801" loading="lazy" alt=""></a>
+      <a href="/buy#buyer-form" class="service-image" aria-label="Help me buy a home"><img src="/assets/living.webp" width="1200" height="801" loading="lazy" alt="Bright living room with a sofa and built-in shelves"></a>
       <div class="service-copy"><p class="eyebrow">Buying</p><h3>Let’s find your home.</h3><p>Your first place? More room? Something closer to family? Tell me what matters most, and we’ll go from there.</p><a class="text-link" href="/buy#buyer-form">Tell me what you’re looking for <span aria-hidden="true">↗</span></a></div>
     </article>
     <article class="service-card">
-      <a href="/sell#seller-form" class="service-image" tabindex="-1" aria-hidden="true"><img src="/assets/kitchen.webp" width="1200" height="675" loading="lazy" alt=""></a>
+      <a href="/sell#seller-form" class="service-image" aria-label="Help me sell my home"><img src="/assets/kitchen.webp" width="1200" height="675" loading="lazy" alt="Modern kitchen with an island and pendant lighting"></a>
       <div class="service-copy"><p class="eyebrow">Selling</p><h3>Thinking about selling?</h3><p>Let’s look at your home, your timing and what’s selling nearby before you spend money getting ready.</p><a class="text-link" href="/sell#seller-form">Tell me about your plans <span aria-hidden="true">↗</span></a></div>
     </article>
     <article class="service-card">
-      <a href="/home-value#valuation-form" class="service-image" tabindex="-1" aria-hidden="true"><img src="/assets/estate.webp" width="1200" height="798" loading="lazy" alt=""></a>
+      <a href="/home-value#valuation-form" class="service-image" aria-label="Get my home value"><img src="/assets/estate.webp" width="1200" height="798" loading="lazy" alt="Brick home with a landscaped front garden"></a>
       <div class="service-copy"><p class="eyebrow">Home value</p><h3>What could yours sell for?</h3><p>Send me your address and a few details. I’ll take a look at nearby sales and what makes your home different.</p><a class="text-link" href="/home-value#valuation-form">Let’s look at your home’s value <span aria-hidden="true">↗</span></a></div>
     </article>
   </div>

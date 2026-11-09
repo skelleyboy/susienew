@@ -83,7 +83,7 @@ html { scroll-padding-top: 108px; }
 .mobile-menu nav .menu-topbar .menu-brand { display: flex; align-items: center; padding: 0; min-height: 48px; width: calc(100% - 64px); max-width: 230px; }
 .menu-brand img { display: block; width: 100%; height: auto; }
 .mobile-menu .menu-group { padding: 0; margin: 0; border: 0; }
-.mobile-menu .menu-group h2 { font: 400 24px/1.35 var(--serif); margin: 0 0 18px; letter-spacing: -.02em; }
+.mobile-menu .menu-group .menu-group-title { font: 400 24px/1.35 var(--serif); margin: 0 0 18px; letter-spacing: -.02em; }
 .mobile-menu nav .button { margin: 0; }
 .menu-close-icon { display: none; width: 24px; height: 24px; }
 .mobile-menu[open] summary { position: fixed; z-index: 80; top: 24px; right: 32px; width: 48px; height: 48px; padding: 12px; background: #111; color: #fff; border-color: #111; }
@@ -94,7 +94,7 @@ html { scroll-padding-top: 108px; }
 .mobile-menu nav .menu-pages > a { font: 400 26px/1.35 var(--serif); letter-spacing: -.02em; padding: 8px 0; min-height: 48px; }
 .desktop-nav a.current,.mobile-menu nav .menu-pages > a.current { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .menu-bottom { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 32px; margin-top: 64px; padding-top: 36px; border-top: 1px solid var(--line); }
-.menu-bottom h2 { font: 400 24px var(--serif); margin-bottom: 16px; }
+.menu-bottom .menu-agent-name { font: 400 24px var(--serif); margin: 0 0 16px; }
 .menu-bottom p { font-size: 16px; margin: 8px 0; }
 body:has(.mobile-menu[open]) { overflow: hidden; }
 body:has(.mobile-menu[open]) .floating-contact { display: none; }

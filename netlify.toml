@@ -5,6 +5,11 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Serve the same page content as Markdown only when explicitly requested.
+[[edge_functions]]
+  path = "/*"
+  function = "markdown"
+
 # Force HTTPS
 [[redirects]]
   from = "http://susiesharak.com/*"
