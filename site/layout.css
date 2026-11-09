@@ -148,6 +148,12 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .lead-form .consent input { width: 18px; height: 18px; flex: 0 0 18px; }
 .contact-methods p { grid-template-columns: 1fr; gap: 4px; }
 .contact-portrait { display: block; width: 104px; height: 104px; border-radius: 50%; object-fit: cover; object-position: center 24%; margin-bottom: 24px; }
+.community-map { padding-bottom: 56px; }
+.community-map > p { max-width: 640px; margin: 16px 0 24px; }
+.community-map-links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.community-map-links a { display: inline-flex; align-items: center; min-height: 48px; padding: 10px 16px; border: 1px solid #bbb; color: #111; background: #fff; font-size: 16px; line-height: 1.5; text-decoration: none; }
+.community-map-links a:hover,.community-map-links a:focus-visible { background: #111; color: #fff; border-color: #111; }
+.community-map iframe { display: block; width: 100%; height: clamp(360px, 48vw, 520px); border: 1px solid #ddd; margin-bottom: 20px; }
 .contact-bottom h2,.about-local h2,.communities-note h2 { font-size: 30px; }
 .faq-section { padding-block: var(--section-space); }
 .faq-section h2 { font-size: 30px; }
