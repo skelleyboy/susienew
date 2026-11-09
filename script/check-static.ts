@@ -50,9 +50,13 @@ for (const page of pages) {
   assert(!headerHtml.includes('class="header-phone"'), `${page.path}: removed header phone strip returned`);
   assert(footerHtml.includes("(248) 943-6906"), `${page.path}: footer phone number missing`);
   assert(!/href=["']tel:/i.test(html), `${page.path}: click-to-call link remains`);
+  assert(!html.includes("/assets/twilight.webp"), `${page.path}: rejected sunset house photo must not be used`);
   assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);
   assert(!/Illustrative home|Illustrative architecture|not a local listing|not an available property/i.test(html), `${page.path}: unwanted photo caption remains`);
   assert(html.includes('class="floating-contact"'), `${page.path}: scroll contact button missing`);
+  if (html.includes('class="capture-copy"')) {
+    assert(html.includes('<div class="capture-copy"><img class="page-headshot" src="/assets/susie-headshot.webp"'), `${page.path}: shared contact section needs Susie’s photo`);
+  }
   assert(html.includes('class="desktop-nav"'), `${page.path}: desktop navigation missing`);
   assert(html.includes('class="menu-icon"'), `${page.path}: hamburger menu missing`);
   assert(!html.includes("Development preview: forms send only"), `${page.path}: removed preview banner returned`);

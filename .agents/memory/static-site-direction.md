@@ -92,3 +92,9 @@ The user wants Susie's headshot above the fold wherever it makes sense, in a lit
 **Why:** The user wants a personal presence across the site, while retaining the original homepage portrait treatment.
 
 **How to apply:** Keep small circular introductory headshots on service, community, market and journal pages. On Buy and Sell, the user specifically wants the photo below the main CTA. Keep the homepage portrait rectangular, and avoid redundant portraits where About and Contact already introduce Susie with a photo.
+
+The user explicitly prohibited the stock sunset house photo with the purple sky, wet driveway and two-car garage, previously called `twilight.webp`.
+
+**Why:** The user said “dont ever use this photo.”
+
+**How to apply:** Never reuse that image in page content, article thumbnails, backgrounds or generated assets, even under another filename.
