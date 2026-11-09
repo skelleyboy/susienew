@@ -191,5 +191,8 @@ console.log("PASS: delayed fixed header, layout spacer, fade-out completion, rap
   assert(css.includes("--expanded-header-height: 89px") && css.includes("--expanded-header-height: 97px"), "Use separate mobile and desktop expanded heights");
   assert(css.includes("header-dismiss 160ms"), "Exit should have quick easing");
   assert(css.includes("prefers-reduced-motion"), "Respect reduced-motion preferences");
+  assert(css.includes(".menu-topbar { position: fixed;"), "Keep the mobile menu logo visible when scrolling the menu");
+  const { header } = await import("../site/pages.mjs");
+  assert(/<nav aria-label="Site and social links"><div class="menu-topbar"><a class="menu-brand"[^>]*><img src="\/assets\/brand-lockup\.svg"/.test(header("/")), "Include Susie's black logo inside the open menu");
 }
 console.log("PASS: scroll-driven 60px compact header, responsive layout reservation, entrance/exit easing, and reduced-motion CSS.");

@@ -32,7 +32,7 @@ export function header(path = "/") {
     <nav class="desktop-nav" aria-label="Main navigation">${headerNav.map(([t,h])=>a(h,t,path===h.split("#")[0]?"current":"")).join("")}</nav>
     <details class="mobile-menu">
       <summary aria-label="Toggle navigation menu"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9h12M6 15h12" stroke="currentColor" stroke-width="1.4"/></svg><svg class="menu-close-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6"/></svg></summary>
-      <nav aria-label="Site and social links"><div class="menu-columns">
+      <nav aria-label="Site and social links"><div class="menu-topbar"><a class="menu-brand" href="/" aria-label="Susie Sharak home"><img src="/assets/brand-lockup.svg" width="475" height="100" alt="Susie Sharak Real Estate"></a></div><div class="menu-columns">
         <div class="menu-pages">${nav.map(([t,h])=>a(h,t,path===h?"current":"")).join("")}</div>
         <div class="menu-group menu-resources"><h2>Buying &amp; selling</h2><a href="/buy">Help me find a home</a><a href="/sell">Help me sell my home</a><a href="/home-value">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
         <div class="menu-group"><h2>Reviews &amp; profiles</h2>${agentProfiles.map(profileBrandLink).join("")}</div>
