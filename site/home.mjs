@@ -72,7 +72,7 @@ ${magazineFeature()}
 </section>
 
 <section class="client-story" id="client-reviews">
-  <img class="client-story-image" src="/assets/testimonial-living-room.webp" width="1600" height="1200" loading="lazy" alt="">
+  <img class="client-story-image" src="/assets/garden-living-room.webp" width="1600" height="1200" loading="lazy" alt="">
   <div class="site-shell twelve-grid">
     <div class="client-story-card">
       <p class="eyebrow">In a client’s words</p>

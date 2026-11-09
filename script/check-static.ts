@@ -127,7 +127,7 @@ for (const [from,to] of Object.entries(legacyRedirects)) {
 const homeHtml = docs.get("/")!;
 const navHtml = homeHtml.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || "";
 for (const {logo} of [...agentProfiles,...socialProfiles]) assert(navHtml.includes(`src="${logo}"`), `Menu is missing logo ${logo}`);
-assert(homeHtml.includes("/assets/testimonial-living-room.webp"), "Updated testimonial photo missing");
+assert(homeHtml.includes("/assets/garden-living-room.webp"), "Updated testimonial photo missing");
 assert(docs.get("/area/grosse-pointe")?.includes('id="contact-form"'), "Grosse Pointe needs a real inquiry form");
 assert(!redirects.includes("/* /index.html"), "SPA catch-all must not return");
 assert(redirects.includes("/* /404.html 404"));
