@@ -37,7 +37,7 @@ ${profileLinks()}
 </section>
 
 <section class="home-services site-shell">
-  <div class="section-heading"><h2>What can I help you with?</h2><p>Tell me where you are in the process. We’ll start there.</p></div>
+  <div class="section-heading"><h2>What can I help you with?</h2></div>
   <div class="twelve-grid service-grid">
     <article class="service-card">
       <a href="/buy#buyer-form" class="service-image" tabindex="-1" aria-hidden="true"><img src="/assets/living.webp" width="1200" height="801" loading="lazy" alt=""></a>
