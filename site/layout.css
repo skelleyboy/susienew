@@ -31,7 +31,8 @@ p { margin-bottom: 18px; }
 .twelve-grid > * { min-width: 0; grid-column: 1/-1; }
 
 /* The same logo and navigation on every page. */
-.site-header { background: var(--paper); }
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--paper); }
+html { scroll-padding-top: 108px; }
 .header-inner { width: calc(100% - 64px); max-width: 1248px; margin: auto; min-height: 88px; padding: 16px 0; display: flex; justify-content: space-between; gap: 16px; }
 .brand { min-width: 0; }
 .profile-logo-link { display: flex; align-items: center; gap: 12px; min-height: 48px; width: fit-content; }
@@ -82,7 +83,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .personal-hero-portrait figcaption { display: none; }
 .personal-hero-portrait figcaption span { color: var(--ink-soft); }
 .page-headshot { display: block; width: 76px; height: 76px; border-radius: 50%; object-fit: cover; margin: 0 0 24px; }
-.profile-card-with-badge { flex-direction: column; gap: 8px; }
+.page-hero .button + .page-headshot { margin: 24px 0 0; }
 .profile-card .zillow-top-agent-badge { width: 140px; height: 48px; object-fit: contain; }
 .personal-hero-copy { text-align: center; }
 .personal-hero-copy .eyebrow { color: #eee8da; font-size: 12px; margin-bottom: 10px; }
@@ -191,13 +192,18 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .capture-form { padding-top: 12px; }
 .capture-form .lead-form { grid-template-columns: 1fr; }
 .capture-form .lead-form label,.capture-form .lead-form .consent,.capture-form .lead-form .button,.capture-form .lead-form .form-note { grid-column: 1/-1; }
-.profile-section { padding-block: 36px; background: var(--paper); }
+.profile-section { padding-block: 40px; background: var(--paper); }
+.profile-section + .personal-introduction { padding-top: 40px; }
 .profile-section h2 { max-width: 620px; }
 .profile-section > .site-shell > p { max-width: 600px; }
-.profile-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 32px 36px; }
-.profile-card { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0; border: 0; text-decoration: none; background: transparent; }
+.profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: center; gap: 20px 24px; }
+.profile-card { display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 56px; padding: 0; border: 0; text-decoration: none; background: transparent; }
 .profile-card:hover { opacity: .7; }
-.profile-card img { width: 160px; height: 42px; object-fit: contain; object-position: left center; }
+.profile-card img { width: 160px; max-width: 100%; height: 42px; object-fit: contain; object-position: center; }
+.profile-card img[src$="zillow-logo.svg"] { width: 124px; }
+.profile-card img[src$="sold-logo.svg"] { width: 144px; }
+.profile-card img[src$="homes-logo-sharp.png"] { width: 150px; }
+.profile-card img[src$="fastexpert-logo-sharp.png"] { width: 144px; }
 .profile-name { font-size: 26px; line-height: 42px; letter-spacing: -.02em; color: var(--ink); }
 .profile-card span { font-size: 16px; }
 .profile-card b { float: right; font-weight: 400; margin-left: 12px; }
@@ -249,7 +255,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
   .mobile-menu summary { width: 48px; padding: 12px; justify-content: center; }
   .mobile-menu .menu-icon { width: 24px; height: 24px; }
   .profile-card img { width: 140px; height: 40px; }
-  .profile-grid { gap: 28px 30px; }
+  .profile-grid { gap: 16px 24px; }
   .page-hero,.area-hero,.content-grid,.seller-plan,.seller-visual,.valuation-hero,.valuation-explain,.contact-hero,.contact-bottom,.about-hero,.about-practice,.about-local,.buyer-form-section,.seller-form-section,.market-explainer,.callout-row,.blog-feature,.blog-hero,.blog-list,.communities-grid,.communities-hero,.communities-note,.market-hero,.market-county,.market-source,.steps-section,.article,.resource-band,.journal-heading,.valuation-form-wrap,.inline-places,.cta-band,.legal-page,.faq-section { padding-left: 32px; padding-right: 32px; }
   .page-hero,.area-hero,.contact-hero,.about-hero,.seller-plan,.seller-visual,.valuation-hero,.valuation-explain,.contact-bottom,.about-practice,.about-local,.buyer-form-section,.seller-form-section,.market-explainer,.callout-row,.resource-band,.communities-note,.market-hero,.steps-section,.valuation-form-wrap,.cta-band,.legal-page { padding-top: 56px; padding-bottom: 56px; row-gap: 36px; }
   .site-footer { padding-left: 32px; padding-right: 32px; padding-bottom: 106px; }
@@ -277,7 +283,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
   .community-link-grid { grid-template-columns: 1fr 1fr; gap: 0 28px; }
   .community-link-grid a:last-child { border-bottom: none; }
   .client-story-card { padding: 42px; }
-  .profile-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .profile-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
   .magazine-cover { grid-column: 1/6; }
   .magazine-copy { grid-column: 7/13; padding-top: 0; }
 }
@@ -296,7 +302,9 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
   .header-call span { font-size: 12px; }
   .header-call { border: 1px solid var(--line); padding: 12px 18px; text-align: center; align-self: center; }
   .header-call strong { font-size: 16px; }
-  .profile-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+  .profile-grid { grid-template-columns: repeat(6,minmax(0,1fr)); }
+  .profile-section { padding-block: 48px; }
+  .profile-grid { gap: 32px; }
   .profile-card { padding: 0; }
   .contact-methods p { grid-template-columns: 105px minmax(0,1fr); gap: 16px; }
   .contact-bottom h2,.about-local h2,.communities-note h2 { font-size: 38px; }

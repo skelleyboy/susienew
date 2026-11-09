@@ -44,6 +44,11 @@ for (const page of pages) {
   assert(html.includes('<main id="main">'), `${page.path}: main landmark missing`);
   assert(html.includes("/assets/brand-lockup.svg"), `${page.path}: shared logo missing`);
   assert(html.includes("/assets/brand-lockup-light.svg"), `${page.path}: shared reverse footer logo missing`);
+  const footerHtml = html.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0] || "";
+  assert(!/href="\/[^"]*#/.test(footerHtml), `${page.path}: footer navigation must start at the top`);
+  const headerHtml = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || "";
+  assert(!headerHtml.includes('class="header-phone"'), `${page.path}: removed header phone strip returned`);
+  assert(footerHtml.includes("(248) 943-6906"), `${page.path}: footer phone number missing`);
   assert(!/href=["']tel:/i.test(html), `${page.path}: click-to-call link remains`);
   assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);
   assert(!/Illustrative home|Illustrative architecture|not a local listing|not an available property/i.test(html), `${page.path}: unwanted photo caption remains`);
@@ -136,7 +141,11 @@ assert(!homeHtml.includes('<source media="(max-width: 699px)"'), "Homepage shoul
 for (const page of pages.filter(page => !page.noindex && !["/", "/about", "/contact", "/privacy", "/terms"].includes(page.path))) {
   const html = docs.get(page.path) || "";
   assert(html.includes('class="page-headshot"'), `${page.path}: introductory headshot missing`);
-  assert(html.indexOf('class="page-headshot"') < html.indexOf("<h1"), `${page.path}: headshot must appear above the heading`);
+  if (["/buy", "/sell"].includes(page.path)) {
+    assert(html.indexOf('class="page-headshot"') > html.indexOf('<a class="button"'), `${page.path}: headshot must follow the main CTA`);
+  } else {
+    assert(html.indexOf('class="page-headshot"') < html.indexOf("<h1"), `${page.path}: headshot must appear above the heading`);
+  }
 }
 const communitiesHtml = docs.get("/communities") || "";
 assert(communitiesHtml.includes('name="community-map-frame"'), "Communities Google map missing");

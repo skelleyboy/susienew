@@ -79,10 +79,16 @@ The user requested removing Instagram and TikTok and having page links open at t
 
 **Why:** The user asked.
 
-**How to apply:** Do not reintroduce Instagram or TikTok links. Normal page navigation should start at the top; preserve explicit contact-form anchors so inquiry buttons still take visitors to the form.
+**How to apply:** Do not reintroduce Instagram or TikTok links. Normal page navigation, including footer and menu resource links, should start at the top. The user repeated this after footer links still jumped to forms. Only explicit contact buttons should retain form anchors.
+
+The user reversed the always-visible phone request: “never mind about phone number. have it in footer.”
+
+**Why:** The user asked.
+
+**How to apply:** Keep the phone number in the footer and contact details, not in a persistent header strip. Do not reintroduce click-to-call links.
 
 The user wants Susie's headshot above the fold wherever it makes sense, in a little circle. They separately asked to put the homepage photo back as it was.
 
 **Why:** The user wants a personal presence across the site, while retaining the original homepage portrait treatment.
 
-**How to apply:** Keep small circular introductory headshots on service, community, market and journal pages. Keep the homepage portrait rectangular, and avoid redundant portraits where About and Contact already introduce Susie with a photo.
+**How to apply:** Keep small circular introductory headshots on service, community, market and journal pages. On Buy and Sell, the user specifically wants the photo below the main CTA. Keep the homepage portrait rectangular, and avoid redundant portraits where About and Contact already introduce Susie with a photo.

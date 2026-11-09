@@ -24,7 +24,7 @@ const contactCapture = (path) => {
 const marketLink = `<a href="/market-update">See the September county snapshot <span aria-hidden="true">↗</span></a>`;
 
 export function header(path = "/") {
-  const nav = [["Buy","/buy"],["Sell","/sell"],["Home value","/home-value"],["Communities","/communities"],["About Susie","/about"],["Journal","/blog"],["Contact","/contact#contact-form"]];
+  const nav = [["Buy","/buy"],["Sell","/sell"],["Home value","/home-value"],["Communities","/communities"],["About Susie","/about"],["Journal","/blog"],["Contact","/contact"]];
   const headerNav = [["Meet Susie","/about"],["Communities","/communities"],["Buy","/buy"],["Sell","/sell"],["Home value","/home-value"],["Let’s connect","/contact#contact-form"]];
   return `<a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner">
     <a class="brand" href="/" aria-label="Susie Sharak home"><img class="brand-lockup" src="/assets/brand-lockup.svg" width="475" height="100" alt="Susie Sharak Real Estate"></a>
@@ -33,7 +33,7 @@ export function header(path = "/") {
       <summary aria-label="Toggle navigation menu"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9h12M6 15h12" stroke="currentColor" stroke-width="1.4"/></svg><svg class="menu-close-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6"/></svg></summary>
       <nav aria-label="Site and social links"><div class="menu-columns">
         <div class="menu-pages">${nav.map(([t,h])=>a(h,t,path===h?"current":"")).join("")}</div>
-        <div class="menu-group"><h2>Buying &amp; selling</h2><a href="/buy#buyer-form">Help me find a home</a><a href="/sell#seller-form">Help me sell my home</a><a href="/home-value#valuation-form">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
+        <div class="menu-group"><h2>Buying &amp; selling</h2><a href="/buy">Help me find a home</a><a href="/sell">Help me sell my home</a><a href="/home-value">What’s my home worth?</a><a href="/communities">Explore the area</a><a href="/blog">Buying &amp; selling tips</a><a href="/market-update">Local market update</a></div>
         <div class="menu-group"><h2>Reviews &amp; profiles</h2>${agentProfiles.map(profileBrandLink).join("")}</div>
         <div class="menu-group"><h2>Follow along</h2>${socialBrandLinks()}</div>
       </div><div class="menu-bottom"><div><h2>Susie Sharak</h2><p>${brokerage}</p><p>${email}</p></div>${buttonLink("/contact","Message Susie")}</div></nav>
@@ -44,7 +44,7 @@ export function header(path = "/") {
 function footerContent() {
   return `<footer class="site-footer"><div class="footer-top"><div><a class="brand brand-light" href="/" aria-label="Susie Sharak home"><img class="brand-lockup" src="/assets/brand-lockup-light.svg" width="475" height="100" alt="Susie Sharak Real Estate"></a><p class="footer-brokerage">${brokerage}</p><p>Serving Oakland and Macomb County, Michigan.</p></div><div><h2>How can I help?</h2><ul><li>${a("/buy#buyer-form","Buying a home")}</li><li>${a("/sell#seller-form","Selling a home")}</li><li>${a("/home-value#valuation-form","Home value")}</li><li>${a("/contact#contact-form","Send a message")}</li></ul></div><div><h2>Find me online</h2><ul>${agentProfiles.map(profile => `<li>${profileBrandLink(profile)}</li>`).join("")}</ul><p>${contact}</p><p>${email}</p></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Susie Sharak · ${brokerage}</span><span>${a("/privacy","Privacy")} · ${a("/terms","Terms")}</span><span class="social-links">${socialBrandLinks()}</span></div></footer>`;
 }
-export const footer = () => footerContent().replaceAll("Golden Realty", brokerage);
+export const footer = () => footerContent().replaceAll("Golden Realty", brokerage).replace(/href="(\/[^"#]*)#[^"]*"/g, 'href="$1"');
 const page = (path,title,description,body,faq,noindex=false) => {
   const hasOwnForm = ["/buy", "/sell", "/home-value", "/contact"].includes(path);
   const addContactForm = !hasOwnForm && !noindex && !["/privacy", "/terms"].includes(path);
@@ -55,7 +55,10 @@ const page = (path,title,description,body,faq,noindex=false) => {
     .replace('class="seller-form-section"', 'class="seller-form-section" id="seller-form"')
     .replace('class="contact-form-card"', 'class="contact-form-card" id="contact-form"');
   if (!noindex && !["/", "/about", "/contact", "/privacy", "/terms"].includes(path)) {
-    content = content.replace("<h1", '<img class="page-headshot" src="/assets/susie-headshot.webp" width="76" height="76" alt="Susie Sharak"><h1');
+    const headshot = '<img class="page-headshot" src="/assets/susie-headshot.webp" width="76" height="76" alt="Susie Sharak">';
+    content = ["/buy", "/sell"].includes(path)
+      ? content.replace(/<a class="button"[^>]*>[\s\S]*?<\/a>/, button => button + headshot)
+      : content.replace("<h1", headshot + "<h1");
   }
   if (path === "/privacy") content = content.replace("<h2>How it is handled</h2>", "<h2>Where your inquiry came from</h2><p>When you submit a form, it can include the page you submitted it from, the first page visited during that browser-tab session, the referring website’s domain and campaign labels from the link you used. Temporary session storage keeps those source details as you move between pages. It does not store what you type into forms, and this feature does not send information to a separate analytics service. Full referring URLs and unrelated search parameters are not collected.</p><h2>How it is handled</h2>");
   if (hasOwnForm || addContactForm) content = content.replace(/href="\/contact(?:#contact-form)?"/g, `href="${formTarget}"`);
