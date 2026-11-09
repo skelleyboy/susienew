@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["script/build.ts", "script/serve-static.ts", "script/check-static.ts", "site/pages.d.mts", "client/src/data/blog.ts"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "incremental": false,
+    "allowJs": true
+  }
+}

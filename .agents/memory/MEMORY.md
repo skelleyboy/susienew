@@ -1,0 +1,1 @@
+- [Static website direction](static-site-direction.md) - Human, local, lead-focused HTML content, without a separate crawler-only version.

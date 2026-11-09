@@ -39,8 +39,5 @@
   status = 301
   force = true
 
-# SPA routing fallback
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Individual static HTML routes and real 404 responses are generated in
+# dist/public/_redirects. Do not restore a catch-all homepage rewrite.
