@@ -2,6 +2,7 @@ import { readFile, access } from "node:fs/promises";
 import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { pages } from "../site/pages.mjs";
+import { agentProfiles } from "../site/profiles.mjs";
 import { BLOG_POSTS } from "../client/src/data/blog";
 
 const root = resolve("dist/public");
@@ -19,6 +20,12 @@ for (const page of pages) docs.set(page.path, await readFile(fileFor(page.path),
 const stylesheetPath = docs.get("/")!.match(/rel="stylesheet" href="([^"]+)"/)?.[1];
 assert(stylesheetPath?.startsWith("/assets/site-"), "Versioned shared brand stylesheet missing");
 const css = await readFile(resolve(root, "." + stylesheetPath), "utf8");
+const logo = await readFile(resolve(root, "assets/brand-lockup.svg"), "utf8");
+assert(logo.includes("m35.05 25.53"), "The SS monogram is missing from the logo");
+for (const profile of agentProfiles) {
+  assert(profile.logo?.startsWith("/assets/"), `${profile.name}: logo must be hosted locally`);
+  await access(resolve(root, "." + profile.logo));
+}
 for (const image of css.matchAll(/url\(["']?(\/assets\/[^"')]+)["']?\)/g)) {
   await access(resolve(root, "." + image[1]));
 }
@@ -31,6 +38,13 @@ for (const page of pages) {
   assert(html.includes('<main id="main">'), `${page.path}: main landmark missing`);
   assert(html.includes("/assets/brand-lockup.svg"), `${page.path}: shared logo missing`);
   assert(html.includes("/assets/brand-lockup-light.svg"), `${page.path}: shared reverse footer logo missing`);
+  assert(!/href=["']tel:/i.test(html), `${page.path}: click-to-call link remains`);
+  assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);
+  assert(!/Illustrative home|Illustrative architecture|not a local listing|not an available property/i.test(html), `${page.path}: unwanted photo caption remains`);
+  assert(html.includes('class="floating-contact"'), `${page.path}: scroll contact button missing`);
+  assert(html.includes('class="desktop-nav"'), `${page.path}: desktop navigation missing`);
+  assert(html.includes('class="menu-icon"'), `${page.path}: hamburger menu missing`);
+  assert(!html.includes("Development preview: forms send only"), `${page.path}: removed preview banner returned`);
   const pageHeader = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0];
   assert(pageHeader && !pageHeader.includes("Golden Realty"), `${page.path}: brokerage text must not return to header`);
   if (!page.noindex && !["/privacy", "/terms"].includes(page.path)) {
@@ -42,6 +56,12 @@ for (const page of pages) {
   assert(!descriptions.has(page.description), `Duplicate description: ${page.path}`); descriptions.add(page.description);
   assert(html.includes(`rel="canonical" href="https://susiesharak.com${page.path}"`), `Wrong canonical: ${page.path}`);
   for (const script of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
+    if (attr(script[1], "src")) {
+      assert.match(attr(script[1], "src")!, /^\/assets\/interactions-[a-f0-9]{10}\.js$/, `${page.path}: unexpected client script`);
+      assert(/\bdefer\b/.test(script[1]), `${page.path}: enhancement script must be deferred`);
+      assert.equal(script[2], "", `${page.path}: unexpected inline JavaScript`);
+      continue;
+    }
     assert.equal(attr(script[1], "type"), "application/ld+json", `${page.path}: JavaScript should not be required`);
     const data = JSON.parse(script[2]);
     assert.equal(data["@context"], "https://schema.org");

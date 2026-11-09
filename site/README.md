@@ -13,6 +13,8 @@ Update the actual visible content, not a separate crawler-only block. Market fig
 
 `layout.css` defines the shared mobile-first layout and 12-column desktop grid. The build combines the stylesheets and fingerprints the result so deployed design changes are not hidden by stale browser caches. The logo assets in `site/assets/` include the custom monogram, path-based wordmarks, light and dark lockups, a favicon, and a social preview. `script/create-brand.py` regenerates the path-based lockups using the optional fonttools authoring dependency; it is not required to build the website.
 
+The immutable monogram input is `site/assets/brand-monogram-source.svg`. Do not use a generated lockup as the generator input. `site/profiles.mjs` contains the verified external profiles and official logo sources. The small deferred `site/interactions.js` enhancement controls only the mobile scroll contact button; navigation, page content and forms remain usable without JavaScript. Run `node script/check-interactions.mjs` to test its visibility and form destinations.
+
 ## Netlify forms
 
 Lead forms are real HTML forms with `data-netlify="true"`, `form-name`, and a honeypot. Netlify detects them from the generated HTML after deployment. Keep field names identical wherever a named form repeats.

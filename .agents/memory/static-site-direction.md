@@ -32,3 +32,39 @@ The user requested removing Golden Realty text from the header and making the ma
 **Why:** The user wants the personal brand in the header and more direct lead capture throughout the site.
 
 **How to apply:** Do not reintroduce brokerage text into the header. Keep appropriate brokerage identification elsewhere. Give marketing pages a native inquiry form and main conversion actions a direct form destination without breaking navigation or phone links.
+
+The user says the site should sound like Susie, using her own bio and client feedback. They requested simple, clear StoryBrand-style copy, no topper text, no small or hard-to-read text, and more mobile side padding.
+
+**Why:** The user repeatedly rejected generic phrasing and overly complicated presentation.
+
+**How to apply:** Keep visitors’ buying or selling needs first, describe how Susie helps, and give a clear form-based next step. Do not add little category labels above headings or photo captions such as “Illustrative home image, not a local listing.” Do not imply generic photography is an actual listing.
+
+The user explicitly said every “Call Susie” action should go to a contact form and there should be no click-to-call links. They requested a floating contact button after scrolling and most recently said “square buttons again.”
+
+**Why:** The user asked.
+
+**How to apply:** All contact actions go to native inquiry forms. Keep phone details non-clickable and prevent mobile automatic telephone linking. Use square-cornered buttons. The user wants the floating “Let’s connect” action only on mobile, after scrolling.
+
+The user requested a hamburger menu on desktop with all her social links, and larger “REAL ESTATE” lettering in the logo.
+
+**Why:** The user asked.
+
+**How to apply:** Keep the hamburger available on desktop and mobile with social and profile links. Also preserve the desktop navigation links and the full logo. Do not shrink the logo descriptor back into microtype.
+
+The user asked to remove the profile logo cards and put the linked logos immediately below the hero.
+
+**Why:** The user asked.
+
+**How to apply:** Use an unboxed logo strip, without an introductory heading or descriptive card text.
+
+The user said to host the logos in this project, not load them from third-party hosts. They also asked to remove the development-preview form notice.
+
+**Why:** The user asked.
+
+**How to apply:** Keep all visible brand images local. Do not reintroduce the preview banner; preserve explicit errors if a preview submission cannot actually be delivered.
+
+The user stated that black and white are Susie’s brand colors.
+
+**Why:** The user’s explicit brand direction supersedes earlier olive, cream and gold choices.
+
+**How to apply:** Use black, white and neutral grays for the site and Susie’s logo. Keep third-party logos in their genuine brand colors and use color photography naturally. Maintain generous section spacing.

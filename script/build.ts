@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { pages, header, footer } from "../site/pages.mjs";
+import { agentProfiles, brokerage } from "../site/profiles.mjs";
 
 const output = resolve("dist/public");
 const origin = "https://susiesharak.com";
@@ -17,11 +18,11 @@ function structuredData(page: any) {
     telephone: "+1-248-943-6906", email: "susie@propertypro1.com",
     image: `${origin}/assets/susie.webp`,
     areaServed: ["Oakland County, Michigan", "Macomb County, Michigan"],
-    sameAs: ["https://www.instagram.com/susiesharak/", "https://www.facebook.com/susie.sharakzetouna/"],
+    sameAs: ["https://www.instagram.com/susiesharak/", "https://www.facebook.com/susie.sharakzetouna/", ...agentProfiles.map(profile => profile.url)],
   };
   const graph: any[] = [
     business,
-    { "@type": "Person", "@id": `${origin}/#susie`, name: "Susie Sharak", url: `${origin}/about`, image: `${origin}/assets/susie.webp`, worksFor: { "@type": "Organization", name: "Golden Realty" } },
+    { "@type": "Person", "@id": `${origin}/#susie`, name: "Susie Sharak", url: `${origin}/about`, image: `${origin}/assets/susie.webp`, worksFor: { "@type": "Organization", name: brokerage } },
     { "@type": "WebSite", "@id": `${origin}/#website`, url: origin, name: "Susie Sharak Real Estate", publisher: { "@id": `${origin}/#business` } },
     { "@type": "WebPage", "@id": `${origin}${page.path}#page`, url: `${origin}${page.path}`, name: page.title, description: page.description, isPartOf: { "@id": `${origin}/#website` }, about: { "@id": `${origin}/#susie` }, inLanguage: "en-US" },
   ];
@@ -45,6 +46,9 @@ export async function buildSite() {
   await rm(output, { recursive: true, force: true });
   await mkdir(`${output}/assets`, { recursive: true });
   await cp("site/assets", `${output}/assets`, { recursive: true });
+  const interactionScript = await readFile("site/interactions.js", "utf8");
+  const interactionPath = `/assets/interactions-${createHash("sha256").update(interactionScript).digest("hex").slice(0,10)}.js`;
+  await writeFile(`${output}${interactionPath}`, interactionScript);
   const css = `${await readFile("site/styles.css", "utf8")}\n${await readFile("site/layout.css", "utf8")}`;
   const stylesheet = `/assets/site-${createHash("sha256").update(css).digest("hex").slice(0, 10)}.css`;
   await writeFile(`${output}${stylesheet}`, css);
@@ -65,7 +69,8 @@ export async function buildSite() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#35362f">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#111111">
 <title>${escape(page.title)}</title>
 <meta name="description" content="${escape(page.description)}">
 <meta name="robots" content="${page.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}">
@@ -89,7 +94,8 @@ ${page.path === "/" ? '<link rel="preload" href="/assets/susie.webp" as="image" 
 ${header(page.path)}
 <main id="main">${page.body}</main>
 ${footer()}
-<!-- preview-notice -->
+<a class="floating-contact" href="/contact#contact-form" hidden>Let’s connect <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 12 5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<script src="${interactionPath}" defer></script>
 </body>
 </html>`;
     await writeFile(target, html);
