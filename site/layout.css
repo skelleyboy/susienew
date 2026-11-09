@@ -112,6 +112,8 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .personal-heading { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 20px; align-items: center; margin-bottom: 24px; }
 .personal-heading > .page-headshot { width: 64px; height: 64px; margin: 0; }
 .personal-heading > h1 { margin: 0; }
+.thankyou-page { padding: 64px 32px; }
+.thankyou-page .personal-heading h1 { font-size: clamp(32px,3.2vw,42px); }
 .profile-card .zillow-top-agent-badge { width: 140px; height: 48px; object-fit: contain; }
 .personal-hero-copy { text-align: center; }
 .personal-hero-copy .eyebrow { color: #eee8da; font-size: 12px; margin-bottom: 10px; }
@@ -458,6 +460,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
   .personal-heading { grid-template-columns: 88px minmax(0,1fr); gap: 24px; }
   .personal-heading > .page-headshot { width: 88px; height: 88px; }
   .personal-heading > h1 { font-size: 42px; }
+  .thankyou-page { padding: 88px 36px; }
   .buyer-form-section,.seller-form-section,.valuation-form-wrap {
     display: grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: 28px;
     padding: 88px max(48px,calc((100vw - 1248px)/2)); align-items: start;

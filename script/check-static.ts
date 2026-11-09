@@ -56,6 +56,11 @@ for (const page of pages) {
   assert(!html.includes("/assets/twilight.webp"), `${page.path}: rejected sunset house photo must not be used`);
   assert(!html.includes("/assets/home.webp"), `${page.path}: rejected white mansion photo must not be used`);
   assert(!/class="eyebrow"/.test(html), `${page.path}: topper text remains`);
+  if (page.path === "/thank-you") {
+    assert(html.includes('class="page-headshot" src="/assets/susie-headshot.webp"'), "Thank-you page should include Susie's headshot");
+    assert(html.includes("I’ll get back to you using the contact details you shared."), "Thank-you message should explain the next step in Susie's voice");
+    assert(!html.includes("This page confirms a completed form submission only."), "Remove technical confirmation jargon");
+  }
   assert(!/Illustrative home|Illustrative architecture|not a local listing|not an available property/i.test(html), `${page.path}: unwanted photo caption remains`);
   assert(html.includes('class="floating-contact"'), `${page.path}: scroll contact button missing`);
   if (html.includes('class="capture-copy"')) {
