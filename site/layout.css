@@ -145,7 +145,7 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .local-market-copy .eyebrow { color: #d6c6aa; }
 .local-market-copy > p:not(.eyebrow) { color: #eee; }
 .local-market-copy .text-link { color: #fff; border-color: #888; }
-.local-market-stat { grid-column: span 2; border-top: 1px solid #777; padding-top: 24px; }
+.local-market-stat { grid-column: span 2; padding-top: 24px; }
 .local-market-stat p { margin-bottom: 12px; font-size: 16px; }
 .local-market-stat strong { display: block; font: 500 clamp(26px,7vw,38px)/1.2 var(--serif); margin-bottom: 8px; letter-spacing: -.03em; }
 .local-market-stat span { color: #eee; font-size: 16px; }
