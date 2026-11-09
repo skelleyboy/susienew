@@ -40,7 +40,7 @@ if not mark_paths:
     raise ValueError("The source monogram has no vector paths")
 mark_paths = mark_paths.replace('fill="#35362F"', 'fill="currentColor"')
 name_paths = word_paths("SUSIE SHARAK", SERIF, 34, 2.1, 0, 36)
-descriptor = word_paths("REAL ESTATE", SANS, 26, 2.4, 2, 76)
+descriptor = word_paths("REAL ESTATE", SANS, 21, 2.4, 2, 70)
 
 
 def svg(viewbox, content, color):

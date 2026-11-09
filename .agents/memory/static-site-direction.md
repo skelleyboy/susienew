@@ -49,7 +49,13 @@ The user requested a hamburger menu on desktop with all her social links, and la
 
 **Why:** The user asked.
 
-**How to apply:** Keep the hamburger available on desktop and mobile with social and profile links. Also preserve the desktop navigation links and the full logo. Do not shrink the logo descriptor back into microtype.
+**How to apply:** Keep the hamburger available on desktop and mobile with social and profile links. Also preserve the desktop navigation links and the full logo. The user subsequently refined the logo direction: “REAL ESTATE” should be smaller or thinner than the name, while remaining readable.
+
+The user refined the header reference to compact sans-serif links aligned right and an icon-only hamburger without “Menu” text.
+
+**Why:** The user supplied a specific header reference and asked to match it.
+
+**How to apply:** Keep the expanded menu’s grouped layout, but use clean sans-serif type for the header links and no visible hamburger label. The circular menu toggle is separate from the square main call-to-action buttons.
 
 The user asked to remove the profile logo cards and put the linked logos immediately below the hero.
 
