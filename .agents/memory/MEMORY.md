@@ -1,1 +1,2 @@
 - [Static website direction](static-site-direction.md) - Human, local, lead-focused HTML content, without a separate crawler-only version.
+- [Inquiry attribution](inquiry-attribution.md) - Keep source tracking minimal, private and optional; never interrupt native form delivery.

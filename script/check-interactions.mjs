@@ -54,3 +54,22 @@ console.log("PASS: mobile-only scroll button, desktop hiding, resize behavior, a
   assert.equal(menu.open, false, "Following a menu link should close the overlay");
 }
 console.log("PASS: menu Escape handling, focus restoration, and closing after following a link.");
+
+{
+  const events = {};
+  const button = { hidden: true };
+  let bounds = { top: 400, bottom: 1200 };
+  const form = { id: "contact-form", getBoundingClientRect: () => bounds };
+  vm.runInNewContext(source, {
+    window: { innerHeight: 800, scrollY: 400, matchMedia: () => ({ matches: true }), requestAnimationFrame: fn => fn(), addEventListener: (name, fn) => { events[name] = fn; } },
+    document: { querySelector: selector => selector === ".floating-contact" ? button : selector === ".mobile-menu" ? null : form },
+  });
+  assert.equal(button.hidden, true, "Do not cover a visible inquiry form");
+  bounds = { top: 950, bottom: 1600 };
+  events.scroll();
+  assert.equal(button.hidden, false, "Offer the shortcut before the form comes into view");
+  bounds = { top: -1000, bottom: -50 };
+  events.scroll();
+  assert.equal(button.hidden, false, "Restore the shortcut after scrolling past the form");
+}
+console.log("PASS: mobile contact shortcut stays out of the way of inquiry forms.");

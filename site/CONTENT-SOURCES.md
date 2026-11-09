@@ -24,3 +24,9 @@ The public profiles list Golden Key Realty Group LLC. The main website retains S
 - FastExpert official SVG supplied by the user: https://assets.fastexpert.com/images/FE-Logo.svg
 
 All five logos are hosted locally. Homes.com and FastExpert block automated downloads, and FastExpert additionally blocks cross-origin display. Their genuine marks were isolated from the user-supplied profile-logo screenshot, rather than recreated or replaced with invented marks. The other three marks retain their original SVG format.
+
+Instagram, Facebook, LinkedIn and TikTok brand SVGs come from Font Awesome Free's brands collection, hosted locally with the original copyright notices and `site/assets/social-icons-LICENSE.txt`. Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/brands
+
+The replacement testimonial interior was selected through image search from Unsplash: https://images.unsplash.com/photo-1600210492493-0946911123ea . The downloaded source is retained in `attached_assets/testimonial-living-room-source.webp`; the optimized site image is local. It is a decorative background and is not represented as a client property or an available listing.
+
+The Search Console priorities and limitations of the November 9, 2026 user-provided export are documented in `site/SEARCH-OPPORTUNITIES.md`. Search performance is not evidence of form conversions.

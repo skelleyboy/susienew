@@ -63,7 +63,7 @@ The user asked to remove the profile logo cards and put the linked logos immedia
 
 **How to apply:** Use an unboxed logo strip, without an introductory heading or descriptive card text.
 
-The user said to host the logos in this project, not load them from third-party hosts. They also asked to remove the development-preview form notice.
+The user said to host the logos in this project, not load them from third-party hosts, and to use actual logos for external real estate profiles and social links rather than text alone. They also asked to remove the development-preview form notice.
 
 **Why:** The user asked.
 
@@ -73,4 +73,4 @@ The user stated that black and white are Susie’s brand colors.
 
 **Why:** The user’s explicit brand direction supersedes earlier olive, cream and gold choices.
 
-**How to apply:** Use black, white and neutral grays for the site and Susie’s logo. Keep third-party logos in their genuine brand colors and use color photography naturally. Maintain generous section spacing.
+**How to apply:** Use black, white and neutral grays for the site and Susie’s logo. Keep third-party logos in their genuine brand colors on white backgrounds; use legible monochrome marks on dark backgrounds. Use color photography naturally and maintain generous section spacing.

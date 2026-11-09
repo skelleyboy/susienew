@@ -1,0 +1,6 @@
+Social icons: Font Awesome Free brands, by Fonticons, Inc.
+Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/brands
+License: Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+https://fontawesome.com/license/free
+Instagram, Facebook, LinkedIn and TikTok trademarks belong to their owners.

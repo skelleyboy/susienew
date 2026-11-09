@@ -20,7 +20,7 @@ export const homeBody = `
     <div class="personal-hero-copy">
       <p class="eyebrow">Oakland & Macomb County, Michigan</p>
       <h1>Buying or selling?<br>Let’s make it easier.</h1>
-      <p>Hi, I’m Susie! I help people buy and sell homes across Oakland and Macomb County.</p>
+      <p>Hi, I’m Susie Sharak, a local Realtor helping you buy or sell in Oakland and Macomb County, Michigan.</p>
       <div class="hero-actions">
         <a class="button button-light" href="/home-value#valuation-form">Get my home value</a>
         <a class="hero-call" href="#contact-form">Message Susie <span aria-hidden="true">↗</span></a>
@@ -71,8 +71,8 @@ ${magazineFeature()}
   <div class="community-link-grid">${localGuides.map(([slug, name, county]) => `<a href="/area/${slug}"><span>${county}</span><strong>${name}</strong><b aria-hidden="true">↗</b></a>`).join("")}</div>
 </section>
 
-<section class="client-story">
-  <img class="client-story-image" src="/assets/loft.webp" width="1200" height="800" loading="lazy" alt="Bright living and dining space, illustrative home photography">
+<section class="client-story" id="client-reviews">
+  <img class="client-story-image" src="/assets/testimonial-living-room.webp" width="1600" height="1200" loading="lazy" alt="">
   <div class="site-shell twelve-grid">
     <div class="client-story-card">
       <p class="eyebrow">In a client’s words</p>

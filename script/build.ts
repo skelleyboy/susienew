@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { pages, header, footer } from "../site/pages.mjs";
 import { agentProfiles, brokerage } from "../site/profiles.mjs";
+import { legacyRedirects } from "./legacy-redirects";
 
 const output = resolve("dist/public");
 const origin = "https://susiesharak.com";
@@ -104,9 +105,13 @@ ${footer()}
   const indexed = pages.filter((p: any) => !p.noindex && p.path !== "/404");
   await writeFile(`${output}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexed.map((p: any) => `<url><loc>${origin}${p.path}</loc></url>`).join("\n")}\n</urlset>`);
   await writeFile(`${output}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
-  await writeFile(`${output}/llms.txt`, `# Susie Sharak Real Estate\n\nSusie Sharak is a real estate agent with Golden Realty serving Oakland and Macomb County, Michigan. Contact: 248-943-6906 or susie@propertypro1.com.\n\n## Services and local resources\n${indexed.filter((p: any) => !p.path.startsWith("/blog/")).map((p: any) => `- [${p.title}](${origin}${p.path}): ${p.description}`).join("\n")}\n\nMarket figures are dated county-level residential and condominium aggregates, not live listings or property valuations. See the market update page for the reporting period and original Realcomp source.\n`);
+  await writeFile(`${output}/llms.txt`, `# Susie Sharak Real Estate\n\nSusie Sharak is a real estate agent with ${brokerage} serving Oakland and Macomb County, Michigan. Contact: 248-943-6906 or susie@propertypro1.com.\n\n## Services and local resources\n${indexed.filter((p: any) => !p.path.startsWith("/blog/")).map((p: any) => `- [${p.title}](${origin}${p.path}): ${p.description}`).join("\n")}\n\nMarket figures are dated county-level residential and condominium aggregates, not live listings or property valuations. See the market update page for the reporting period and original Realcomp source.\n`);
   // Explicit per-page rewrites, not a catch-all homepage fallback.
-  await writeFile(`${output}/_redirects`, pages.filter((p: any) => p.path !== "/" && p.path !== "/404").map((p: any) => `${p.path} ${p.path}.html 200`).join("\n") + "\n/* /404.html 404\n");
+  for (const target of Object.values(legacyRedirects)) {
+    if (!routes.has(target)) throw new Error(`Legacy redirect points to a missing page: ${target}`);
+  }
+  const redirects = Object.entries(legacyRedirects).flatMap(([from,to]) => [`${from} ${to} 301`, `${from}/ ${to} 301`]);
+  await writeFile(`${output}/_redirects`, [...redirects, ...pages.filter((p: any) => p.path !== "/" && p.path !== "/404").map((p: any) => `${p.path} ${p.path}.html 200`), "/* /404.html 404"].join("\n") + "\n");
   await writeFile(`${output}/_headers`, `/assets/*\n  Cache-Control: public, max-age=86400\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n`);
   console.log(`Built ${pages.length} complete HTML pages with sitemap, structured data, and native forms.`);
 }

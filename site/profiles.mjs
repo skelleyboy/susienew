@@ -8,6 +8,16 @@ export const agentProfiles = [
   { name: "FastExpert", url: "https://www.fastexpert.com/agents/susie-sharak-96097/", logo: "/assets/fastexpert-logo.png", detail: "Read reviews and ratings" },
 ];
 
+export const socialProfiles = [
+  { name: "Instagram", url: "https://www.instagram.com/susiesharak/", logo: "/assets/social-instagram.svg" },
+  { name: "Facebook", url: "https://www.facebook.com/susie.sharakzetouna/", logo: "/assets/social-facebook-f.svg" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/susie-sharak-5810251bb/", logo: "/assets/social-linkedin-in.svg" },
+  { name: "TikTok", url: "https://www.tiktok.com/@susiesharak", logo: "/assets/social-tiktok.svg" },
+];
+
+export const profileBrandLink = ({ name, url, logo }) => `<a class="profile-logo-link" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="View Susie Sharak on ${name}"><img src="${logo}" width="140" height="32" alt="${name}"><span aria-hidden="true">↗</span></a>`;
+export const socialBrandLinks = () => socialProfiles.map(({ name, url, logo }) => `<a class="social-brand-link" href="${url}" target="_blank" rel="noopener noreferrer"><img src="${logo}" width="24" height="24" alt=""><span>${name}</span></a>`).join("");
+
 export function profileLinks() {
   return `<section class="profile-section" aria-label="Susie’s real estate profiles"><div class="site-shell profile-grid">${agentProfiles.map(({ name, url, logo }) => `<a class="profile-card" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="View Susie Sharak on ${name}">${logo ? `<img src="${logo}" width="160" height="42" alt="${name}">` : `<strong class="profile-name">${name}</strong>`}</a>`).join("")}</div></section>`;
 }

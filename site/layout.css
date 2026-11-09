@@ -34,6 +34,14 @@ p { margin-bottom: 18px; }
 .site-header { background: var(--paper); }
 .header-inner { width: calc(100% - 64px); max-width: 1248px; margin: auto; min-height: 88px; padding: 16px 0; display: flex; justify-content: space-between; gap: 16px; }
 .brand { min-width: 0; }
+.profile-logo-link { display: flex; align-items: center; gap: 12px; min-height: 48px; width: fit-content; }
+.profile-logo-link img { display: block; width: 140px; height: 32px; object-fit: contain; object-position: left center; }
+.profile-logo-link > span { font-family: var(--sans); font-size: 16px; }
+.social-brand-link { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; }
+.social-brand-link img { flex-shrink: 0; width: 24px; height: 24px; object-fit: contain; }
+.site-footer .profile-logo-link img,.site-footer .social-brand-link img { filter: grayscale(1) brightness(0) invert(1); }
+.social-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.mobile-menu nav .profile-logo-link,.mobile-menu nav .social-brand-link { display: flex; align-items: center; gap: 12px; min-height: 48px; }
 .header-inner > .brand { flex: 0 1 248px; }
 .brand-lockup { width: 210px; max-width: 100%; height: auto; }
 .brand-brokerage { font-size: 12px; line-height: 1.4; margin-top: 3px; padding-left: 55px; }

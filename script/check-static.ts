@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import assert from "node:assert/strict";
 import { pages } from "../site/pages.mjs";
 import { agentProfiles } from "../site/profiles.mjs";
+import { socialProfiles } from "../site/profiles.mjs";
+import { legacyRedirects } from "./legacy-redirects";
 import { BLOG_POSTS } from "../client/src/data/blog";
 
 const root = resolve("dist/public");
@@ -24,6 +26,10 @@ const logo = await readFile(resolve(root, "assets/brand-lockup.svg"), "utf8");
 assert(logo.includes("m35.05 25.53"), "The SS monogram is missing from the logo");
 for (const profile of agentProfiles) {
   assert(profile.logo?.startsWith("/assets/"), `${profile.name}: logo must be hosted locally`);
+  await access(resolve(root, "." + profile.logo));
+}
+for (const profile of socialProfiles) {
+  assert(profile.logo.startsWith("/assets/"), `${profile.name}: social logo must be local`);
   await access(resolve(root, "." + profile.logo));
 }
 for (const image of css.matchAll(/url\(["']?(\/assets\/[^"')]+)["']?\)/g)) {
@@ -89,6 +95,7 @@ for (const page of pages) {
     assert.equal(attr(match[1], "data-netlify"), "true");
     assert.equal(attr(match[1], "netlify-honeypot"), "bot-field");
     const fieldNames = new Set<string>();
+    assert(match[2].includes(`name="source_page" value="${page.path}"`), `${page.path}: inquiry source is missing or incorrect`);
     for (const field of match[2].matchAll(/<(?:input|select|textarea)\b[^>]*>/g)) {
       const fieldName = attr(field[0], "name");
       if (fieldName) fieldNames.add(fieldName);
@@ -97,7 +104,7 @@ for (const page of pages) {
       const id = attr(field[0], "id");
       if (id) assert(new RegExp(`<label\\b[^>]*for=["']${id}["']`).test(match[2]), `${page.path}: unlabeled field ${id}`);
     }
-    for (const field of ["form-name", "bot-field", "name", "email"]) assert(fieldNames.has(field), `${name}: missing ${field}`);
+    for (const field of ["form-name", "bot-field", "name", "email", "source_page", "landing_page", "referrer_host", "utm_source", "utm_medium", "utm_campaign"]) assert(fieldNames.has(field), `${name}: missing ${field}`);
     if (name === "home-valuation") assert(fieldNames.has("address"), "Valuation address missing");
     if (forms.has(name)) assert.deepEqual(fieldNames, forms.get(name), `Inconsistent fields for Netlify form ${name}`);
     forms.set(name, fieldNames);
@@ -111,6 +118,17 @@ for (const name of ["contact", "home-valuation", "buyer-inquiry", "seller-inquir
 const sitemap = await readFile(`${root}/sitemap.xml`, "utf8");
 for (const page of pages) assert.equal(sitemap.includes(`<loc>https://susiesharak.com${page.path}</loc>`), !page.noindex && page.path !== "/404", `Sitemap indexing mismatch: ${page.path}`);
 const redirects = await readFile(`${root}/_redirects`, "utf8");
+for (const [from,to] of Object.entries(legacyRedirects)) {
+  assert(routes.has(to), `Missing legacy redirect target ${to}`);
+  assert(redirects.includes(`${from} ${to} 301\n`));
+  assert(redirects.includes(`${from}/ ${to} 301\n`));
+  assert(!sitemap.includes(`<loc>https://susiesharak.com${from}</loc>`), "Redirected aliases must not be in the sitemap");
+}
+const homeHtml = docs.get("/")!;
+const navHtml = homeHtml.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || "";
+for (const {logo} of [...agentProfiles,...socialProfiles]) assert(navHtml.includes(`src="${logo}"`), `Menu is missing logo ${logo}`);
+assert(homeHtml.includes("/assets/testimonial-living-room.webp"), "Updated testimonial photo missing");
+assert(docs.get("/area/grosse-pointe")?.includes('id="contact-form"'), "Grosse Pointe needs a real inquiry form");
 assert(!redirects.includes("/* /index.html"), "SPA catch-all must not return");
 assert(redirects.includes("/* /404.html 404"));
 console.log(`PASS: ${pages.length} static pages, all legacy URLs, unique metadata, local links/assets, visible FAQs, structured data, ${forms.size} native lead forms, sitemap, and real 404 configuration.`);
@@ -118,6 +136,14 @@ console.log(`PASS: ${pages.length} static pages, all legacy URLs, unique metadat
 const httpArg = process.argv.find(arg => arg.startsWith("--http="));
 if (httpArg) {
   const base = httpArg.slice("--http=".length);
+  for (const [from,to] of Object.entries(legacyRedirects)) {
+    for (const suffix of ["", "/"]) {
+      const response = await fetch(`${base}${from}${suffix}?utm_source=redirect-check`, { redirect: "manual" });
+      assert.equal(response.status, 301, `Legacy URL should redirect: ${from}${suffix}`);
+      assert.equal(response.headers.get("location"), `${to}?utm_source=redirect-check`, "Legacy redirect should preserve campaign parameters");
+    }
+    assert.equal((await fetch(`${base}${to}`)).status, 200, `Legacy target must load: ${to}`);
+  }
   for (const path of required) {
     const response = await fetch(`${base}${path}`);
     assert.equal(response.status, path === "/404" ? 404 : 200, `HTTP failure ${path}`);

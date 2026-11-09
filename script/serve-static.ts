@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 import { buildSite } from "./build";
+import { legacyRedirects } from "./legacy-redirects";
 
 await buildSite();
 const root = resolve("dist/public");
@@ -18,6 +19,10 @@ createServer(async (req, res) => {
     }
     const url = new URL(req.url || "/", "http://preview");
     let pathname = decodeURIComponent(url.pathname);
+    const legacyTarget = legacyRedirects[pathname.replace(/\/$/, "")];
+    if (legacyTarget) {
+      res.writeHead(301, { Location: legacyTarget + url.search }); res.end(); return;
+    }
     if (pathname !== "/" && pathname.endsWith("/")) {
       res.writeHead(301, { Location: pathname.slice(0, -1) + url.search }); res.end(); return;
     }
