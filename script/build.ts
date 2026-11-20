@@ -128,16 +128,14 @@ ${footer(page.path)}
   for (const target of Object.values(legacyRedirects)) {
     if (!routes.has(target)) throw new Error(`Legacy redirect points to a missing page: ${target}`);
   }
-  const redirects = Object.entries(legacyRedirects).flatMap(([from,to]) => [`${from} ${to} 301`, `${from}/ ${to} 301`]);
-  // Netlify evaluates _redirects before netlify.toml. Keep canonical redirects
-  // BEFORE page rewrites and the 404 catch-all, or those rules can never run.
+  const redirects = Object.entries(legacyRedirects).map(([from,to]) => `${from} ${origin}${to} 301`);
+  // Netlify owns TLS. Never add a bare-domain HTTP-to-HTTPS rule here:
+  // scheme matching behind the proxy can redirect HTTPS back to itself.
   const canonicalRedirects = [
-    `http://susiesharak.com/* ${origin}/:splat 301!`,
-    `http://www.susiesharak.com/* ${origin}/:splat 301!`,
     `https://www.susiesharak.com/* ${origin}/:splat 301!`,
+    `http://www.susiesharak.com/* ${origin}/:splat 301!`,
   ];
-  const slashRedirects = ["/blog/*/ /blog/:splat 301!", "/*/ /:splat 301!"];
-  await writeFile(`${output}/_redirects`, [...canonicalRedirects, ...redirects, ...slashRedirects, ...pages.filter((p: any) => p.path !== "/" && p.path !== "/404").map((p: any) => `${p.path} ${p.path}.html 200`), "/* /404.html 404"].join("\n") + "\n");
+  await writeFile(`${output}/_redirects`, [...canonicalRedirects, ...redirects, ...pages.filter((p: any) => p.path !== "/" && p.path !== "/404").map((p: any) => `${p.path} ${p.path}.html 200`), "/* /404.html 404"].join("\n") + "\n");
   await writeFile(`${output}/_headers`, `/assets/*\n  Cache-Control: public, max-age=86400\n/*.md\n  Content-Type: text/markdown; charset=utf-8\n  X-Robots-Tag: noindex\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n`);
   console.log(`Built ${pages.length} complete HTML pages with sitemap, structured data, and native forms.`);
 }

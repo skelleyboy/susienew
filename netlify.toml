@@ -10,8 +10,7 @@
   path = "/*"
   function = "markdown"
 
-# Canonical host/HTTPS, legacy URLs, slash redirects, per-page rewrites and the
-# final real 404 rule are generated together in dist/public/_redirects.
-# Netlify reads that file before this one, so splitting rules between the two
-# can let page rewrites or the 404 catch-all shadow canonical redirects.
+# Only www-to-apex and the two approved legacy redirects are generated in
+# dist/public/_redirects, followed by internal page rewrites and the real 404.
+# Netlify handles HTTPS. Do not add protocol or forwarded-header redirects.
 # Do not restore a catch-all homepage rewrite.

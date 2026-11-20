@@ -153,13 +153,32 @@ function firstRule(input) {
     if(match) return {status:Number.parseInt(status),location:to.replace(":splat",match[1] ?? "")+url.search};
   }
 }
-for(const host of ["http://susiesharak.com","http://www.susiesharak.com","https://www.susiesharak.com"]) {
+assert.deepEqual(rules.filter(([, , status]) => Number.parseInt(status) >= 300 && Number.parseInt(status) < 400), [
+  ["https://www.susiesharak.com/*", `${origin}/:splat`, "301!"],
+  ["http://www.susiesharak.com/*", `${origin}/:splat`, "301!"],
+  ["/novi-real-estate/", `${origin}/communities`, "301"],
+  ["/dearborn-real-estate/", `${origin}/communities`, "301"],
+], "Only the four approved redirects may be generated");
+for(const host of ["http://www.susiesharak.com","https://www.susiesharak.com"]) {
   assert.deepEqual(firstRule(`${host}/area/troy?utm_source=test`),{status:301,location:`${origin}/area/troy?utm_source=test`});
 }
 for(const slug of ["novi","dearborn"]) {
-  for(const suffix of ["","/"]) assert.deepEqual(firstRule(`/${slug}-real-estate${suffix}?source=test`),{status:301,location:"/communities?source=test"});
+  assert.deepEqual(firstRule(`/${slug}-real-estate/?source=test`),{status:301,location:`${origin}/communities?source=test`});
 }
-assert.deepEqual(firstRule("/area/troy/"),{status:301,location:"/area/troy"});
+for (const path of ["/", "/sitemap.xml", "/robots.txt", "/sell", "/area/troy"]) {
+  for (const scheme of ["http", "https"]) {
+    const input = `${scheme}://susiesharak.com${path}`;
+    const rule = firstRule(input);
+    assert(!rule || rule.status < 300 || rule.status >= 400, `Canonical URL must not redirect: ${input}`);
+  }
+}
+for (const [from, to, status] of rules) {
+  if (Number.parseInt(status) < 300 || Number.parseInt(status) >= 400) continue;
+  assert(to.startsWith("https://"), "All redirect destinations must be absolute HTTPS URLs");
+  const input = from.includes("*") ? from.replace("*", "area/troy") : origin + from;
+  const destination = to.replace(":splat", "area/troy");
+  assert.notEqual(new URL(input).href, new URL(destination).href, "Redirect must not point to its own source");
+}
 assert.deepEqual(firstRule("/this-page-does-not-exist"),{status:404,location:"/404.html"});
 
 console.log(`Local SEO passed: ${Object.keys(communityNames).length} guides (${Math.min(...guideLengths)}–${Math.max(...guideLengths)} authored words), ${articles.length} linked articles, seven distinct 10-tip checklists.`);

@@ -139,8 +139,7 @@ for (const page of pages) assert.equal(sitemap.includes(`<loc>https://susieshara
 const redirects = await readFile(`${root}/_redirects`, "utf8");
 for (const [from,to] of Object.entries(legacyRedirects)) {
   assert(routes.has(to), `Missing legacy redirect target ${to}`);
-  assert(redirects.includes(`${from} ${to} 301\n`));
-  assert(redirects.includes(`${from}/ ${to} 301\n`));
+  assert(redirects.includes(`${from} https://susiesharak.com${to} 301\n`));
   assert(!sitemap.includes(`<loc>https://susiesharak.com${from}</loc>`), "Redirected aliases must not be in the sitemap");
 }
 const homeHtml = docs.get("/")!;
@@ -192,10 +191,10 @@ const httpArg = process.argv.find(arg => arg.startsWith("--http="));
 if (httpArg) {
   const base = httpArg.slice("--http=".length);
   for (const [from,to] of Object.entries(legacyRedirects)) {
-    for (const suffix of ["", "/"]) {
+    for (const suffix of [""]) {
       const response = await fetch(`${base}${from}${suffix}?utm_source=redirect-check`, { redirect: "manual" });
       assert.equal(response.status, 301, `Legacy URL should redirect: ${from}${suffix}`);
-      assert.equal(response.headers.get("location"), `${to}?utm_source=redirect-check`, "Legacy redirect should preserve campaign parameters");
+      assert.equal(response.headers.get("location"), `https://susiesharak.com${to}?utm_source=redirect-check`, "Legacy redirect should preserve campaign parameters with an absolute Location");
     }
     assert.equal((await fetch(`${base}${to}`)).status, 200, `Legacy target must load: ${to}`);
   }

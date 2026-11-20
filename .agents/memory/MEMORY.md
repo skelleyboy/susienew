@@ -2,3 +2,4 @@
 - [Inquiry attribution](inquiry-attribution.md) - Keep source tracking minimal, private and optional; never interrupt native form delivery.
 - [External profile checks](external-profile-checks.md) - Bot blocks are not proof of missing profiles; preserve verified destinations until independently checked.
 - [Preview crawler headers](preview-robots-headers.md) - The dev proxy injects restrictive indexing headers; judge production indexability on the live domain.
+- [Netlify redirect safety](netlify-redirect-safety.md) - Netlify owns TLS; never restore bare-domain HTTPS forcing or forwarded-protocol redirects.

@@ -85,8 +85,9 @@ try {
   assert.equal(htmlRequests, 3);
   for (const url of [
     "https://www.susiesharak.com/",
-    "http://susiesharak.com/",
-    "https://susiesharak.com/area/troy/",
+    "http://www.susiesharak.com/",
+    "https://susiesharak.com/novi-real-estate/",
+    "https://susiesharak.com/dearborn-real-estate/",
   ]) {
     const response = await markdownHandler(new Request(url, { headers: { Accept: "text/markdown" } }), {
       next: async () => new Response(null, { status: 301, headers: { Location: origin } }),
@@ -94,6 +95,15 @@ try {
     assert.equal(response.status, 301, "Markdown negotiation must not bypass canonical redirects");
   }
   assert.equal(fetches, 1, "Let redirect rules handle noncanonical URLs before fetching Markdown");
+  for (const path of ["/", "/sitemap.xml", "/robots.txt", "/sell", "/area/troy"]) {
+    for (const proto of ["http", "https"]) {
+      const response = await markdownHandler(new Request(`${proto}://susiesharak.com${path}`, {
+        headers: { Accept: "text/html", "x-forwarded-proto": proto === "https" ? "http" : "https" },
+      }), context);
+      assert.equal(response.status, 200, "Neither protocol nor forwarded headers may trigger an app redirect");
+      assert.equal(response.headers.get("Location"), null);
+    }
+  }
   globalThis.fetch = async () => new Response("Missing", { status: 404 });
   const missing = await markdownHandler(new Request(`${origin}/missing`, { headers: { Accept: "text/markdown" } }), {
     next: async () => new Response("Not found", { status: 404 }),

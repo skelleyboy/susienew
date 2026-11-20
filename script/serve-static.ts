@@ -20,13 +20,11 @@ createServer(async (req, res) => {
     }
     const url = new URL(req.url || "/", "http://preview");
     let pathname = decodeURIComponent(url.pathname);
-    const legacyTarget = legacyRedirects[pathname.replace(/\/$/, "")];
+    const legacyTarget = legacyRedirects[pathname];
     if (legacyTarget) {
-      res.writeHead(301, { Location: legacyTarget + url.search }); res.end(); return;
+      res.writeHead(301, { Location: "https://susiesharak.com" + legacyTarget + url.search }); res.end(); return;
     }
-    if (pathname !== "/" && pathname.endsWith("/")) {
-      res.writeHead(301, { Location: pathname.slice(0, -1) + url.search }); res.end(); return;
-    }
+    if (pathname !== "/" && pathname.endsWith("/")) pathname = pathname.slice(0, -1);
     const negotiated = wantsMarkdown(req.headers.accept || "") && !extname(pathname) && pathname !== "/404";
     const requestedFile = negotiated ? markdownPath(pathname) : pathname === "/" ? "/index.html" : pathname;
     let path = resolve(root, "." + requestedFile);
