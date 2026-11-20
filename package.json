@@ -9,7 +9,7 @@
     "build": "tsx script/build.ts",
     "start": "tsx script/serve-static.ts --production",
     "test:static": "tsx script/check-static.ts",
-    "test:seo": "tsx script/check-seo.ts",
+    "test:seo": "tsx script/check-seo.ts && node script/check-local-seo.mjs",
     "check": "tsc -p tsconfig.static.json",
     "check:legacy": "tsc",
     "db:push": "drizzle-kit push"

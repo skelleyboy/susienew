@@ -118,3 +118,9 @@ The user requested unique photos for every blog article.
 **Why:** The user rejected repeated photos across the blog grid.
 
 **How to apply:** Assign each article its own image rather than cycling through a small photo pool. Keep that article’s thumbnail and main photo consistent, and never imply stock photography is an actual local listing.
+
+The user confirmed the contact page’s office-hours wording: “Contact me to confirm availability.” No fixed weekly schedule has been supplied.
+
+**Why:** The user confirmed this wording when asked for office hours, rather than providing opening and closing times.
+
+**How to apply:** Treat the availability wording as approved copy, not a placeholder to replace with invented hours. Do not add an unverified weekly schedule or opening-hours schema.

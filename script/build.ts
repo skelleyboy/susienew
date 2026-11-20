@@ -8,6 +8,7 @@ import { legacyRedirects } from "./legacy-redirects";
 import { withSvgArrows } from "../site/icons.mjs";
 import { transform } from "esbuild";
 import { markdownPath, pageMarkdown } from "../site/markdown.mjs";
+import { communityNames } from "../site/content-catalog.mjs";
 
 const output = resolve("dist/public");
 const origin = "https://susiesharak.com";
@@ -24,7 +25,9 @@ function structuredData(page: any) {
     image: `${origin}/assets/susie.webp`,
     logo,
     brand: { "@id": `${origin}/#brand` },
-    areaServed: ["Oakland County, Michigan", "Macomb County, Michigan"],
+    areaServed: ["Oakland County, Michigan", "Macomb County, Michigan", ...Object.values(communityNames).map(name =>
+      name === "Washington Township" ? "Washington Township, Macomb County, Michigan" : `${name}, Michigan`
+    )],
     sameAs: [...socialProfiles.map(profile => profile.url), ...agentProfiles.map(profile => profile.url)],
   };
   const graph: any[] = [
@@ -57,7 +60,7 @@ export async function buildSite() {
   const interactionScript = (await transform(await readFile("site/interactions.js", "utf8"), { loader: "js", minify: true, target: "es2020", legalComments: "none" })).code;
   const interactionPath = `/assets/interactions-${createHash("sha256").update(interactionScript).digest("hex").slice(0,10)}.js`;
   await writeFile(`${output}${interactionPath}`, interactionScript);
-  const cssSource = `${await readFile("site/styles.css", "utf8")}\n${await readFile("site/layout.css", "utf8")}`;
+  const cssSource = `${await readFile("site/styles.css", "utf8")}\n${await readFile("site/layout.css", "utf8")}\n${await readFile("site/seo-sections.css", "utf8")}`;
   const css = (await transform(cssSource, { loader: "css", minify: true, legalComments: "none" })).code;
   const stylesheet = `/assets/site-${createHash("sha256").update(css).digest("hex").slice(0, 10)}.css`;
   await writeFile(`${output}${stylesheet}`, css);
@@ -120,13 +123,21 @@ ${footer(page.path)}
   const indexed = pages.filter((p: any) => !p.noindex && p.path !== "/404");
   await writeFile(`${output}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexed.map((p: any) => `<url><loc>${origin}${p.path}</loc><lastmod>${p.dateModified}</lastmod></url>`).join("\n")}\n</urlset>`);
   await writeFile(`${output}/robots.txt`, `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
-  await writeFile(`${output}/llms.txt`, `# Susie Sharak Real Estate\n\n> Susie Sharak helps people buy and sell homes in Oakland and Macomb County, Michigan, with ${brokerage}.\n\nContact: 248-943-6906 or susie@propertypro1.com. HTML pages and their linked Markdown versions contain the same public content.\n\n## Services and local resources\n${indexed.filter((p: any) => !p.path.startsWith("/blog/")).map((p: any) => `- [${p.title}](${origin}${p.path}): ${p.description}`).join("\n")}\n\n## Buying and selling articles\n${indexed.filter((p: any) => p.path.startsWith("/blog/")).map((p: any) => `- [${p.title}](${origin}${p.path}): ${p.description}`).join("\n")}\n\n## Plain-text reading\n- [Homepage in Markdown](${origin}/index.md): The same homepage content in a plain-text format.\n\nMarket figures are dated county-level residential and condominium aggregates, not live listings or property valuations. See the market update page for the reporting period and original Realcomp source.\n`);
+  await writeFile(`${output}/llms.txt`, `# Susie Sharak Real Estate\n\n> Susie Sharak helps people buy and sell homes in Oakland and Macomb County, Michigan, with ${brokerage}.\n\nContact: 248-943-6906 or susie@propertypro1.com. HTML pages and their linked Markdown versions contain the same public content.\n\n## Services and local resources\n${indexed.filter((p: any) => !p.path.startsWith("/blog/")).map((p: any) => `- [${p.title}](${origin}${p.path}): ${p.description}`).join("\n")}\n\n## Buying and selling articles\n${indexed.filter((p: any) => p.path.startsWith("/blog/")).map((p: any) => `- [${p.title}](${origin}${p.path}): ${p.description}`).join("\n")}\n\n## Plain-text reading\n- [Homepage in Markdown](${origin}/index.md): The same homepage content in a plain-text format.\n\nMarket figures are dated city, township and county report figures, not live listings or property valuations. Community guides and the market update page identify the reporting period, geography and original Realcomp source.\n`);
   // Explicit per-page rewrites, not a catch-all homepage fallback.
   for (const target of Object.values(legacyRedirects)) {
     if (!routes.has(target)) throw new Error(`Legacy redirect points to a missing page: ${target}`);
   }
   const redirects = Object.entries(legacyRedirects).flatMap(([from,to]) => [`${from} ${to} 301`, `${from}/ ${to} 301`]);
-  await writeFile(`${output}/_redirects`, [...redirects, ...pages.filter((p: any) => p.path !== "/" && p.path !== "/404").map((p: any) => `${p.path} ${p.path}.html 200`), "/* /404.html 404"].join("\n") + "\n");
+  // Netlify evaluates _redirects before netlify.toml. Keep canonical redirects
+  // BEFORE page rewrites and the 404 catch-all, or those rules can never run.
+  const canonicalRedirects = [
+    `http://susiesharak.com/* ${origin}/:splat 301!`,
+    `http://www.susiesharak.com/* ${origin}/:splat 301!`,
+    `https://www.susiesharak.com/* ${origin}/:splat 301!`,
+  ];
+  const slashRedirects = ["/blog/*/ /blog/:splat 301!", "/*/ /:splat 301!"];
+  await writeFile(`${output}/_redirects`, [...canonicalRedirects, ...redirects, ...slashRedirects, ...pages.filter((p: any) => p.path !== "/" && p.path !== "/404").map((p: any) => `${p.path} ${p.path}.html 200`), "/* /404.html 404"].join("\n") + "\n");
   await writeFile(`${output}/_headers`, `/assets/*\n  Cache-Control: public, max-age=86400\n/*.md\n  Content-Type: text/markdown; charset=utf-8\n  X-Robots-Tag: noindex\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n`);
   console.log(`Built ${pages.length} complete HTML pages with sitemap, structured data, and native forms.`);
 }

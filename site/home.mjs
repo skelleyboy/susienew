@@ -7,6 +7,11 @@ const localGuides = [
   ["shelby-township", "Shelby Township", "Macomb County"],
   ["sterling-heights", "Sterling Heights", "Macomb County"],
   ["washington-twp", "Washington Township", "Macomb County"],
+  ["macomb-township", "Macomb Township", "Macomb County"],
+  ["clinton-township", "Clinton Township", "Macomb County"],
+  ["birmingham", "Birmingham", "Oakland County"],
+  ["bloomfield-hills", "Bloomfield Hills", "Oakland County"],
+  ["grosse-pointe", "Grosse Pointe", "Wayne & Macomb"],
 ];
 
 export const homeBody = `
@@ -67,7 +72,7 @@ ${magazineFeature()}
 </section>
 
 <section class="home-communities site-shell twelve-grid">
-  <div class="community-section-title"><p class="eyebrow">Around Oakland & Macomb</p><h2>Where do you<br>see yourself?</h2><p>Start with a few places you’re considering. I can help you compare homes and figure out what fits.</p><a class="text-link" href="/communities">Take a look around <span aria-hidden="true">↗</span></a></div>
+  <div class="community-section-title"><h2>Communities<br>we serve</h2><p>Start with a few places you’re considering. I can help you compare homes and figure out what fits.</p><a class="text-link" href="/communities">Take a look around <span aria-hidden="true">↗</span></a></div>
   <div class="community-link-grid">${localGuides.map(([slug, name, county]) => `<a href="/area/${slug}"><span>${county}</span><strong>${name}</strong><b aria-hidden="true">↗</b></a>`).join("")}</div>
 </section>
 

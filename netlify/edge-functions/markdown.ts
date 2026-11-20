@@ -4,6 +4,11 @@ type Context = { next: () => Promise<Response> };
 
 export default async function markdown(request: Request, context: Context) {
   const url = new URL(request.url);
+  // Edge functions run before Netlify redirects. Let canonical-host and slash
+  // rules run even when the caller explicitly asks for Markdown.
+  if (url.hostname === "www.susiesharak.com" ||
+      (url.hostname === "susiesharak.com" && url.protocol !== "https:") ||
+      (url.pathname !== "/" && url.pathname.endsWith("/"))) return context.next();
   if (!["GET", "HEAD"].includes(request.method) || /\.[^/]+$/.test(url.pathname)) return context.next();
   const path = url.pathname === "/" ? "/" : url.pathname.replace(/\/$/, "");
   let response: Response;

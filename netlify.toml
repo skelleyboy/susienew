@@ -10,39 +10,8 @@
   path = "/*"
   function = "markdown"
 
-# Force HTTPS
-[[redirects]]
-  from = "http://susiesharak.com/*"
-  to = "https://susiesharak.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.susiesharak.com/*"
-  to = "https://susiesharak.com/:splat"
-  status = 301
-  force = true
-
-# Strip www
-[[redirects]]
-  from = "https://www.susiesharak.com/*"
-  to = "https://susiesharak.com/:splat"
-  status = 301
-  force = true
-
-# Redirect old blog format with trailing slash
-[[redirects]]
-  from = "/blog/*/"
-  to = "/blog/:splat"
-  status = 301
-  force = true
-
-# Strip trailing slashes globally
-[[redirects]]
-  from = "/*/"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# Individual static HTML routes and real 404 responses are generated in
-# dist/public/_redirects. Do not restore a catch-all homepage rewrite.
+# Canonical host/HTTPS, legacy URLs, slash redirects, per-page rewrites and the
+# final real 404 rule are generated together in dist/public/_redirects.
+# Netlify reads that file before this one, so splitting rules between the two
+# can let page rewrites or the 404 catch-all shadow canonical redirects.
+# Do not restore a catch-all homepage rewrite.

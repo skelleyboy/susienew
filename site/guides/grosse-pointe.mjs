@@ -1,0 +1,22 @@
+export const grossePointeGuide = {
+  summary:"The Grosse Pointes are five separate communities along the Lake St. Clair side of Metro Detroit. Compare the exact municipality, older-home maintenance and park or waterfront access rights before choosing an address.",
+  sections:[
+    ["First, identify which of the five Pointes",
+      "Grosse Pointe City, Grosse Pointe Farms, Grosse Pointe Park, Grosse Pointe Woods and Grosse Pointe Shores are separate municipalities. They share a regional name, but their taxes, municipal services, park arrangements and housing markets are not one interchangeable package. Most of the Grosse Pointes are in Wayne County; Grosse Pointe Shores also extends into Macomb County. Check the parcel’s exact location rather than using a broad postal description.",
+      "Start your neighborhood visits around the places that interest you: the Village shopping district, the Hill, the Kercheval business corridor in the Park or the Mack Avenue side of the Woods. Those settings offer different relationships to shops, major roads and the lake. Walk the route from the home instead of assuming that every Grosse Pointe address provides the same waterfront or commercial access."],
+    ["Older architecture needs a complete inspection plan",
+      "The housing mix includes brick colonials, Tudors, bungalows, ranches, multifamily properties, condos and larger lake-area homes. Original architectural details can be appealing, but they do not tell you the condition of plumbing, wiring, masonry or the roof. Ask about sewer inspections, basement water history, foundation repairs and permits for additions. In a larger house, check whether all living areas have practical heating and cooling arrangements.",
+      "A smaller home inland, a condo and a lakefront property belong in different ownership-cost comparisons. Look at garage access, usable outdoor space, lot dimensions and the work required beyond the first year. If you are considering a two-unit or other income-producing property, confirm its legal use, local requirements and insurance with appropriate professionals rather than assuming that the current occupancy establishes every permitted use."],
+    ["Check school boundaries across the regional name",
+      "Grosse Pointe Public School System is a key resource for address verification, but the municipal name alone is not an enrollment guarantee. Ask the district to confirm the specific address, assigned schools and current enrollment requirements. Confirm transportation and program availability separately. School boundaries and municipal boundaries serve different purposes, so review them independently. If a listing’s school field conflicts with official information, resolve that difference before making an offer rather than relying on the marketing description."],
+    ["A lake nearby does not automatically mean lake rights",
+      "Lake St. Clair is an important part of the area’s setting, but public access, resident-only parks, marina eligibility and private waterfront rights are different things. Ask the appropriate municipality about current park access and any permit or residency requirements. A home described as near the water does not necessarily have a boat slip, beach access or a right to cross another parcel. For an actual waterfront home, obtain specialist advice about flood exposure, insurance, shoreline structures and any responsibility for a seawall."],
+    ["Try the commute and compare the right local market",
+      "Mack, Jefferson and connections toward I-94 create different travel patterns depending on the exact property. Drive your likely route into Detroit or toward Macomb County during normal workday traffic, including the return trip. Sellers should gather municipal inspection information where applicable, improvement permits and maintenance records before planning a listing. Buyers should compare the same municipality and housing type where possible. I can help you distinguish a regional lifestyle choice from the property-specific costs and documents that need attention before a purchase."]
+  ],
+  sources:[
+    ["Grosse Pointe City community information","https://www.grossepointecity.org/how_do_i_/learn_about_grosse_pointe/index.php"],
+    ["Grosse Pointe Public School System","https://www.gpschools.org/"],
+    ["Grosse Pointe Park parks and recreation plan","https://www.grossepointepark.org/DocumentCenter/View/1614/GPP-FIVE-YEAR-PARKS--RECREATION-PLAN"]
+  ]
+};
