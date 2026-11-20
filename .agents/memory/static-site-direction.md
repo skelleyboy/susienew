@@ -119,8 +119,8 @@ The user requested unique photos for every blog article.
 
 **How to apply:** Assign each article its own image rather than cycling through a small photo pool. Keep that article’s thumbnail and main photo consistent, and never imply stock photography is an actual local listing.
 
-The user confirmed the contact page’s office-hours wording: “Contact me to confirm availability.” No fixed weekly schedule has been supplied.
+No fixed weekly office schedule has been supplied. The user now requests removing the Office hours heading when there are no verified hours, superseding the earlier availability wording.
 
-**Why:** The user confirmed this wording when asked for office hours, rather than providing opening and closing times.
+**Why:** The user explicitly requested real office hours or removal of the heading, not availability placeholder text.
 
-**How to apply:** Treat the availability wording as approved copy, not a placeholder to replace with invented hours. Do not add an unverified weekly schedule or opening-hours schema.
+**How to apply:** Omit the Office hours row unless the user supplies a verified schedule. Do not invent hours or add unverified opening-hours schema.

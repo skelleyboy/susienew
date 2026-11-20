@@ -75,9 +75,7 @@ export const coreMetadata = {
     modifiedOn:"2026-11-09"
   },
   "/sell": {
-    // Intentional exception to the general under-60-character rule:
-    // the user's specifically requested title is 65 characters.
-    title:"Sell Your Home in Sterling Heights & Macomb County | Susie Sharak",
+    title:"Sell Your Home in Sterling Heights, MI | Susie Sharak",
     description:"Selling in Sterling Heights or Macomb County? Request a free home valuation from Susie Sharak and plan pricing, preparation and your next move.",
     modifiedOn:"2026-11-20"
   },

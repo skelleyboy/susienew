@@ -23,10 +23,10 @@ const words = value => value.trim().split(/\s+/).length;
 const routeSet = new Set(pages.map(page=>page.path));
 const titles = new Set(), descriptions = new Set(), headings = new Set();
 const requiredFooterLinks = ["/buy","/sell","/home-value","/communities","/blog","/about","/contact"];
-const exactSellTitle = "Sell Your Home in Sterling Heights & Macomb County | Susie Sharak";
+const exactSellTitle = "Sell Your Home in Sterling Heights, MI | Susie Sharak";
 
 for (const page of pages) {
-  assert(page.title.length > 0 && (page.path==="/sell" ? page.title===exactSellTitle : page.title.length<60),`Title length: ${page.path}`);
+  assert(page.title.length > 0 && page.title.length<60,`Title length: ${page.path}`);
   assert(page.description.length > 0 && page.description.length<155,`Description length: ${page.path}`);
   assert(!titles.has(page.title),`Duplicate title: ${page.path}`);
   assert(!descriptions.has(page.description),`Duplicate description: ${page.path}`);
@@ -51,6 +51,14 @@ for (const page of pages) {
   }
 }
 assert.match(pages.find(page=>page.path==="/sell").description,/free home valuation/i);
+assert.equal(pages.find(page=>page.path==="/sell").title,exactSellTitle);
+for (const [slug, articleIds] of Object.entries({
+  "clinton-township": ["investing-waterfront-property-guide", "waterfront-living-lake-st-clair", "staging-macomb-county-estate-record-sale", "luxury-condo-living-oakland-macomb"],
+  "grosse-pointe": ["investing-waterfront-property-guide", "waterfront-living-lake-st-clair"],
+})) {
+  const links = hrefs(main(`/area/${slug}`));
+  for (const id of articleIds) assert(links.includes(`/blog/${id}`), `Required community article link missing: ${slug} -> ${id}`);
+}
 
 const home = main("/");
 assert.match(plain(home),/Communities we serve/);
@@ -111,7 +119,8 @@ assert.equal(checklistParagraphs.length,70);
 assert.equal(new Set(checklistParagraphs).size,70,"Do not recycle identical tip paragraphs across cities");
 
 const contact = main("/contact");
-assert(plain(contact).includes("Contact me to confirm availability."));
+assert(!plain(contact).includes("Contact me to confirm availability"));
+assert(!plain(contact).includes("Office hours"),"Do not show an office-hours heading without verified hours");
 assert.match(contact,/<iframe\b[^>]*title="Google map/);
 assert.match(contact,/<form\b[^>]*method="POST"[^>]*action="\/thank-you"/);
 for(const slug of Object.keys(communityNames)) assert(hrefs(contact).includes(`/area/${slug}`));
@@ -183,4 +192,4 @@ assert.deepEqual(firstRule("/this-page-does-not-exist"),{status:404,location:"/4
 
 console.log(`Local SEO passed: ${Object.keys(communityNames).length} guides (${Math.min(...guideLengths)}–${Math.max(...guideLengths)} authored words), ${articles.length} linked articles, seven distinct 10-tip checklists.`);
 console.log(`All ${entries.length} indexable URLs are reachable within two clicks. Metadata, footer links, breadcrumbs, canonical redirect order and per-page lastmod passed.`);
-console.log("Intentional title exception: the exact requested /sell title is 65 characters; all other titles are under 60 and all descriptions are under 155.");
+console.log("All titles are under 60 characters and all descriptions are under 155.");
