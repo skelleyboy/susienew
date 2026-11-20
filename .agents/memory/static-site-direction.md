@@ -39,11 +39,11 @@ The user says the site should sound like Susie, using her own bio and client fee
 
 **How to apply:** Keep visitors’ buying or selling needs first, describe how Susie helps, and give a clear form-based next step. Do not add little category labels above headings or photo captions such as “Illustrative home image, not a local listing.” Do not imply generic photography is an actual listing.
 
-The user explicitly said every “Call Susie” action should go to a contact form and there should be no click-to-call links. They requested a floating contact button after scrolling and most recently said “square buttons again.”
+The user now explicitly requests click-to-call links for every phone number and Call Susie buttons beside the form CTAs. This supersedes the earlier no-click-to-call instruction. Keep square buttons.
 
 **Why:** The user asked.
 
-**How to apply:** All contact actions go to native inquiry forms. Keep phone details non-clickable and prevent mobile automatic telephone linking. Use square-cornered buttons. The user wants the floating “Let’s connect” action only on mobile, after scrolling.
+**How to apply:** Phone links use tel:+12489436906 and text links use sms:+12489436906. Keep native form CTAs alongside them. The mobile contact bar must always show Call, Text and the relevant form link, including before scrolling and while a form is visible.
 
 The user requested a hamburger menu on desktop with all her social links, and larger “REAL ESTATE” lettering in the logo.
 
@@ -93,11 +93,11 @@ The user requested removing Instagram and TikTok and having page links open at t
 
 **How to apply:** Do not reintroduce Instagram or TikTok links. Normal page navigation, including footer and menu resource links, should start at the top. The user repeated this after footer links still jumped to forms. Only explicit contact buttons should retain form anchors.
 
-The user reversed the always-visible phone request: “never mind about phone number. have it in footer.”
+The user previously requested removing the persistent header phone strip. The latest conversion request requires linking every displayed phone number, including header and footer.
 
 **Why:** The user asked.
 
-**How to apply:** Keep the phone number in the footer and contact details, not in a persistent header strip. Do not reintroduce click-to-call links.
+**How to apply:** Do not add a separate persistent header strip. Keep existing phone placements clickable and preserve the mobile Call/Text/form bar.
 
 The user wants Susie's headshot above the fold wherever it makes sense, in a little circle. They separately asked to put the homepage photo back as it was.
 

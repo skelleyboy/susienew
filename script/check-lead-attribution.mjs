@@ -18,7 +18,10 @@ function visit(path, referrer = "", blocked = false) {
   const document = {
     referrer,
     querySelector: () => null,
-    querySelectorAll: () => [{ elements: { namedItem: name => fields[name] } }],
+    querySelectorAll: selector => {
+      assert(selector.includes("form.lead-form"), "Attribution must find forms after Netlify strips detection attributes");
+      return [{ elements: { namedItem: name => fields[name] } }];
+    },
   };
   vm.runInNewContext(source, { window, document, URL, URLSearchParams });
   return Object.fromEntries(Object.entries(fields).map(([name,field]) => [name,field.value]));

@@ -82,7 +82,6 @@ export async function buildSite() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#111111">
 <title>${escape(page.title)}</title>
 <meta name="description" content="${escape(page.description)}">
@@ -112,7 +111,7 @@ ${page.path === "/" ? '<link rel="preload" href="/assets/susie.webp" as="image" 
 ${header(page.path)}
 <main id="main">${page.body}</main>
 ${footer(page.path)}
-<a class="floating-contact" href="/contact#contact-form" hidden>Let’s connect <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 12 5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<nav class="floating-contact" aria-label="Contact Susie"><a href="tel:+12489436906">Call</a><a href="sms:+12489436906">Text</a><a class="floating-form" href="${page.path === "/sell" ? "#seller-form" : page.path === "/home-value" ? "#valuation-form" : page.path === "/buy" ? "#buyer-form" : page.body.includes('id="contact-form"') ? "#contact-form" : "/contact#contact-form"}">Send a message</a></nav>
 <script src="${interactionPath}" defer></script>
 </body>
 </html>`;

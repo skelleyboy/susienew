@@ -97,7 +97,6 @@ html { scroll-padding-top: 108px; }
 .menu-bottom .menu-agent-name { font: 400 24px var(--serif); margin: 0 0 16px; }
 .menu-bottom p { font-size: 16px; margin: 8px 0; }
 body:has(.mobile-menu[open]) { overflow: hidden; }
-body:has(.mobile-menu[open]) .floating-contact { display: none; }
 
 /* Home: portrait in normal document flow, never overlapping or clipped. */
 .personal-hero { position: relative; isolation: isolate; color: #fff; background: #111; }
@@ -248,9 +247,11 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 .magazine-cover img { width: 100%; height: auto; }
 .magazine-copy { padding-top: 12px; }
 .magazine-copy p { max-width: 560px; }
-.floating-contact { position: fixed; z-index: 50; bottom: max(24px,env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: none; align-items: center; justify-content: center; gap: 16px; min-height: 58px; padding: 15px 28px; background: #111; color: white; border: 1px solid #111; border-radius: 0; box-shadow: 0 5px 24px #0002; font-size: 16px; font-weight: 600; white-space: nowrap; text-decoration: none; }
+.floating-contact { position: fixed; z-index: 110; bottom: 0; left: 0; right: 0; display: none; grid-template-columns: 1fr 1fr 1.6fr; min-height: 64px; padding: 8px 16px max(8px,env(safe-area-inset-bottom)); background: #111; color: white; border-top: 1px solid #555; border-radius: 0; font-size: 16px; font-weight: 600; }
 .floating-contact[hidden] { display: none; }
-.floating-contact:hover { background: #30352b; color: white; }
+.floating-contact a { display: flex; align-items: center; justify-content: center; min-height: 48px; color: white; text-decoration: none; padding: 8px; }
+.floating-contact a + a { border-left: 1px solid #666; }
+.floating-contact a:hover,.floating-contact a:focus-visible { background: #333; color: white; }
 .floating-contact svg { width: 16px; height: 16px; }
 .header-call { border-radius: 0; }
 .header-call strong { font-size: 16px; }
@@ -282,7 +283,8 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 ::selection { background: #ddd; color: #111; }
 
 @media (max-width: 767px) {
-  .floating-contact:not([hidden]) { display: inline-flex; }
+  body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .floating-contact:not([hidden]) { display: grid; }
   .footer-top { grid-template-columns: minmax(0,1fr); }
   .footer-top > div { grid-column: 1/-1; min-width: 0; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
@@ -448,6 +450,13 @@ body:has(.mobile-menu[open]) .floating-contact { display: none; }
 }
 
 /* Shared form rhythm: only short name/email labels share a row. */
+.conversion-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.lead-form > .conversion-actions { grid-column: 1/-1; }
+.conversion-actions .button { margin: 0; }
+.call-susie { background: transparent; color: #111; border: 1px solid currentColor; }
+.lead-form .call-susie { border: 1px solid #111; }
+.personal-hero .call-susie { color: #fff; }
+.thankyou-page > .conversion-actions { margin-block: 24px; }
 :is(.capture-form,.buyer-form-section,.seller-form-section,.contact-form-card,.valuation-form-wrap) .lead-form {
   grid-template-columns: minmax(0,1fr);
   gap: 24px 16px;

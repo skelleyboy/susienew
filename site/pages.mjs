@@ -9,13 +9,14 @@ import { buyerChecklists } from "./buyer-checklists.mjs";
 const esc = (s = "") => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const a = (href, text, cls = "") => `<a${cls ? ` class="${cls}"` : ""} href="${href}">${text}</a>`;
 const buttonLink = (href, text) => a(href === "/contact" ? "/contact#contact-form" : href, text, "button");
-const contact = `<span>(248) 943-6906</span>`;
+const contact = `<a href="tel:+12489436906">(248) 943-6906</a>`;
+const callButton = `<a class="button call-susie" href="tel:+12489436906">Call Susie</a>`;
 const email = `<a href="mailto:susie@propertypro1.com">susie@propertypro1.com</a>`;
-const form = (name, fields, button = "Send to Susie") => `<form class="lead-form" name="${name}" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+const form = (name, fields, button = "Send to Susie") => `<form class="lead-form" name="${name}" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field">
   <input type="hidden" name="form-name" value="${name}"><p class="trap"><label>Leave this field empty <input name="bot-field"></label></p>
   ${["source_page","landing_page","referrer_host","utm_source","utm_medium","utm_campaign"].map(field => `<input type="hidden" name="${field}" value="">`).join("")}
   ${fields}<label class="consent"><input type="checkbox" name="consent" required> I agree that Susie may contact me about this request. My information will not be sold.</label>
-  <button class="button" type="submit">${button}</button><p class="form-note">Susie will use these details to respond to your request. No mailing list.</p></form>`;
+  <div class="conversion-actions"><button class="button" type="submit">${button}</button>${callButton}</div><p class="form-note">Susie follows up by phone or email, usually the same day.</p></form>`;
 const input = (label, name, type = "text", required = false) => `<label>${label}<input name="${name}" type="${type}"${["name","email","phone","address"].includes(name) ? ` autocomplete="${({name:"name",email:"email",phone:"tel",address:"street-address"})[name]}"` : ""}${required ? " required" : ""}></label>`;
 const textarea = (label, name, required = false) => `<label>${label}<textarea name="${name}" rows="4"${required ? " required" : ""}></textarea></label>`;
 const formContact = form("contact",`${input("Name","name","text",true)}${input("Email","email","email",true)}${input("Phone (optional)","phone","tel")}${textarea("What would you like help with? (optional)","message")}`,"Send my message");
@@ -43,7 +44,7 @@ export function header(path = "/") {
         <div class="menu-group" role="group" aria-labelledby="menu-social-title"><p class="menu-group-title" id="menu-social-title">Follow along</p>${socialBrandLinks()}</div>
       </div><div class="menu-bottom"><div><p class="menu-agent-name">Susie Sharak</p><p>${brokerage}</p><p>${email}</p></div>${buttonLink("/contact","Message Susie")}</div></nav>
     </details>
-    <a class="header-call" href="/contact#contact-form"><strong>Message Susie</strong></a>
+    <a class="header-call" href="tel:+12489436906">(248) 943-6906</a>
   </div></header>`;
 }
 function footerContent() {
@@ -63,10 +64,17 @@ const page = (path,title,description,body,faq,noindex=false,dateModified="2026-1
   const addContactForm = !hasOwnForm && !noindex && !["/privacy", "/terms"].includes(path);
   const formTarget = path === "/buy" ? "#buyer-form" : path === "/sell" ? "#seller-form" : path === "/home-value" ? "#valuation-form" : "#contact-form";
   let content = body
-    .replace(/<a\b[^>]*href="tel:[^"]*"[^>]*>([\s\S]*?)<\/a>/g, "$1")
     .replace('class="buyer-form-section"', 'class="buyer-form-section" id="buyer-form"')
     .replace('class="seller-form-section"', 'class="seller-form-section" id="seller-form"')
     .replace('class="contact-form-card"', 'class="contact-form-card" id="contact-form"');
+  if (["/", "/sell", "/home-value"].includes(path) || path.startsWith("/area/")) {
+    content = content.replace(/<a class="button(?: [^"]*)?"[^>]*>[\s\S]*?<\/a>/, cta => `<div class="conversion-actions">${cta}${callButton}</div>`);
+  }
+  if (path.startsWith("/area/")) {
+    const city = areas.find(([slug]) => path === `/area/${slug}`)?.[1];
+    content = content.replace('<a class="text-link" href="/home-value#valuation-form">What could my home sell for?</a>', buttonLink("/home-value#valuation-form", `What's my ${esc(city)} home worth?`));
+  }
+  if (path === "/contact") content = content.replace("<p><span>Brokerage</span>Golden Realty</p>", "<p><span>Brokerage</span>Golden Key Realty Group LLC, 1120 E Long Lake Rd, Ste 201, Troy, MI 48085</p>");
   if (!noindex && !["/", "/about", "/contact", "/privacy", "/terms"].includes(path)) {
     const headshot = '<img class="page-headshot" src="/assets/susie-headshot.webp" width="76" height="76" alt="Susie Sharak">';
     content = ["/buy", "/sell", "/home-value"].includes(path)
@@ -156,9 +164,9 @@ const blogPages = blogData.map(([id,title,category,intro,...paras]) => {
 });
 const areaPages = makeAreaPages();
 const areaCards = areas.map(([slug,name,county])=>`<a class="community-card" href="/area/${slug}"><span class="eyebrow">${county} County</span><h3>${name}</h3><p>${areaGuides[slug].summary}</p><span class="card-arrow">Explore the guide <b>↗</b></span></a>`).join("");
-const formValue = form("home-valuation",`${input("Property address","address","text",true)}${input("Your name","name","text",true)}${input("Email","email","email",true)}${input("Phone (optional)","phone","tel")}${textarea("Updates, timing or questions (optional)","message")}`,"Request my home value");
+const formValue = form("home-valuation",`${input("Property address","address","text",true)}${input("Your name","name","text",true)}${input("Email","email","email",true)}${input("Phone","phone","tel",true)}${textarea("Updates, timing or questions (optional)","message")}`,"Request my home value");
 const formBuyer = form("buyer-inquiry",`${input("Name","name","text",true)}${input("Email","email","email",true)}${input("Phone (optional)","phone","tel")}${input("Where are you hoping to buy? (optional)","area")}${textarea("What are you looking for? (optional)","message")}`,"Help me find a home");
-const formSeller = form("seller-inquiry",`${input("Name","name","text",true)}${input("Email","email","email",true)}${input("Phone (optional)","phone","tel")}${input("Property address or city (optional)","address")}${textarea("When are you thinking of selling? (optional)","message")}`,"Help me plan my sale");
+const formSeller = form("seller-inquiry",`${input("Name","name","text",true)}${input("Email","email","email",true)}${input("Phone","phone","tel",true)}${input("Property address","address","text",true)}${textarea("When are you thinking of selling? (optional)","message")}`,"Help me plan my sale");
 
 export const pages = [
 page("/","Susie Sharak | Oakland & Macomb County, MI Realtor","Buying or selling in Oakland or Macomb County, MI? Susie Sharak helps you plan your next move. Ask about a home, a sale or your home’s value.",homeBody+latestArticleSection(blogData),[{question:"Where does Susie work?",answer:`Susie Sharak with ${brokerage} serves Oakland and Macomb County, Michigan, including communities such as Royal Oak, Troy, Sterling Heights, Shelby Township and others.`},{question:"Can I talk with Susie before I am ready to buy or sell?",answer:"Yes. An early conversation can help you understand options and the information you may need. There is no requirement to be ready to transact."},{question:"How do I find out what my home may be worth?",answer:"Share the address and some details. Susie can discuss relevant nearby sales and current competition. A county statistic or automated estimate is not an appraisal."}]),
@@ -177,7 +185,7 @@ page("/sell","Sell Your Home in Oakland & Macomb County | Susie Sharak","Selling
 `,[{question:"What does it cost to sell a house in Michigan?",answer:"Costs depend on the property and agreement. They may include brokerage compensation, title and closing charges, taxes, loan payoff, preparation, repairs and moving. Ask for an itemized estimate for your circumstances before deciding."},{question:"Should I renovate before selling?",answer:"Not automatically. Start with safety and maintenance, get estimates, then compare likely buyer value with cost. Some repairs help; some personal upgrades do not pay back."},{question:"Can I buy a home before this one sells?",answer:"Possibly, but it depends on cash, lending, contract timing and risk tolerance. Talk with your lender and map out backup plans before you commit to either transaction."}]),
 page("/home-value","Home Value in Oakland & Macomb County | Susie Sharak","What could your Oakland or Macomb County home sell for? Send Susie Sharak the address and recent updates for a local review of nearby comparable sales.",`
 <section class="valuation-hero"><div><h1>What could your home sell for?</h1><p class="lede">Thinking about selling, or just curious? Send me your address. I’ll compare nearby sales and help you understand what your home could be worth.</p>${buttonLink("#valuation-form","Get my home value")}</div><aside class="valuation-note"><h2>Your home is more than a number online.</h2><p>Updates, condition, layout and location all affect the price. I’ll look at those details with you, not just a county average.</p></aside></section>
-<section class="valuation-form-wrap" id="valuation-form"><div class="form-heading"><h2>Tell me about the property.</h2><p>Address, name and email are required. Other property details are optional.</p></div>${formValue}</section>
+<section class="valuation-form-wrap" id="valuation-form"><div class="form-heading"><h2>Tell me about the property.</h2><p>Address, name, email and phone are required. Other property details are optional.</p></div>${formValue}</section>
 <section class="valuation-explain"><div><h2>Here’s what happens next.</h2></div><ol><li><strong>Send me the address.</strong> Tell me about updates, condition and anything else I should know.</li><li><strong>I’ll look at nearby sales.</strong> I’ll compare similar homes and what’s currently for sale.</li><li><strong>We’ll talk about the price.</strong> I’ll explain the range and how your timing could affect the plan.</li></ol></section>${ctaBand("Have a question first?","You don’t have to be ready to sell. Send me a message and tell me what you’d like to know.")}`,[{question:"Is this an appraisal?",answer:"No. I’ll give you a market comparison to help you plan. A formal appraisal needs to come from a licensed appraiser."},{question:"How quickly will I get a home value?",answer:"I review each request and follow up personally. The more you can tell me about your home, the more useful our conversation will be."}]),
 page("/contact","Contact Susie Sharak | Golden Realty","Talk with Susie Sharak about buying, selling or a real estate question in Oakland and Macomb County, Michigan.",`
 <section class="contact-hero"><div><img class="contact-portrait" src="/assets/susie-headshot.webp" width="104" height="104" alt="Susie Sharak"><h1>How can I help?</h1><p class="lede">Tell me about a home you’re considering, a property you may sell or a question you want answered. You don’t need to have everything worked out. I’ll follow up using the details you leave here.</p><div class="contact-methods"><p><span>Phone</span>${contact}</p><p><span>Email</span>${email}</p><p><span>Brokerage</span>Golden Realty</p></div></div><div class="contact-form-card"><h2>Send me a message.</h2>${formContact}</div></section>
@@ -218,7 +226,7 @@ page("/privacy","Privacy | Susie Sharak","How Susie Sharak handles information s
 page("/terms","Website Terms | Susie Sharak","Terms for using Susie Sharak’s real estate website and informational content.",`
 <article class="legal-page">${sectionLabel("Website information")}<h1>Terms of use.</h1><p class="lede">A practical note about what this website is and is not.</p><h2>General information</h2><p>Content is general information, not legal, tax, lending, inspection, appraisal or investment advice. Market information is dated and may change. Confirm important details with official sources and appropriately qualified professionals.</p><h2>No property representation</h2><p>Images may be illustrative and do not represent an available listing. This site does not make a representation about a specific property unless expressly stated in a separate written agreement.</p><h2>Professional relationship</h2><p>Using this site or submitting a form does not by itself create an agency relationship or guarantee availability. Representation and brokerage services are governed by separate written agreements and applicable law.</p><h2>External links</h2><p>Third-party links are provided as resources. Susie Sharak and Golden Realty do not control and are not responsible for their content or availability.</p><h2>Contact</h2><p>Questions about these terms? Contact ${email} or call ${contact}.</p><p class="legal-date">Last updated: November 2026</p></article>`,[]),
 page("/thank-you","Thanks for reaching out | Susie Sharak","I’ll get back to you using the contact details you shared. I look forward to helping with your next move.",`
-<section class="thankyou-page"><div class="personal-heading"><img class="page-headshot" src="/assets/susie-headshot.webp" width="88" height="88" alt="Susie Sharak"><h1>Thanks for reaching out!</h1></div><p class="lede">I’ll get back to you using the contact details you shared. I look forward to helping with your next move.</p><p>Need to reach me sooner? Call ${contact}.</p><div class="hero-actions">${buttonLink("/","Back to home")}<a class="text-link" href="/communities">Explore the communities</a></div></section>`,[],true),
+<section class="thankyou-page"><div class="personal-heading"><img class="page-headshot" src="/assets/susie-headshot.webp" width="88" height="88" alt="Susie Sharak"><h1>Thanks for reaching out!</h1></div><p class="lede">I'll follow up today. If it's easier, call or text me now at ${contact}.</p><div class="conversion-actions">${buttonLink("tel:+12489436906","Call")}${buttonLink("sms:+12489436906","Text")}</div><div class="hero-actions">${buttonLink("/","Back to home")}<a class="text-link" href="/communities">Explore the communities</a></div></section>`,[],true),
 page("/404","Page not found | Susie Sharak","The page you requested could not be found. Explore real estate services and community guides from Susie Sharak.",`
 <section class="notfound-page">${sectionLabel("A wrong turn")}<h1>This page isn’t here.</h1><p class="lede">Let’s get you back to useful information.</p><div class="notfound-links">${buttonLink("/","Go to the home page")}${a("/buy","Buying")}${a("/sell","Selling")}${a("/communities","Communities")}${a("/contact","Contact Susie")}</div></section>`,[],true),
 ...areaPages,...blogPages

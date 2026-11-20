@@ -14,9 +14,9 @@ for (const id of ["contact-form", "buyer-form", "seller-form", "valuation-form",
   };
   vm.runInNewContext(source, {
     window,
-    document: { querySelector: selector => selector === ".floating-contact" ? button : selector.startsWith("#") && id ? { id } : null },
+    document: { querySelector: selector => [".floating-contact", ".floating-form"].includes(selector) ? button : selector.startsWith("#") && id ? { id } : null },
   });
-  assert.equal(button.hidden, true, "Contact button should not cover the first viewport");
+  assert.equal(button.hidden, false, "Contact bar must be visible immediately on mobile");
   assert.equal(button.href, id ? `#${id}` : "/contact#contact-form");
   assert.equal(events.scroll.options.passive, true);
   window.scrollY = 301;
@@ -28,9 +28,9 @@ for (const id of ["contact-form", "buyer-form", "seller-form", "valuation-form",
   window.matchMedia = () => ({ matches: true });
   window.scrollY = 0;
   events.pageshow.fn();
-  assert.equal(button.hidden, true, "Contact button should hide again at the top");
+  assert.equal(button.hidden, false, "Contact bar must remain visible at the top");
 }
-console.log("PASS: mobile-only scroll button, desktop hiding, resize behavior, all four form destinations, fallback contact page, and passive scrolling.");
+console.log("PASS: always-visible mobile contact bar, desktop hiding, resize behavior, all four form destinations, fallback contact page, and passive scrolling.");
 
 {
   const events = {};
@@ -64,7 +64,7 @@ console.log("PASS: menu Escape handling, focus restoration, and closing after fo
     window: { innerHeight: 800, scrollY: 400, matchMedia: () => ({ matches: true }), requestAnimationFrame: fn => fn(), addEventListener: (name, fn) => { events[name] = fn; } },
     document: { querySelector: selector => selector === ".floating-contact" ? button : selector === ".mobile-menu" ? null : form },
   });
-  assert.equal(button.hidden, true, "Do not cover a visible inquiry form");
+  assert.equal(button.hidden, false, "Keep Call, Text and the form shortcut visible beside inquiry forms");
   bounds = { top: 950, bottom: 1600 };
   events.scroll();
   assert.equal(button.hidden, false, "Offer the shortcut before the form comes into view");
@@ -72,7 +72,7 @@ console.log("PASS: menu Escape handling, focus restoration, and closing after fo
   events.scroll();
   assert.equal(button.hidden, false, "Restore the shortcut after scrolling past the form");
 }
-console.log("PASS: mobile contact shortcut stays out of the way of inquiry forms.");
+console.log("PASS: mobile contact bar stays visible before, during and after the inquiry form.");
 
 for (const hash of ["", "#contact-form", "#buyer-form", "#community-map-heading"]) {
   const events = {};

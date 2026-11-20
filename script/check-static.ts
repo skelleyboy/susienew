@@ -51,7 +51,10 @@ for (const page of pages) {
   const headerHtml = html.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || "";
   assert(!headerHtml.includes('class="header-phone"'), `${page.path}: removed header phone strip returned`);
   assert(footerHtml.includes("(248) 943-6906"), `${page.path}: footer phone number missing`);
-  assert(!/href=["']tel:/i.test(html), `${page.path}: click-to-call link remains`);
+  assert(html.includes('href="tel:+12489436906"'), `${page.path}: click-to-call link missing`);
+  assert(!html.includes('content="telephone=no"'), `${page.path}: telephone detection must not be disabled`);
+  assert(!html.replace(/<script\b[\s\S]*?<\/script>/g,"").replace(/<a\b[^>]*href="tel:\+12489436906"[^>]*>[\s\S]*?<\/a>/g,"").includes("(248) 943-6906"), `${page.path}: unlinked phone number`);
+  assert(html.includes('href="sms:+12489436906"'), `${page.path}: text action missing`);
   assert(!html.includes("↗"), `${page.path}: use SVG icons, not diagonal arrow text glyphs`);
   assert(!html.includes("/assets/twilight.webp"), `${page.path}: rejected sunset house photo must not be used`);
   assert(!html.includes("/assets/home.webp"), `${page.path}: rejected white mansion photo must not be used`);
@@ -59,7 +62,7 @@ for (const page of pages) {
   assert(html.includes('href="https://designgandalf.com/" target="_blank" rel="noopener noreferrer"><span>Website &amp; SEO by</span><img src="/assets/gandalf-logo.png"'), `${page.path}: missing linked Gandalf logo and website/SEO credit`);
   if (page.path === "/thank-you") {
     assert(html.includes('class="page-headshot" src="/assets/susie-headshot.webp"'), "Thank-you page should include Susie's headshot");
-    assert(html.includes("I’ll get back to you using the contact details you shared."), "Thank-you message should explain the next step in Susie's voice");
+    assert(html.includes("I'll follow up today. If it's easier, call or text me now at"), "Thank-you message should explain the next step in Susie's voice");
     assert(!html.includes("This page confirms a completed form submission only."), "Remove technical confirmation jargon");
   }
   assert(!/Illustrative home|Illustrative architecture|not a local listing|not an available property/i.test(html), `${page.path}: unwanted photo caption remains`);
@@ -97,7 +100,7 @@ for (const page of pages) {
   assert.equal(ids.length, new Set(ids).size, `${page.path}: duplicate id`);
   for (const match of html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g)) {
     const value = match[1].replaceAll("&amp;", "&");
-    if (/^(https?:|mailto:|tel:|data:)/.test(value)) continue;
+    if (/^(https?:|mailto:|tel:|sms:|data:)/.test(value)) continue;
     const url = new URL(value, `https://susiesharak.com${page.path}`);
     if (url.pathname.startsWith("/assets/") || /\.\w+$/.test(url.pathname)) {
       await access(resolve(root, "." + url.pathname));
@@ -113,6 +116,7 @@ for (const page of pages) {
     assert.equal(attr(match[1], "action"), "/thank-you");
     assert.equal(attr(match[1], "data-netlify"), "true");
     assert.equal(attr(match[1], "netlify-honeypot"), "bot-field");
+    assert.equal(attr(match[1], "data-netlify-honeypot"), "bot-field");
     const fieldNames = new Set<string>();
     assert(match[2].includes(`name="source_page" value="${page.path}"`), `${page.path}: inquiry source is missing or incorrect`);
     for (const field of match[2].matchAll(/<(?:input|select|textarea)\b[^>]*>/g)) {
@@ -134,6 +138,27 @@ for (const page of pages) {
   }
 }
 for (const name of ["contact", "home-valuation", "buyer-inquiry", "seller-inquiry"]) assert(forms.has(name), `Lead form ${name} missing`);
+for (const [path, formName] of [["/sell","seller-inquiry"], ["/home-value","home-valuation"]]) {
+  const html = docs.get(path)!;
+  const formHtml = html.match(new RegExp(`<form\\b[^>]*name="${formName}"[^>]*>[\\s\\S]*?<\\/form>`))?.[0] || "";
+  for (const field of ["phone", "address"]) {
+    const input = formHtml.match(new RegExp(`<input\\b[^>]*name="${field}"[^>]*>`))?.[0] || "";
+    assert(/\srequired(?:\s|>)/.test(input), `${path}: ${field} must be required`);
+  }
+}
+for (const [path, html] of docs) {
+  for (const form of html.matchAll(/<form\b[^>]*>[\s\S]*?<\/form>/g)) {
+    assert(form[0].includes('data-netlify="true"'), `${path}: Netlify form detection missing`);
+    assert(form[0].includes("Susie follows up by phone or email, usually the same day."), `${path}: follow-up helper text missing`);
+    assert(form[0].includes('class="button call-susie" href="tel:+12489436906"'), `${path}: Call Susie must be beside form submit`);
+  }
+}
+for (const [slug, city] of Object.entries((await import("../site/content-catalog.mjs")).communityNames)) {
+  const html = docs.get(`/area/${slug}`)!;
+  assert(html.includes(`What's my ${city} home worth?`), `${slug}: city-specific valuation button missing`);
+}
+assert(docs.get("/contact")!.includes("1120 E Long Lake Rd, Ste 201, Troy, MI 48085"), "Contact brokerage address missing");
+assert(docs.get("/thank-you")!.includes("I'll follow up today. If it's easier, call or text me now at"), "Thank-you follow-up copy missing");
 const sitemap = await readFile(`${root}/sitemap.xml`, "utf8");
 for (const page of pages) assert.equal(sitemap.includes(`<loc>https://susiesharak.com${page.path}</loc>`), !page.noindex && page.path !== "/404", `Sitemap indexing mismatch: ${page.path}`);
 const redirects = await readFile(`${root}/_redirects`, "utf8");

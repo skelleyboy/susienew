@@ -7,7 +7,8 @@
   const header = document.querySelector(".site-header");
   const headerSpacer = document.querySelector(".header-spacer");
   const form = document.querySelector("#contact-form, #buyer-form, #seller-form, #valuation-form");
-  if (form) button.href = "#" + form.id;
+  const formLink = document.querySelector(".floating-form");
+  if (form && formLink) formLink.href = "#" + form.id;
   let scheduled = false;
   let headerPinned = false;
   let headerExitTimer = null;
@@ -43,9 +44,7 @@
         }
       }
     }
-    const bounds = form?.getBoundingClientRect?.();
-    const formVisible = bounds && bounds.top < window.innerHeight && bounds.bottom > 0;
-    button.hidden = window.scrollY < 300 || !window.matchMedia("(max-width: 767px)").matches || Boolean(formVisible);
+    button.hidden = !window.matchMedia("(max-width: 767px)").matches;
     scheduled = false;
   };
   window.addEventListener("scroll", () => {
@@ -77,7 +76,8 @@
 
 // Source details travel with a submitted inquiry, not to a third-party tracker.
 (() => {
-  const forms = document.querySelectorAll?.('form[data-netlify="true"]');
+  // Netlify may strip detection attributes from published HTML after processing.
+  const forms = document.querySelectorAll?.('form[data-netlify="true"], form.lead-form');
   if (!forms?.length) return;
   const params = new URLSearchParams(window.location.search);
   let referrer = "";
